@@ -8,43 +8,19 @@
 </head>
 <body>
     <header>
-        <h1>@yield('header', 'Welcome to the MAARA Blog')</h1>
+        <h1>@yield('header', __('blog_index.title'))</h1>
     </header>
     <main>
-        <h2>Coming Soon</h2>
-        <p>Stay tuned! Our blog posts will be available here in the near future.</p>
+        <h2>{{ __('blog_index.coming_soon')}}</h2>
+        <p>{{ __('blog_index.stay_tuned')}}</p>
     </main>
+    <div>
+        <a href="{{ route('lang.switch', ['lang'=>"lv"]) }}">lv</a>
+        <a href="{{ route('lang.switch', ['lang'=>"en"]) }}">en</a>
+    </div>
     <footer>
-        <p>&copy; 2025 MAARA. All rights reserved.</p>
+        <p>{{ __('blog_index.copyright')}}</p>
     </footer>
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        color: #333;
-        margin: 0;
-        padding: 0;
-    }
-    header {
-        background-color: #4CAF50;
-        color: white;
-        padding: 1rem;
-        text-align: center;
-    }
-    main {
-        padding: 2rem;
-        text-align: center;
-    }
-    footer {
-        background-color: #333;
-        color: white;
-        text-align: center;
-        padding: 1rem;
-        position: fixed;
-        width: 100%;
-        bottom: 0;
-    }
-</style>
