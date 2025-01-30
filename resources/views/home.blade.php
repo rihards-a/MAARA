@@ -229,46 +229,20 @@
 
   <main class="main">
     <section class="welcome-section">
-      <h1 class="welcome-title">Mūsu raksti</h1>
+      <h1 class="welcome-title">Sveiciens</h1>
       <p class="welcome-text">
-      Mājaslapas sadaļa, veltīta bloga ierakstiem par sērām, būs droša vieta, kur lasītāji varēs rast mierinājumu un sapratni grūtos brīžos. Tajā tiks apskatīti sēru emocionālie un praktiskie aspekti, sniedzot atbalstu un iedrošinājumu pieņemt zaudējumu. Ieraksti dalīsies pieredzē un piedāvās resursus, lai palīdzētu rast iekšējo mieru.
+        Mēs esam xyz, kuras pašas izgājušas cauri apjukumam, ko pavada tuvinieka aiziešana, tāpēc mēs izveidojām 2 gidus, kas kalpos kā padomdevēji grūtā brīdī.
+        Pirmais no tiem izskaidro un dod padomus organizējot visus praktiskos ar aiziešanu saistītos jautājums: soli pa solim. Otrais no tiem paredzēts kā ceļvedis jautājumiem, par ko mums katram jāpadomā vēl dzīviem esot, lai, mūsu aiziešanas gadījumā, aiztaupītu tuviniekiem vismaz daļu satraukumu un apjukuma. Droši lejuplādē tos - tie ir bezmaksas.
       </p>
     </section>
 
     <div class="cards-container">
       <div class="card">
-        <img src="{{ asset('images/1.png') }}" alt="Ceļvedis tiem">
-        <div class="card-content">
-          <h2 class="card-title">Svētku laiks un sēras</h2>
-          <p class="card-text">Kuri organizē ar tuvinieka nāvi saistītos praktiskos jautājumus (bēres, finansiālos jautājumus, u.c.)</p>
-          <button class="card-button"><a href="/guide1">Lasīt</a></button>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="{{ asset('images/2.png') }}" alt="Ceļvedis tiem">
-        <div class="card-content">
-          <h2 class="card-title">Ceļvedis tiem</h2>
-          <p class="card-text">Kuri organizē ar tuvinieka nāvi saistītos praktiskos jautājumus (bēres, finansiālos jautājumus, u.c.)</p>
-          <button class="card-button"><a href="/guide1">Lasīt</a></button>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="{{ asset('images/3.png') }}" alt="Ceļvedis tiem">
-        <div class="card-content">
-          <h2 class="card-title">Ceļvedis tiem</h2>
-          <p class="card-text">Kuri organizē ar tuvinieka nāvi saistītos praktiskos jautājumus (bēres, finansiālos jautājumus, u.c.)</p>
-          <button class="card-button"><a href="/guide1">Lasīt</a></button>
-        </div>
-      </div>
-
-      <div class="card">
         <img src="https://i.postimg.cc/dQRss7hR/image1.png" alt="Ceļvedis tiem">
         <div class="card-content">
           <h2 class="card-title">Ceļvedis tiem</h2>
           <p class="card-text">Kuri organizē ar tuvinieka nāvi saistītos praktiskos jautājumus (bēres, finansiālos jautājumus, u.c.)</p>
-          <button class="card-button"><a href="/guide1">Lasīt</a></button>
+          <button class="card-button"><a href="/guide1">Izvēlēties</a></button>
         </div>
       </div>
 
@@ -277,7 +251,7 @@
         <div class="card-content">
           <h2 class="card-title">Ceļvedis ikkatram</h2>
           <p class="card-text">Par to, par ko būtu jāpadomā vēl šajā saulē esot, lai neradītu tuviniekiem liekus sarežģījumus</p>
-          <button class="card-button">Lasīt</button>
+          <button class="card-button">Izvēlēties</button>
         </div>
       </div>
     </div>
