@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\GuideController;
 
 Route::get("lang/{lang}", function($lang){
     if (in_array($lang, ['en', 'lv'])) {
@@ -22,17 +24,8 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/guide1_2', function () {
-    return view('guide1_2');
-});
-
-Route::get('/guide1', function () {
-    return view('guide1');
-});
-
-Route::get('/about', function () {
-    return view('about');
-});
+Route::get('get_guide', [GuideController::class, 'email_input'])->name('guide.email_input');
+Route::post('get_guide', [GuideController::class, 'email_processing'])->name('guide.email_processing');
 
 // Controller example
-Route::get('/blog', [App\Http\Controllers\BlogController::class, 'index'])->name('blog.index'); 
+Route::get('/blog/{special?}', [BlogController::class, 'index'])->name('blog.index'); 

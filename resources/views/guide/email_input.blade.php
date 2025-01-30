@@ -177,6 +177,15 @@
   </style>
 </head>
 <body>
+  @if($errors->any())
+    <div>
+        <ul>
+            @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+  @endif
   <nav>
     <div class="nav-container">
       <div class="logo">
@@ -196,11 +205,12 @@
   <section class="welcome-section">
     <section class="welcome-section">
     <img src="{{ asset('images/a2c3fa3c-71f5-4ace-9df4-28e24c3c1203.webp') }}" alt="map">
-        <form action="/guide1_2" method="get"><!-- te mosh der ari post? -->
+        <form action="{{ route('guide.email_processing')}}" method="post">
+            @csrf
             <h1 class="welcome-title">
             <label for="email1">Lūdzu, ievadi savu epastu, uz kuru nosūtīt gidu:</label>
             </h1>
-            <input type="text" id="email1" name="email1" placeholder="Ievadi savu e-pastu">
+            <input type="text" id="email" name="email" placeholder="Ievadi savu e-pastu">
             <input type="submit" value="Nosūtīt">
         </form>
     </section>
