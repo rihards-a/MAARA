@@ -1,39 +1,12 @@
-<!DOCTYPE html>
-<html lang="lv">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MAARA</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link href="{{ asset('css/about_page.css') }}" rel="stylesheet">
-</head>
-<body>
-  <nav>
-    <div class="nav-container">
-      <div class="logo">
-         <a href="/">
-           <img src="{{ asset('images/MAARA2.svg') }}" alt="logo">
-         </a>
-      </div>
-      <ul class="navbar-links">
-        <li><a href="/about">Par mums</a></li>
-        <li><a href="/blog">Blogs</a></li>
-        <li><a href="/contact">Kontakti</a></li>
-      </ul>
-    </div>
-  </nav>
+@extends('layouts.app_layout_with_navbar')
 
-  <main class="main">
-    <section class="welcome-section">
-        <h1 class="welcome-title">Par mums</h1>
-          <p class="welcome-text">
-            Mēs esam komanda xyz.
-          </p>
-    </section>
-  </main>
+@section('title', 'Ziedot')
 
-  <footer class="footer">
-    <p>Seko mums <a href="https://www.instagram.com/" target="_blank">Instagram</a></p>
-  </footer>
-</body>
-</html>
+@section('main_content')
+  <section class="welcome-section">
+      <h1 class="welcome-title">Par mums</h1>
+        <p class="welcome-text">
+          Mēs esam komanda xyz.
+        </p>
+  </section>
+@endsection
