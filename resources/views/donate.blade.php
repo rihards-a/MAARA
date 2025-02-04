@@ -29,8 +29,6 @@
 
         <form id="donation-form" action="{{route('donate.checkout')}}" method="POST">
             @csrf
-            <label for="amount">Ievadiet apjomu (EUR):</label>
-            <input type="number" id="amount" name="amount" min="1" required>
             <button type="submit" class="card-button">Ziedot</button>
         </form>
     </section>
