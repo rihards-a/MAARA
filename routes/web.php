@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\GuideController;
 use App\Http\Controllers\StripeDonationsController;
-use App\Models\StripeDonations;
 
 Route::get("lang/{lang}", function($lang){
     if (in_array($lang, ['en', 'lv'])) {
