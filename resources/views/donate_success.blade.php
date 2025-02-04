@@ -25,14 +25,7 @@
 
   <main class="main">
     <section class="welcome-section">
-        <h1 class="welcome-title">Vai vēlaties ziedot?</h1>
-
-        <form id="donation-form" action="{{route('donate.checkout')}}" method="POST">
-            @csrf
-            <label for="amount">Ievadiet apjomu (EUR):</label>
-            <input type="number" id="amount" name="amount" min="1" required>
-            <button type="submit" class="card-button">Ziedot</button>
-        </form>
+        <h1 class="welcome-title">Paldies par ziedojumu!</h1>
     </section>
   </main>
 

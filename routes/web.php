@@ -30,7 +30,8 @@ Route::get('get_guide', [GuideController::class, 'email_input'])->name('guide.em
 Route::post('get_guide', [GuideController::class, 'email_processing'])->name('guide.email_processing');
 
 Route::get('donate', [StripeDonationsController::class, 'index'])->name('donate.index');
-Route::post('donate', [StripeDonationsController::class, 'charge'])->name('donate.confirm');
+Route::post('donate', [StripeDonationsController::class, 'checkout'])->name('donate.checkout');
+Route::get('donate/success', [StripeDonationsController::class, 'success'])->name('donate.success');
 
 // Controller example
 Route::get('/blog/{special?}', [BlogController::class, 'index'])->name('blog.index'); 
