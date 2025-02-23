@@ -9,8 +9,13 @@ use App\Http\Controllers\StripeDonationsController;
 
 # the free guide / checklist / overview
 Route::group(["prefix"=> "guide"], function () {
-    # Route::get("/", [GuideController::class, 'main'])->name('guide.main');
-    # all the sub-routes for the guide 2.1 - 2.5
+    Route::get("/", [GuideController::class, 'index'])->name('guide.index');
+    Route::get('/registering', [GuideController::class, 'registering'])->name('guide.registering');
+    Route::get('/available_support', [GuideController::class,'available_support'])->name('guide.available_support');
+    Route::get('/burial', [GuideController::class, 'burial'])->name('guide.burial');
+    Route::get('/legacy', [GuideController::class,'legacy'])->name('guide.legacy');
+    Route::get('/establishments', [GuideController::class,'establishments'])->name('establishments');
+    # others...
 });
 
 # route for the selling page - simple
@@ -18,7 +23,7 @@ Route::group(["prefix"=> "guide"], function () {
 # route for the login and registration- controller
 
 # the authenticated portion, need to determine necessary middleware
-Route::group(["prefix" => "dashboard", "middleware" => ["auth",""]], function () {
+Route::group(["prefix" => "dashboard", "middleware" => ["auth"]], function () {
     
     # route for the user dashboard
 
