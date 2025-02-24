@@ -1,11 +1,36 @@
 <?php
 
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\GuideController;
 use App\Http\Controllers\StripeDonationsController;
+use App\Models\User;
 
 # Implement proper routes for the real website.
+
+Route::get('/auth/google', function () {
+    return Socialite::driver('google')->redirect();
+});
+
+Route::get('/auth/google/callback', function () {
+    $googleUser = Socialite::driver('google')->user();
+
+    $user = User::updateOrCreate([
+        'email' => $googleUser->getEmail(),
+    ], [
+        'name' => $googleUser->getName(),
+        'google_id' => $googleUser->getId(),
+        'password'  => Hash::make(Str::random(32)),
+    ]);
+
+    Auth::login($user);
+
+    return redirect('/dashboard');
+});
 
 # the free guide / checklist / overview
 Route::group(["prefix"=> "guide"], function () {
