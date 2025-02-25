@@ -24,6 +24,7 @@ class SocialiteController extends Controller
             'name' => $googleUser->getName(),
             'google_id' => $googleUser->getId(),
             'password'  => Hash::make(Str::random(32)),
+            'email_verified_at' => now(),
         ]);
     
         Auth::login($user);

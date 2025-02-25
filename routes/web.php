@@ -29,10 +29,10 @@ Route::get('/auth/google/callback', [SocialiteController::class, 'google_callbac
 # route for the login and registration- controller, should point to the google auth too
 
 # the authenticated portion, need to determine necessary middleware
-Route::group(["prefix" => "dashboard", "middleware" => ["auth"]], function () {
+#Route::group(["prefix" => "dashboard", "middleware" => ["auth"]], function () {
     # Route::get("/", [DashboardController::class, 'index'])->name('dashboard.index');
     # all the sub-routes for the user dashboard
-});
+#});
 
 # from laravel breeze blade
 Route::get('/', function () {
@@ -51,6 +51,13 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 # end laravel breeze blade
+
+
+
+
+
+
+
 
 
 # Old routes
