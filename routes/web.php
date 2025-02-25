@@ -5,12 +5,9 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\GuideController;
 use App\Http\Controllers\StripeDonationsController;
 use App\Http\Controllers\SocialiteController;
+use App\Http\Controllers\DashboardController;
 
 # Implement proper routes for the real website.
-
-# the socialite google authentication
-Route::get('/auth/google', [SocialiteController::class, 'google_redirect']);
-Route::get('/auth/google/callback', [SocialiteController::class, 'google_callback']);
 
 # the free guide / checklist / overview
 Route::group(["prefix"=> "guide"], function () {
@@ -23,17 +20,17 @@ Route::group(["prefix"=> "guide"], function () {
     # others...
 });
 
-# route for the selling page - simple
+# the socialite google authentication
+Route::get('/auth/google', [SocialiteController::class, 'google_redirect']);
+Route::get('/auth/google/callback', [SocialiteController::class, 'google_callback']);
 
-# route for the login and registration- controller
+# route for the selling page - simple, should point to the login and registration
+# route for the login and registration- controller, should point to the google auth too
 
 # the authenticated portion, need to determine necessary middleware
 Route::group(["prefix" => "dashboard", "middleware" => ["auth"]], function () {
-    
-    # route for the user dashboard
-
+    Route::get("/", [DashboardController::class, 'index'])->name('dashboard.index');
     # all the sub-routes for the user dashboard
-
 });
 
 # Old routes
