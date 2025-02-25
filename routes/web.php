@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\GuideController;
 use App\Http\Controllers\StripeDonationsController;
@@ -29,9 +30,28 @@ Route::get('/auth/google/callback', [SocialiteController::class, 'google_callbac
 
 # the authenticated portion, need to determine necessary middleware
 Route::group(["prefix" => "dashboard", "middleware" => ["auth"]], function () {
-    Route::get("/", [DashboardController::class, 'index'])->name('dashboard.index');
+    # Route::get("/", [DashboardController::class, 'index'])->name('dashboard.index');
     # all the sub-routes for the user dashboard
 });
+
+# from laravel breeze blade
+Route::get('/', function () {
+    return view('home');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
+# end laravel breeze blade
+
 
 # Old routes
 
@@ -43,9 +63,9 @@ Route::get("lang/{lang}", function($lang){
     return redirect()->back();
 })->name("lang.switch");
 
-Route::get('/', function () {
-    return view('home');
-});
+#Route::get('/', function () {
+#    return view('home');
+#});
 
 Route::get('/contact', function () {
     return view('contact');
