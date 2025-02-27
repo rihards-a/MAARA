@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\BlogController;
 use App\Http\Controllers\GuideController;
+use App\Http\Controllers\StripeSubscriptionController;
 use App\Http\Controllers\StripeDonationsController;
 use App\Http\Controllers\SocialiteController;
 use App\Http\Controllers\DashboardController;
@@ -52,11 +52,14 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 # end laravel breeze blade
 
-
-
-
-
-
+Route::middleware('auth')->group(function () {
+    Route::get('lifetime', [StripeSubscriptionController::class, 'index'])->name('index');
+    Route::post('checkout', [StripeSubscriptionController::class, 'lifetime_checkout'])->name('checkout');
+    Route::get('/checkout/success', [StripeSubscriptionController::class, 'success'])->name('subscription.lifetime.success');
+    Route::view('/checkout/cancel', 'checkout.cancel')->name('subscription.lifetime.cancel');
+});
+Route::post('/stripe/webhook', [StripeSubscriptionController::class, 'webhook'])->name('stripe.webhook')
+->withoutMiddleware([\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class]); # disable csrf for this webhook route
 
 
 
