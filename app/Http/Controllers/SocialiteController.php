@@ -24,8 +24,10 @@ class SocialiteController extends Controller
             'name' => $googleUser->getName(),
             'google_id' => $googleUser->getId(),
             'password'  => Hash::make(Str::random(32)),
-            'email_verified_at' => now(),
         ]);
+        # separately assign the email_verified_at, since it is not in the fillable
+        $user->email_verified_at = now();
+        $user->save();
     
         Auth::login($user);
     

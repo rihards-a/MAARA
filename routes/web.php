@@ -28,7 +28,7 @@ Route::get('/auth/google/callback', [SocialiteController::class, 'google_callbac
 # route for the selling page - simple, should point to the login and registration
 # route for the login and registration- controller, should point to the google auth too
 
-# the authenticated portion, need to determine necessary middleware
+# the authenticated portion, need to determine necessary middleware - check if subscribed
 #Route::group(["prefix" => "dashboard", "middleware" => ["auth"]], function () {
     # Route::get("/", [DashboardController::class, 'index'])->name('dashboard.index');
     # all the sub-routes for the user dashboard
@@ -88,5 +88,3 @@ Route::post('get_guide', [GuideController::class, 'email_processing'])->name('gu
 Route::get('donate', [StripeDonationsController::class, 'index'])->name('donate.index');
 Route::post('donate', [StripeDonationsController::class, 'checkout'])->name('donate.checkout');
 
-// Controller example
-Route::get('/blog/{special?}', [BlogController::class, 'index'])->name('blog.index'); 
