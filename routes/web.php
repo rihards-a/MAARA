@@ -61,7 +61,7 @@ Route::middleware('auth')->group(function () {
 Route::post('/stripe/webhook', [StripeSubscriptionController::class, 'webhook'])->name('stripe.webhook')
 ->withoutMiddleware([\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class]); # disable csrf for this webhook route
 
-
+# TODO create middleware for checking subscriptions
 
 # Old routes
 
