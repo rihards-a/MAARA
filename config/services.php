@@ -51,4 +51,16 @@ return [
         'lifetime_price_id' => env('STRIPE_LIFETIME_PRICE_ID', 'price_1Qwr2MP3Jpvf2dux5YrFn62O'),
     ],
     
+    'smartid' => [
+        'relying_party_uuid' => env('SMART_ID_RP_UUID', '00000000-0000-0000-0000-000000000000'),
+        'relying_party_name' => env('SMART_ID_RP_NAME', 'DEMO'),
+        'host_url' => env('SMART_ID_HOST_URL', 'https://sid.demo.sk.ee/smart-id-rp/v2/'),
+        'certificate_level' => env('SMART_ID_CERT_LEVEL', 'QUALIFIED'),
+        'public_ssl_keys' => env('SMARTID_PUBLIC_SSL_KEYS', 'sha256//Ps1Im3KeB0Q4AlR+/J9KFd/MOznaARdwo4gURPCLaVA='),
+        'trusted_ca_certificates' => [
+            base_path('resources/certificates/TEST_of_EID-SK_2016.pem.crt'),
+            base_path('resources/certificates/TEST_of_NQ-SK_2016.pem.crt'),
+            base_path('resources/certificates/TEST_of_EE_Certification_Centre_Root_CA.pem.crt'),
+        ],
+    ],
 ];

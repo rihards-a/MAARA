@@ -6,6 +6,7 @@ use App\Http\Controllers\GuideController;
 use App\Http\Controllers\StripeSubscriptionController;
 use App\Http\Controllers\StripeDonationsController;
 use App\Http\Controllers\SocialiteController;
+use App\Http\Controllers\SmartIdController;
 
 # Implement proper routes for the real website.
 
@@ -23,6 +24,7 @@ Route::group(["prefix"=> "guide"], function () {
 # route for the selling page - simple, should point to the login and registration
 # route for the login and registration- controller, should point to the google auth too
 
+# TODO create middleware for checking subscriptions
 # the authenticated portion, need to determine necessary middleware - check if subscribed
 #Route::group(["prefix" => "dashboard", "middleware" => ["auth"]], function () {
     # Route::get("/", [DashboardController::class, 'index'])->name('dashboard.index');
@@ -61,7 +63,10 @@ Route::middleware('auth')->group(function () {
 Route::post('/stripe/webhook', [StripeSubscriptionController::class, 'webhook'])->name('stripe.webhook')
 ->withoutMiddleware([\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class]); # disable csrf for this webhook route
 
-# TODO create middleware for checking subscriptions
+// Smart-ID Authentication Routes
+Route::post('/smartid/authenticate', [SmartIdController::class, 'authenticate']);
+
+
 
 # Old routes
 
