@@ -6,7 +6,6 @@ use App\Http\Controllers\GuideController;
 use App\Http\Controllers\StripeSubscriptionController;
 use App\Http\Controllers\StripeDonationsController;
 use App\Http\Controllers\SocialiteController;
-use App\Http\Controllers\DashboardController;
 
 # Implement proper routes for the real website.
 
@@ -21,10 +20,6 @@ Route::group(["prefix"=> "guide"], function () {
     # others...
 });
 
-# the socialite google authentication
-Route::get('/auth/google', [SocialiteController::class, 'google_redirect']);
-Route::get('/auth/google/callback', [SocialiteController::class, 'google_callback']);
-
 # route for the selling page - simple, should point to the login and registration
 # route for the login and registration- controller, should point to the google auth too
 
@@ -34,11 +29,11 @@ Route::get('/auth/google/callback', [SocialiteController::class, 'google_callbac
     # all the sub-routes for the user dashboard
 #});
 
-# from laravel breeze blade
 Route::get('/', function () {
     return view('home');
 });
 
+# from laravel breeze blade - user authentication
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -52,6 +47,11 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 # end laravel breeze blade
 
+# the socialite google authentication
+Route::get('/auth/google', [SocialiteController::class, 'google_redirect']);
+Route::get('/auth/google/callback', [SocialiteController::class, 'google_callback']);
+
+# Stripe routes for buying lifetime subscription
 Route::middleware('auth')->group(function () {
     Route::get('lifetime', [StripeSubscriptionController::class, 'index'])->name('index');
     Route::post('checkout', [StripeSubscriptionController::class, 'lifetime_checkout'])->name('checkout');
