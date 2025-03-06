@@ -64,8 +64,21 @@ Route::post('/stripe/webhook', [StripeSubscriptionController::class, 'webhook'])
 ->withoutMiddleware([\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class]); # disable csrf for this webhook route
 
 // Smart-ID Authentication Routes
-Route::post('/smartid/authenticate', [SmartIdController::class, 'authenticate']);
-
+Route::prefix('smartid')->name('smartid.')->group(function () {
+    // Form display
+    Route::get('/auth', [SmartIdController::class, 'showAuthenticationForm'])->name('form');
+    
+    // Authentication endpoints
+    Route::post('/authenticate', [SmartIdController::class, 'authenticate'])->name('authenticate');
+    Route::post('/authenticate-with-document', [SmartIdController::class, 'authenticateWithDocumentNumber'])->name('authenticate.document');
+    
+    // Polling endpoint
+    Route::get('/poll', [SmartIdController::class, 'pollAuthenticationStatus'])->name('poll');
+    
+    // Status and logout
+    Route::get('/status', [SmartIdController::class, 'checkAuthenticationStatus'])->name('status');
+    Route::post('/logout', [SmartIdController::class, 'logout'])->name('logout');
+});
 
 
 # Old routes

@@ -56,11 +56,9 @@ return [
         'relying_party_name' => env('SMART_ID_RP_NAME', 'DEMO'),
         'host_url' => env('SMART_ID_HOST_URL', 'https://sid.demo.sk.ee/smart-id-rp/v2/'),
         'certificate_level' => env('SMART_ID_CERT_LEVEL', 'QUALIFIED'),
-        'public_ssl_keys' => env('SMARTID_PUBLIC_SSL_KEYS', 'sha256//Ps1Im3KeB0Q4AlR+/J9KFd/MOznaARdwo4gURPCLaVA='),
-        'trusted_ca_certificates' => [
-            base_path('resources/certificates/TEST_of_EID-SK_2016.pem.crt'),
-            base_path('resources/certificates/TEST_of_NQ-SK_2016.pem.crt'),
-            base_path('resources/certificates/TEST_of_EE_Certification_Centre_Root_CA.pem.crt'),
-        ],
+        'public_ssl_keys' => env('SMART_ID_PUBLIC_SSL_KEYS', 'sha256//Ps1Im3KeB0Q4AlR+/J9KFd/MOznaARdwo4gURPCLaVA='),
+        'trusted_certificates_path' => resource_path('trusted_certificates'),
+        'poll_interval' => env('SMART_ID_POLL_INTERVAL', 5),
+        'max_poll_attempts' => env('SMART_ID_MAX_POLL_ATTEMPTS', 24),
     ],
 ];

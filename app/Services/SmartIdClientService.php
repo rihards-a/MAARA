@@ -66,7 +66,7 @@ class SmartIdClientService
         $authenticationHash = AuthenticationHash::generate();
         $verificationCode = $authenticationHash->calculateVerificationCode();
 
-        // (Optionally) pass the verification code to your view so the user can check it.
+        // TODO pass the verification code to your view so the user can check it.
         // For example: session()->flash('verification_code', $verificationCode);
 
         try {
@@ -98,7 +98,94 @@ class SmartIdClientService
             throw new \RuntimeException("Smart‑ID authentication failed: " . $e->getMessage());
         }
 
-        // Validate the authentication response using a validator that checks the signature and certificate.
+        return $this->validateAuthenticationResponse($authenticationResponse);
+    }
+
+    /**
+     * Start authentication session and return session ID for polling
+     * 
+     * @param string $semanticsIdentifierType
+     * @param string $countryCode
+     * @param string $identifier
+     * @param AuthenticationHash $authenticationHash
+     * @param string $displayText
+     * 
+     * @return string Session ID for polling
+     * 
+     * @throws \RuntimeException
+     */
+    public function startAuthenticationSession(
+        string $semanticsIdentifierType, 
+        string $countryCode, 
+        string $identifier, 
+        AuthenticationHash $authenticationHash,
+        string $displayText = "Authentication request"
+    ) {
+        $semanticsIdentifier = SemanticsIdentifier::builder()
+            ->withSemanticsIdentifierType($semanticsIdentifierType)
+            ->withCountryCode($countryCode)
+            ->withIdentifier($identifier)
+            ->build();
+
+        try {
+            $sessionId = $this->client->authentication()
+                ->createAuthentication()
+                ->withSemanticsIdentifier($semanticsIdentifier)
+                ->withAuthenticationHash($authenticationHash)
+                ->withCertificateLevel(CertificateLevelCode::QUALIFIED)
+                ->withAllowedInteractionsOrder([
+                    Interaction::ofTypeVerificationCodeChoice($displayText),
+                    Interaction::ofTypeDisplayTextAndPIN($displayText)
+                ])
+                ->startAuthenticationAndReturnSessionId();
+                
+            return $sessionId;
+        } catch (SmartIdException $e) {
+            throw new \RuntimeException("Failed to start authentication session: " . $e->getMessage());
+        }
+    }
+
+    /**
+     * Poll for authentication session status
+     * 
+     * @param string $sessionId Session ID from startAuthenticationSession
+     * @param AuthenticationHash $authenticationHash The authentication hash
+     * 
+     * @return array Status information with 'complete' boolean and 'identity' if complete
+     */
+    public function pollAuthenticationSessionStatus(string $sessionId, AuthenticationHash $authenticationHash)
+    {
+        try {
+            $authenticationResponse = $this->client->authentication()
+                ->createSessionStatusFetcher()
+                ->withSessionId($sessionId)
+                ->withAuthenticationHash($authenticationHash)
+                ->withSessionStatusResponseSocketTimeoutMs(10000)
+                ->getAuthenticationResponse();
+
+            if ($authenticationResponse->isRunningState()) {
+                return [
+                    'complete' => false,
+                    'state' => $authenticationResponse->getState()
+                ];
+            }
+
+            // Authentication is complete, validate the result
+            $identity = $this->validateAuthenticationResponse($authenticationResponse);
+            
+            return [
+                'complete' => true,
+                'identity' => $identity,
+                'documentNumber' => $authenticationResponse->getDocumentNumber()
+            ];
+        } catch (SmartIdException $e) {
+            throw new \RuntimeException("Error polling authentication status: " . $e->getMessage());
+        }
+    }
+
+    protected function validateAuthenticationResponse($authenticationResponse)
+    {
+        // Create validator and validate response
         $validator = new AuthenticationResponseValidator($this->trustedCertificatesPath);
         $authenticationResult = $validator->validate($authenticationResponse);
 
@@ -107,7 +194,18 @@ class SmartIdClientService
             throw new \RuntimeException("Authentication response is not valid: " . $errors);
         }
 
-        // Return the authenticated user's identity details.
+        // Return the authenticated user's identity details
         return $authenticationResult->getAuthenticationIdentity();
+    }
+
+    public function generateAuthenticationHash()
+    {
+        $authenticationHash = AuthenticationHash::generate();
+        $verificationCode = $authenticationHash->calculateVerificationCode();
+        
+        return [
+            'hash' => $authenticationHash,
+            'verificationCode' => $verificationCode
+        ];
     }
 }
