@@ -6,7 +6,6 @@ use App\Http\Controllers\GuideController;
 use App\Http\Controllers\StripeSubscriptionController;
 use App\Http\Controllers\StripeDonationsController;
 use App\Http\Controllers\SocialiteController;
-use App\Http\Controllers\SmartIdController;
 
 # Implement proper routes for the real website.
 
@@ -64,6 +63,7 @@ Route::post('/stripe/webhook', [StripeSubscriptionController::class, 'webhook'])
 ->withoutMiddleware([\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class]); # disable csrf for this webhook route
 
 // Smart-ID Authentication Routes
+use App\Http\Controllers\SmartIdController;
 Route::prefix('smartid')->name('smartid.')->group(function () {
     // Form display
     Route::get('/auth', [SmartIdController::class, 'showAuthenticationForm'])->name('form');
@@ -80,7 +80,12 @@ Route::prefix('smartid')->name('smartid.')->group(function () {
     Route::post('/logout', [SmartIdController::class, 'logout'])->name('logout');
 });
 
-
+// routes/api.php
+require __DIR__.'/api.php';
+Route::get('/smart/login', [App\Http\Controllers\SmartAuthController::class, 'showLoginForm'])->name('login');
+Route::get('/smart/dashboard', function () {
+    return view('dashboard');
+})->middleware('auth:sanctum');
 # Old routes
 
 Route::get("lang/{lang}", function($lang){

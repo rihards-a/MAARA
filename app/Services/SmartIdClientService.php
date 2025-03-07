@@ -47,7 +47,7 @@ class SmartIdClientService
      *
      * @param string $semanticsIdentifierType (e.g., 'PNO', 'IDC', or 'PAS')
      * @param string $countryCode             (e.g., 'LT', 'EE', etc.)
-     * @param string $identifier              (the identifier value)
+     * @param string $identifier              (like national identity number)
      *
      * @return object Authentication identity details
      *
@@ -74,10 +74,11 @@ class SmartIdClientService
             // The call will block until the user interacts via the Smart‑ID app.
             $authenticationResponse = $this->client->authentication()
                 ->createAuthentication()
-                ->withSemanticsIdentifier($semanticsIdentifier)
+                ->withSemanticsIdentifier($semanticsIdentifier) // or with document number ->withDocumentNumber( 'PNOEE-10101010005-Z1B2-Q' )
                 ->withAuthenticationHash($authenticationHash)
                 ->withCertificateLevel(CertificateLevelCode::QUALIFIED)
                 ->withAllowedInteractionsOrder([
+                    // Interaction::ofTypeConfirmationMessageAndVerificationCodeChoice("A confirmation message with Verification code choice"),
                     Interaction::ofTypeVerificationCodeChoice("Enter awesome portal?"),
                     Interaction::ofTypeDisplayTextAndPIN("Enter awesome portal?")
                 ])
