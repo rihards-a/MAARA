@@ -1,47 +1,149 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+@extends('layouts.app')
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Smart-ID Login</div>
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                <div class="card-body">
+                    <div id="smartid-form">
+                        <div class="mb-3">
+                            <label for="country_code" class="form-label">Country</label>
+                            <select id="country_code" class="form-control">
+                                <option value="EE">Estonia</option>
+                                <option value="LV">Latvia</option>
+                                <option value="LT">Lithuania</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="identifier" class="form-label">Personal ID Number</label>
+                            <input type="text" id="identifier" class="form-control" placeholder="Enter your national ID number">
+                        </div>
+                        
+                        <button type="button" id="login-button" class="btn btn-primary">Login with Smart-ID</button>
+                    </div>
+                    
+                    <div id="verification-code-container" style="display: none;">
+                        <h4>Verification Code</h4>
+                        <div class="alert alert-info" id="verification-code"></div>
+                        <p>Please check that this code matches what you see in your Smart-ID app.</p>
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                    
+                    <div id="error-container" style="display: none;">
+                        <div class="alert alert-danger" id="error-message"></div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
+</div>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-            </label>
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const loginButton = document.getElementById('login-button');
+    const smartidForm = document.getElementById('smartid-form');
+    const verificationCodeContainer = document.getElementById('verification-code-container');
+    const verificationCodeElement = document.getElementById('verification-code');
+    const errorContainer = document.getElementById('error-container');
+    const errorMessage = document.getElementById('error-message');
+    
+    loginButton.addEventListener('click', initiateSmartID);
+    
+    async function initiateSmartID() {
+        const countryCode = document.getElementById('country_code').value;
+        const identifier = document.getElementById('identifier').value;
+        
+        if (!identifier) {
+            showError('Please enter your ID number');
+            return;
+        }
+        
+        try {
+            const response = await fetch('/auth/smartid/init', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                },
+                body: JSON.stringify({
+                    semantics_identifier_type: 'PNO',
+                    country_code: countryCode,
+                    identifier: identifier,
+                    display_text: 'Login to Application'
+                })
+            });
+            
+            const data = await response.json();
+            
+            if (data.success) {
+                smartidForm.style.display = 'none';
+                verificationCodeContainer.style.display = 'block';
+                verificationCodeElement.textContent = data.verification_code;
+                
+                pollAuthStatus(data.auth_session_id);
+            } else {
+                showError(data.error || 'Authentication failed');
+            }
+        } catch (error) {
+            showError('Network error occurred');
+            console.error(error);
+        }
+    }
+    
+    async function pollAuthStatus(authSessionId) {
+        try {
+            const response = await fetch('/auth/smartid/poll', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content
+                },
+                body: JSON.stringify({
+                    auth_session_id: authSessionId
+                })
+            });
+            
+            const data = await response.json();
+            
+            if (data.success) {
+                if (data.complete) {
+                    // Store token in localStorage
+                    localStorage.setItem('auth_token', data.token);
+                    
+                    // Redirect to dashboard or home page
+                    window.location.href = '/dashboard';
+                } else {
+                    // Continue polling
+                    setTimeout(() => pollAuthStatus(authSessionId), 2000);
+                }
+            } else {
+                showError(data.error || 'Authentication failed');
+                verificationCodeContainer.style.display = 'none';
+                smartidForm.style.display = 'block';
+            }
+        } catch (error) {
+            showError('Network error occurred');
+            console.error(error);
+            verificationCodeContainer.style.display = 'none';
+            smartidForm.style.display = 'block';
+        }
+    }
+    
+    function showError(message) {
+        errorMessage.textContent = message;
+        errorContainer.style.display = 'block';
+        setTimeout(() => {
+            errorContainer.style.display = 'none';
+        }, 5000);
+    }
+});
+</script>
+@endsection
