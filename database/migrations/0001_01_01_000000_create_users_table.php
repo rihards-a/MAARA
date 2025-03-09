@@ -14,16 +14,16 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email')->unique();
+            $table->string('email')->unique()->nullable(); // because smart-id registration doesn't require email
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password'); // if the password doesn't get set, i.e. smart-id, google-auth. it gets randomly generated
 
-            $table->string('national_identity_number')->nullable()->unique();
-            $table->string('country_code')->nullable();
-            $table->string('full_name')->nullable();
-            $table->string('document_number')->unique()->nullable();
-            $table->string('google_id')->nullable();
-            $table->boolean('lifetime_subscription')->default(false);
+            $table->string('national_identity_number')->nullable()->unique();   // smart-id
+            $table->string('country_code')->nullable();                         // smart-id
+            $table->string('full_name')->nullable();                            // smart-id
+            $table->string('document_number')->unique()->nullable();            // smart-id
+            $table->string('google_id')->nullable();                            // google-auth
+            $table->boolean('lifetime_subscription')->default(false);    // stripe
             
             $table->rememberToken();
             $table->timestamps();
