@@ -50,7 +50,9 @@ class SmartIdApiController extends Controller
             // Start authentication session and return session ID
             $sessionId = $this->smartIdClientService->startAuthenticationSession(
                 $data['semantics_identifier_type'],
+                //'LT', 
                 strtoupper($data['country_code']),
+                //'30303039914', 
                 $data['identifier'],
                 $authenticationHash,
                 $displayText

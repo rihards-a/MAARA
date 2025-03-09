@@ -39,7 +39,7 @@ class SmartIdClientService
 
         // Define the path where trusted Smart-ID certificates are stored.
         // Create a folder named "trusted_certificates" under your resources directory.
-        $this->trustedCertificatesPath = config('services.smartid.trusted_certificates_path', resource_path('trusted_certificates'));
+        $this->trustedCertificatesPath = config('services.smartid.trusted_certificates_path', resource_path());
     }
 
     /**

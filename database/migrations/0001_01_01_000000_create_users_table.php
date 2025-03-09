@@ -17,13 +17,14 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            /*
+
             $table->string('national_identity_number')->nullable()->unique();
             $table->string('country_code')->nullable();
             $table->string('full_name')->nullable();
-            */
+            $table->string('document_number')->unique()->nullable();
             $table->string('google_id')->nullable();
             $table->boolean('lifetime_subscription')->default(false);
+            
             $table->rememberToken();
             $table->timestamps();
         });

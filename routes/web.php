@@ -62,23 +62,7 @@ Route::middleware('auth')->group(function () {
 Route::post('/stripe/webhook', [StripeSubscriptionController::class, 'webhook'])->name('stripe.webhook')
 ->withoutMiddleware([\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class]); # disable csrf for this webhook route
 
-// Smart-ID Authentication Routes
-use App\Http\Controllers\SmartIdController;
-Route::prefix('smartid')->name('smartid.')->group(function () {
-    // Form display
-    Route::get('/auth', [SmartIdController::class, 'showAuthenticationForm'])->name('form');
-    
-    // Authentication endpoints
-    Route::post('/authenticate', [SmartIdController::class, 'authenticate'])->name('authenticate');
-    Route::post('/authenticate-with-document', [SmartIdController::class, 'authenticateWithDocumentNumber'])->name('authenticate.document');
-    
-    // Polling endpoint
-    Route::get('/poll', [SmartIdController::class, 'pollAuthenticationStatus'])->name('poll');
-    
-    // Status and logout
-    Route::get('/status', [SmartIdController::class, 'checkAuthenticationStatus'])->name('status');
-    Route::post('/logout', [SmartIdController::class, 'logout'])->name('logout');
-});
+
 
 // routes/api.php
 require __DIR__.'/api.php';
@@ -86,6 +70,11 @@ Route::get('/smart/login', [App\Http\Controllers\SmartAuthController::class, 'sh
 Route::get('/smart/dashboard', function () {
     return view('dashboard');
 })->middleware('auth:sanctum');
+
+
+
+
+
 # Old routes
 
 Route::get("lang/{lang}", function($lang){
