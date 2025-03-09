@@ -66,6 +66,7 @@ Route::post('/stripe/webhook', [StripeSubscriptionController::class, 'webhook'])
 
 // routes/api.php
 require __DIR__.'/api.php';
+// routes for using the api
 Route::get('/smart/login', [App\Http\Controllers\SmartAuthController::class, 'showLoginForm'])->name('login');
 Route::get('/smart/dashboard', function () {
     return view('dashboard');
