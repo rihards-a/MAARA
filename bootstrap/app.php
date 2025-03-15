@@ -12,7 +12,10 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->web(append: [
-            \App\Http\Middleware\SecLocale::class // middleware to set locale from session for new tabs
+            \App\Http\Middleware\SecLocale::class, // middleware to set locale from session for new tabs
+        ]);
+        $middleware->alias([
+            'haslifetime' => \App\Http\Middleware\HasLifetimeSubscription::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
