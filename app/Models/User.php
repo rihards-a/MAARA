@@ -23,6 +23,7 @@ class User extends Authenticatable
         'email',
         'password',
         'google_id',
+        'lifetime_subscription',
     ];
 
     /**
@@ -45,6 +46,12 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'lifetime_subscription' => 'boolean',
         ];
+    }
+
+    public function HasLifetime() : bool 
+    {
+        return (bool) $this->lifetime_subscription;
     }
 }
