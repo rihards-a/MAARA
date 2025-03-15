@@ -22,6 +22,10 @@ Route::get('/about', function () {
     return view('about');
 });
 
+Route::get('/blog', function () {
+    return view('blog/index'); // need to create, most likely a controller
+});
+
 # the free guide / checklist / overview
 Route::group(["prefix"=> "guide"], function () {
     Route::get("/", [GuideController::class, 'index'])->name('guide.index');
@@ -37,15 +41,19 @@ Route::group(["prefix"=> "guide"], function () {
 # route for the login and registration- controller, should point to the google auth too
 
 # the authenticated portion, using "haslifetime" middleware added in app/bootstrap as an alias
-Route::group(["prefix" => "dashboard", "middleware" => ["auth", "haslifetime"]], function () {
-    Route::get("/proper", [DashboardController::class, 'index'])->name('dashboard.index');
+Route::group(["prefix" => "dashboard", "middleware" => ["auth"]], function () {
+    Route::get('/', function () {return view('dashboard');})->name('dashboard'); // currently using the breeze dashboard
+    
+    # only accessible after subscribing
+    Route::middleware("haslifetime")->group(function () {
+        Route::get("/lifetime", [DashboardController::class, 'index'])->name('dashboard.index');
+    });
+
     # all the sub-routes for the user dashboard
 });
 
 # Laravel Breeze starter kit routes - User Profile
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+# TEMPORARY DASHBOARD, WILL BE REPLACED BY THE ABOVEm though the starter kit will need to be tweaked
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -55,7 +63,7 @@ Route::middleware('auth')->group(function () {
 # end laravel breeze blade
 
 # the socialite google authentication
-Route::get('/auth/google', [SocialiteController::class, 'google_redirect']);
+Route::get('/auth/google', [SocialiteController::class, 'google_redirect'])->name('google.redirect');
 Route::get('/auth/google/callback', [SocialiteController::class, 'google_callback']);
 
 # Stripe life-time subscription routes
