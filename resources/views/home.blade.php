@@ -16,7 +16,7 @@
       <div class="card-content">
         <h2 class="card-title">Ceļvedis tiem</h2>
         <p class="card-text">Kuri organizē ar tuvinieka nāvi saistītos praktiskos jautājumus (bēres, finansiālos jautājumus, u.c.)</p>
-        <button class="card-button">Izvēlēties</button>
+        <button class="card-button" data-url="/guide">Izvēlēties</button>
       </div>
     </div>
 
@@ -25,8 +25,17 @@
       <div class="card-content">
         <h2 class="card-title">Ceļvedis ikkatram</h2>
         <p class="card-text">Par to, par ko būtu jāpadomā vēl šajā saulē esot, lai neradītu tuviniekiem liekus sarežģījumus</p>
-        <button class="card-button">Izvēlēties</button>
+        <button class="card-button" data-url="/dashboard/lifetime">Izvēlēties</button>
       </div>
     </div>
   </div>
+
+  <script>
+    document.querySelectorAll(".card-button").forEach(button => {
+      button.addEventListener("click", function() {
+        window.location.href = this.getAttribute("data-url");
+      });
+    });
+  </script>
+
 @endsection
