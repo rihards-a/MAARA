@@ -10,17 +10,10 @@ use App\Http\Controllers\SocialiteController;
 
 require __DIR__.'/auth.php'; # Laravel Breeze authentication routes
 
-Route::get('/', function () {
-    return view('home');
-});
-
-Route::get('/contact', function () {
-    return view('contact');
-});
-
-Route::get('/about', function () {
-    return view('about');
-});
+Route::view('/', 'home')->name('home');
+Route::view('/contact', 'contact')->name('contact');
+Route::view('/about', 'about')->name('about');
+Route::view('/why_register', 'why_register')->name('why_register');
 
 Route::get('/blog', function () {
     return view('blog/index'); // need to create, most likely a controller
@@ -29,7 +22,7 @@ Route::get('/blog', function () {
 # the free guide / checklist / overview
 Route::group(["prefix"=> "guide"], function () {
     Route::get("/", [GuideController::class, 'index'])->name('guide.index');
-    Route::get('/registering', [GuideController::class, 'registering'])->name('guide.registering');
+    Route::get('/registering_the_passing', [GuideController::class, 'registering'])->name('guide.registering');
     Route::get('/available_support', [GuideController::class,'available_support'])->name('guide.available_support');
     Route::get('/burial', [GuideController::class, 'burial'])->name('guide.burial');
     Route::get('/legacy', [GuideController::class,'legacy'])->name('guide.legacy');
@@ -42,7 +35,7 @@ Route::group(["prefix"=> "guide"], function () {
 
 # the authenticated portion, using "haslifetime" middleware added in app/bootstrap as an alias
 Route::group(["prefix" => "dashboard", "middleware" => ["auth"]], function () {
-    Route::get('/', function () {return view('dashboard');})->name('dashboard'); // currently using the breeze dashboard
+    Route::get('/', fn() => view('dashboard'))->name('dashboard'); // currently using the breeze dashboard
     
     # only accessible after subscribing
     Route::middleware("haslifetime")->group(function () {
@@ -50,11 +43,10 @@ Route::group(["prefix" => "dashboard", "middleware" => ["auth"]], function () {
     });
 
     # all the sub-routes for the user dashboard
+    # here the user will be able to fill out their details
 });
 
 # Laravel Breeze starter kit routes - User Profile
-# TEMPORARY DASHBOARD, WILL BE REPLACED BY THE ABOVEm though the starter kit will need to be tweaked
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
