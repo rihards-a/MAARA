@@ -22,7 +22,8 @@
         <li><a href="/about">Par mums</a></li>
         <li><a href="/donate">Ziedot</a></li>
         @guest
-        <li><a href="/register">Pieslēgties</a></li>
+        <li><a href="/why_register">Reģistrēties</a></li>
+        <li><a href="/login">Pieslēgties</a></li>
         @else
         <li><a href="{{ route('dashboard') }}">Mans profils</a></li>
         @endguest
