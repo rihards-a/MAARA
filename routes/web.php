@@ -35,15 +35,13 @@ Route::group(["prefix"=> "guide"], function () {
 
 # the authenticated portion, using "haslifetime" middleware added in app/bootstrap as an alias
 Route::group(["prefix" => "dashboard", "middleware" => ["auth"]], function () {
-    Route::get('/', fn() => view('dashboard'))->name('dashboard'); // currently using the breeze dashboard
+    Route::get('/', fn() => view('dashboard.index'))->name('dashboard'); // currently using the breeze dashboard
     
     # only accessible after subscribing
     Route::middleware("haslifetime")->group(function () {
-        Route::get("/lifetime", [DashboardController::class, 'index'])->name('dashboard.index');
+        # all the sub-routes for the user dashboard
+        # here the user will be able to fill out their details
     });
-
-    # all the sub-routes for the user dashboard
-    # here the user will be able to fill out their details
 });
 
 # Laravel Breeze starter kit routes - User Profile
