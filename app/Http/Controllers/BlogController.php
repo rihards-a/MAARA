@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\BlogPost;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -11,6 +10,12 @@ class BlogController extends Controller
         return view('blog.index');
     }
     public function show($slug) {
-        return view("blog.{$slug}");
+        $blogTags = config('blog_tags');
+        if (array_key_exists($slug, $blogTags))
+            return view("blog.{$slug}");
+        else
+            return redirect()->route('blog.index');
     }
+
+    // implement a tag filtering system
 }
