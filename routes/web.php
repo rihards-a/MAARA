@@ -15,9 +15,14 @@ Route::view('/contact', 'contact')->name('contact');
 Route::view('/about', 'about')->name('about');
 Route::view('/why_register', 'why_register')->name('why_register');
 
+
 Route::get('/blog', function () {
     return view('blog/index'); // need to create, most likely a controller
 });
+
+Route::get('/blog/piecas-seru-stadijas', function () {
+    return view('blog.Piecas-seru-stadijas');
+})->name('blog.piecas-seru-stadijas');
 
 # the free guide / checklist / overview
 Route::group(["prefix"=> "guide"], function () {
