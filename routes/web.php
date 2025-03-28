@@ -24,6 +24,14 @@ Route::get('/blog/piecas-seru-stadijas', function () {
     return view('blog.Piecas-seru-stadijas');
 })->name('blog.piecas-seru-stadijas');
 
+Route::get('/blog/bailes-no-naves', function () {
+    return view('blog.Bailes-no-naves');
+})->name('blog.bailes-no-naves');
+
+Route::get('/blog/vainas-apzina-un-nave', function () {
+    return view('blog.Vainas-apzina-un-nave');
+})->name('blog.vainas-apzina-un-nave');
+
 # the free guide / checklist / overview
 Route::group(["prefix"=> "guide"], function () {
     Route::get("/", [GuideController::class, 'index'])->name('guide.index');

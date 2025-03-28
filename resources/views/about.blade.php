@@ -22,20 +22,19 @@
         <p>
             <b>Komanda no kreisās:</b><br>
             <br>
-            Jānis Apels — Front-end programmatūra<br>
+            🔸 Jānis Apels — Front-end programmatūra<br>
             <br>
-            Janīna Gaļenko — Mārketinga stratēģija<br>
+            🔸 Janīna Gaļenko — Mārketinga stratēģija<br>
             <br>
-            Elīza Lasmane — Stratēģiskā vadība<br>
+            🔸 Elīza Lasmane — Stratēģiskā vadība<br>
             <br>
-            Rihards Āboliņš — Back-end programmatūra un drošība<br>
+            🔸 Rihards Āboliņš — Back-end programmatūra un drošība<br>
             <br>
-            Arta Urzula Goldmane — Produkta ētika un saturs<br>
+            🔸 Arta Urzula Goldmane — Produkta ētika un saturs<br>
         </p>
     </div>
 </section>
 <section class="welcome-section">
-  <div class="team-header">
     <div class="welcome-text align-right">
         <p>
             <b>Kontakti:</b><br>
@@ -45,7 +44,6 @@
             <b>Adrese:</b> Startup House Riga<br>
         </p>
     </div>
-</div>
 </section>
 
 @endsection

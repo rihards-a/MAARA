@@ -25,7 +25,7 @@
       <div class="card-content">
         <h2 class="card-title">Bailes no nāves – kā tās saprast un pieņemt</h2>
         <p class="card-text">Bailes no nāves ir dabiska parādība, taču, izprotot un pieņemot tās, mēs varam dzīvot pilnvērtīgāk un ar mazāku trauksmi.</p>
-        <button class="card-button">Lasīt</button>
+        <a href="{{ route('blog.bailes-no-naves') }}" class="card-button">Lasīt</a>
       </div>
     </div>
 
@@ -34,7 +34,7 @@
       <div class="card-content">
         <h2 class="card-title">Vainas apziņa un nāve – kā ar to tikt galā?</h2>
         <p class="card-text">Vainas apziņa pēc tuvinieka zaudējuma ir dabiska sēru daļa, un šajā rakstā aplūkoti veidi, kā to saprast, pieņemt un mazināt.</p>
-        <button class="card-button">Lasīt</button>
+        <a href="{{ route('blog.vainas-apzina-un-nave') }}" class="card-button">Lasīt</a>
       </div>
     </div>
 

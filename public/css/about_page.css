@@ -65,7 +65,7 @@ transform: translateY(-2px);
 
 .logo {
 color: #ffffff;
-font-size: 2rem;
+font-size: 2rem;<a href="{{ route('blog.piecas-seru-stadijas') }}" class="card-button">Lasīt</a>
 font-weight: 700;
 letter-spacing: 1px;
 }
@@ -144,7 +144,7 @@ background-color: var(--button-color);
 text-align: center;
 color: #ffffff;
 border: none;
-padding: 1rem 2rem;
+padding: 0.5rem 2rem;
 border-radius: 10px;
 font-weight: 600;
 cursor: pointer;
