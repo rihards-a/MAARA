@@ -27,7 +27,7 @@ Visi materiāli šajā lapā ir pieejami bez maksas, bet mēs novērtēsim atsau
       <div class="card-content">
         <h2 class="card-title">Ceļvedis atbildīgajiem: </h2>
         <p class="card-text">Šeit esam apkopojuši visus lēmumus, ko cilvēkam vajadzētu pieņemt saistībā ar savu "pēcnāvi" uz Zemes, lai atvieglotu šo smago brīdi tuviniekiem: sākot ar medicīniskām preferencēm un beidzot ar norādījumiem par izvadīšanu.</p>
-        <button class="card-button" data-url="/dashboard/lifetime">Izvēlēties</button>
+        <button class="card-button" data-url={{route('dashboard')}}>Izvēlēties</button>
       </div>
     </div>
   </div>
