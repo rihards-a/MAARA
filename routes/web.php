@@ -20,7 +20,8 @@ Route::group(['prefix'=> 'blog'], function () {
     Route::get('/{slug}', [BlogController::class, 'show'])->name('blog.show');
 });
 
-# the free guide / checklist / overview
+# the free guide / checklist / overview 
+# TODO: trasnfer this to the same system the blogs use, since these are just views with title cards
 Route::group(["prefix"=> "guide"], function () {
     Route::get("/", [GuideController::class, 'index'])->name('guide.index');
     Route::get('/registering_the_passing', [GuideController::class, 'registering'])->name('guide.registering');
@@ -31,12 +32,9 @@ Route::group(["prefix"=> "guide"], function () {
     # others...
 });
 
-# route for the selling page - simple, should point to the login and registration ->
-# route for the login and registration- controller, should point to the google auth too
-
 # the authenticated portion, using "haslifetime" middleware added in app/bootstrap as an alias
 Route::group(["prefix" => "dashboard", "middleware" => ["auth"]], function () {
-    Route::get('/', fn() => view('dashboard.index'))->name('dashboard'); // currently using the breeze dashboard
+    Route::get('/', fn() => view('dashboard.index'))->name('dashboard'); #TODO: modify this view to be our dashboard
     
     # only accessible after subscribing
     Route::middleware("haslifetime")->group(function () {

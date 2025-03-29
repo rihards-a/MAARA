@@ -9,8 +9,6 @@ use App\Models\BlogTag;
 class BlogController extends Controller
 {
     public function index() {
-        // Check whether a view has a tag from the request probably done in json in the view
-
         // Pass all the blog post objects to the view
         $posts = BlogPost::with('tags')->get();	
         return view('blog.index', compact('posts'));

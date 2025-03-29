@@ -42,7 +42,7 @@ class BlogSeeder extends Seeder
                 'tags' => ['ko-darit']
             ],
             [
-                'name' => 'Vainas apziņa un nāve – kā ar to tikt galā?',
+                'name' => 'Vainas apziņa un nāve - kā ar to tikt galā?',
                 'slug' => 'vainas-apzina-un-nave',
                 'title_card_image_location' => 'images/blogs_3_bailes.jpg',
                 'title_card_text' => 'Vainas apziņa pēc tuvinieka zaudējuma ir dabiska sēru daļa, un šajā rakstā aplūkoti veidi, kā to saprast, pieņemt un mazināt.',
