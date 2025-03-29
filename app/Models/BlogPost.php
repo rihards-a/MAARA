@@ -8,6 +8,9 @@ class BlogPost extends Model
 {
     protected $fillable = [
         'slug',
+        'name',
+        'title_card_image_location',
+        'title_card_text',
     ];
 
     /**

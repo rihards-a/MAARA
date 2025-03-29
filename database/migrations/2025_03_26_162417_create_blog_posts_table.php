@@ -13,7 +13,10 @@ return new class extends Migration
     {
         Schema::create('blog_posts', function (Blueprint $table) {
             $table->id();
-            $table->string("slug")->unique(); // these correspond to the view names
+            $table->string('name');
+            $table->string("slug")->unique(); // these should correspond to the view names
+            $table->string("title_card_image_location");
+            $table->string("title_card_text");
             $table->timestamps();
         });
     }
