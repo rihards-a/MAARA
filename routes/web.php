@@ -1,12 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\GuideController;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\StripeSubscriptionController;
 use App\Http\Controllers\StripeDonationsController;
 use App\Http\Controllers\SocialiteController;
+use App\Http\Controllers\ProfileController;
 
 require __DIR__.'/auth.php'; # Laravel Breeze authentication routes
 
@@ -15,8 +15,9 @@ Route::view('/contact', 'contact')->name('contact');
 Route::view('/about', 'about')->name('about');
 Route::view('/why_register', 'why_register')->name('why_register');
 
-Route::get('/blog', function () {
-    return view('blog/index'); // need to create, most likely a controller
+Route::group(['prefix'=> 'blog'], function () {
+    Route::get('/', [BlogController::class, 'index'])->name('blog.index');
+    Route::get('/{slug}', [BlogController::class, 'show'])->name('blog.show');
 });
 
 # the free guide / checklist / overview
