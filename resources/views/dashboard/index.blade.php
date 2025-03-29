@@ -9,11 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    @if (auth()->user()->HasLifetime())
-                        {{ __("You're logged in and have full access to our services!") }}
-                    @else
-                        <a href="lifetime"> {{ __("Consider buying lifetime!") }} </a>
-                    @endif
+                    {{ __("You're logged in!") }}
                 </div>
             </div>
         </div>
