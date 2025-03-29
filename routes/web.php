@@ -17,7 +17,7 @@ Route::view('/why_register', 'why_register')->name('why_register');
 
 Route::group(['prefix'=> 'blog'], function () {
     Route::get('/', [BlogController::class, 'index'])->name('blog.index');
-    Route::get('/{slug}', [BlogController::class, 'show'])->name('blog.show');
+    // Route::get('/{slug}', [BlogController::class, 'show'])->name('blog.show');
 });
 
 Route::get('/blog/piecas-seru-stadijas', function () {
