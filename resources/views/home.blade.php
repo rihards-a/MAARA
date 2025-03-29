@@ -3,28 +3,30 @@
 @section('title', 'Ziedot')
 
 @section('main_content')<section class="welcome-section">
-    <h1 class="welcome-title">Sveiciens</h1>
     <p class="welcome-text">
-      Mēs esam xyz, kuras pašas izgājušas cauri apjukumam, ko pavada tuvinieka aiziešana, tāpēc mēs izveidojām 2 gidus, kas kalpos kā padomdevēji grūtā brīdī.
-      Pirmais no tiem izskaidro un dod padomus organizējot visus praktiskos ar aiziešanu saistītos jautājums: soli pa solim. Otrais no tiem paredzēts kā ceļvedis jautājumiem, par ko mums katram jāpadomā vēl dzīviem esot, lai, mūsu aiziešanas gadījumā, aiztaupītu tuviniekiem vismaz daļu satraukumu un apjukuma. Droši lejuplādē tos - tie ir bezmaksas.
+    Gan komanda, kas veidojusi šo lapu, gan daudzi citi cilvēki Latvijā ir saskārušies ar apjukumu un neskaidrību par to, kas jādara, kad šo pasauli pamet tuvs cilvēks. Mūsu misija ir sniegt atbalstu šajā brīdī un nodrošināt, ka eksistē viens, uzticams avots, kas kalpo kā palīgs šajā brīdī, kad daudzi lēmumi jāpieņem pirmo reizi.<br>
+
+Neatbildēto jautājumu šādos gadījumos ir vairāk, ja aizgājējs nav atstājis norādījumus un informāciju, kas palīdzētu tuviniekiem pieņemt dažādus lēmumus un veikt nepieciešamās darbības. Tāpēc mēs aicinām Tevi iepazīties arī ar mūsu ceļvedi atbildīgajiem: lēmumi un informācija, kas laikus ir jānorāda katram no mums, lai mūsu tuvinieki pieredzētu mazāk novēršanu pārdzīvojumu grūtajā brīdī.<br>
+
+Visi materiāli šajā lapā ir pieejami bez maksas, bet mēs novērtēsim atsauksmes, ieteikumus un ziedojumus, lai varam veikt šo darbu vēl augstākā kvalitātē.
     </p>
   </section>
 
   <div class="cards-container">
     <div class="card">
-      <img src="https://i.postimg.cc/dQRss7hR/image1.png" alt="Ceļvedis tiem">
+      <img src="{{ asset('images/image3.jpg') }}" alt="Ceļvedis tiem">
       <div class="card-content">
-        <h2 class="card-title">Ceļvedis tiem</h2>
-        <p class="card-text">Kuri organizē ar tuvinieka nāvi saistītos praktiskos jautājumus (bēres, finansiālos jautājumus, u.c.)</p>
+        <h2 class="card-title">Kas jādara pēc tuvinieka nāves: soli pa solim</h2>
+        <p class="card-text">Šis gids kalpos kā padomdevējs un asistents tiem, kas patlaban kārto praktiskus jautājumus, kas saistīti ar tuvinieka aiziešanu: sākot ar nāves iestāšanās brīdi, līdz pat gadam pēc nāves.</p>
         <button class="card-button" data-url="/guide">Izvēlēties</button>
       </div>
     </div>
 
     <div class="card">
-      <img src="https://i.postimg.cc/ncHHCHmy/image2.png" alt="Ceļvedis ikkatram">
+      <img src="{{ asset('images/image2.jpg') }}" alt="Ceļvedis ikkatram">
       <div class="card-content">
-        <h2 class="card-title">Ceļvedis ikkatram</h2>
-        <p class="card-text">Par to, par ko būtu jāpadomā vēl šajā saulē esot, lai neradītu tuviniekiem liekus sarežģījumus</p>
+        <h2 class="card-title">Ceļvedis atbildīgajiem: </h2>
+        <p class="card-text">Šeit esam apkopojuši visus lēmumus, ko cilvēkam vajadzētu pieņemt saistībā ar savu "pēcnāvi" uz Zemes, lai atvieglotu šo smago brīdi tuviniekiem: sākot ar medicīniskām preferencēm un beidzot ar norādījumiem par izvadīšanu.</p>
         <button class="card-button" data-url="/dashboard/lifetime">Izvēlēties</button>
       </div>
     </div>

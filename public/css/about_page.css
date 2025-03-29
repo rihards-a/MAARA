@@ -65,7 +65,7 @@ transform: translateY(-2px);
 
 .logo {
 color: #ffffff;
-font-size: 2rem;
+font-size: 2rem;<a href="{{ route('blog.piecas-seru-stadijas') }}" class="card-button">Lasīt</a>
 font-weight: 700;
 letter-spacing: 1px;
 }
@@ -139,10 +139,12 @@ color: var(--text-color);
 }
 
 .card-button {
+display: inline-block;
 background-color: var(--button-color);
+text-align: center;
 color: #ffffff;
 border: none;
-padding: 1rem 2rem;
+padding: 0.5rem 2rem;
 border-radius: 10px;
 font-weight: 600;
 cursor: pointer;
@@ -206,4 +208,24 @@ border-radius: 8px;
 .cards-container {
     grid-template-columns: 1fr;
 }
+}
+.team-header {
+    display: flex;
+    align-items: flex-start;   
+    justify-content: center;   
+    gap: 6.5rem;
+    margin-top: 2rem;
+    text-align: left;
+}
+
+.welcome-image img {
+    max-width: 450px;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.welcome-subtitle {
+    font-size: 1.5rem;
+    font-weight: bold;
 }
