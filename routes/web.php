@@ -59,7 +59,7 @@ Route::get('/auth/google/callback', [SocialiteController::class, 'google_callbac
 
 # Stripe life-time subscription routes
 Route::middleware('auth')->group(function () {
-    Route::get('lifetime', [StripeSubscriptionController::class, 'index'])->name('index');
+    Route::get('lifetime', [StripeSubscriptionController::class, 'index'])->name('lifetime.index');
     Route::post('checkout', [StripeSubscriptionController::class, 'lifetime_checkout'])->name('checkout');
     Route::get('/checkout/success', [StripeSubscriptionController::class, 'success'])->name('subscription.lifetime.success');
     Route::view('/checkout/cancel', 'checkout.cancel')->name('subscription.lifetime.cancel');
