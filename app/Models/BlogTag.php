@@ -19,8 +19,8 @@ class BlogTag extends Model
         return $this->belongsToMany(
             BlogPost::class,      // Related model
             'blog_post_blog_tag', // Pivot table name
-            'blog_post_id',       // Foreign key on the pivot table for this model
-            'blog_tag_id'         // Foreign key on the pivot table for the related model
+            'blog_tag_id',        // Foreign key on the pivot table for this model
+            'blog_post_id',       // Foreign key on the pivot table for the related model
         );
     }
 }
