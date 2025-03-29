@@ -3,15 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\BlogPost;
+use App\Models\BlogTag;
 
 class BlogController extends Controller
 {
     public function index() {
-        return view('blog.index');
+        // Check whether a view has a tag from the request probably done in json in the view
+
+        // Pass all the blog post objects to the view
+        $posts = BlogPost::with('tags')->get();	
+        return view('blog.index', compact('posts'));
     }
+    
     public function show($slug) {
-        $blogTags = config('blog_tags'); // Replace with a database query
-        if (array_key_exists($slug, $blogTags))
+        // TODO: create a tag system
+
+        // Check whether a view exists for the given slug
+        $post = BlogPost::where('slug', $slug)->first();
+        if ($post)
             return view("blog.{$slug}");
         else
             return redirect()->route('blog.index');

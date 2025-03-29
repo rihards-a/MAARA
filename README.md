@@ -37,6 +37,8 @@ Follow these steps to set up and run MAARA:
    - Set up database credentials (`DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`) to match your local database.
 6. Run database migrations:
    php artisan migrate
+7. Seed the database to populate it with blogs:
+   php artisan db:seed
 7. Generate the application key:
    php artisan key:generate
 8. Install Node.js dependencies:

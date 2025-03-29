@@ -11,33 +11,25 @@
   </section>
 
   <div class="cards-container">
+  @foreach($posts as $post)
     <div class="card">
-      <img src="{{ asset('images/Blogs_1_seras.jpg') }}" alt="Ceļvedis tiem">
+      <img src="{{ asset($post->title_card_image_location) }}" alt="{{ $post->name }}">
       <div class="card-content">
-        <h2 class="card-title">Piecas sēru stadijas – kā tās palīdz saprast mūsu emocijas</h2>
-        <p class="card-text">Uzziniet, kā piecas sēru stadijas var palīdzēt labāk saprast mūsu emocijas un pakāpeniski pielāgoties zaudējumam.</p>
-        <a href="{{ route('blog.piecas-seru-stadijas') }}" class="card-button">Lasīt</a>
+        <h2 class="card-title">{{ $post->name }}</h2>
+        <p class="card-text">{{ $post->title_card_text }}</p>
+        
+        <div class="tags"> <!-- need to polish and create css -->
+            @foreach($post->tags as $tag)
+                <span class="tag">{{ $tag->name }}</span>
+            @endforeach
+        </div>
+        
+        <a href={{ "blog/$post->slug" }} class="card-button">Lasīt</a>
       </div>
     </div>
+  @endforeach
 
-    <div class="card">
-      <img src="{{ asset('images/Blogs_2_vainas.jpg') }}" alt="Ceļvedis tiem">
-      <div class="card-content">
-        <h2 class="card-title">Bailes no nāves – kā tās saprast un pieņemt</h2>
-        <p class="card-text">Bailes no nāves ir dabiska parādība, taču, izprotot un pieņemot tās, mēs varam dzīvot pilnvērtīgāk un ar mazāku trauksmi.</p>
-        <a href="{{ route('blog.bailes-no-naves') }}" class="card-button">Lasīt</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="{{ asset('images/Blogs_3_bailes.jpg') }}" alt="Ceļvedis tiem">
-      <div class="card-content">
-        <h2 class="card-title">Vainas apziņa un nāve – kā ar to tikt galā?</h2>
-        <p class="card-text">Vainas apziņa pēc tuvinieka zaudējuma ir dabiska sēru daļa, un šajā rakstā aplūkoti veidi, kā to saprast, pieņemt un mazināt.</p>
-        <a href="{{ route('blog.vainas-apzina-un-nave') }}" class="card-button">Lasīt</a>
-      </div>
-    </div>
-
+  <!-- Delete these after they're implemented in the seeder -->
     <!-- <div class="card">
       <img src="https://i.postimg.cc/dQRss7hR/image1.png" alt="Ceļvedis tiem">
       <div class="card-content">
@@ -54,7 +46,6 @@
         <p class="card-text">Par to, par ko būtu jāpadomā vēl šajā saulē esot, lai neradītu tuviniekiem liekus sarežģījumus</p>
         <button class="card-button">Lasīt</button>
       </div> -->
-    </div>
   </div>
   </main>
 @endsection
