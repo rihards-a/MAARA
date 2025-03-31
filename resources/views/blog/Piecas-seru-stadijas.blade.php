@@ -51,7 +51,7 @@
             <br>
             📖 Avots: "On Grief and Grieving" – David Kessler, Elisabeth Kübler-Ross.<br>
             <br>
-            <img src="{{ asset('images/Blogs_1_seras_image.jpg') }}" alt="Seeru_stadijas" style="width: 60%; height: auto; padding: 10px;display: block; margin: auto;">
+            <img src="{{ asset('images/blogs_1_seras_image.jpg') }}" alt="Seeru_stadijas" style="width: 60%; height: auto; padding: 10px;display: block; margin: auto;">
             </p>
         </div>
     </div>
