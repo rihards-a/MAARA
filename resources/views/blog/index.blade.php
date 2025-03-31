@@ -18,11 +18,11 @@
         <h2 class="card-title">{{ $post->name }}</h2>
         <p class="card-text">{{ $post->title_card_text }}</p>
         
-        <div class="tags"> <!-- need to polish and create css -->
-            @foreach($post->tags as $tag)
+        <!-- <div class="tags"> need to polish and create css, lets leave this for later as we dont have tags yet -->
+            <!-- @foreach($post->tags as $tag)
                 <span class="tag">{{ $tag->name }}</span>
             @endforeach
-        </div>
+        </div> -->
         
         <a href={{ "blog/$post->slug" }} class="card-button">Lasīt</a>
       </div>
