@@ -16,7 +16,7 @@
          </a>
       </div>
 
-      <input type="checkbox" id="nav-toggle">
+      <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox">
       <label for="nav-toggle" class="nav-toggle-label">
           <span></span>
           <span></span>

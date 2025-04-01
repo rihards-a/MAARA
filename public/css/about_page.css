@@ -187,6 +187,10 @@ object-position: center;
 border-radius: 8px;
 }
 
+#nav-toggle {
+    display: none;  /* Hidden checkbox for mobile menu */
+}
+
 @media (max-width: 768px) {
     .nav-container {
         flex-direction: column;
