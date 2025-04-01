@@ -15,6 +15,14 @@
            <img src="{{ asset('images/MAARA2.svg') }}" alt="logo">
          </a>
       </div>
+
+      <input type="checkbox" id="nav-toggle">
+      <label for="nav-toggle" class="nav-toggle-label">
+          <span></span>
+          <span></span>
+          <span></span>
+      </label>
+
       <ul class="navbar-links">
         <!-- <li><a href="/guide">Gids</a></li> -->
         <li><a href="/blog">Blogs</a></li>
@@ -31,12 +39,12 @@
     </div>
   </nav>
 
-    <main class="main">
-        @yield('main_content')
-    </main>
+  <main class="main">
+      @yield('main_content')
+  </main>
 
-<footer class="footer">
-  <p>Seko mums <a href="https://www.facebook.com/maaraplano" target="_blank">Facebook</a></p>
-</footer>
+  <footer class="footer">
+    <p>Seko mums <a href="https://www.facebook.com/maaraplano" target="_blank">Facebook</a></p>
+  </footer>
 </body>
 </html>
