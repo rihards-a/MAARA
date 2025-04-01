@@ -4,9 +4,11 @@
 
 @section('main_content')
   <section class="welcome-section">
-    <h1 class="welcome-title">Mūsu raksti</h1>
+    <h1 class="welcome-title">MAARA raksta</h1>
     <p class="welcome-text">
-    Mājaslapas sadaļa, veltīta bloga ierakstiem par sērām, būs droša vieta, kur lasītāji varēs rast mierinājumu un sapratni grūtos brīžos. Tajā tiks apskatīti sēru emocionālie un praktiskie aspekti, sniedzot atbalstu un iedrošinājumu pieņemt zaudējumu. Ieraksti dalīsies pieredzē un piedāvās resursus, lai palīdzētu rast iekšējo mieru.
+    Šis blogs ir izveidots, lai tā lasītāji varētu rast gan emocionālu mierinājumu, gan praktiskus padomus grūtos vai mulsinošos brīžos.  Pievēršamies sēru emocionāliem aspektiem, sniedzot informatīvu atbalstu un dažādas filozofiskas perspektīvas, kā arī runājam par praktiskām sadzīves izvēlēm un labirintiem, kam cauri jālīkumo tuvinieka zaudējuma gadījumā.  Dalīsimies pieredzē un piedāvāsim resursus, lai palīdzētu viens otram rast iekšējo mieru.<br>
+    <br>
+    Ja esi saskārusies ar kādu situāciju, kurā gūtā pieredze varētu noderēt citiem, droši sazinies ar mums rakstot uz info@maara.id.lv - mēs par to uzrakstīsim, kā arī centīsimies atbildēt uz vēl neatbildētajiem jautājumiem. Tikai kopīgiem spēkiem mēs varam izveidot šo vietni par daudzpusīgu atbalsta mehānismu, kas mazinās apjukumu, saskaroties ar vēl nepieredzēto.
     </p>
   </section>
 

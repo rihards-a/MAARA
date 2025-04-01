@@ -9,7 +9,7 @@
     <div class="welcome-content">
         <div class="welcome-text align-right">
             <p>
-            <img src="{{ asset('images/blogs_1_seras_header.jpg') }}" alt="Seeru_stadijas_header" style="width: 100%; height: auto; padding: 10px;">
+            <img src="{{ asset('images/blogs_1_seras_header.png') }}" alt="Seeru_stadijas_header" style="width: 100%; height: auto; padding: 10px;">
             </p>
         </div>
     </div>

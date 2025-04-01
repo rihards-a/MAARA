@@ -38,7 +38,7 @@ class BlogSeeder extends Seeder
                 'name' => 'Piecas sēru stadijas - kā tās palīdz saprast mūsu emocijas',
                 'slug' => 'piecas-seru-stadijas',
                 'title_card_image_location' => 'images/blogs_1_seras.jpg',
-                'title_card_text' => 'Uzziniet, kā piecas sēru stadijas var palīdzēt labāk saprast mūsu emocijas un pakāpeniski pielāgoties zaudējumam.',
+                'title_card_text' => 'Uzziniet, kā izpratne par piecām sēru stadijām var palīdzēt labāk atpazīt un izdzīvot mūsu emocijas pēc zaudējuma.',
                 'tags' => ['ko-darit']
             ],
             [
