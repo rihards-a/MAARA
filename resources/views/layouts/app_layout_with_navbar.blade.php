@@ -16,13 +16,6 @@
          </a>
       </div>
 
-      <input type="checkbox" id="nav-toggle">
-      <label for="nav-toggle" class="nav-toggle-label">
-          <span></span>
-          <span></span>
-          <span></span>
-      </label>
-
       <ul class="navbar-links">
         <!-- <li><a href="/guide">Gids</a></li> -->
         <li><a href="/blog">Blogs</a></li>
