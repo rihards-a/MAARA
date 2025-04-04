@@ -54,4 +54,15 @@ class User extends Authenticatable
     {
         return (bool) $this->lifetime_subscription;
     }
+
+    
+    public function submissions()
+    {
+        return $this->hasMany(Submission::class);
+    }
+
+    public function responses()
+    {
+        return $this->hasMany(Response::class);
+    }
 }
