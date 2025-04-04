@@ -10,6 +10,13 @@ use App\Http\Controllers\ProfileController;
 
 require __DIR__.'/auth.php'; # Laravel Breeze authentication routes
 
+// test route for testing purposes
+use App\Http\Controllers\QuestionnaireController;
+use App\Http\Controllers\SubmissionController;
+Route::get('questionnaire/{id}', [QuestionnaireController::class, 'show'])->name('questionnaire.show');
+Route::post('submission', [SubmissionController::class, 'store'])->name('submission.store');
+// end of test routes
+
 Route::view('/', 'home')->name('home');
 Route::view('/contact', 'contact')->name('contact');
 Route::view('/about', 'about')->name('about');
