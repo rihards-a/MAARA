@@ -77,3 +77,10 @@ Route::get("lang/{lang}", function($lang){
     }
     return redirect()->back();
 })->name("lang.switch");
+
+Route::get('/guide/registering', function () {
+    return view('guide.registering');
+});
+Route::get('/guide/available_support', function () {
+    return view('guide.available_support');
+});
