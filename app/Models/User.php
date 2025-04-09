@@ -55,6 +55,10 @@ class User extends Authenticatable
         return (bool) $this->lifetime_subscription;
     }
 
+    public function HasGoogleAccount() : bool 
+    {
+        return (bool) $this->google_id != null;
+    }
     
     public function submissions()
     {
