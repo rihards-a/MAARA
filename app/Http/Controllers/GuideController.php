@@ -35,4 +35,12 @@ class GuideController extends Controller
     {
         return view('guide.establishments');
     }
+    public function afterloss()
+    {
+        return view('guide.afterloss');
+    }
+    public function inheritance()
+    {
+        return view('guide.inheritance');
+    }
 }

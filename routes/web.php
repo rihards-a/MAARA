@@ -35,7 +35,9 @@ Route::group(["prefix"=> "guide"], function () {
     Route::get('/available_support', [GuideController::class,'available_support'])->name('guide.available_support');
     Route::get('/burial', [GuideController::class, 'burial'])->name('guide.burial');
     Route::get('/legacy', [GuideController::class,'legacy'])->name('guide.legacy');
-    Route::get('/establishments', [GuideController::class,'establishments'])->name('establishments');
+    Route::get('/establishments', [GuideController::class,'establishments'])->name('guide.establishments');
+    Route::get('/afterloss', [GuideController::class,'afterloss'])->name('guide.afterloss');
+    Route::get('/inheritance', [GuideController::class,'inheritance'])->name('guide.inheritance');
     # others...
 });
 
@@ -85,9 +87,3 @@ Route::get("lang/{lang}", function($lang){
     return redirect()->back();
 })->name("lang.switch");
 
-Route::get('/guide/registering', function () {
-    return view('guide.registering');
-});
-Route::get('/guide/available_support', function () {
-    return view('guide.available_support');
-});
