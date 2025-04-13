@@ -16,6 +16,8 @@ use App\Http\Controllers\SubmissionController;
 Route::get('questionnaire/{id}', [QuestionnaireController::class, 'show'])->name('questionnaire.show');
 Route::post('submission', [SubmissionController::class, 'store'])->name('submission.store');
 // end of test routes
+use App\Http\Controllers\PrereleaseEmailSubmissionController;
+Route::post('PrereleaseEmail', [PrereleaseEmailSubmissionController::class, 'submission'])->name('prerelease.email');
 
 Route::view('/', 'home')->name('home');
 Route::view('/contact', 'contact')->name('contact');

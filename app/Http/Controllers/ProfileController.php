@@ -6,11 +6,12 @@ use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use App\Mail\ConfirmAccountDeletion;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\URL;
+use App\Mail\ConfirmAccountDeletion;
+use App\Models\User;
 
 class ProfileController extends Controller
 {
@@ -95,7 +96,7 @@ class ProfileController extends Controller
 
         // Logout the user and delete the account.
         Auth::logout();
-        $user->delete();
+        User::find($user->id)->delete();
 
         $request->session()->invalidate();
         $request->session()->regenerateToken();
