@@ -21,15 +21,32 @@
             🔸Miršanas apliecību izsniedz bez maksas, tajā pašā dienā pēc reģistrācijas fakta.<br>
             🔸Ja nāves gadījums ir noticis ārvalstīs, līdzi jāņem miršanas faktu apliecinošs dokuments ar tulkojumu latviešu valodā un apostille/legalizācija, ja nepieciešams.<br>
             <br>
-            Noderīgi resursi - <br>
-            <a href="https://latvija.gov.lv/Services/7804?utm" target="_blank" rel="noopener noreferrer">
-            Pakalpojuma saņemšanas process Rīgas valstspilsētā
-            </a>
-            <a href="https://likumi.lv/ta/id/253442" target="_blank" rel="noopener noreferrer">
-            Civilstāvokļu aktu reģistrācijas likums
-            </a>
+                <div class="green-links">
+                ℹ️ Noderīgi resursi: <br>
+                <a href="https://latvija.gov.lv/Services/7804?utm" target="_blank" rel="noopener noreferrer">
+                    Pakalpojuma saņemšanas process Rīgas valstspilsētā
+                </a><br>
+                <a href="https://likumi.lv/ta/id/253442" target="_blank" rel="noopener noreferrer">
+                    Civilstāvokļu aktu reģistrācijas likums
+                </a>
+                </div>
             </p>
         </div>
     </div>
+
+<nav class="guide-navigation" aria-label="Guide navigation">
+    <div>
+        <a href="{{ route('guide.afterloss') }}" title="Ko darīt uzreiz pēc tuvinieka nāves?">
+            <span>&larr;</span>
+            <span class="nav-title">Iepriekšējais</span>
+        </a>
+    </div>
+    <div>
+        <a href="{{ route('guide.available_support') }}" title="Pieejamais pabalsts">
+            <span class="nav-title">Nākamais</span>
+            <span>&rarr;</span>
+        </a>
+    </div>
+</nav>
 </section>
 @endsection

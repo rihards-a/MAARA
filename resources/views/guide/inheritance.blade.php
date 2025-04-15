@@ -38,14 +38,45 @@
             🔸 Ja mantinieks pārdod mantoto īpašumu, var būt jāmaksā kapitāla pieauguma nodoklis.<br>
             🔸 Mantojuma lieta parasti ilgst trīs līdz sešus mēnešus, ja nav konfliktu starp mantiniekiem. Ja ir sarežģījumi vai tiesvedība, process var ilgt ilgāk. Strīdu gadījumā mantinieki var vērsties tiesā vai izmantot mediatora pakalpojumus.<br>
             <br>
-            Noderīgi resursi:<br>
-Mantojuma kārtošanas process: https://www.latvijasnotars.lv/articles/mantojuma-kartosanas-process-soli-pa-solim
-Detalizētāka informācija par mantojuma lietas uzsākšanu: https://likumi.lv/ta/id/180087-noteikumi-par-mantojuma-registra-un-mantojuma-lietu-vesanu
-Par 2025. Gada mantojuma tiesību reformu: https://lvportals.lv/skaidrojumi/371416-stajas-speka-mantojuma-tiesibu-reforma-2025
-Civillikuma otrā daļa (Mantojuma tiesības): https://likumi.lv/ta/id/90222-civillikums-otra-dala-mantojuma-tiesibas) 
-Mantojuma lietas kārtošana, ja manta atrodas vairākās valstīs: https://lvportals.lv/e-konsultacijas/35076-mantojuma-lietas-kartosana-ja-manta-atrodas-vairakas-valstis-2025
+            <div class="green-links">
+                ℹ️ Noderīgi resursi: <br>
+                <a href="https://www.latvijasnotars.lv/articles/mantojuma-kartosanas-process-soli-pa-solim" target="_blank" rel="noopener noreferrer">
+                Mantojuma kārtošanas process
+                </a><br>
+                <a href="https://likumi.lv/ta/id/180087-noteikumi-par-mantojuma-registra-un-mantojuma-lietu-vesanu" target="_blank" rel="noopener noreferrer">
+                Detalizētāka informācija par mantojuma lietas uzsākšanu
+                </a><br>
+                <a href="https://lvportals.lv/skaidrojumi/371416-stajas-speka-mantojuma-tiesibu-reforma-2025" target="_blank" rel="noopener noreferrer">
+                Par 2025. Gada mantojuma tiesību reformu
+                </a><br>
+                <a href="https://likumi.lv/ta/id/90222-civillikums-otra-dala-mantojuma-tiesibas" target="_blank" rel="noopener noreferrer">
+                Civillikuma otrā daļa (Mantojuma tiesības)
+                </a><br>
+                <a href="https://lvportals.lv/e-konsultacijas/35076-mantojuma-lietas-kartosana-ja-manta-atrodas-vairakas-valstis-2025" target="_blank" rel="noopener noreferrer">
+                Mantojuma lietas kārtošana, ja manta atrodas vairākās valstīs
+                </a>     
+              </div>
             </p>
         </div>
     </div>
+    <nav class="guide-navigation" aria-label="Guide navigation">
+        <div>
+            <a href="{{ route('guide.available_support') }}" title="Pieejamais pabalsts">
+            <span>&larr;</span>
+            <span class="nav-title">Iepriekšējais</span>
+            </a>
+        </div>
+        <div>
+            <a href="{{ route('guide.index') }}" title="Gida sākumlapa">
+            <span class="nav-title">Gida sākumlapa</span>
+            </a>
+        </div>
+        <div>
+            <a href="{{ route('guide.establishments') }}" title="Saziņa ar banku">
+            <span class="nav-title">Nākamais</span>
+            <span>&rarr;</span>
+            </a>
+        </div>
+    </nav>
 </section>
 @endsection

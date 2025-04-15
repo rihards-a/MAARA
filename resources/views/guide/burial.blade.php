@@ -31,10 +31,12 @@
             🔸 Ar kapa vietas organizācijas jautājumiem var palīdzēt arī apbedīšanas birojs.<br>
             🔸 Varbūt kremācijas gadījumā vēlēsies aizgājēja pelnus izkaisīt kādā īpašā un skaistā vietā, ko pēcāk apmeklēsi kapsētas vietā? Arvien izplatītāka kļūst prakse vadīties pēc savām sajūtām, nevis pieņemtām ilggadējām tradīcijām.<br>
             <br>
-            Noderīgi resursi:<br>
-https://likumi.lv/ta/id/347257-rigas-valstspilsetas-pasvaldibas-kapsetu-darbibas-un-uzturesanas-saistosie-noteikumi
-
-            
+                <div class="green-links">
+                ℹ️ Noderīgi resursi: <br>
+                    <a href="https://likumi.lv/ta/id/347257-rigas-valstspilsetas-pasvaldibas-kapsetu-darbibas-un-uzturesanas-saistosie-noteikumi" target="_blank" rel="noopener noreferrer">
+                    Kapsētu darbības un uzturēšanas saistošie noteikumi
+                    </a>
+                </div>           
             </p>
         </div>
     </div>

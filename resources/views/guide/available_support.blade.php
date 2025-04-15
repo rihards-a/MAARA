@@ -18,10 +18,13 @@
             🔸Pašvaldības pabalsti: atsevišķas pašvaldības var piedāvāt papildu pabalstus bēru izdevumu segšanai. Ieteicams sazināties ar mirušā deklarētās dzīvesvietas pašvaldības sociālo dienestu, lai noskaidrotu pieejamās iespējas.<br>
             🔸Ja pietrūkst līdzekļu bēru izdevumu segšanai un aizgājēja kontā ir nauda, dažas bankas Latvijā var piekrist izmaksāt nelielu (parasti - no 200 līdz 400 eiro) bēru pabalstu no aizgājēja konta.Tā ir vienreizēja izmaksa, un to var pieprasīt 1. pakāpes radinieks (laulātais, vecāki, bērni) mēneša laikā no tuvinieka nāves fakta.<br>
             <br>
-            Noderīgi resursi: <br> 
-            <a href="https://www.vsaa.gov.lv/lv/pakalpojumi/apbedisanas-pabalsta-pieskirsana-un-izmaksasana" target="_blank" rel="noopener noreferrer">
-            Iesnieguma forma pabalsta pieprasīšanai (sadaļā ‘’Saistīti dokumenti’’)
-            </a>
+                <div class="green-links">
+                    ℹ️ Noderīgi resursi: <br>
+                <a href="https://www.vsaa.gov.lv/lv/pakalpojumi/apbedisanas-pabalsta-pieskirsana-un-izmaksasana" target="_blank" rel="noopener noreferrer">
+                Iesnieguma forma pabalsta pieprasīšanai (sadaļā ‘’Saistīti dokumenti’’)
+                </a>
+                
+                </div>
             </p>
         </div>
     </div>

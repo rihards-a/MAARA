@@ -13,7 +13,7 @@
 
       <div class="cards-container">
         <div class="card vertical-card">
-          <img src="{{ asset('images/guide.png') }}" alt="Ceļvedis tiem" class="card-image-guide">
+          <img src="{{ asset('images/guide.jpg') }}" alt="Ceļvedis tiem" class="card-image-guide">
             <div class="card-content-guide">
               <div>
                 <h2 class="card-title">Kas jādara pēc tuvinieka nāves: soli pa solim</h2>
@@ -25,7 +25,7 @@
  
 
     <div class="card vertical-card">
-        <img src="{{ asset('images/planosanas_riks.png') }}" alt="Ceļvedis ikkatram" class="card-image">
+        <img src="{{ asset('images/planosanas_riks.jpg') }}" alt="Ceļvedis ikkatram" class="card-image">
         <div class="card-content">
           <div>
             <h2 class="card-title">Pēcdzīves plānošanas rīks</h2>

@@ -3,72 +3,43 @@
 @section('title', 'Guide')
 
 @section('main_content')
-  <div class=guide-background>
-      <section class="welcome-section-guide">
+<div class="guide-background">
+    <section class="welcome-section-guide">
       <h1 class="welcome-title">Kā rīkoties pēc tuvinieka nāves</h1>
-      <p>Šajā ceļvedī apkopotā informācija ir sagatavota ar mērķi sniegt praktisku atbalstu sarežģītā dzīves brīdī. Tā balstās uz publiski pieejamiem avotiem, un, lai arī esam centušies to veidot pēc iespējas precīzu un saprotamu, pastāv iespējamas izmaiņas vai nianses, kas šeit nav ietvertas. Aicinām nepieciešamības gadījumā vērsties pie atbildīgajām iestādēm vai speciālistiem, lai saņemtu oficiālu informāciju. Ceļveža veidotāji neuzņemas juridisku atbildību par šeit sniegtās informācijas precizitāti. Ja jūs pamanāt kādas detaļas, kas nav bijušas atbilstošas jūsu pieredzei, vai jums ir papildinājumi, lūdzu, sazinieties ar mums, rakstot uz info@maara.id.lv<br>
-      <br> 
+      <p>
+      Šajā ceļvedī apkopotā informācija ir sagatavota ar mērķi sniegt praktisku atbalstu sarežģītā dzīves brīdī. Tā balstās uz publiski pieejamiem avotiem, un, lai arī esam centušies to veidot pēc iespējas precīzu un saprotamu, pastāv iespējamas izmaiņas vai nianses, kas šeit nav ietvertas. Aicinām nepieciešamības gadījumā vērsties pie atbildīgajām iestādēm vai speciālistiem, lai saņemtu oficiālu informāciju. Ceļveža veidotāji neuzņemas juridisku atbildību par šeit sniegtās informācijas precizitāti. Ja jūs pamanāt kādas detaļas, kas nav bijušas atbilstošas jūsu pieredzei, vai jums ir papildinājumi, lūdzu, sazinieties ar mums, rakstot uz info@maara.id.lv
+        <br><br>
       </p>
 
-        <div class="cards-container-guide">
+      <div class="cards-container-guide">
+        @php
+          $guides = [
+            ['number' => 1, 'title' => 'Ko darīt uzreiz pēc tuvinieka nāves?', 'text' => 'Pirmie svarīgie soļi pēc tuvinieka aiziešanas – praktiski padomi, kam zvanīt, kā rīkoties un kur vērsties.', 'route' => route('guide.afterloss')],
+            ['number' => 2, 'title' => 'Miršanas fakta reģistrācija', 'text' => 'Skaidrojums par miršanas fakta reģistrēšanu – nepieciešamie dokumenti, atbildīgās iestādes un praktiski soļi.', 'route' => route('guide.registering')],
+            ['number' => 3, 'title' => 'Pieejamais pabalsts', 'text' => 'Kur pieteikties apbedīšanas pabalstam, lai segtu tuvinieka bēru izdevumus – termiņš un noderīgas saites.', 'route' => route('guide.available_support')],
+            ['number' => 4, 'title' => 'Mantojuma lietas uzsākšana', 'text' => 'Svarīgākais par mantojuma lietas sākšanu – kur vērsties, kādi dokumenti nepieciešami un kas jāzina.', 'route' => route('guide.inheritance')],
+            ['number' => 5, 'title' => 'Saziņa ar banku', 'text' => 'Kam vērts pievērst uzmanību, sazinoties ar banku pēc tuvinieka nāves – dokumenti un nianses.', 'route' => route('guide.establishments')],
+            ['number' => 6, 'title' => 'Apbedīšana', 'text' => 'Izvēles un pārdomas par bēru norisi – no apbedīšanas veida līdz ceremonijas sajūtām un detaļām.', 'route' => route('guide.burial')],
+            ['number' => 7, 'title' => 'Emocionāls atbalsts palicējiem', 'text' => 'Kā atļaut sev sērot, būt klātesošam savās emocijās un kur meklēt sev piemērotu atbalstu.', 'route' => route('guide.legacy')],
+          ];
+        @endphp
+
+        @foreach($guides as $guide)
           <div class="card-guide">
             <div class="card-content-guide">
-              <p class="guide-numbers">1</p>
-              <h2 class="card-title-guide">Ko darīt uzreiz pēc tuvinieka nāves?</h2>
-              <p class="card-text-guide">Pirmie svarīgie soļi pēc tuvinieka aiziešanas – praktiski padomi, kam zvanīt, kā rīkoties un kur vērsties.</p>
-              <a href="{{ route('guide.afterloss') }}" class="card-button">Lasīt</a>  
+              <div class="card-top">
+                <p class="guide-numbers">{{ $guide['number'] }}</p>
+                <h2 class="card-title-guide">{{ $guide['title'] }}</h2>
+              </div>
+              <div class="card-bottom">
+                <p class="card-text-guide">{{ $guide['text'] }}</p>
+                <a href="{{ $guide['route'] }}" class="card-button">Lasīt</a>
+              </div>
             </div>
           </div>
-          <div class="card-guide">
-            <div class="card-content-guide">
-              <p class="guide-numbers">2</p>
-              <h2 class="card-title-guide">Miršanas fakta reģistrācija</h2>
-              <p class="card-text-guide">Skaidrojums par miršanas fakta reģistrēšanu – nepieciešamie dokumenti, atbildīgās iestādes un praktiski soļi.</p>
-              <a href="{{ route('guide.registering') }}" class="card-button">Lasīt</a>
-            </div>
-          </div>
-          <div class="card-guide">
-            <div  class="card-content-guide">
-              <p class="guide-numbers">3</p>
-              <h2 class="card-title-guide">Pieejamais pabalsts</h2>
-              <p class="card-text-guide">Kur pieteikties apbedīšanas pabalstam, lai segtu tuvinieka bēru izdevumus – termiņš un noderīgas saites.</p>
-              <a href="{{ route('guide.available_support') }}" class="card-button">Lasīt</a>
-            </div>
-          </div>
-          <div class="card-guide">
-            <div class="card-content-guide">
-              <p class="guide-numbers">4</p>
-              <h2 class="card-title-guide">Mantojuma lietas uzsākšana</h2>
-              <p class="card-text-guide">Svarīgākais par mantojuma lietas sākšanu – kur vērsties, kādi dokumenti nepieciešami un kas jāzina.</p>
-              <a href="{{ route('guide.inheritance') }}" class="card-button">Lasīt</a>  
-            </div>
-          </div>
-          <div class="card-guide">
-            <div class="card-content-guide">
-              <p class="guide-numbers">5</p>
-              <h2 class="card-title-guide">Saziņa ar banku</h2>
-              <p class="card-text-guide">Kam vērts pievērst uzmanību, sazinoties ar banku pēc tuvinieka nāves – dokumenti un nianses.</p>
-              <a href="{{ route('guide.establishments') }}" class="card-button">Lasīt</a>
-            </div>
-          </div>
-          <div class="card-guide">
-            <div class="card-content-guide">
-              <p class="guide-numbers">6</p>
-              <h2 class="card-title-guide">Apbedīšana</h2>
-              <p class="card-text-guide">Izvēles un pārdomas par bēru norisi – no apbedīšanas veida līdz ceremonijas sajūtām un detaļām.</p>
-              <a href="{{ route('guide.burial') }}" class="card-button">Lasīt</a>
-            </div>
-          </div>
-          <div class="card-guide">
-            <div class="card-content-guide">
-              <p class="guide-numbers">7</p>
-              <h2 class="card-title-guide">Emocionāls atbalsts palicējiem</h2>
-              <p class="card-text-guide">Kā atļaut sev sērot, būt klātesošam savās emocijās un kur meklēt sev piemērotu atbalstu.</p>
-              <a href="{{ route('guide.legacy') }}" class="card-button">Lasīt</a>  
-                      </div>
-          </div>
-        </div>
+        @endforeach
+      </div>
     </section>
-</div>
+  </div>
 @endsection
 
