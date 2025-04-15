@@ -5,7 +5,7 @@
 @section('main_content')<section class="welcome-section">
     <p class="welcome-text">
     <h2>Atbildes uz jautājumiem par aiziešanu.</h2><br>
-    Mums katram dzīves laikā sanāk kaut reizi izdzīvot sēras, taču nāvi ne vienmēr ir jāpavada apjukumam. <br>
+    Mums katram dzīves laikā nākas piedzīvot sēras, taču zaudējuma brīdim nav jābūt apjukuma pilnam.<br>
     <br>
     Mēs esam šeit, lai sniegtu Tev noderīgu informāciju par aiziešanas praktiskajiem aspektiem - gan, ja šobrīd esi atbildīgs par kāda cita izvadīšanu, gan, ja vēlies pārliecināties, ka Taviem tuviniekiem būs pieejama visa nepieciešamā informācija, lai spētu vieglāk tikt galā ar praktiskajiem aspektiem Tevis aiziešanas gadījumā.<br>
     </p>
