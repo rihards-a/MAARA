@@ -38,8 +38,8 @@
           </div>
           <div>
             <div class="card-email">
-            <input type="email" placeholder="Ievadi savu epastu">
-            <button class="card-button-green" data-url={{route('dashboard')}}>Pieteikties</button>
+              <input type="email" id="email-input" placeholder="Ievadi savu epastu">
+              <button class="card-button-green" id="email-button">Pieteikties</button>
             </div>
           </div>
         </div>
@@ -52,6 +52,53 @@
         window.location.href = this.getAttribute("data-url");
       });
     });
+
+    document.getElementById("email-button").addEventListener("click", function() {
+    const email = document.getElementById("email-input").value;
+    
+
+    // Email validation function
+    function isValidEmail(email) {
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailPattern.test(email);
+    }
+    if (!isValidEmail(email)) {
+      alert("Lūdzu, ievadiet derīgu e-pasta adresi");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('email', email);
+    
+    // Get CSRF token if you're using Laravel (remove if not needed)
+    const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+    
+    // Make the POST request
+    fetch('{{route("prerelease.email")}}', {
+      method: 'POST',
+      headers: {
+        'X-CSRF-TOKEN': csrfToken, // Include for Laravel CSRF protection
+        'Accept': 'application/json'
+      },
+      body: formData
+    })
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error('Network response was not ok');
+    })
+    .then(data => {
+      // Handle successful response
+      console.log('Success:', data);
+      // Optional: redirect after successful submission
+      alert(data.message)
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      alert('Kļūda nosūtot datus. Lūdzu, mēģiniet vēlreiz.');
+    });
+  });
   </script>
 
 @endsection

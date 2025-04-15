@@ -6,11 +6,12 @@ use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use App\Mail\ConfirmAccountDeletion;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\URL;
+use App\Mail\ConfirmAccountDeletion;
+use App\Models\User;
 
 class ProfileController extends Controller
 {
@@ -70,14 +71,13 @@ class ProfileController extends Controller
 
         // Generate a temporary signed URL that expires in, for example, 60 minutes.
         $deletionUrl = URL::temporarySignedRoute(
-            'account.deletion.confirm',
+            'profile.confirm-deletion',
             now()->addMinutes(60),
-            ['user' => $user->id]
+            ['id' => $user->id, 'email' => $user->email]
         );
 
         // Send the confirmation email.
         Mail::to($user->email)->send(new ConfirmAccountDeletion($user, $deletionUrl));
-
         return Redirect::back()->with('status', 'A confirmation email has been sent to your email address.');
     }
 
@@ -86,20 +86,26 @@ class ProfileController extends Controller
      */
     public function confirmDeletion(Request $request)
     {
-        $user = Auth::user();
-
-        // Check to ensure the user in the route parameter matches the logged-in user.
-        if ((int) $request->route('user') !== $user->id) {
-            abort(403, 'Unauthorized action.');
+        if (!$request->hasValidSignature()) { // from temprarySignedRoute
+            abort(403, 'Invalid or expired link.');
         }
 
-        // Logout the user and delete the account.
-        Auth::logout();
+        $email = URLdecode($request->query('email'));
+        $user = User::where('id', $request->query('id'))->where('email', $email)->first();
+
+        if (!$user) {
+            abort(404, 'User not found.');
+        }
+
+        // Logout the user if necessary
+        if (Auth::check() && Auth::user()->id === $user->id) {
+            Auth::logout();
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+        }
+
         $user->delete();
 
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        return Redirect::to('/')->with('status', 'Your account has been deleted successfully.');
+        return Redirect::to('/')->with('status', 'The account has been deleted successfully.');
     }
 }

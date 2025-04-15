@@ -15,6 +15,29 @@
     >{{ __('Delete Account') }}</x-danger-button>
 
     <x-modal name="confirm-user-deletion" :show="$errors->userDeletion->isNotEmpty()" focusable>
+        @if (Auth::user()->HasGoogleAccount())
+        <form method="post" action="{{ route('profile.send-deletion-email') }}" class="p-6">
+            @csrf
+
+            <h2 class="text-lg font-medium text-gray-900">
+                {{ __('Are you sure you want to delete your account?') }}
+            </h2>
+
+            <p class="mt-1 text-sm text-gray-600">
+                {{ __("Are you sure you want to delete your account? If you proceed, we will send a confirmation link to your email. Once you click that link, your account and all associated data will be permanently removed from our system. This action cannot be undone.") }}
+            </p>
+
+            <div class="mt-6 flex justify-end">
+                <x-secondary-button x-on:click="$dispatch('close')">
+                    {{ __('Cancel') }}
+                </x-secondary-button>
+
+                <x-danger-button class="ms-3">
+                    {{ __('Send Deletion Link') }}
+                </x-danger-button>
+            </div>
+        </form>
+        @else
         <form method="post" action="{{ route('profile.destroy') }}" class="p-6">
             @csrf
             @method('delete')
@@ -51,5 +74,6 @@
                 </x-danger-button>
             </div>
         </form>
+        @endif
     </x-modal>
 </section>
