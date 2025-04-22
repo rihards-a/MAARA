@@ -33,20 +33,24 @@
             </p>
         </div>
     </div>
-
-<nav class="guide-navigation" aria-label="Guide navigation">
-    <div>
-        <a href="{{ route('guide.afterloss') }}" title="Ko darīt uzreiz pēc tuvinieka nāves?">
+    <nav class="guide-navigation" aria-label="Guide navigation">
+        <div>
+            <a href="{{ route('guide.afterloss') }}" title="Pirmie soļi">
             <span>&larr;</span>
-            <span class="nav-title">Iepriekšējais</span>
-        </a>
-    </div>
-    <div>
-        <a href="{{ route('guide.available_support') }}" title="Pieejamais pabalsts">
-            <span class="nav-title">Nākamais</span>
+            <span class="nav-title">Pirmie soļi</span>
+            </a>
+        </div>
+        <div>
+            <a href="{{ route('guide.index') }}" title="Gida sākumlapa">
+            <span class="nav-title">Ceļveža mājaslapa</span>
+            </a>
+        </div>
+        <div>
+            <a href="{{ route('guide.available_support') }}" title="Pieejamais pabalsts">
+            <span class="nav-title">Pieejamais pabalsts</span>
             <span>&rarr;</span>
-        </a>
-    </div>
-</nav>
+            </a>
+        </div>
+    </nav>
 </section>
 @endsection

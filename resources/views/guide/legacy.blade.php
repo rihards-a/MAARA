@@ -47,5 +47,19 @@
             </p>
         </div>
     </div>
+    <nav class="guide-navigation" aria-label="Guide navigation">
+        <div>
+            <a href="{{ route('guide.establishments') }}" title="Saziņa ar banku">
+            <span>&larr;</span>
+            <span class="nav-title">Saziņa ar banku</span>
+            </a>
+        </div>
+        <div>
+            <a href="{{ route('guide.index') }}" title="Gida sākumlapa">
+            <span class="nav-title">Ceļveža mājaslapa</span>
+            <span>&rarr;</span>
+            </a>
+        </div>
+    </nav>
 </section>
 @endsection

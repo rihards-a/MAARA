@@ -63,17 +63,17 @@
         <div>
             <a href="{{ route('guide.available_support') }}" title="Pieejamais pabalsts">
             <span>&larr;</span>
-            <span class="nav-title">Iepriekšējais</span>
+            <span class="nav-title">Pieejamais pabalsts</span>
             </a>
         </div>
         <div>
             <a href="{{ route('guide.index') }}" title="Gida sākumlapa">
-            <span class="nav-title">Gida sākumlapa</span>
+            <span class="nav-title">Ceļveža mājaslapa</span>
             </a>
         </div>
         <div>
             <a href="{{ route('guide.establishments') }}" title="Saziņa ar banku">
-            <span class="nav-title">Nākamais</span>
+            <span class="nav-title">Saziņa ar banku</span>
             <span>&rarr;</span>
             </a>
         </div>

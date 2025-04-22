@@ -201,15 +201,14 @@ background-position: center;
         text-align: left;
         font-weight: 600;
     }
-      /* --- Guide Navigation (Keep this CSS) --- */
       .guide-navigation {
         display: flex;
         background-color: #e9e9e9;
         border-radius: 0.5rem;
-        justify-content: space-around; /* Changed to space-around for middle button */
+        justify-content: space-between; /* Changed to space-around for middle button */
         align-items: center;
-        padding: 1rem 0; /* Add some vertical padding */
-        margin-top: 2.5rem; /* Space above the navigation */
+        padding: 1rem 1rem; 
+        margin-top: 2.5rem; 
         border-top: 1px solid #e0e0e0; /* Thin line separator */
         font-size: 0.9rem; /* Slightly smaller font */
       }
@@ -223,7 +222,7 @@ background-position: center;
         display: flex; /* Align icon and text */
         align-items: center;
         gap: 0.5rem; /* Space between icon and text */
-        background-color: #f0f0f0; /* Light gray background */
+        background-color: #cecece; /* Light gray background */
       }
 
       .guide-navigation a:hover {

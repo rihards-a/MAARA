@@ -23,5 +23,24 @@
             </p>
         </div>
     </div>
+    <nav class="guide-navigation" aria-label="Guide navigation">
+        <div>
+            <a href="{{ route('guide.inheritance') }}" title="Mantojuma lietas uzsākšana">
+            <span>&larr;</span>
+            <span class="nav-title">Mantojums</span>
+            </a>
+        </div>
+        <div>
+            <a href="{{ route('guide.index') }}" title="Gida sākumlapa">
+            <span class="nav-title">Ceļveža mājaslapa</span>
+            </a>
+        </div>
+        <div>
+            <a href="{{ route('guide.burial') }}" title="Apbedīšana">
+            <span class="nav-title">Apbedīšana</span>
+            <span>&rarr;</span>
+            </a>
+        </div>
+    </nav>
 </section>
 @endsection

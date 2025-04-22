@@ -44,17 +44,16 @@
             </p>
         </div>
     </div>
-
     <nav class="guide-navigation" aria-label="Guide navigation">
-        
         <div>
             <a href="{{ route('guide.index') }}" title="Gida sākumlapa">
-            <span class="nav-title">Gida sākumlapa</span>
+            <span>&larr;</span>
+            <span class="nav-title">Ceļveža mājaslapa</span>
             </a>
         </div>
         <div>
-            <a href="{{ route('guide.establishments') }}" title="Saziņa ar banku">
-            <span class="nav-title">Nākamais</span>
+            <a href="{{ route('guide.registering') }}" title="Miršanas fakta reģistrācija">
+            <span class="nav-title">Miršanas fakta reģistrācija</span>
             <span>&rarr;</span>
             </a>
         </div>
