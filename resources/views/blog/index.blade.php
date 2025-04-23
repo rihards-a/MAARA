@@ -25,7 +25,7 @@
             @endforeach
         </div> -->
         
-        <a href={{ "blog/$post->slug" }} class="card-button">Lasīt</a>
+        <a href={{ route('blog.show', ['slug' => $post->slug]) }} class="card-button">Lasīt</a>
       </div>
     </div>
   @endforeach
