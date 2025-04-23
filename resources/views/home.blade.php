@@ -55,7 +55,7 @@
     </div>
     
   <script>
-    console.log("Script loaded");
+
     // Email subscription alert popup
     function showCustomAlert(message) {
       document.getElementById('alert-message').textContent = message;
