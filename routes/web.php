@@ -8,21 +8,21 @@ use App\Http\Controllers\StripeDonationsController;
 use App\Http\Controllers\SocialiteController;
 use App\Http\Controllers\ProfileController;
 
-require __DIR__.'/auth.php'; # Laravel Breeze authentication routes
+//require __DIR__.'/auth.php'; # Laravel Breeze authentication routes
 
 // test route for testing purposes
-use App\Http\Controllers\QuestionnaireController;
-use App\Http\Controllers\SubmissionController;
-Route::get('questionnaire/{id}', [QuestionnaireController::class, 'show'])->name('questionnaire.show');
-Route::post('submission', [SubmissionController::class, 'store'])->name('submission.store');
+//use App\Http\Controllers\QuestionnaireController;
+//use App\Http\Controllers\SubmissionController;
+//Route::get('questionnaire/{id}', [QuestionnaireController::class, 'show'])->name('questionnaire.show');
+//Route::post('submission', [SubmissionController::class, 'store'])->name('submission.store');
 // end of test routes
 use App\Http\Controllers\PrereleaseEmailSubmissionController;
 Route::post('PrereleaseEmail', [PrereleaseEmailSubmissionController::class, 'submission'])->name('prerelease.email');
 
 Route::view('/', 'home')->name('home');
-Route::view('/contact', 'contact')->name('contact');
+//Route::view('/contact', 'contact')->name('contact');
 Route::view('/about', 'about')->name('about');
-Route::view('/why_register', 'why_register')->name('why_register');
+//Route::view('/why_register', 'why_register')->name('why_register');
 
 Route::group(['prefix'=> 'blog'], function () {
     Route::get('/', [BlogController::class, 'index'])->name('blog.index');
@@ -42,7 +42,7 @@ Route::group(["prefix"=> "guide"], function () {
     Route::get('/inheritance', [GuideController::class,'inheritance'])->name('guide.inheritance');
     # others...
 });
-
+/*
 # the authenticated portion, using "haslifetime" middleware added in app/bootstrap as an alias
 Route::group(["prefix" => "dashboard", "middleware" => ["auth"]], function () {
     Route::get('/', fn() => view('dashboard.index'))->name('dashboard'); #TODO: modify this view to be our dashboard
@@ -90,4 +90,4 @@ Route::get("lang/{lang}", function($lang){
     }
     return redirect()->back();
 })->name("lang.switch");
-
+*/
