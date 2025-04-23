@@ -1,6 +1,6 @@
 @extends('layouts.app_layout_with_navbar')
 
-@section('title', 'Guide')
+@section('title', 'Ceļvedis palicējiem')	
 
 @section('main_content')
 <div class="guide-background">
