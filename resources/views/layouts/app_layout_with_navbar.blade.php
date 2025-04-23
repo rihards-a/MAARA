@@ -25,9 +25,9 @@
       </label>
 
       <ul class="navbar-links">
-        <li><a href="/guide">Ceļvedis palicējiem</a></li>
-        <li><a href="/blog">Blogs</a></li>
-        <li><a href="/about">Par mums</a></li>
+        <li><a href="{{ route('guide.index') }}">Ceļvedis palicējiem</a></li>
+        <li><a href="{{ route('blog.index') }}">Blogs</a></li>
+        <li><a href="{{ route('about') }}">Par mums</a></li>
         <!-- <li><a href="/donate">Ziedot</a></li>
         @guest
         <li><a href="/why_register">Reģistrēties</a></li>
