@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\PrereleaseEmailSubmission;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Mail;
+use App\Models\PrereleaseEmailSubmission;
+use App\Mail\PrereleaseEmailSubmitted;
 
 class PrereleaseEmailSubmissionController extends Controller
 {
@@ -27,6 +29,8 @@ class PrereleaseEmailSubmissionController extends Controller
             PrereleaseEmailSubmission::create([
                 'email' => $request->email,
             ]);
+
+            Mail::to($request->email)->send(new PrereleaseEmailSubmitted());
         }
 
         // Redirect with success message
