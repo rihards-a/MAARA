@@ -11,7 +11,7 @@ class PrereleaseEmailSubmissionController extends Controller
     public function submission(Request $request) {
         // Validate the email
         $validator = Validator::make($request->all(), [
-            'email' => 'required|email|max:255|unique:prerelease_email_submissions,email'
+            'email' => 'required|email|max:255' // Basic email format validation first (no uniqueness yet)
         ]);
 
         if ($validator->fails()) {
@@ -21,10 +21,13 @@ class PrereleaseEmailSubmissionController extends Controller
             ], 422);
         }
 
-        // Store the email in the database
-        PrereleaseEmailSubmission::create([
-            'email' => $request->email,
-        ]);
+        // Check if the email is already in the database
+        if (!PrereleaseEmailSubmission::where('email', $request->email)->exists()) {
+            // Only save if it's not already registered
+            PrereleaseEmailSubmission::create([
+                'email' => $request->email,
+            ]);
+        }
 
         // Redirect with success message
         return response()->json(['success' => true, 'message' => 'Jūsu e-pasts ir reģistrēts!']);;
