@@ -19,7 +19,7 @@
                 <h2 class="card-title">Kas jādara pēc tuvinieka nāves: soli pa solim</h2>
                 <p class="card-text">Šis bezmaksas ceļvedis kalpo kā padomdevējs un asistents tiem, kas patlaban kārto praktiskus jautājumus, kas saistīti ar tuvinieka aiziešanu: sākot jau ar nāves iestāšanās brīdi.</p>
               </div>
-              <button class="card-button" data-url="/guide">Skatīt</button>
+              <button class="card-button" data-url="{{ route('guide.index') }}">Skatīt</button>
             </div>
         </div>
  
