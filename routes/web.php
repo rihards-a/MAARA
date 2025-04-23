@@ -21,25 +21,25 @@ Route::post('PrereleaseEmail', [PrereleaseEmailSubmissionController::class, 'sub
 
 Route::view('/', 'home')->name('home');
 //Route::view('/contact', 'contact')->name('contact');
-Route::view('/about', 'about')->name('about');
+Route::view('/par-mums', 'about')->name('about');
 //Route::view('/why_register', 'why_register')->name('why_register');
 
-Route::group(['prefix'=> 'blog'], function () {
+Route::group(['prefix'=> 'blogs'], function () {
     Route::get('/', [BlogController::class, 'index'])->name('blog.index');
     Route::get('/{slug}', [BlogController::class, 'show'])->name('blog.show');
 });
 
 # the free guide / checklist / overview 
 # TODO: trasnfer this to the same system the blogs use, since these are just views with title cards
-Route::group(["prefix"=> "guide"], function () {
+Route::group(["prefix"=> "celvedis-palicejiem"], function () {
     Route::get("/", [GuideController::class, 'index'])->name('guide.index');
-    Route::get('/registering_the_passing', [GuideController::class, 'registering'])->name('guide.registering');
-    Route::get('/available_support', [GuideController::class,'available_support'])->name('guide.available_support');
-    Route::get('/burial', [GuideController::class, 'burial'])->name('guide.burial');
-    Route::get('/legacy', [GuideController::class,'legacy'])->name('guide.legacy');
-    Route::get('/establishments', [GuideController::class,'establishments'])->name('guide.establishments');
-    Route::get('/afterloss', [GuideController::class,'afterloss'])->name('guide.afterloss');
-    Route::get('/inheritance', [GuideController::class,'inheritance'])->name('guide.inheritance');
+    Route::get('/pirmie-soli', [GuideController::class,'afterloss'])->name('guide.afterloss');
+    Route::get('/mirsanas-registracija', [GuideController::class, 'registering'])->name('guide.registering');
+    Route::get('/pabalsts', [GuideController::class,'available_support'])->name('guide.available_support');
+    Route::get('/mantojums', [GuideController::class,'inheritance'])->name('guide.inheritance');
+    Route::get('/bankas-iestades', [GuideController::class,'establishments'])->name('guide.establishments');
+    Route::get('/apbedisana-pakalpojumi', [GuideController::class, 'burial'])->name('guide.burial');
+    Route::get('/emocionalais-atbalsts', [GuideController::class,'legacy'])->name('guide.legacy');
     # others...
 });
 /*
