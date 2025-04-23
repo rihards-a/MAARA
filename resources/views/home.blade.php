@@ -46,7 +46,26 @@
       </div>
     </div>
 
+    <div id="custom-alert" class="custom-alert">
+      <div class="alert-content">
+        <span class="close-button" onclick="hideCustomAlert()">&times;</span>
+        <p id="alert-message">Paldies, Jūs esat pierakstījies jaunumu saņemšanai.</p>
+        <button class="ok-button" onclick="hideCustomAlert()">Labi</button>
+      </div>
+    </div>
+    
   <script>
+    console.log("Script loaded");
+    // Email subscription alert popup
+    function showCustomAlert(message) {
+      document.getElementById('alert-message').textContent = message;
+      document.getElementById('custom-alert').style.display = 'flex';  // Change to flex
+    }
+
+    function hideCustomAlert() {
+      document.getElementById('custom-alert').style.display = 'none';
+    }
+
     document.querySelectorAll(".card-button").forEach(button => {
       button.addEventListener("click", function() {
         window.location.href = this.getAttribute("data-url");
@@ -55,7 +74,6 @@
 
     document.getElementById("email-button").addEventListener("click", function() {
     const email = document.getElementById("email-input").value;
-    
 
     // Email validation function
     function isValidEmail(email) {
@@ -66,10 +84,10 @@
       alert("Lūdzu, ievadiet derīgu e-pasta adresi");
       return;
     }
-
+    
     const formData = new FormData();
     formData.append('email', email);
-    
+   
     // Get CSRF token if you're using Laravel (remove if not needed)
     const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
     
@@ -92,13 +110,13 @@
       // Handle successful response
       console.log('Success:', data);
       // Optional: redirect after successful submission
-      alert(data.message)
+      showCustomAlert(data.message)    
     })
     .catch(error => {
       console.error('Error:', error);
       alert('Kļūda nosūtot datus. Lūdzu, mēģiniet vēlreiz.');
     });
-  });
+});
   </script>
 
 @endsection
