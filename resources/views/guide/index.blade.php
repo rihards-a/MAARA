@@ -5,11 +5,13 @@
 @section('main_content')
 <div class="guide-background">
     <section class="welcome-section-guide">
-      <h1 class="welcome-title">Kā rīkoties pēc tuvinieka nāves</h1>
-      <p>
-      Šajā ceļvedī apkopotā informācija ir sagatavota ar mērķi sniegt praktisku atbalstu sarežģītā dzīves brīdī. Tā balstās uz publiski pieejamiem avotiem, un, lai arī esam centušies to veidot pēc iespējas precīzu un saprotamu, pastāv iespējamas izmaiņas vai nianses, kas šeit nav ietvertas. Aicinām nepieciešamības gadījumā vērsties pie atbildīgajām iestādēm vai speciālistiem, lai saņemtu oficiālu informāciju. Ceļveža veidotāji neuzņemas juridisku atbildību par šeit sniegtās informācijas precizitāti. Ja jūs pamanāt kādas detaļas, kas nav bijušas atbilstošas jūsu pieredzei, vai jums ir papildinājumi, lūdzu, sazinieties ar mums, rakstot uz info@maara.id.lv
-        <br><br>
-      </p>
+      <section section class="welcome-section">
+        <h1 class="welcome-title">Kā rīkoties pēc tuvinieka nāves</h1>
+        <p>
+        Šajā ceļvedī apkopotā informācija ir sagatavota ar mērķi sniegt praktisku atbalstu sarežģītā dzīves brīdī. Tā balstās uz publiski pieejamiem avotiem, un, lai arī esam centušies to veidot pēc iespējas precīzu un saprotamu, pastāv iespējamas izmaiņas vai nianses, kas šeit nav ietvertas. Aicinām nepieciešamības gadījumā vērsties pie atbildīgajām iestādēm vai speciālistiem, lai saņemtu oficiālu informāciju. Ceļveža veidotāji neuzņemas juridisku atbildību par šeit sniegtās informācijas precizitāti. Ja jūs pamanāt kādas detaļas, kas nav bijušas atbilstošas jūsu pieredzei, vai jums ir papildinājumi, lūdzu, sazinieties ar mums, rakstot uz info@maara.id.lv
+          <br><br>
+        </p>
+      </section>
 
       <div class="cards-container-guide">
         @php
