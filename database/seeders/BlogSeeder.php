@@ -71,7 +71,10 @@ class BlogSeeder extends Seeder
             $tagSlugs = $postData['tags'];
             unset($postData['tags']);
             
-            $post = BlogPost::firstOrCreate($postData);
+            $post = BlogPost::firstOrCreate(
+                ['slug' => $postData['slug']], // Attempt to find post by slug
+                $postData // If not found, create with these values
+            );
             
             // Find and attach tags 
             $tagIds = BlogTag::whereIn('slug', $tagSlugs)->pluck('id')->toArray();
