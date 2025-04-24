@@ -7,7 +7,7 @@
 <body style="font-family: Arial, sans-serif; color: #333; line-height: 1.6; background-color: #f9f9f9; padding: 20px;">
     <div style="max-width: 600px; margin: 0 auto; background-color: #fff; border-radius: 8px; padding: 30px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
         <p>
-            <img src="{{ asset('images/email.jpg') }}" alt="email_header" style="width: 100%; height: auto; padding: 10px;">
+        <div style="height: 4px; background-color: #76A392; width: 100%; display: block; margin: 0 auto;"></div>
         </p>
         <p>Sveiciens,</p>
 
@@ -18,7 +18,7 @@
 
         <p>
             <strong>MAARA komanda</strong><br>
-            <a href="https://www.facebook.com/maaraplano" target="_blank" style="color: #007bff;">Seko mums Facebook</a>
+            <a href="https://www.facebook.com/maaraplano" target="_blank" style="#666;">Seko mums Facebook</a>
         </p>
 
         <p style="font-size: 0.9em; color: #666;">

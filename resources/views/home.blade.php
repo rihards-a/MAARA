@@ -27,21 +27,22 @@
     <div class="card vertical-card">
         <img src="{{ asset('images/planosanas_riks.jpg') }}" alt="Ceļvedis ikkatram" class="card-image">
         <div class="card-content">
-          <div>
-            <h2 class="card-title">Pēcdzīves plānošanas rīks</h2>
-            <p class="card-text">Šovasar lietotāju rokās nodosim Latvijā pirmo ''pēcdzīves'' plānošanas rīku. Tā mērķis būs atvieglot darbu ikvienam, kurš vēlās nodrošināt, ka aiziešanas vai rīcībnespējas gadījumā, aiz sevis tiek atstāta skaidrība un sirdsmiers.<br>
-            <br>
-            MAARA sistēma Tevi ērti un droši izvedīs caur virkni jautājumu, sniegs noderīgu informāciju un ļaus saglabāt un apkopot savas izvēles: sākot ar medicīniskiem lēmumiem un pilnvarām, informāciju par Taviem īpašumiem digitālajā vidē, un beidzot ar bēru preferencēm un mājdzīvnieka kopšanas norādījumiem.<br>
-            <br>
-            <b>Mēs Tev paziņosim, kad plānošanas rīks būs gatavs!</b>
-            </p>
-          </div>
-          <div>
-            <div class="card-email">
-              <input type="email" id="email-input" placeholder="Ievadi savu epastu">
-              <button class="card-button-green" id="email-button">Pieteikties</button>
-            </div>
-          </div>
+              <div>
+                <h2 class="card-title">Pēcdzīves plānošanas rīks</h2>
+                <p class="card-text">Šovasar lietotāju rokās nodosim Latvijā pirmo ''pēcdzīves'' plānošanas rīku. Tā mērķis būs atvieglot darbu ikvienam, kurš vēlas nodrošināt, ka aiziešanas vai rīcībnespējas gadījumā, aiz sevis tiek atstāta skaidrība un sirdsmiers.<br>
+                <br>
+                MAARA sistēma Tevi ērti un droši izvedīs caur virkni jautājumu, sniegs noderīgu informāciju un ļaus saglabāt un apkopot savas izvēles: sākot ar medicīniskiem lēmumiem un pilnvarām, informāciju par Taviem īpašumiem digitālajā vidē, un beidzot ar bēru preferencēm un mājdzīvnieka kopšanas norādījumiem.<br>
+                <br>
+                <b>Mēs Tev paziņosim, kad plānošanas rīks būs gatavs!</b>
+                </p>
+              </div>
+              
+              <div>
+                  <div class="card-email">
+                    <input type="email" id="email-input" placeholder="Ievadi savu epastu">
+                    <button class="card-button-green" id="email-button">Pieteikties</button>
+                  </div>
+              </div>
         </div>
       </div>
     </div>
