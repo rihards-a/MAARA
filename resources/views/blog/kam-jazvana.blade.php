@@ -4,7 +4,7 @@
 
 @section('og_title', 'Kam īsti jāzvana, kad tuvinieks ir aizgājis')
 @section('og_description', 'Kad mēs ar komandu MAARA veicām intervijas ar dažādiem cilvēkiem, atklājās kāda patiesi būtiska kopsakarība — lielākā daļa cilvēku īsti nezina, kā rīkoties brīdī, kad tuvinieks ir aizgājis. Apjukums ir dabiska reakcija, un nereti pirmais jautājums, kas rodas ir - kam īsti zvanīt?')
-@section('og_image', asset('images/' /*TODO pievienot pareizo bildi*/))
+@section('og_image', asset('images/FB-kam-jazvana.jpg/'))
 
 @section('main_content')
 <section class="welcome-section">

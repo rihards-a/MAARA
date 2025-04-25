@@ -2,6 +2,10 @@
 
 @section('title', 'MAARA')
 
+@section('og_title', 'Pēcdzīves plānošanas rīks MAARA')
+@section('og_description', 'Pēcdzīves plānošanas rīks MAARA')
+@section('og_image', asset('images/FB-index.jpg/'))
+
 @section('main_content')<section class="welcome-section">
     <p class="welcome-text">
     <h2>Atbildes uz jautājumiem par aiziešanu.</h2><br>
