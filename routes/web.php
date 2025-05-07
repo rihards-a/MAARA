@@ -22,6 +22,7 @@ Route::post('PrereleaseEmail', [PrereleaseEmailSubmissionController::class, 'sub
 Route::view('/', 'home')->name('home');
 //Route::view('/contact', 'contact')->name('contact');
 Route::view('/par-mums', 'about')->name('about');
+Route::view('/test', 'test')->name('test'); // test route for testing purposes
 //Route::view('/why_register', 'why_register')->name('why_register');
 
 Route::group(['prefix'=> 'blogs'], function () {
