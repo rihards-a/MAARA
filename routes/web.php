@@ -7,8 +7,8 @@ use App\Http\Controllers\StripeSubscriptionController;
 use App\Http\Controllers\StripeDonationsController;
 use App\Http\Controllers\SocialiteController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DashboardController;
 
-//require __DIR__.'/auth.php'; # Laravel Breeze authentication routes
 
 // test route for testing purposes
 //use App\Http\Controllers\QuestionnaireController;
@@ -16,14 +16,16 @@ use App\Http\Controllers\ProfileController;
 //Route::get('questionnaire/{id}', [QuestionnaireController::class, 'show'])->name('questionnaire.show');
 //Route::post('submission', [SubmissionController::class, 'store'])->name('submission.store');
 // end of test routes
+
+require __DIR__.'/auth.php'; # Laravel Breeze authentication routes
+
 use App\Http\Controllers\PrereleaseEmailSubmissionController;
 Route::post('PrereleaseEmail', [PrereleaseEmailSubmissionController::class, 'submission'])->name('prerelease.email');
 
 Route::view('/', 'home')->name('home');
-//Route::view('/contact', 'contact')->name('contact');
 Route::view('/par-mums', 'about')->name('about');
 Route::view('/test', 'test')->name('test'); // test route for testing purposes
-//Route::view('/why_register', 'why_register')->name('why_register');
+Route::view('/why_register', 'why_register')->name('why_register');
 
 Route::group(['prefix'=> 'blogs'], function () {
     Route::get('/', [BlogController::class, 'index'])->name('blog.index');
@@ -43,15 +45,31 @@ Route::group(["prefix"=> "celvedis-palicejiem"], function () {
     Route::get('/emocionalais-atbalsts', [GuideController::class,'legacy'])->name('guide.legacy');
     # others...
 });
-/*
+
 # the authenticated portion, using "haslifetime" middleware added in app/bootstrap as an alias
 Route::group(["prefix" => "dashboard", "middleware" => ["auth"]], function () {
-    Route::get('/', fn() => view('dashboard.index'))->name('dashboard'); #TODO: modify this view to be our dashboard
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard'); #TODO: modify this view to be our dashboard
     
     # only accessible after subscribing
     Route::middleware("haslifetime")->group(function () {
         # all the sub-routes for the user dashboard
-        # here the user will be able to fill out their details
+        Route::get('beres', [DashboardController::class, 'beres'])->name('dashboard.beres');
+        Route::post('beres', [DashboardController::class, 'saveBeres'])->name('dashboard.beres.save');
+
+        Route::get('finanses', [DashboardController::class, 'finanses'])->name('dashboard.finanses');
+        Route::post('finanses', [DashboardController::class, 'saveFinanses'])->name('dashboard.finanses.save');
+
+        Route::get('index', [DashboardController::class, 'index'])->name('dashboard.index');
+        Route::post('index', [DashboardController::class, 'saveIndex'])->name('dashboard.index.save');
+
+        Route::get('med', [DashboardController::class, 'med'])->name('dashboard.med');
+        Route::post('med', [DashboardController::class, 'saveMed'])->name('dashboard.med.save');
+
+        Route::get('pensija', [DashboardController::class, 'pensija'])->name('dashboard.pensija');
+        Route::post('pensija', [DashboardController::class, 'savePensija'])->name('dashboard.pensija.save');
+
+        Route::get('pienakumi', [DashboardController::class, 'pienakumi'])->name('dashboard.pienakumi');
+        Route::post('pienakumi', [DashboardController::class, 'savePienakumi'])->name('dashboard.pienakumi.save');
     });
 });
 
@@ -91,4 +109,3 @@ Route::get("lang/{lang}", function($lang){
     }
     return redirect()->back();
 })->name("lang.switch");
-*/

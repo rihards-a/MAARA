@@ -36,13 +36,13 @@
         <li><a href="{{ route('guide.index') }}">Ceļvedis palicējiem</a></li>
         <li><a href="{{ route('blog.index') }}">Blogs</a></li>
         <li><a href="{{ route('about') }}">Par mums</a></li>
-        <!-- <li><a href="/donate">Ziedot</a></li>
+        <li><a href="{{ route('donate.index') }}">Ziedot</a></li>
         @guest
-        <li><a href="/why_register">Reģistrēties</a></li>
-        <li><a href="/login">Pieslēgties</a></li>
+        <li><a href="{{ route('why_register') }}">Reģistrēties</a></li>
+        <li><a href="{{ route('login') }}">Pieslēgties</a></li>
         @else
         <li><a href="{{ route('dashboard') }}">Mans profils</a></li>
-        @endguest -->
+        @endguest
       </ul>
     </div>
   </nav>
