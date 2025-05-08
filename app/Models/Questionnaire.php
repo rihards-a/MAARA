@@ -23,11 +23,4 @@ class Questionnaire extends Model
     {
         return $this->hasMany(Submission::class);
     }
-
-    public function users()
-    {
-        return $this->belongsToMany(User::class, 'user_questionnaire')
-                    ->withTimestamps()
-                    ->withPivot('started_at', 'completed_at', 'status');
-    }
 }
