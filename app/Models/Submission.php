@@ -15,7 +15,6 @@ class Submission extends Model
         'user_id',
         'questionnaire_id',
         'completed_at',
-        'status',
     ];
 
     protected $casts = [

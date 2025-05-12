@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             // Submission data:
             $table->timestamp('completed_at')->nullable();
-            $table->enum('status', ['not_started', 'started', 'finished'])->default('not_started');
             // Relations:
             $table->foreignId('user_id')->constrained();
             $table->foreignId('questionnaire_id')->constrained();
