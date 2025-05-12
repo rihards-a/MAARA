@@ -14,9 +14,8 @@ return new class extends Migration
         Schema::create('user_questionnaire', function (Blueprint $table) {
             $table->id();
             // Submission data:
-            $table->timestamp('started_at')->nullable();
             $table->timestamp('completed_at')->nullable();
-            $table->string('status')->default('not_started');
+            $table->enum('status', ['not_started', 'started', 'finished'])->default('not_started');
             // Relations:
             $table->foreignId('user_id')->constrained();
             $table->foreignId('questionnaire_id')->constrained();

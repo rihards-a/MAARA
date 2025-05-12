@@ -16,7 +16,6 @@ class Response extends Model
         'question_id',
         'response_text',
         'response_value',
-        'submitted_at'
     ];
 
     protected $casts = [

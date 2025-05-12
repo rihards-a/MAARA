@@ -16,7 +16,6 @@ return new class extends Migration
             // Response data:
             $table->text('response_text')->nullable();
             $table->string('response_value')->nullable();
-            $table->timestamp('submitted_at')->nullable();
             // Relations:
             $table->foreignId('user_id')->constrained();
             $table->foreignId('question_id')->constrained();
