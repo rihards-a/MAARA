@@ -2,7 +2,7 @@
     <div class="flex space-x-1">
       <a href="#"
          class="flex items-end justify-center flex-shrink-0 px-4 py-2 text-xs font-medium text-white bg-[#29443D] hover:bg-[#76A392] hover:text-white rounded-md shadow-sm whitespace-normal text-center min-w-[80px] max-w-[120px] transition-colors duration-150 ease-in-out aria-current="page">
-        Medicīniskās preferences un pilnvaras
+        Medicīniskās izvēles un pilnvaras
       </a>
 
       <a href="#"
@@ -12,7 +12,7 @@
 
       <a href="#"
          class="flex items-end justify-center flex-shrink-0 px-4 py-2 text-xs font-medium text-black bg-white hover:bg-[#76A392] hover:text-white rounded-md shadow-sm whitespace-normal text-center min-w-[80px] max-w-[120px] transition-colors duration-150 ease-in-out">
-        Apbedīšanas preferences
+        Apbedīšanas izvēles
       </a>
 
       <a href="#"

@@ -6,6 +6,10 @@
 --button-hover: #631E38;
 --accent-hover: #76A392;
 }
+/* Add a custom font for placeholder */
+::placeholder {
+  font-style: italic;
+}
 
 * {
 margin: 0;
