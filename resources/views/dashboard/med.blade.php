@@ -18,10 +18,10 @@
                                        <p style="text-indent: 2em;">b. Dodies uz <a href="https://www.eveseliba.gov.lv/resident#/patient-card/organs-and-body-usage-permits/organs-usage-for-transplantation" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">https://www.eveseliba.gov.lv/resident#/patient-card/organs-and-body-usage-permits/organs-usage-for-transplantation</a></p> <br>
                                        <b>3.</b> Izsaki savu gribu par orgānu ziedošanu, ķermeņa izmantošanu zinātnes attīstībā un pataloganatomiskajiem izmeklējumiem<br>
                                        <br> 
-                                       <div class="green-links">
-                                        <b>Labi zināt:</b><br>
-                                        Ja paši neatzīmēsim savu izvēli, nepieciešamība gadījumā jautājums par jūsu uzskatiem saistībā ar šīm izvēlēm tiks uzdots radiniekiem, kuri var jūsu vēlmes nezināt.
-                                        </div>
+                                            <div class="green-links">
+                                            <b>Labi zināt:</b><br>
+                                            Ja paši neatzīmēsim savu izvēli, nepieciešamība gadījumā jautājums par jūsu uzskatiem saistībā ar šīm izvēlēm tiks uzdots radiniekiem, kuri var jūsu vēlmes nezināt.
+                                            </div>
                                         </div>
                                         <br>
                     <div class="flex items-center space-x-2">
