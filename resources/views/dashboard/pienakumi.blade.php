@@ -88,7 +88,7 @@
                     </button>
 
                     <!-- Right minimal button -->
-                    <a href="{{ route('dashboard.pedejasvelmes') }}"
+                    <a href="{{ route('dashboard.zinas') }}"
                     class="text-gray-600 text-sm border border-gray-300 rounded-md px-4 py-2 hover:bg-gray-100">
                         Tālāk
                     </a>

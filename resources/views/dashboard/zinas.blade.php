@@ -14,7 +14,7 @@
      Jebkas, ko atstāsi šeit, ļaus taviem mīļajiem sajust tavu klātbūtni caur taviem vārdiem, kad vairs fiziski nebūsi blakus.
     </p>
     <br>
-        <form action="{{ route('dashboard.pedejasvelmes.save') }}" method="POST">
+        <form action="{{ route('dashboard.zinas.save') }}" method="POST">
             @csrf
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 items-stretch">
                 <!-- Column 1 -->

@@ -68,8 +68,8 @@ Route::group(["prefix" => "dashboard", "middleware" => ["auth"]], function () {
         Route::get('pensija', [DashboardController::class, 'pensija'])->name('dashboard.pensija');
         Route::post('pensija', [DashboardController::class, 'savePensija'])->name('dashboard.pensija.save');
 
-        Route::get('pedejasvelmes', [DashboardController::class, 'pedejasvelmes'])->name('dashboard.pedejasvelmes');
-        Route::post('pedejasvelmes', [DashboardController::class, 'savepedejasvelmes'])->name('dashboard.pedejasvelmes.save');
+        Route::get('zinas', [DashboardController::class, 'zinas'])->name('dashboard.zinas');
+        Route::post('zinas', [DashboardController::class, 'saveZinas'])->name('dashboard.zinas.save');
 
         Route::get('digmantojums', [DashboardController::class, 'digmantojums'])->name('dashboard.digmantojums');
         Route::post('digmantojums', [DashboardController::class, 'saveDigmantojums'])->name('dashboard.digmantojums.save');
