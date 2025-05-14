@@ -1,6 +1,6 @@
 @extends('layouts.app_layout_with_navbar')
 
-@section('title', 'Par mums')
+@section('title', 'Pensijas mantošana')
 
 @section('main_content')
 <section class="welcome-section">

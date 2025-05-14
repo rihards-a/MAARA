@@ -1,6 +1,6 @@
 @extends('layouts.app_layout_with_navbar')
 
-@section('title', 'Par mums')
+@section('title', 'Apbedīšanas izvēles')
 
 @section('main_content')
 <section class="bg-white shadow-md rounded-lg">

@@ -1,6 +1,6 @@
 @extends('layouts.app_layout_with_navbar')
 
-@section('title', 'Par mums')
+@section('title', 'Medicīniskās izvēles un pilnvaras')
 
 @section('main_content')
 <section class="welcome-section">
@@ -57,7 +57,7 @@
                 <!-- Left minimal button -->
                     <a href="{{ route('dashboard') }}"
                     class="text-gray-600 text-sm border border-gray-300 rounded-md px-4 py-2 hover:bg-gray-100">
-                        Atpakaļ
+                        Uz Gida sākumlapu
                     </a>
 
                     <!-- Center save button -->
