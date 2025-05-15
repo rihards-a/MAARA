@@ -1,13 +1,11 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Seeders\QuestionnaireQuestions;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
-use App\Models\Questionnaire;
-use App\Models\Question;
 
-class QuestionnaireAndQuestionSeeder extends Seeder
+class BeresSeeder extends Seeder
 {
     public function run(): void
     {
