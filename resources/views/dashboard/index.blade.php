@@ -1,30 +1,9 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    @if (auth()->user()->haslifetime());
-                        {{ __("You have lifetime access!") }}
-                    @else
-                        <a href={{route('lifetime.index')}}> {{ __("Consider buying lifetime!") }} </a>
-                    @endif
-                </div>
-            </div>
-        </div>
-    </div>
-</x-app-layout>
-
 @extends('layouts.app_layout_with_navbar')
 
 @section('title', 'Ceļvedis palicējiem')
 
 @section('main_content')
+@if (auth()->user()->haslifetime() /*TODO: need to create a pretty screen redirecting anyone unsubscribed to the subscribe page nicely*/ )  
 <div class="guide-background">
     <section class="welcome-section-guide">
       <section section class="welcome-section">
@@ -79,6 +58,9 @@
       </div>
     </section>
   </div>
+@else
+<a href={{route('lifetime.index')}}> {{ __("Consider buying lifetime!") }} </a>
+@endif
 @endsection
 
 

@@ -25,8 +25,10 @@
                                         </div>
                                         <br>
                     <div class="flex items-center space-x-2">
-                        <input type="checkbox" name="pension" value="1" class="w-6 h-6 text-lime-600 focus:ring-lime-600 border-gray-300 rounded">
+                        <input type="checkbox" name="responses[16][response_value]" id="pension" value="1" class="w-6 h-6 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
+                        {{ isset($responses[16]) && $responses[16] ? 'checked' : '' }}>
                         <label for="pension">Mana izvēle par pensijas 2. līmeņa uzkrājuma mantošanu ir veikta</label>
+                        <input type="hidden" name="responses[16][question_id]" value="16">
                     </div>
                     <br>
                 </div>
