@@ -112,7 +112,7 @@
 
                   <!-- Center save button -->
                   <button type="submit"
-                      class="">
+                        class="bg-moss hover:bg-green-700 text-white font-bold py-3 px-6 rounded-md focus:outline-none focus:shadow-outline">
                       Saglabāt
                   </button>
 
