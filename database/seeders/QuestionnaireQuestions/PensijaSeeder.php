@@ -25,7 +25,7 @@ class PensijaSeeder extends Seeder
             ->where('title', 'pensija')
             ->first();
 
-        // 2) Insert all 12 questions with fixed IDs
+        // 2) Insert all questions with fixed IDs
         $questions = [
             [
                 'id'               => 16,

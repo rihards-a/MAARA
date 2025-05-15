@@ -25,7 +25,7 @@ class MedSeeder extends Seeder
             ->where('title', 'med')
             ->first();
 
-        // 2) Insert all 12 questions with fixed IDs
+        // 2) Insert all questions with fixed IDs
         $questions = [
             [
                 'id'               => 13,
