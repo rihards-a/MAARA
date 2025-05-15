@@ -8,6 +8,7 @@ use App\Http\Controllers\StripeDonationsController;
 use App\Http\Controllers\SocialiteController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MessageController;
 
 
 // test route for testing purposes
@@ -68,14 +69,16 @@ Route::group(["prefix" => "dashboard", "middleware" => ["auth"]], function () {
         Route::get('pensija', [DashboardController::class, 'pensija'])->name('dashboard.pensija');
         Route::post('pensija', [DashboardController::class, 'savePensija'])->name('dashboard.pensija.save');
 
-        Route::get('zinas', [DashboardController::class, 'zinas'])->name('dashboard.zinas');
-        Route::post('zinas', [DashboardController::class, 'saveZinas'])->name('dashboard.zinas.save');
-
         Route::get('digmantojums', [DashboardController::class, 'digmantojums'])->name('dashboard.digmantojums');
         Route::post('digmantojums', [DashboardController::class, 'saveDigmantojums'])->name('dashboard.digmantojums.save');
 
         Route::get('pienakumi', [DashboardController::class, 'pienakumi'])->name('dashboard.pienakumi');
         Route::post('pienakumi', [DashboardController::class, 'savePienakumi'])->name('dashboard.pienakumi.save');
+
+        Route::get('zinas', [MessageController::class, 'zinas'])->name('dashboard.zinas');
+        Route::post('zinas', [MessageController::class, 'store'])->name('dashboard.zinas.store');
+        Route::put('zinas/{message}', [MessageController::class, 'update'])->name('dashboard.zinas.update');
+        Route::delete('zinas/{message}', [MessageController::class, 'destroy'])->name('dashboard.zinas.destroy');
     });
 });
 

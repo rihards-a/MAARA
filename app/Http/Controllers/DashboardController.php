@@ -158,18 +158,6 @@ class DashboardController extends Controller
         return back()->with('status', 'Saglabāts!');
     }
 
-    public function zinas()
-    {
-        return view('dashboard.zinas');
-    }
-
-    public function saveZinas(Request $request)
-    {
-    
-    
-    return back()->with('status', 'Saglabāts!');
-    }
-
     public function pienakumi()
     {
         $dashboard_title = 'pienakumi';
