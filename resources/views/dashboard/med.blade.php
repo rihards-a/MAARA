@@ -3,8 +3,8 @@
 @section('title', 'Medicīniskās izvēles un pilnvaras')
 
 @section('main_content')
-<section class="welcome-section">
 @include('components.mini-tab-navbar')
+<section class="welcome-section">
     <br>
         <form action="{{ route('dashboard.med.save') }}" method="POST">  
             @csrf

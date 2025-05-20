@@ -3,8 +3,9 @@
 @section('title', 'Par mums')
 
 @section('main_content')
-<section class="welcome-section">
+
 @include('components.mini-tab-navbar')
+<section class="welcome-section">
     <br>
     <p class="welcome-text text-sm">
     Šajā sadaļā aicinām Tevi atstāt ziņas saviem tuvajiem — vārdus, kas viņus sasniegs pēc Tavas aiziešanas.<br>

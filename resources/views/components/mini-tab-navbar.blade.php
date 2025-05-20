@@ -3,7 +3,7 @@
       <a href="{{ route('dashboard.med') }}"
         class="flex items-end justify-center flex-shrink-0 px-4 py-2 text-xs font-medium rounded-md shadow-sm whitespace-normal text-center min-w-[80px] max-w-[120px] transition-colors duration-150 ease-in-out
         {{ request()->routeIs('dashboard.med') ? 'bg-[#29443D] text-white' : 'bg-white text-black hover:bg-[#76A392] hover:text-white' }}">
-        Medicīniskās izvēles un pilnvaras
+        Medicīniskās izvēles
       </a>
 
       <a href="{{ route('dashboard.pensija') }}"

@@ -3,8 +3,8 @@
 @section('title', 'Apbedīšanas izvēles')
 
 @section('main_content')
-<section class="bg-white shadow-md rounded-lg">
 @include('components.mini-tab-navbar')
+<section class="welcome-section">
     <br>
     <h1 class="welcome-title px-8">Aizpildiet sev svarīgos laukus</h1>
     <p class="welcome-text text-sm p-8">

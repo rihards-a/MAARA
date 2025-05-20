@@ -3,8 +3,8 @@
 @section('title', 'Pensijas mantošana')
 
 @section('main_content')
-<section class="welcome-section">
 @include('components.mini-tab-navbar')
+<section class="welcome-section">
     <br>
         <form action="{{ route('dashboard.pensija.save') }}" method="POST">
             @csrf
