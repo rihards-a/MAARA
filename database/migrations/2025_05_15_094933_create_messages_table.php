@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('questions', function (Blueprint $table) {
+        Schema::create('messages', function (Blueprint $table) {
             $table->id();
-            $table->string('text');
-            $table->enum('type',['textarea', 'boolean', 'multichoice', 'select']);
-            $table->foreignId('questionnaire_id')->constrained();
+            $table->string('addressee');
+            $table->text('content');
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('questions');
+        Schema::dropIfExists('messages');
     }
 };

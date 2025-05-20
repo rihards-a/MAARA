@@ -25,13 +25,17 @@
                                         </div>
                                         <br>
                     <div class="flex items-center space-x-2">
-                        <input type="checkbox" name="organ_donation" value="1" class="w-6 h-6 text-lime-600 focus:ring-lime-600 border-gray-300 rounded">
+                        <input type="checkbox" name="responses[13][response_value]" id="organ_donation" value="1" class="w-6 h-6 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
+                        {{ isset($responses[13]) && $responses[13] ? 'checked' : '' }}>
                         <label for="organ_donation">Mana izvēle par orgānu ziedošanu ir veikta</label>
+                        <input type="hidden" name="responses[13][question_id]" value="13">
                     </div>
                     <br>
                     <div class="flex items-center space-x-2">
-                        <input type="checkbox" name="body_donation" value="1" class="w-6 h-6 text-lime-600 focus:ring-lime-600 border-gray-300 rounded">
+                        <input type="checkbox" name="responses[14][response_value]" id="body_donation" value="1" class="w-6 h-6 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
+                        {{ isset($responses[14]) && $responses[14] ? 'checked' : '' }}>
                         <label for="body_donation">Mana izvēle par ķermeņa izmantošanu zinātnei ir veikta</label>
+                        <input type="hidden" name="responses[14][question_id]" value="14">
                     </div>
                 </div>
               <!-- Column 2 -->
@@ -48,8 +52,10 @@
                                             </div>
                                             <br>
                     <div class="flex items-center space-x-2">
-                        <input type="checkbox" name="future_mandate" value="1" class="w-6 h-6 text-lime-600 focus:ring-lime-600 border-gray-300 rounded">
+                        <input type="checkbox" name="responses[15][response_value]" id="future_mandate" value="1" class="w-6 h-6 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
+                        {{ isset($responses[15]) && $responses[15] ? 'checked' : '' }}>
                         <label for="future_mandate">Mana pilnvara par ar ārstniecību saistītiem lēmumiem ir sagatavota</label>
+                        <input type="hidden" name="responses[15][question_id]" value="15">
                     </div>
                     <br>
                 </div>

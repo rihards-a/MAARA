@@ -1,13 +1,11 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Seeders\QuestionnaireQuestions;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
-use App\Models\Questionnaire;
-use App\Models\Question;
 
-class QuestionnaireAndQuestionSeeder extends Seeder
+class BeresSeeder extends Seeder
 {
     public function run(): void
     {
@@ -27,7 +25,7 @@ class QuestionnaireAndQuestionSeeder extends Seeder
             ->where('title', 'beres')
             ->first();
 
-        // 2) Insert all 12 questions with fixed IDs
+        // 2) Insert all questions with fixed IDs
         $questions = [
             [
                 'id'               => 1,
