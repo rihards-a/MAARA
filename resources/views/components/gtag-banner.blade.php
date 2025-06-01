@@ -11,29 +11,3 @@
       </div>
   </div>
 </div>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const cookieBanner = document.getElementById('cookie-consent-banner');
-    const acceptButton = document.getElementById('accept-cookies');
-    const COOKIE_NAME = 'user_accepted_cookies';
-
-    // Check if the user has already accepted cookies
-    const hasAcceptedCookies = localStorage.getItem(COOKIE_NAME);
-
-    if (!hasAcceptedCookies) {
-        // If not accepted, show the banner after a short delay
-        setTimeout(() => {
-            cookieBanner.classList.remove('translate-y-full');
-        }, 500); // Small delay to allow page to load visually
-    }
-
-    // Event listener for the "Accept All" button
-    acceptButton.addEventListener('click', () => {
-        localStorage.setItem(COOKIE_NAME, 'true'); // Store consent in local storage
-        cookieBanner.classList.add('translate-y-full'); // Hide the banner
-        setTimeout(() => {
-            cookieBanner.style.display = 'none'; // Completely remove from layout after transition
-        }, 500);
-    });
-});
-</script>
