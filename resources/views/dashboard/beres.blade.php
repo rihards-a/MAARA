@@ -12,7 +12,7 @@
     Šajā sadaļā īpaši iesakām aizpildīt divus ''atvērtos'' laukus - par lietām, kas Tev ir īpaši svarīgas (gan no vēlamās, gan nevēlamās puses). Papildus, esam pievienojuši iespēju norādīt arī sīkākas detaļas, ja esi gatavs par tām šobrīd aizdomāties. Arī vēlme neatvadīties bēru ceremonijas formātā ir saprotama personīgā izvēle, ko vari šeit aprakstīt.
     <br>
     </p>
-    <form action="{{ route('dashboard.beres.save') }}" method="POST" class="bg-white shadow-md rounded-lg p-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <form action="{{ route('dashboard.beres.save') }}" method="POST" class="bg-white p-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         @csrf
         <div>
             <label class="block text-gray-700 text-sm font-semibold mb-1" for="important_details">
