@@ -15,6 +15,7 @@
     <meta property="og:url"         content="{{ url()->current() }}" />
     <meta property="og:type"        content="@yield('og_type', 'website')" />
   @endif
+  <x-gtag-consent/>
 </head>
 <body>
   <nav>
@@ -51,6 +52,8 @@
       @yield('main_content')
   </main>
 
+  <x-gtag-banner/>
+  
   <footer class="footer">
     <p>Seko mums <a href="https://www.facebook.com/maaraplano" target="_blank">Facebook</a></p>
   </footer>
