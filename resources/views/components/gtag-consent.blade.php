@@ -18,7 +18,7 @@
   gtag('js', new Date());
   
   document.addEventListener('DOMContentLoaded', function() {
-    const consentButton = document.getElementById('consent-button');
+    const consentButton = document.getElementById('accept-cookies');
     if (localStorage.getItem('gtag_consent_given') === 'true') {
         give_consent();
     } else if (consentButton) {
@@ -37,6 +37,6 @@
     });
     gtag('config', '{{ $trackingId }}'); // configurable things here: https://developers.google.com/analytics/devguides/collection/ga4/reference/config
     localStorage.setItem('gtag_consent_given', 'true');
-    document.getElementById('cookie-banner')?.remove();
+    document.getElementById('cookie-consent-banner')?.remove();
   }
 </script>

@@ -49,10 +49,10 @@
   </nav>
 
   <main class="main">
+    <x-gtag-banner/>
+    
       @yield('main_content')
   </main>
-
-  <x-gtag-banner/>
   
   <footer class="footer">
     <p>Seko mums <a href="https://www.facebook.com/maaraplano" target="_blank">Facebook</a></p>
