@@ -1,0 +1,352 @@
+@extends('layouts.app_layout_with_navbar')
+
+@section('title', 'Par mums')
+
+@section('main_content')
+
+@include('components.mini-tab-navbar')
+<section class="welcome-section">
+    <br>
+    <h1 class="welcome-title px-8">Aizpildiet sev svarīgos laukus</h1>
+    <p class="welcome-text text-sm p-8">
+    Aizpildi šo sadaļu, lai ērti uzskaitītu finanšu instrumentus, par kuriem Taviem tuviniekiem būtu jāzina. Balstoties uz Tavām atbildēm, Tavā plānošanas dokumenta lejuplādējamā PDF failā tiks izveidoti lauki, ko, ja vēlēsies, aizpildīsi pats ārpus mūsu sistēmas (drošības apsvērumu dēļ). Esi apdomīgs ar informācijas norādīšanu un uzglabāšanu: galvenokārt šī sadaļa paredzēta tam, lai Tavi tuvinieki būtu informēti par Tev piederošajiem resursiem, kurus notārs mantas apzināšanas procesā var arī neatrast (un tādējādi tie netiktu nodoti tuviniekiem)<br>
+    <br>
+    Par to, kā Taviem tuviniekiem pēcāk piekļūt finansēm un mantām, ko nepārvaldīs notārs Latvijā, vairāk uzzini nākamajā sadaļā (''Mantojuma sagatavošana'').
+    </p>
+    <form action="{{ route('dashboard.finanses.save') }}" method="POST" class="bg-white p-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        @csrf
+    
+    <div class="mb-6"> {{-- Added margin-bottom for separation between questions --}}
+    <label class="block text-gray-700 text-sm font-semibold mb-2" for="finances_online_tools_question">
+        Vai Tu glabā naudu kādā no šiem finanšu rīkiem? 
+    </label>
+
+    @php
+        // Get previously selected values for Question 100
+        $selectedOnlineFinances = isset($responses[100]['response_value']) && is_array($responses[100]['response_value'])
+            ? $responses[100]['response_value']
+            : [];
+    @endphp
+
+    <div class="space-y-2">
+        <div class="flex items-center">
+            <input type="checkbox"
+                   name="responses[100][response_value][]" {{-- Correct name for Q100 checkboxes --}}
+                   id="finances_online_paypal" {{-- Unique ID --}}
+                   value="paypal" {{-- Descriptive value --}}
+                   class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
+                   {{ in_array('paypal', $selectedOnlineFinances) ? 'checked' : '' }}>
+            <label for="finances_online_paypal" class="ml-2 text-gray-700">Paypal</label>
+        </div>
+
+        <div class="flex items-center">
+            <input type="checkbox"
+                   name="responses[100][response_value][]"
+                   id="finances_online_revolut"
+                   value="revolut"
+                   class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
+                   {{ in_array('revolut', $selectedOnlineFinances) ? 'checked' : '' }}>
+            <label for="finances_online_revolut" class="ml-2 text-gray-700">Revolut</label>
+        </div>
+
+        <div class="flex items-center">
+            <input type="checkbox"
+                   name="responses[100][response_value][]"
+                   id="finances_online_other"
+                   value="cits" {{-- 'cits' for 'other' --}}
+                   class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
+                   {{ in_array('cits', $selectedOnlineFinances) ? 'checked' : '' }}>
+            <label for="finances_online_other" class="ml-2 text-gray-700">Cits</label>
+        </div>
+
+        <div class="flex items-center">
+            <input type="checkbox"
+                   name="responses[100][response_value][]"
+                   id="finances_online_none"
+                   value="neglabaju" {{-- 'neglabaju' for 'don't store' --}}
+                   class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
+                   {{ in_array('neglabaju', $selectedOnlineFinances) ? 'checked' : '' }}>
+            <label for="finances_online_none" class="ml-2 text-gray-700">Neglabāju</label>
+        </div>
+    </div>
+
+    {{-- Hidden input for this specific question's ID --}}
+    <input type="hidden" name="responses[100][question_id]" value="100">
+</div>
+<div class="mb-6"> {{-- Added margin-bottom for separation between questions --}}
+    <label class="block text-gray-700 text-sm font-semibold mb-2" for="finances_banks_question">
+        Kurās bankās Tev ir atvērti konti? 
+    </label>
+
+    @php
+        // Get previously selected values for Question 101 (assuming this is its ID)
+        $selectedBanks = isset($responses[101]['response_value']) && is_array($responses[101]['response_value'])
+            ? $responses[101]['response_value']
+            : [];
+    @endphp
+
+    <div class="space-y-2">
+        <div class="flex items-center">
+            <input type="checkbox"
+                   name="responses[101][response_value][]" {{-- Correct name for Q101 checkboxes --}}
+                   id="finances_bank_swedbank" {{-- Unique ID --}}
+                   value="swedbank" {{-- Descriptive value --}}
+                   class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
+                   {{ in_array('swedbank', $selectedBanks) ? 'checked' : '' }}>
+            <label for="finances_bank_swedbank" class="ml-2 text-gray-700">Swedbank</label>
+        </div>
+
+        <div class="flex items-center">
+            <input type="checkbox"
+                   name="responses[101][response_value][]"
+                   id="finances_bank_seb"
+                   value="seb"
+                   class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
+                   {{ in_array('seb', $selectedBanks) ? 'checked' : '' }}>
+            <label for="finances_bank_seb" class="ml-2 text-gray-700">SEB</label>
+        </div>
+
+        <div class="flex items-center">
+            <input type="checkbox"
+                   name="responses[101][response_value][]"
+                   id="finances_bank_luminor"
+                   value="luminor"
+                   class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
+                   {{ in_array('luminor', $selectedBanks) ? 'checked' : '' }}>
+            <label for="finances_bank_luminor" class="ml-2 text-gray-700">Luminor</label>
+        </div>
+
+        <div class="flex items-center">
+            <input type="checkbox"
+                   name="responses[101][response_value][]"
+                   id="finances_bank_citadele"
+                   value="citadele"
+                   class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
+                   {{ in_array('citadele', $selectedBanks) ? 'checked' : '' }}>
+            <label for="finances_bank_citadele" class="ml-2 text-gray-700">Citadele</label>
+        </div>
+
+        <div class="flex items-center">
+            <input type="checkbox"
+                   name="responses[101][response_value][]"
+                   id="finances_bank_indexo"
+                   value="indexo"
+                   class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
+                   {{ in_array('indexo', $selectedBanks) ? 'checked' : '' }}>
+            <label for="finances_bank_indexo" class="ml-2 text-gray-700">Indexo</label>
+        </div>
+
+        <div class="flex items-center">
+            <input type="checkbox"
+                   name="responses[101][response_value][]"
+                   id="finances_bank_lv_other"
+                   value="lv_other"
+                   class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
+                   {{ in_array('lv_other', $selectedBanks) ? 'checked' : '' }}>
+            <label for="finances_bank_lv_other" class="ml-2 text-gray-700">Cita banka Latvijā</label>
+        </div>
+
+        <div class="flex items-center">
+            <input type="checkbox"
+                   name="responses[101][response_value][]"
+                   id="finances_bank_foreign_other"
+                   value="foreign_other"
+                   class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
+                   {{ in_array('foreign_other', $selectedBanks) ? 'checked' : '' }}>
+            <label for="finances_bank_foreign_other" class="ml-2 text-gray-700">Cita banka ārzemēs</label>
+        </div>
+    </div>
+
+    {{-- Hidden input for this specific question's ID --}}
+    <input type="hidden" name="responses[101][question_id]" value="101">
+</div>
+<div class="mb-6"> {{-- Added margin-bottom for separation between questions --}}
+    <label class="block text-gray-700 text-sm font-semibold mb-2" for="finances_banks_question">
+        Vai Tev pieder kāda uzņēmuma akcijas? 
+    </label>
+
+    @php
+        // Get previously selected values for Question 102 (assuming this is its ID)
+        $selectedBanks = isset($responses[102]['response_value']) && is_array($responses[102]['response_value'])
+            ? $responses[102]['response_value']
+            : [];
+    @endphp
+
+    <div class="space-y-2">
+        <div class="flex items-center">
+            <input type="checkbox"
+                   name="responses[102][response_value][]" {{-- Correct name for Q101 checkboxes --}}
+                   id="finances_stock_yes" {{-- Unique ID --}}
+                   value="yes" {{-- Descriptive value --}}
+                   class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
+                   {{ in_array('yes', $selectedBanks) ? 'checked' : '' }}>
+            <label for="finances_stock_yes" class="ml-2 text-gray-700">Jā</label>
+        </div>
+        <div class="flex items-center">
+            <input type="checkbox"
+                   name="responses[102][response_value][]" {{-- Correct name for Q101 checkboxes --}}
+                   id="finances_stock_no" {{-- Unique ID --}}
+                   value="yes" {{-- Descriptive value --}}
+                   class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
+                   {{ in_array('no', $selectedBanks) ? 'checked' : '' }}>
+            <label for="finances_stock_nē" class="ml-2 text-gray-700">Nē</label>
+        </div>
+        <div class="flex items-center">
+            <input type="checkbox"
+                   name="responses[102][response_value][]" {{-- Correct name for Q101 checkboxes --}}
+                   id="finances_stock_options" {{-- Unique ID --}}
+                   value="yes" {{-- Descriptive value --}}
+                   class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
+                   {{ in_array('options', $selectedBanks) ? 'checked' : '' }}>
+            <label for="finances_stock_options" class="ml-2 text-gray-700">Man pieder akciju opcijas</label>
+        </div>
+
+    </div>
+
+    {{-- Hidden input for this specific question's ID --}}
+    <input type="hidden" name="responses[102][question_id]" value="102">
+</div>
+<div class="mb-6"> {{-- Added margin-bottom for separation between questions --}}
+    <label class="block text-gray-700 text-sm font-semibold mb-2" for="finances_banks_question">
+        Vai Tev pieder kriptovalūtas? 
+    </label>
+
+    @php
+        // Get previously selected values for Question 103 (assuming this is its ID)
+        $selectedBanks = isset($responses[103]['response_value']) && is_array($responses[103]['response_value'])
+            ? $responses[103]['response_value']
+            : [];
+    @endphp
+
+    <div class="space-y-2">
+        <div class="flex items-center">
+            <input type="checkbox"
+                   name="responses[103][response_value][]" {{-- Correct name for Q101 checkboxes --}}
+                   id="finances_crypto_yes" {{-- Unique ID --}}
+                   value="yes" {{-- Descriptive value --}}
+                   class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
+                   {{ in_array('yes', $selectedBanks) ? 'checked' : '' }}>
+            <label for="finances_crypto_yes" class="ml-2 text-gray-700">Jā</label>
+        </div>
+        <div class="flex items-center">
+            <input type="checkbox"
+                   name="responses[103][response_value][]" {{-- Correct name for Q101 checkboxes --}}
+                   id="finances_crypto_no" {{-- Unique ID --}}
+                   value="yes" {{-- Descriptive value --}}
+                   class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
+                   {{ in_array('no', $selectedBanks) ? 'checked' : '' }}>
+            <label for="finances_crypto_nē" class="ml-2 text-gray-700">Nē</label>
+        </div>
+    </div>
+
+    {{-- Hidden input for this specific question's ID --}}
+    <input type="hidden" name="responses[103][question_id]" value="103">
+</div>
+<div class="mb-4">
+    <label class="block text-gray-700 text-sm font-semibold mb-2" for="real_estate_question">
+        Vai Tev pieder kāds nekustamais īpašums?
+    </label>
+    <label for="real_estate_lv_count" class="block text-gray-700 text-sm mb-2">Nekustamo īpašumu skaits Latvijā</label>
+    <select
+        name="responses[104][real_estate_lv_count]"
+        id="real_estate_lv_count"
+        class="block w-full px-3 py-2 text-base text-gray-900 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-lime-500 focus:border-lime-500 sm:text-sm"
+    >
+        <option value="">Izvēlēties skaitu</option>
+        {{-- Blade loop to generate options 0-10 and 10+ --}}
+        @for ($i = 0; $i <= 10; $i++)
+            <option value="{{ $i }}" {{ isset($responses[104]['real_estate_lv_count']) && $responses[104]['real_estate_lv_count'] == $i ? 'selected' : '' }}>
+                {{ $i }}
+            </option>
+        @endfor
+        <option value="10+" {{ isset($responses[104]['real_estate_lv_count']) && $responses[104]['real_estate_lv_count'] == '10+' ? 'selected' : '' }}>
+            10+
+        </option>
+    </select>
+    <label for="real_estate_notlv_count" class="block text-gray-700 text-sm mb-2">Nekustamo īpašumu skaits ārzemēs</label>
+    <select
+        name="responses[104][real_estate_notlv_count]"
+        id="real_estate_notlv_count"
+        class="block w-full px-3 py-2 text-base text-gray-900 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-lime-500 focus:border-lime-500 sm:text-sm"
+    >
+        <option value="">Izvēlēties skaitu</option>
+        {{-- Blade loop to generate options 0-10 and 10+ --}}
+        @for ($i = 0; $i <= 10; $i++)
+            <option value="{{ $i }}" {{ isset($responses[104]['real_estate_notlv_count']) && $responses[104]['real_estate_notlv_count'] == $i ? 'selected' : '' }}>
+                {{ $i }}
+            </option>
+        @endfor
+        <option value="10+" {{ isset($responses[104]['real_estate_notlv_count']) && $responses[104]['real_estate_notlv_count'] == '10+' ? 'selected' : '' }}>
+            10+
+        </option>
+    </select>
+</div>
+<div class="mb-4">
+    <label class="block text-gray-700 text-sm font-semibold mb-2" for="real_estate_question">
+        Vai Tev pieder kāds transportlīdzeklis?
+    </label>
+    <label for="transport_lv_count" class="block text-gray-700 text-sm mb-2">Transportlīdzekļu skaits (reģ. Latvijā)</label>
+    <select
+        name="responses[104][transport_lv_count]"
+        id="transport_lv_count"
+        class="block w-full px-3 py-2 text-base text-gray-900 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-lime-500 focus:border-lime-500 sm:text-sm"
+    >
+        <option value="">Izvēlēties skaitu</option>
+        {{-- Blade loop to generate options 0-10 and 10+ --}}
+        @for ($i = 0; $i <= 10; $i++)
+            <option value="{{ $i }}" {{ isset($responses[104]['transport_lv_count']) && $responses[104]['transport_lv_count'] == $i ? 'selected' : '' }}>
+                {{ $i }}
+            </option>
+        @endfor
+        <option value="10+" {{ isset($responses[104]['transport_lv_count']) && $responses[104]['transport_lv_count'] == '10+' ? 'selected' : '' }}>
+            10+
+        </option>
+    </select>
+    <label for="transport_notlv_count" class="block text-gray-700 text-sm mb-2">Transportlīdzekļu skaits (reģ. ārzemēs)</label>
+    <select
+        name="responses[104][transport_notlv_count]"
+        id="transport_notlv_count"
+        class="block w-full px-3 py-2 text-base text-gray-900 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-lime-500 focus:border-lime-500 sm:text-sm"
+    >
+        <option value="">Izvēlēties skaitu</option>
+        {{-- Blade loop to generate options 0-10 and 10+ --}}
+        @for ($i = 0; $i <= 10; $i++)
+            <option value="{{ $i }}" {{ isset($responses[104]['transport_notlv_count']) && $responses[104]['transport_notlv_count'] == $i ? 'selected' : '' }}>
+                {{ $i }}
+            </option>
+        @endfor
+        <option value="10+" {{ isset($responses[104]['transport_notlv_count']) && $responses[104]['transport_notlv_count'] == '10+' ? 'selected' : '' }}>
+            10+
+        </option>
+    </select>
+</div>
+
+    {{-- Hidden input for this specific question's ID --}}
+    <input type="hidden" name="responses[104][question_id]" value="104">
+</div>
+    
+        
+    </form>
+
+    <!-- Navigation Buttons -->
+        <div class="col-span-full flex justify-between items-center mt-6 w-full">
+            <!-- Left minimal button -->
+            <a href="{{ route('dashboard.beres') }}"
+            class="text-gray-600 text-sm border border-gray-300 rounded-md px-4 py-2 hover:bg-gray-100">
+                Atpakaļ
+            </a>
+
+            <!-- Center save button -->
+            <button type="submit"
+                class="bg-moss hover:bg-green-700 text-white font-bold py-3 px-6 rounded-md focus:outline-none focus:shadow-outline">
+                Saglabāt
+            </button>
+
+            <!-- Right minimal button -->
+            <a href="{{ route('dashboard.testaments') }}"
+            class="text-gray-600 text-sm border border-gray-300 rounded-md px-4 py-2 hover:bg-gray-100">
+                Tālāk
+            </a>
+        </div>
+</section>
+@endsection

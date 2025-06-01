@@ -3,8 +3,9 @@
 @section('title', 'Par mums')
 
 @section('main_content')
-<section class="welcome-section">
+
 @include('components.mini-tab-navbar')
+<section class="welcome-section">
     <br>
     <p class="welcome-text text-sm">
     Šajā sadaļā aicinām Tevi atstāt ziņas saviem tuvajiem — vārdus, kas viņus sasniegs pēc Tavas aiziešanas.<br>
@@ -21,7 +22,7 @@
     <!-- Existing Messages as Editable Forms -->
     @if($messages->isEmpty())
         <div class="bg-gray-50 rounded-lg p-6 text-center text-gray-500">
-            Jums vēl nav nevienas ziņas!
+            Jums vēl nav nevienas ziņas
         </div>
     @else
     <div>
@@ -59,11 +60,11 @@
                 </div>
         
                 <div class="flex justify-between items-center">
-                    <button type="submit" class="bg-blue-600 text-white rounded-md py-2 px-4 text-sm hover:bg-blue-700">
+                    <button type="submit" class="bg-moss text-white rounded-md py-2 px-4 text-sm hover:bg-moss/80">
                         Saglabāt izmaiņas
                     </button>
                     
-                    <button type="button" onclick="if(confirm('Vai tiešām vēlaties dzēst šo ziņu?')) document.getElementById('delete-form-{{ $message->id }}').submit();" class="bg-red-600 text-white rounded-md py-2 px-4 text-sm hover:bg-red-700">
+                    <button type="button" onclick="if(confirm('Vai tiešām vēlaties dzēst šo ziņu?')) document.getElementById('delete-form-{{ $message->id }}').submit();" class="bg-[#D6A2B5] text-white rounded-md py-2 px-4 text-sm hover:bg-[#D6A2B5]/80">
                         Dzēst
                     </button>
                 </div>
@@ -92,7 +93,7 @@
                     id="new-addressee"
                     value="{{ old('addressee') }}"
                     placeholder="Kam šī ziņa domāta?"
-                    class="w-full p-3 border border-gray-300 rounded-md text-sm"
+                    class="w-full border border-gray-300 rounded-md shadow-sm focus:border-lime-600 focus:ring-lime-600 text-black-700 text-sm placeholder-gray-400 p-4"
                     required
                 />
             </div>
@@ -103,13 +104,13 @@
                     name="content"
                     id="new-content"
                     placeholder="Sāc rakstīt..."
-                    class="w-full h-32 p-3 border border-gray-300 rounded-md text-sm"
+                    class="w-full border border-gray-300 rounded-md shadow-sm focus:border-lime-600 focus:ring-lime-600 text-black-700 text-sm placeholder-gray-400 p-4 h-32"
                     required
                 >{{ old('content') }}</textarea>
             </div>
 
             <div class="flex justify-end">
-                <button type="submit" class="bg-lime-600 text-white rounded-md py-2 px-4 text-sm hover:bg-lime-700">
+                <button type="submit" class="bg-moss text-white rounded-md py-2 px-4 text-sm hover:bg-[#76A392]">
                     Pievienot ziņu
                 </button>
             </div>

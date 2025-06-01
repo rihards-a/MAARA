@@ -3,8 +3,8 @@
 @section('title', 'Dzīves pienākumi')
 
 @section('main_content')
-<section class="welcome-section">
 @include('components.mini-tab-navbar')
+<section class="welcome-section">
     <br>
     <p class="welcome-text text-sm">
     Dzīves laikā mēs mēdzam uzņemties rūpes un saistības pret citiem cilvēkiem, būtnēm un lietām uz šīs zemes. Ir svarīgi apzināties, ka šo saistību uzņemšanās ir bijis mūsu lēmums, un tās pārņemt nav neviena cita pienākums. Tomēr, bieži vien, tuvinieki mēdz pārņemt nelielus aizgājēja pienākumus, un šādos gadījumos īpaši noderīgas ir kādas būtiskas instrukcijas, kas reizēm ir zināmas vien aizgājējam.
