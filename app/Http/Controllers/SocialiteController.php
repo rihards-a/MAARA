@@ -16,7 +16,11 @@ class SocialiteController extends Controller
     }
     
     public function google_callback() {
-        $googleUser = Socialite::driver('google')->user();
+        try {
+            $googleUser = Socialite::driver('google')->user();
+        } catch (\Exception $e) {
+            return redirect('/login')->withErrors('Google login failed.');
+        }
     
         $user = User::updateOrCreate([
             'email' => $googleUser->getEmail(),
@@ -25,9 +29,11 @@ class SocialiteController extends Controller
             'google_id' => $googleUser->getId(),
             'password'  => Hash::make(Str::random(32)),
         ]);
-        # separately assign the email_verified_at, since it is not in the fillable
-        $user->email_verified_at = now();
-        $user->save();
+        // Update the user's email_verified_at if the email is verified and not already set
+        if (!!$user->email_verified_at) { // potentially check for this: $googleUser->user['email_verified'] ?? false)
+            $user->email_verified_at = now();
+            $user->save();
+        }
     
         Auth::login($user);
     
