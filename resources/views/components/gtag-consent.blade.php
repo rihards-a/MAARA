@@ -24,13 +24,11 @@
 
     if (localStorage.getItem(consentKey) === 'true') {
         give_consent();
-    } else if (consentButton) {
-      consentButton.addEventListener('click', function() {
-        setTimeout(() => { // slide in the banner
-          cookieBanner?.classList.remove('translate-y-full');
-        }, 500);
-        consentButton.addEventListener('click', give_consent);
-      });
+    } else { // if consent is not given, show the banner
+      setTimeout(() => {
+        cookieBanner?.classList.remove('translate-y-full');
+      }, 500);
+      consentButton?.addEventListener('click', give_consent);
     }
 
     function give_consent() {
