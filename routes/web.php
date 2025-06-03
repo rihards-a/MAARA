@@ -25,6 +25,7 @@ Route::post('PrereleaseEmail', [PrereleaseEmailSubmissionController::class, 'sub
 
 Route::view('/', 'home')->name('home');
 Route::view('/par-mums', 'about')->name('about');
+Route::view('/privacy-policy', 'privacy-policy')->name('privacy-policy');
 Route::view('/test', 'test')->name('test'); // test route for testing purposes
 Route::view('/why_register', 'why_register')->name('why_register');
 

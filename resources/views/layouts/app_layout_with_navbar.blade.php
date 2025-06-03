@@ -55,7 +55,7 @@
   </main>
   
   <footer class="footer">
-    <p>Seko mums <a href="https://www.facebook.com/maaraplano" target="_blank">Facebook</a></p>
+    <p><a href="/privacy-policy">Privātuma politika</a></p>
   </footer>
 </body>
 </html>
