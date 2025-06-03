@@ -55,7 +55,7 @@
   </main>
   
   <footer class="footer">
-    <p><a href="/privacy-policy">Privātuma politika</a></p>
+    <p><a href="{{ route('privacy-policy') }}">Privātuma politika</a></p>
   </footer>
 </body>
 </html>

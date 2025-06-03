@@ -7,7 +7,7 @@
           <button id="accept-cookies" class="bg-gray-200 hover:bg-gray-300 text-black font-semibold py-2 px-6 rounded-md focus:outline-none whitespace-nowrap">
               Piekrītu 
           </button>
-          <a href="/privacy-policy" class="text-black text-sm hover:underline py-2 px-2 text-center whitespace-nowrap">Privātuma politika</a>
+          <a href="{{ route('privacy-policy') }}" class="text-black text-sm hover:underline py-2 px-2 text-center whitespace-nowrap">Privātuma politika</a>
       </div>
   </div>
 </div>
