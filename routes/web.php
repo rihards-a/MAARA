@@ -10,6 +10,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MessageController;
 
+use App\Http\Controllers\PDFController;
+Route::get('generate-pdf', [PDFController::class, 'generatePDF']);
 
 // test route for testing purposes
 //use App\Http\Controllers\QuestionnaireController;
