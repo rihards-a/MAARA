@@ -1,6 +1,6 @@
 @extends('layouts.app_layout_with_navbar')
 
-@section('title', 'Ceļvedis atbildīgajiem: turi savas lietas kārtībā - ātri, skaidri un vienkārši.')
+@section('title', 'Privātuma politika.')
 
 @section('main_content')
     <div class="guide-background">

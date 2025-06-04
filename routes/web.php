@@ -29,6 +29,7 @@ Route::view('/privatuma-politika', 'privacy-policy')->name('privacy-policy');
 Route::view('/test', 'test')->name('test'); // test route for testing purposes
 Route::view('/why_register', 'why_register')->name('why_register');
 
+
 Route::group(['prefix'=> 'blogs'], function () {
     Route::get('/', [BlogController::class, 'index'])->name('blog.index');
     Route::get('/{slug}', [BlogController::class, 'show'])->name('blog.show');

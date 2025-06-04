@@ -12,7 +12,13 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return view('dashboard.index');
+        // Get the authenticated user's ID
+        $userId = Auth::id(); // <--- These lines are new
+        $latestSubmission = Submission::where('user_id', $userId) // <---
+                                      ->latest('updated_at')      // <---
+                                      ->first();                 // <---
+
+        return view('dashboard.index', compact('latestSubmission')); // <--- This line is modified
     }
 
     public function beres()
@@ -213,6 +219,48 @@ class DashboardController extends Controller
     public function saveTestaments(Request $request)
     {
         $dashboard_title = 'testaments';
+        $validatedData = $request->validate([
+            'responses' => 'required|array',
+            'responses.*.question_id' => 'required|exists:questions,id',
+            'responses.*.response_value' => 'nullable|string',
+        ]);
+
+        // Create a questionnaire submission - for tracking if the user has started it
+        Submission::firstOrCreate(
+            [
+                'user_id'          => Auth::id(),
+                'questionnaire_id' => Questionnaire::where('title', $dashboard_title)->firstOrFail()->id,
+            ],
+        );
+    
+        // Create responses
+        foreach ($validatedData['responses'] as $response) {
+            Response::updateOrCreate(
+                [
+                    'user_id' => Auth::id(),
+                    'question_id' => $response['question_id'],
+                ],
+                [
+                    'response_value' => $response['response_value'] ?? null,
+                ]
+            );
+        }
+    
+        return back()->with('status', 'Saglabāts!');
+    }
+    public function digmantojums()
+    {
+        $dashboard_title = 'digmantojums';
+        $responses = Auth::user()->responses()->with('question.questionnaire')
+            ->whereHas('question.questionnaire', fn($q) => $q->where('title', $dashboard_title))
+            ->pluck('response_value', 'question_id')
+            ->toArray();
+        return view("dashboard.$dashboard_title", compact('responses'));
+    }
+
+    public function saveDigmantojums(Request $request)
+    {
+        $dashboard_title = 'digmantojums';
         $validatedData = $request->validate([
             'responses' => 'required|array',
             'responses.*.question_id' => 'required|exists:questions,id',
