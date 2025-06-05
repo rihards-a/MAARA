@@ -260,9 +260,9 @@ class DashboardController extends Controller
         $validatedData = $request->validate([
             'responses' => 'required|array',
             'responses.*.question_id' => 'required|exists:questions,id',
-            'responses.*.response_value' => 'nullable|string',
+            'responses.*.response_value' => 'nullable|boolean',
         ]);
-
+        
         // Create a questionnaire submission - for tracking if the user has started it
         Submission::firstOrCreate(
             [

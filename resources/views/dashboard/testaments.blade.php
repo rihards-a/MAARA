@@ -77,33 +77,40 @@
                      https://www.lsm.lv/raksts/dzive--stils/ikdienai/ar-ko-mantojuma-ligums-atskiras-no-testamenta-skaidro-zverinata-notare.a461601/
                 </a>
             </div>
+            <form action="{{ route('dashboard.testaments.save') }}" method="POST">
+            @csrf
             <p><b>Lai pabeigtu šo sadaļu, atzīmē vienu no izvēlēm:</b>
                 <br>
                 <br>
                 <div class="flex items-center space-x-2">
-                        <input type="radio" name="responses[13][response_value]" id="testament" value="1" class="w-6 h-6 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
-                        {{ isset($responses[13]) && $responses[13] ? 'checked' : '' }}>
-                        <label for="organ_donation">Es esmu izveidojis savu publisko testamentu pie notāra</label>
-                        <input type="hidden" name="responses[13][question_id]" value="13">
+                    <input type="checkbox" name="responses[200][response_value]" id="testament_200" value="1"
+                        class="w-6 h-6 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
+                        {{ isset($responses[200]) && $responses[200] ? 'checked' : '' }}>
+                    <label for="testament_200">Es esmu izveidojis savu publisko testamentu pie notāra</label>
+                    <input type="hidden" name="responses[200][question_id]" value="200">
                 </div>
                 <div class="flex items-center space-x-2">
-                        <input type="radio" name="responses[13][response_value]" id="testament" value="1" class="w-6 h-6 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
-                        {{ isset($responses[13]) && $responses[13] ? 'checked' : '' }}>
-                        <label for="organ_donation">Es esmu izveidojis savu privāto testamentu, kas nodots glabāšanā pie notāra</label>
-                        <input type="hidden" name="responses[13][question_id]" value="13">
+                    <input type="checkbox" name="responses[201][response_value]" id="testament_201" value="1"
+                        class="w-6 h-6 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
+                        {{ isset($responses[201]) && $responses[201] ? 'checked' : '' }}>
+                    <label for="testament_201">Es esmu izveidojis savu privāto testamentu, kas nodots glabāšanā pie notāra</label>
+                    <input type="hidden" name="responses[201][question_id]" value="201">
                 </div>
                 <div class="flex items-center space-x-2">
-                        <input type="radio" name="responses[13][response_value]" id="testament" value="1" class="w-6 h-6 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
-                        {{ isset($responses[13]) && $responses[13] ? 'checked' : '' }}>
-                        <label for="organ_donation">Es esmu izveidojis savu privāto testamentu, ko esmu noglabājis citur</label>
-                        <input type="hidden" name="responses[13][question_id]" value="13">
+                    <input type="checkbox" name="responses[202][response_value]" id="testament_202" value="1"
+                        class="w-6 h-6 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
+                        {{ isset($responses[202]) && $responses[202] ? 'checked' : '' }}>
+                    <label for="testament_202">Es esmu izveidojis savu privāto testamentu, ko esmu noglabājis citur</label>
+                    <input type="hidden" name="responses[202][question_id]" value="202">
                 </div>
                 <div class="flex items-center space-x-2">
-                        <input type="radio" name="responses[13][response_value]" id="testament" value="1" class="w-6 h-6 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
-                        {{ isset($responses[13]) && $responses[13] ? 'checked' : '' }}>
-                        <label for="organ_donation">Es vēlos, lai mana manta tiek sadalīta civillikumā noteiktajā kārtībā</label>
-                        <input type="hidden" name="responses[13][question_id]" value="13">
+                    <input type="checkbox" name="responses[203][response_value]" id="testament_203" value="1"
+                        class="w-6 h-6 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
+                        {{ isset($responses[203]) && $responses[203] ? 'checked' : '' }}>
+                    <label for="testament_203">Es vēlos, lai mana manta tiek sadalīta civillikumā noteiktajā kārtībā</label>
+                    <input type="hidden" name="responses[203][question_id]" value="203">
                 </div>
+                             
             </p>
         </div>
 
@@ -142,5 +149,6 @@
                 Tālāk
             </a>
         </div>
+    </form>
 </section>
 @endsection

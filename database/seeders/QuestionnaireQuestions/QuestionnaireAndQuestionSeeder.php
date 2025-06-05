@@ -15,6 +15,7 @@ class QuestionnaireAndQuestionSeeder extends Seeder
             MedSeeder::class,
             PensijaSeeder::class,
             PienakumiSeeder::class,
+            TestamentsSeeder::class,
         ]);
     }
 }
