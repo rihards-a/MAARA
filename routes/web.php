@@ -52,34 +52,27 @@ Route::group(["prefix"=> "celvedis-palicejiem"], function () {
 
 # the authenticated portion, using "haslifetime" middleware added in app/bootstrap as an alias
 Route::group(["prefix" => "dashboard", "middleware" => ["auth"]], function () {
-    Route::get('/', [DashboardController::class, 'index'])->name('dashboard'); #TODO: modify this view to be our dashboard
+    Route::get('', [DashboardController::class, 'index'])->name('dashboard');
     
     # only accessible after subscribing
     Route::middleware("haslifetime")->group(function () {
-        # all the sub-routes for the user dashboard
-        Route::get('beres', [DashboardController::class, 'beres'])->name('dashboard.beres');
-        Route::post('beres', [DashboardController::class, 'saveBeres'])->name('dashboard.beres.save');
-
-        Route::get('finanses', [DashboardController::class, 'finanses'])->name('dashboard.finanses');
-        Route::post('finanses', [DashboardController::class, 'saveFinanses'])->name('dashboard.finanses.save');
-
-        Route::get('index', [DashboardController::class, 'index'])->name('dashboard.index');
-        Route::post('index', [DashboardController::class, 'saveIndex'])->name('dashboard.index.save');
-
         Route::get('med', [DashboardController::class, 'med'])->name('dashboard.med');
         Route::post('med', [DashboardController::class, 'saveMed'])->name('dashboard.med.save');
 
         Route::get('pensija', [DashboardController::class, 'pensija'])->name('dashboard.pensija');
         Route::post('pensija', [DashboardController::class, 'savePensija'])->name('dashboard.pensija.save');
 
+        Route::get('beres', [DashboardController::class, 'beres'])->name('dashboard.beres');
+        Route::post('beres', [DashboardController::class, 'saveBeres'])->name('dashboard.beres.save');
+
+        Route::get('finanses', [DashboardController::class, 'finanses'])->name('dashboard.finanses');
+        Route::post('finanses', [DashboardController::class, 'saveFinanses'])->name('dashboard.finanses.save');
+
         Route::get('testaments', [DashboardController::class, 'testaments'])->name('dashboard.testaments');
         Route::post('testaments', [DashboardController::class, 'saveTestaments'])->name('dashboard.testaments.save');
 
         Route::get('digmantojums', [DashboardController::class, 'digmantojums'])->name('dashboard.digmantojums');
         Route::post('digmantojums', [DashboardController::class, 'saveDigmantojums'])->name('dashboard.digmantojums.save');
-
-        Route::get('pedejasvelmes', [DashboardController::class, 'pedejasvelmes'])->name('dashboard.pedejasvelmes');
-        Route::post('pedejasvelmes', [DashboardController::class, 'savePedejasvelmes'])->name('dashboard.pedejasvelmes.save');
 
         Route::get('pienakumi', [DashboardController::class, 'pienakumi'])->name('dashboard.pienakumi');
         Route::post('pienakumi', [DashboardController::class, 'savePienakumi'])->name('dashboard.pienakumi.save');
