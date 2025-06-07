@@ -23,8 +23,8 @@
 
     @php
         // Get previously selected values for Question 100
-        $selectedOnlineFinances = isset($responses[100]['response_value']) && is_array($responses[100]['response_value'])
-            ? $responses[100]['response_value']
+        $selectedOnlineFinances = isset($responses[100]) && is_array($responses[100])
+            ? $responses[100]
             : [];
     @endphp
 
@@ -53,9 +53,9 @@
             <input type="checkbox"
                    name="responses[100][response_value][]"
                    id="finances_online_other"
-                   value="cits" {{-- 'cits' for 'other' --}}
+                   value="other" {{-- 'cits' for 'other' --}}
                    class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
-                   {{ in_array('cits', $selectedOnlineFinances) ? 'checked' : '' }}>
+                   {{ in_array('other', $selectedOnlineFinances) ? 'checked' : '' }}>
             <label for="finances_online_other" class="ml-2 text-gray-700">Cits</label>
         </div>
 
@@ -63,9 +63,9 @@
             <input type="checkbox"
                    name="responses[100][response_value][]"
                    id="finances_online_none"
-                   value="neglabaju" {{-- 'neglabaju' for 'don't store' --}}
+                   value="none" {{-- 'neglabaju' for 'none' --}}
                    class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
-                   {{ in_array('neglabaju', $selectedOnlineFinances) ? 'checked' : '' }}>
+                   {{ in_array('none', $selectedOnlineFinances) ? 'checked' : '' }}>
             <label for="finances_online_none" class="ml-2 text-gray-700">Neglabāju</label>
         </div>
     </div>
@@ -80,8 +80,8 @@
 
     @php
         // Get previously selected values for Question 101 (assuming this is its ID)
-        $selectedBanks = isset($responses[101]['response_value']) && is_array($responses[101]['response_value'])
-            ? $responses[101]['response_value']
+        $selectedBanks = isset($responses[101]) && is_array($responses[101])
+            ? $responses[101]
             : [];
     @endphp
 
@@ -140,9 +140,9 @@
             <input type="checkbox"
                    name="responses[101][response_value][]"
                    id="finances_bank_lv_other"
-                   value="lv_other"
+                   value="otherLV"
                    class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
-                   {{ in_array('lv_other', $selectedBanks) ? 'checked' : '' }}>
+                   {{ in_array('otherLV', $selectedBanks) ? 'checked' : '' }}>
             <label for="finances_bank_lv_other" class="ml-2 text-gray-700">Cita banka Latvijā</label>
         </div>
 
@@ -150,9 +150,9 @@
             <input type="checkbox"
                    name="responses[101][response_value][]"
                    id="finances_bank_foreign_other"
-                   value="foreign_other"
+                   value="otherForeign"
                    class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
-                   {{ in_array('foreign_other', $selectedBanks) ? 'checked' : '' }}>
+                   {{ in_array('otherForeign', $selectedBanks) ? 'checked' : '' }}>
             <label for="finances_bank_foreign_other" class="ml-2 text-gray-700">Cita banka ārzemēs</label>
         </div>
     </div>
@@ -167,8 +167,8 @@
 
     @php
         // Get previously selected values for Question 102 (assuming this is its ID)
-        $selectedBanks = isset($responses[102]['response_value']) && is_array($responses[102]['response_value'])
-            ? $responses[102]['response_value']
+        $selectedBanks = isset($responses[102]) && is_array($responses[102])
+            ? $responses[102]
             : [];
     @endphp
 
@@ -186,7 +186,7 @@
             <input type="checkbox"
                    name="responses[102][response_value][]" {{-- Correct name for Q101 checkboxes --}}
                    id="finances_stock_no" {{-- Unique ID --}}
-                   value="yes" {{-- Descriptive value --}}
+                   value="no" {{-- Descriptive value --}}
                    class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
                    {{ in_array('no', $selectedBanks) ? 'checked' : '' }}>
             <label for="finances_stock_nē" class="ml-2 text-gray-700">Nē</label>
@@ -195,7 +195,7 @@
             <input type="checkbox"
                    name="responses[102][response_value][]" {{-- Correct name for Q101 checkboxes --}}
                    id="finances_stock_options" {{-- Unique ID --}}
-                   value="yes" {{-- Descriptive value --}}
+                   value="options" {{-- Descriptive value --}}
                    class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
                    {{ in_array('options', $selectedBanks) ? 'checked' : '' }}>
             <label for="finances_stock_options" class="ml-2 text-gray-700">Man pieder akciju opcijas</label>
@@ -213,8 +213,8 @@
 
     @php
         // Get previously selected values for Question 103 (assuming this is its ID)
-        $selectedBanks = isset($responses[103]['response_value']) && is_array($responses[103]['response_value'])
-            ? $responses[103]['response_value']
+        $selectedBanks = isset($responses[103]) && is_array($responses[103])
+            ? $responses[103]
             : [];
     @endphp
 
@@ -232,7 +232,7 @@
             <input type="checkbox"
                    name="responses[103][response_value][]" {{-- Correct name for Q101 checkboxes --}}
                    id="finances_crypto_no" {{-- Unique ID --}}
-                   value="yes" {{-- Descriptive value --}}
+                   value="no" {{-- Descriptive value --}}
                    class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
                    {{ in_array('no', $selectedBanks) ? 'checked' : '' }}>
             <label for="finances_crypto_nē" class="ml-2 text-gray-700">Nē</label>
@@ -248,203 +248,105 @@
     </label>
     <label for="real_estate_lv_count" class="block text-gray-700 text-sm mb-2">Nekustamo īpašumu skaits Latvijā</label>
     <select
-        name="responses[104][real_estate_lv_count]"
+        name="responses[104][response_value][]"
         id="real_estate_lv_count"
         class="block w-full px-3 py-2 text-base text-gray-900 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-lime-500 focus:border-lime-500 sm:text-sm"
     >
         <option value="">Izvēlēties skaitu</option>
         {{-- Blade loop to generate options 0-10 and 10+ --}}
         @for ($i = 0; $i <= 10; $i++)
-            <option value="{{ $i }}" {{ isset($responses[104]['real_estate_lv_count']) && $responses[104]['real_estate_lv_count'] == $i ? 'selected' : '' }}>
+            <option value="{{ $i }}" {{ isset($responses[104]) && $responses[104][0] == $i ? 'selected' : '' }}>
                 {{ $i }}
             </option>
         @endfor
-        <option value="10+" {{ isset($responses[104]['real_estate_lv_count']) && $responses[104]['real_estate_lv_count'] == '10+' ? 'selected' : '' }}>
+        <option value="10+" {{ isset($responses[104]) && $responses[104][0] == '10+' ? 'selected' : '' }}>
             10+
         </option>
     </select>
     <label for="real_estate_notlv_count" class="block text-gray-700 text-sm mb-2">Nekustamo īpašumu skaits ārzemēs</label>
     <select
-        name="responses[104][real_estate_notlv_count]"
+        name="responses[104][response_value][]"
         id="real_estate_notlv_count"
         class="block w-full px-3 py-2 text-base text-gray-900 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-lime-500 focus:border-lime-500 sm:text-sm"
     >
         <option value="">Izvēlēties skaitu</option>
         {{-- Blade loop to generate options 0-10 and 10+ --}}
         @for ($i = 0; $i <= 10; $i++)
-            <option value="{{ $i }}" {{ isset($responses[104]['real_estate_notlv_count']) && $responses[104]['real_estate_notlv_count'] == $i ? 'selected' : '' }}>
+            <option value="{{ $i }}" {{ isset($responses[104]) && $responses[104][1] == $i ? 'selected' : '' }}>
                 {{ $i }}
             </option>
         @endfor
-        <option value="10+" {{ isset($responses[104]['real_estate_notlv_count']) && $responses[104]['real_estate_notlv_count'] == '10+' ? 'selected' : '' }}>
+        <option value="10+" {{ isset($responses[104]) && $responses[104][1] == '10+' ? 'selected' : '' }}>
             10+
         </option>
     </select>
 </div>
+{{-- Hidden input for this specific question's ID --}}
+<input type="hidden" name="responses[104][question_id]" value="104">
 <div class="mb-4">
     <label class="block text-gray-700 text-sm font-semibold mb-2" for="real_estate_question">
         Vai Tev pieder kāds transportlīdzeklis?
     </label>
     <label for="transport_lv_count" class="block text-gray-700 text-sm mb-2">Transportlīdzekļu skaits (reģ. Latvijā)</label>
     <select
-        name="responses[105][transport_lv_count]"
+        name="responses[105][response_value][]"
         id="transport_lv_count"
         class="block w-full px-3 py-2 text-base text-gray-900 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-lime-500 focus:border-lime-500 sm:text-sm"
     >
         <option value="">Izvēlēties skaitu</option>
         {{-- Blade loop to generate options 0-10 and 10+ --}}
         @for ($i = 0; $i <= 10; $i++)
-            <option value="{{ $i }}" {{ isset($responses[105]['transport_lv_count']) && $responses[105]['transport_lv_count'] == $i ? 'selected' : '' }}>
+            <option value="{{ $i }}" {{ isset($responses[105]) && $responses[105][0] == $i ? 'selected' : '' }}>
                 {{ $i }}
             </option>
         @endfor
-        <option value="10+" {{ isset($responses[105]['transport_lv_count']) && $responses[105]['transport_lv_count'] == '10+' ? 'selected' : '' }}>
+        <option value="10+" {{ isset($responses[105]) && $responses[105][0] == '10+' ? 'selected' : '' }}>
             10+
         </option>
     </select>
     <label for="transport_notlv_count" class="block text-gray-700 text-sm mb-2">Transportlīdzekļu skaits (reģ. ārzemēs)</label>
     <select
-        name="responses[105][transport_notlv_count]"
+        name="responses[105][response_value][]"
         id="transport_notlv_count"
         class="block w-full px-3 py-2 text-base text-gray-900 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-lime-500 focus:border-lime-500 sm:text-sm"
     >
         <option value="">Izvēlēties skaitu</option>
         {{-- Blade loop to generate options 0-10 and 10+ --}}
         @for ($i = 0; $i <= 10; $i++)
-            <option value="{{ $i }}" {{ isset($responses[105]['transport_notlv_count']) && $responses[105]['transport_notlv_count'] == $i ? 'selected' : '' }}>
+            <option value="{{ $i }}" {{ isset($responses[105]) && $responses[105][1] == $i ? 'selected' : '' }}>
                 {{ $i }}
             </option>
         @endfor
-        <option value="10+" {{ isset($responses[105]['transport_notlv_count']) && $responses[105]['transport_notlv_count'] == '10+' ? 'selected' : '' }}>
+        <option value="10+" {{ isset($responses[105]) && $responses[105][1] == '10+' ? 'selected' : '' }}>
             10+
         </option>
     </select>
 </div>
-<div class="mb-4">
-    <label class="block text-gray-700 text-sm font-semibold mb-2" for="fonds_main_label">
-        Vai Tu esi investējis līdzekļus kādos fondos?
-    </label>
-    <label for="fonds_count" class="block text-gray-700 text-sm mb-2">
-        Fondu pārvaldītāju skaits (0 = Nav fondu)
-    </label>
-    <select
-        name="responses[106][fonds_count]"
-        id="fonds_count"
-        class="block w-full px-3 py-2 text-base text-gray-900 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-lime-500 focus:border-lime-500 sm:text-sm"
-    >
-        <option value="">Izvēlēties skaitu</option>
-        {{-- Blade loop to generate options 0-10 and 10+ --}}
-        @for ($i = 0; $i <= 10; $i++)
-            <option value="{{ $i }}" {{ isset($responses[106]['fonds_count']) && $responses[106]['fonds_count'] == $i ? 'selected' : '' }}>
-                {{ $i }}
-            </option>
-        @endfor
-        <option value="10+" {{ isset($responses[106]['fonds_count']) && $responses[106]['fonds_count'] == '10+' ? 'selected' : '' }}>
-                10+
-        </option>
-    </select>
+
+    {{-- Hidden input for this specific question's ID --}}
+    <input type="hidden" name="responses[105][question_id]" value="105">
 </div>
-
-    <div class="mb-6"> {{-- Added margin-bottom for separation between questions --}}
-        <label class="block text-gray-700 text-sm font-semibold mb-2" for="finances_banks_question">
-            Vai Tev pieder kādas  īpaši vērtīgas fiziskas lietas (dārgmetāli, antikvāras preces, kolekcijas, tehnika, u.c.) 
-        </label>
-
-        @php
-            // Get previously selected values for Question 107 (assuming this is its ID)
-            $selectedBanks = isset($responses[107]['response_value']) && is_array($responses[107]['response_value'])
-                ? $responses[107]['response_value']
-                : [];
-        @endphp
-
-        <div class="space-y-2">
-            <div class="flex items-center">
-                <input type="checkbox"
-                    name="responses[107][response_value][]" {{-- Correct name for Q101 checkboxes --}}
-                    id="finances_crypto_yes" {{-- Unique ID --}}
-                    value="yes" {{-- Descriptive value --}}
-                    class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
-                    {{ in_array('yes', $selectedBanks) ? 'checked' : '' }}>
-                <label for="finances_crypto_yes" class="ml-2 text-gray-700">Jā</label>
-            </div>
-            <div class="flex items-center">
-                <input type="checkbox"
-                    name="responses[107][response_value][]" {{-- Correct name for Q101 checkboxes --}}
-                    id="finances_crypto_no" {{-- Unique ID --}}
-                    value="yes" {{-- Descriptive value --}}
-                    class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
-                    {{ in_array('no', $selectedBanks) ? 'checked' : '' }}>
-                <label for="finances_crypto_nē" class="ml-2 text-gray-700">Nē</label>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="mb-6"> {{-- Added margin-bottom for separation between questions --}}
-        <label class="block text-gray-700 text-sm font-semibold mb-2" for="finances_banks_question">
-            Vai ir kas cits finansiāli vērtīgs, kas Tev pieder un neietilpst nevienā no šīm kategorijām?
-        </label>
-
-        @php
-            // Get previously selected values for Question 108 (assuming this is its ID)
-            $selectedBanks = isset($responses[108]['response_value']) && is_array($responses[108]['response_value'])
-                ? $responses[108]['response_value']
-                : [];
-        @endphp
-
-        <div class="space-y-2">
-            <div class="flex items-center">
-                <input type="checkbox"
-                    name="responses[108][response_value][]" {{-- Correct name for Q101 checkboxes --}}
-                    id="finances_crypto_yes" {{-- Unique ID --}}
-                    value="yes" {{-- Descriptive value --}}
-                    class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
-                    {{ in_array('yes', $selectedBanks) ? 'checked' : '' }}>
-                <label for="finances_crypto_yes" class="ml-2 text-gray-700">Jā</label>
-            </div>
-            <div class="flex items-center">
-                <input type="checkbox"
-                    name="responses[108][response_value][]" {{-- Correct name for Q101 checkboxes --}}
-                    id="finances_crypto_no" {{-- Unique ID --}}
-                    value="yes" {{-- Descriptive value --}}
-                    class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
-                    {{ in_array('no', $selectedBanks) ? 'checked' : '' }}>
-                <label for="finances_crypto_nē" class="ml-2 text-gray-700">Nē</label>
-            </div>
-        </div>
-    </div>
-
-        
-    </form>
+    
 
     <!-- Navigation Buttons -->
-        <div class="w-full max-w-screen-lg mx-auto px-4 py-6 flex justify-between items-center">
+        <div class="col-span-full flex justify-between items-center mt-6 w-full">
+            <!-- Left minimal button -->
             <a href="{{ route('dashboard.beres') }}"
             class="text-gray-600 text-sm border border-gray-300 rounded-md px-4 py-2 hover:bg-gray-100">
                 Atpakaļ
             </a>
 
-            <div class="flex items-center gap-4">
-                <label class="flex items-center gap-2 text-gray-700 text-sm font-medium cursor-pointer select-none">
-                    <input type="checkbox"
-                        id="section_completed"
-                        name="responses[13][response_value]"
-                        value="1"
-                        class="form-checkbox h-5 w-5 text-lime-600 rounded focus:ring-lime-500"
-                        {{ (isset($responses[13]['response_value']) && $responses[13]['response_value'] == 1) ? 'checked' : '' }}>
-                    Atzīmēt sadaļu kā pabeigtu
-                </label>
+            <!-- Center save button -->
+            <button type="submit"
+                class="bg-moss hover:bg-green-700 text-white font-bold py-3 px-6 rounded-md focus:outline-none focus:shadow-outline">
+                Saglabāt
+            </button>
 
-                <button type="submit"
-                        class="bg-moss hover:bg-lime-600 text-white font-bold py-3 px-6 rounded-md focus:outline-none">
-                    Saglabāt
-                </button>
-
-                <a href="{{ route('dashboard.testaments') }}"
-                class="text-gray-600 text-sm border border-gray-300 rounded-md px-4 py-2 hover:bg-gray-100">
-                    Tālāk
-                </a>
-            </div>
+            <!-- Right minimal button -->
+            <a href="{{ route('dashboard.testaments') }}"
+            class="text-gray-600 text-sm border border-gray-300 rounded-md px-4 py-2 hover:bg-gray-100">
+                Tālāk
+            </a>
         </div>
 </section>
 @endsection

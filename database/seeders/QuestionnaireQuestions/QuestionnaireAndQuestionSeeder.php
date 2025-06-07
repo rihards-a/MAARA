@@ -11,9 +11,11 @@ class QuestionnaireAndQuestionSeeder extends Seeder
     {
         $this->call([
             BeresSeeder::class,
+            FinansesSeeder::class,
             MedSeeder::class,
             PensijaSeeder::class,
             PienakumiSeeder::class,
+            TestamentsSeeder::class,
         ]);
     }
 }
