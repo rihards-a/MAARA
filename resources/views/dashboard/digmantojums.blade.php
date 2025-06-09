@@ -126,77 +126,175 @@
                     <input type="hidden" name="responses[2][question_id]" value="2">
                 </div>
             </div>
-            <br>
-
-
-            <p>
-            <b>Digitālās ierīces</b><br>
-            <br>
-            Liela daļa mūsu informācijas glabājas mūsu izmantotajās ierīcēs - bieži vien šīs ierīces satur mūsu tuviniekiem nozīmīgu informāciju, tāpēc ir jāpadomā par to, kā viņi varēs šīm ierīcēm piekļūt pēc mūsu nāves. Šajā sadaļā norādi informāciju par savu datoru, planšeti, telefonu, ārējiem cietajiem diskiem, u.c. Iesakām atsevišķi norādīt komentārā, ja ierīcē glabājas kas īpaši vērtīgs, ko būtu iespējams izmantot tālāk - piemēram, oriģinālmāksla, iesākti projekti vai mūzika.<br>
+            <p class="welcome-text text-sm">
+            <h2 class="text-l font-semibold mb-4" id="digitalas-ierices">Digitālās ierīces</h2>
+                Liela daļa mūsu informācijas glabājas mūsu izmantotajās ierīcēs - bieži vien šīs ierīces satur mūsu tuviniekiem nozīmīgu informāciju, tāpēc ir jāpadomā par to, kā viņi varēs šīm ierīcēm piekļūt pēc mūsu nāves. Šajā sadaļā norādi informāciju par savu datoru, planšeti, telefonu, ārējiem cietajiem diskiem, u.c. Iesakām atsevišķi norādīt komentārā, ja ierīcē glabājas kas īpaši vērtīgs, ko būtu iespējams izmantot tālāk - piemēram, oriģinālmāksla, iesākti projekti vai mūzika.
             </p>
-            <br>
-            <div class="grid grid-cols-5 md:grid-cols-5 gap-2 items-stretch  text-sm"> 
-                <div>
-                    <label class="text-gray-700 text-sm font-semibold mb-1" for="not_wanted">
-                        Ierīce
-                    </label>
-                    <textarea name="responses[2][response_value]" id="not_wanted" class="w-full border border-gray-300 rounded-md shadow-sm focus:border-lime-600 focus:ring-lime-600 text-black-700 text-sm placeholder-gray-400 p-3" placeholder="Ierīce">{{ $responses[2] ?? '' }}</textarea>
-                    <input type="hidden" name="responses[2][question_id]" value="2">
-                </div>
-
-                <div>
-                    <label class="block text-gray-700 text-sm font-semibold mb-1" for="burial_preference">
-                    Ierīces nozīmīgums
-                    </label>
-                    <select name="responses[3][response_value]" id="burial_preference" class="w-full border border-gray-300 rounded-md shadow-sm focus:border-lime-600 focus:ring-lime-600 text-black-700 text-sm placeholder-gray-400 p-3">
-                        <option disabled {{ empty($responses[3]) ? 'selected' : '' }} value="" class="text-xs">Informācijas svarīgums</option>   
-                        <option value="kremācija" {{ ($responses[3] ?? '') == 'kremācija' ? 'selected' : '' }}>Ļoti svarīga</option>
-                        <option value="apglabāšana" {{ ($responses[3] ?? '') == 'apglabāšana' ? 'selected' : '' }}>Diezgan svarīga</option>
-                        <option value="ķermeņa ziedošana zinātnei" {{ ($responses[3] ?? '') == 'ķermeņa ziedošana zinātnei' ? 'selected' : '' }}>Mazsvarīga</option>
-                    </select>
-                    <input type="hidden" name="responses[3][question_id]" value="3">
-                </div>
-
-                <div>
-                    <label class="block text-gray-700 text-sm font-semibold mb-1" for="burial_preference">
-                        Piekļuve ierīcei
-                    </label>
-                    <select name="responses[3][response_value]" id="burial_preference" class="w-full border border-gray-300 rounded-md shadow-sm focus:border-lime-600 focus:ring-lime-600 text-black-700 text-sm placeholder-gray-400 p-3">
-                        <option disabled {{ empty($responses[3]) ? 'selected' : '' }} value="">Kā piekļūt ierīcei?</option>
-                        <option value="kremācija" {{ ($responses[3] ?? '') == 'kremācija' ? 'selected' : '' }}>Ierīcei nav paroles</option>
-                        <option value="apglabāšana" {{ ($responses[3] ?? '') == 'apglabāšana' ? 'selected' : '' }}>Ierakstīju piekļuves datus Lastpass vai citā rīkā</option>
-                        <option value="ķermeņa ziedošana zinātnei" {{ ($responses[3] ?? '') == 'ķermeņa ziedošana zinātnei' ? 'selected' : '' }}>Uzrakstīju piekļuves datus uz papīra lapas</option>
-                        <option value="cits" {{ ($responses[3] ?? '') == 'cits' ? 'selected' : '' }}>Neko neizdarīju</option>
-                    </select>
-                    <input type="hidden" name="responses[3][question_id]" value="3">
-                </div>
-
-                <div>
-                    <label class="block text-gray-700 text-sm font-semibold mb-1" for="burial_preference">
-                        Ko darīt ar ierīci?
-                    </label>
-                    <select name="responses[3][response_value]" id="burial_preference" class="w-full border border-gray-300 rounded-md shadow-sm focus:border-lime-600 focus:ring-lime-600 text-black-700 text-sm placeholder-gray-400 p-3">
-                        <option disabled {{ empty($responses[3]) ? 'selected' : '' }} value="">Ko darīt ar ierīci?</option>    
-                        <option value="kremācija" {{ ($responses[3] ?? '') == 'kremācija' ? 'selected' : '' }}>Nekavējoties visu informāciju dzēst</option>
-                        <option value="apglabāšana" {{ ($responses[3] ?? '') == 'apglabāšana' ? 'selected' : '' }}>Pārskatīt tikai konkrētu informāciju (sīkāk komentārā)</option>
-                        <option value="ķermeņa ziedošana zinātnei" {{ ($responses[3] ?? '') == 'ķermeņa ziedošana zinātnei' ? 'selected' : '' }}>Dzēst pēc tam, kad tuvinieki ir saglabājuši informāciju, kas šķiet noderīga</option>
-                        <option value="cits" {{ ($responses[3] ?? '') == 'cits' ? 'selected' : '' }}>Neko nedarīt</option>
-                    </select>
-                    <input type="hidden" name="responses[3][question_id]" value="3">
-                </div>
-
-                <div>
-                    <label class="text-gray-700 text-sm font-semibold mb-1" for="not_wanted">
-                        Papildus komentārs
-                    </label>
-                    <textarea name="responses[2][response_value]" id="not_wanted" class="w-full border border-gray-300 rounded-md shadow-sm focus:border-lime-600 focus:ring-lime-600 text-black-700 text-sm placeholder-gray-400 p-3" placeholder="brīvs komentārs">{{ $responses[2] ?? '' }}</textarea>
-                    <input type="hidden" name="responses[2][question_id]" value="2">
-                </div>
+            <div class="mb-4">
+                <h2 class="text-base font-semibold mb-0">Manas ierīces</h2>
             </div>
-            <br>
 
-            <p>
-            <b>Darbs un dokumenti</b><br>
+            @if($devices->isEmpty())
+                <div class="mt-0 bg-gray-50 rounded-lg p-6 text-center text-gray-500">
+                    Jums vēl nav nevienas ierīces
+                </div>
+            @else
+            <div class="mt-2">
+                @foreach($devices as $device)
+                <div class="mb-0 p-6 bg-white">
+                    <h2 class="text-xl font-semibold mt-0 mb-0">Ierīce {{ $device->name }}</h2>
+
+
+                    <form action="{{ route('dashboard.ierices.update', $device->id) }}" method="POST">
+                        @csrf
+                        @method('PUT')
+
+                        <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+                            <div>
+                                <label for="name-{{ $device->id }}" class="block text-gray-700 text-sm font-bold mb-2">Ierīce:</label>
+                                <textarea
+                                    name="name"
+                                    id="name-{{ $device->id }}"
+                                    class="h-[46px] w-full p-3 border border-gray-300 rounded-md text-sm focus:border-lime-600 focus:ring-lime-600"
+                                    required
+                                >{{ $device->name }}</textarea>
+                            </div>
+
+                            <div>
+                                <label for="importance-{{ $device->id }}" class="block text-gray-700 text-sm font-bold mb-2">Ierīces nozīmīgums:</label>
+                                <select name="importance" id="importance-{{ $device->id }}" class="w-full border border-gray-300 rounded-md shadow-sm focus:border-lime-600 focus:ring-lime-600 text-black-700 text-sm p-3" required>
+                                    <option disabled {{ empty($device->importance) ? 'selected' : '' }} value="">Informācijas svarīgums</option>
+                                    <option value="Ļoti svarīga" {{ $device->importance == 'Ļoti svarīga' ? 'selected' : '' }}>Ļoti svarīga</option>
+                                    <option value="Diezgan svarīga" {{ $device->importance == 'Diezgan svarīga' ? 'selected' : '' }}>Diezgan svarīga</option>
+                                    <option value="Mazsvarīga" {{ $device->importance == 'Mazsvarīga' ? 'selected' : '' }}>Mazsvarīga</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="access_method-{{ $device->id }}" class="block text-gray-700 text-sm font-bold mb-2">Piekļuve ierīcei:</label>
+                                <select name="access_method" id="access_method-{{ $device->id }}" class="w-full border border-gray-300 rounded-md shadow-sm focus:border-lime-600 focus:ring-lime-600 text-black-700 text-sm p-3" required>
+                                    <option disabled {{ empty($device->access_method) ? 'selected' : '' }} value="">Kā piekļūt ierīcei?</option>
+                                    <option value="Ierīcei nav paroles" {{ $device->access_method == 'Ierīcei nav paroles' ? 'selected' : '' }}>Ierīcei nav paroles</option>
+                                    <option value="Ierakstīju piekļuves datus Lastpass vai citā rīkā" {{ $device->access_method == 'Ierakstīju piekļuves datus Lastpass vai citā rīkā' ? 'selected' : '' }}>Ierakstīju piekļuves datus Lastpass vai citā rīkā</option>
+                                    <option value="Uzrakstīju piekļuves datus uz papīra lapas" {{ $device->access_method == 'Uzrakstīju piekļuves datus uz papīra lapas' ? 'selected' : '' }}>Uzrakstīju piekļuves datus uz papīra lapas</option>
+                                    <option value="Neko neizdarīju" {{ $device->access_method == 'Neko neizdarīju' ? 'selected' : '' }}>Neko neizdarīju</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="action_after_death-{{ $device->id }}" class="block text-gray-700 text-sm font-bold mb-2">Ko darīt ar ierīci?</label>
+                                <select name="action_after_death" id="action_after_death-{{ $device->id }}" class="w-full border border-gray-300 rounded-md shadow-sm focus:border-lime-600 focus:ring-lime-600 text-black-700 text-sm p-3" required>
+                                    <option disabled {{ empty($device->action_after_death) ? 'selected' : '' }} value="">Ko darīt ar ierīci?</option>
+                                    <option value="Nekavējoties visu informāciju dzēst" {{ $device->action_after_death == 'Nekavējoties visu informāciju dzēst' ? 'selected' : '' }}>Nekavējoties visu informāciju dzēst</option>
+                                    <option value="Pārskatīt tikai konkrētu informāciju (sīkāk komentārā)" {{ $device->action_after_death == 'Pārskatīt tikai konkrētu informāciju (sīkāk komentārā)' ? 'selected' : '' }}>Pārskatīt tikai konkrētu informāciju (sīkāk komentārā)</option>
+                                    <option value="Dzēst pēc tam, kad tuvinieki ir saglabājuši informāciju, kas šķiet noderīga" {{ $device->action_after_death == 'Dzēst pēc tam, kad tuvinieki ir saglabājuši informāciju, kas šķiet noderīga' ? 'selected' : '' }}>Dzēst pēc tam, kad tuvinieki ir saglabājuši informāciju, kas šķiet noderīga</option>
+                                    <option value="Neko nedarīt" {{ $device->action_after_death == 'Neko nedarīt' ? 'selected' : '' }}>Neko nedarīt</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="comments-{{ $device->id }}" class="block text-gray-700 text-sm font-bold mb-2">Papildus komentārs:</label>
+                                <textarea
+                                    name="comments"
+                                    id="comments-{{ $device->id }}"
+                                    class="h-[46px] w-full p-3 border border-gray-300 rounded-md text-sm focus:border-lime-600 focus:ring-lime-600"
+                                    placeholder="brīvs komentārs"
+                                >{{ $device->comments }}</textarea>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-between items-center mt-6">
+                            <button type="submit" class="bg-moss text-white rounded-md py-2 px-4 text-sm hover:bg-moss/80">
+                                Saglabāt izmaiņas
+                            </button>
+
+                            <button type="button" onclick="if(confirm('Vai tiešām vēlaties dzēst šo ierīci?')) document.getElementById('delete-form-{{ $device->id }}').submit();" class="bg-[#D6A2B5] text-white rounded-md py-2 px-4 text-sm hover:bg-[#D6A2B5]/80">
+                                Dzēst
+                            </button>
+                        </div>
+                    </form>
+
+                    <form id="delete-form-{{ $device->id }}" action="{{ route('dashboard.ierices.destroy', $device->id) }}" method="POST" class="hidden">
+                        @csrf
+                        @method('DELETE')
+                    </form>
+                </div>
+                @endforeach
+            </div>
+            @endif
+
+            @if($devices->count() < 20)
+            <div class="mb-8 p-6 bg-white rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-4">Pievienot jaunu ierīci</h2>
+                <form action="{{ route('dashboard.ierices.store') }}" method="POST">
+                    @csrf
+                    <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+                        <div>
+                            <label for="new-name" class="block text-gray-700 text-sm font-bold mb-2">Ierīce:</label>
+                            <textarea
+                                name="name"
+                                id="new-name"
+                                value="{{ old('name') }}"
+                                placeholder="Ierīce"
+                                class="h-[46px] w-full border border-gray-300 rounded-md shadow-sm focus:border-lime-600 focus:ring-lime-600 text-black-700 text-sm placeholder-gray-400 p-3"
+                                required
+                            >{{ old('name') }}</textarea>
+                        </div>
+
+                        <div>
+                            <label for="new-importance" class="block text-gray-700 text-sm font-bold mb-2">Ierīces nozīmīgums:</label>
+                            <select name="importance" id="new-importance" class="w-full border border-gray-300 rounded-md shadow-sm focus:border-lime-600 focus:ring-lime-600 text-black-700 text-sm p-3" required>
+                                <option disabled selected value="">Informācijas svarīgums</option>
+                                <option value="Ļoti svarīga" {{ old('importance') == 'Ļoti svarīga' ? 'selected' : '' }}>Ļoti svarīga</option>
+                                <option value="Diezgan svarīga" {{ old('importance') == 'Diezgan svarīga' ? 'selected' : '' }}>Diezgan svarīga</option>
+                                <option value="Mazsvarīga" {{ old('importance') == 'Mazsvarīga' ? 'selected' : '' }}>Mazsvarīga</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="new-access_method" class="block text-gray-700 text-sm font-bold mb-2">Piekļuve ierīcei:</label>
+                            <select name="access_method" id="new-access_method" class="w-full border border-gray-300 rounded-md shadow-sm focus:border-lime-600 focus:ring-lime-600 text-black-700 text-sm p-3" required>
+                                <option disabled selected value="">Kā piekļūt ierīcei?</option>
+                                <option value="Ierīcei nav paroles" {{ old('access_method') == 'Ierīcei nav paroles' ? 'selected' : '' }}>Ierīcei nav paroles</option>
+                                <option value="Ierakstīju piekļuves datus Lastpass vai citā rīkā" {{ old('access_method') == 'Ierakstīju piekļuves datus Lastpass vai citā rīkā' ? 'selected' : '' }}>Ierakstīju piekļuves datus Lastpass vai citā rīkā</option>
+                                <option value="Uzrakstīju piekļuves datus uz papīra lapas" {{ old('access_method') == 'Uzrakstīju piekļuves datus uz papīra lapas' ? 'selected' : '' }}>Uzrakstīju piekļuves datus uz papīra lapas</option>
+                                <option value="Neko neizdarīju" {{ old('access_method') == 'Neko neizdarīju' ? 'selected' : '' }}>Neko neizdarīju</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="new-action_after_death" class="block text-gray-700 text-sm font-bold mb-2">Ko darīt ar ierīci?</label>
+                            <select name="action_after_death" id="new-action_after_death" class="w-full border border-gray-300 rounded-md shadow-sm focus:border-lime-600 focus:ring-lime-600 text-black-700 text-sm p-3" required>
+                                <option disabled selected value="">Ko darīt ar ierīci?</option>
+                                <option value="Nekavējoties visu informāciju dzēst" {{ old('action_after_death') == 'Nekavējoties visu informāciju dzēst' ? 'selected' : '' }}>Nekavējoties visu informāciju dzēst</option>
+                                <option value="Pārskatīt tikai konkrētu informāciju (sīkāk komentārā)" {{ old('action_after_death') == 'Pārskatīt tikai konkrētu informāciju (sīkāk komentārā)' ? 'selected' : '' }}>Pārskatīt tikai konkrētu informāciju (sīkāk komentārā)</option>
+                                <option value="Dzēst pēc tam, kad tuvinieki ir saglabājuši informāciju, kas šķiet noderīga" {{ old('action_after_death') == 'Dzēst pēc tam, kad tuvinieki ir saglabājuši informāciju, kas šķiet noderīga' ? 'selected' : '' }}>Dzēst pēc tam, kad tuvinieki ir saglabājuši informāciju, kas šķiet noderīga</option>
+                                <option value="Neko nedarīt" {{ old('action_after_death') == 'Neko nedarīt' ? 'selected' : '' }}>Neko nedarīt</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="new-comments" class="block text-gray-700 text-sm font-bold mb-2">Papildus komentārs:</label>
+                            <textarea
+                                name="comments"
+                                id="new-comments"
+                                placeholder="brīvs komentārs"
+                                class="h-[46px] w-full border border-gray-300 rounded-md shadow-sm focus:border-lime-600 focus:ring-lime-600 text-black-700 text-sm placeholder-gray-400 p-3"
+                            >{{ old('comments') }}</textarea>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-end mt-6">
+                        <button type="submit" class="bg-moss text-white rounded-md py-2 px-4 text-sm hover:bg-[#76A392]">
+                            Pievienot ierīci
+                        </button>
+                    </div>
+                </form>
+            </div>
+            @endif
+
+            <p class="welcome-text text-sm">
+            <h2 class="text-l font-semibold mb-4" id="darbs-dokumenti">Darbs un dokumenti</h2>
             <br>
             Arvien vairāk cilvēku individuāli pelna naudu digitālajā vidē, un Tavu darba platformu piekļuves pazaudēšana var rezultēties pazaudētos vai neapgūtos finanšu līdzekļos. Ja esi šāda tipa darba veicējs, šajā sadaļā norādi būtiskāko informāciju par savām biznesa platformām.<br>
             Starp populārākajām platformām varam nosaukt Etsy, AndeleMandele, Shopify, Printful, Onlyfans, eBay, Amazon pārdošana, ss.com, 99designs, Imgur un vēl.<br>
@@ -504,5 +602,18 @@
                 </a>
             </div>
         </div>
+        <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const checkbox = document.getElementById('section_completed');
+        const hiddenInput = document.getElementById('completion_hidden_input');
+
+        checkbox.addEventListener('change', function() {
+            hiddenInput.value = this.checked ? 1 : 0;
+        });
+
+        // Set initial value based on current state
+        hiddenInput.value = checkbox.checked ? 1 : 0;
+    }); 
+        </script>
 </section>
 @endsection

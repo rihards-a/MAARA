@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Questionnaire;
 use App\Models\Submission;
 use App\Models\Response;
+use App\Models\Device; 
 
 class DashboardController extends Controller
 {
@@ -18,7 +19,7 @@ class DashboardController extends Controller
                                       ->latest('updated_at')      // <---
                                       ->first();                 // <---
 
-        return view('dashboard.index', compact('latestSubmission')); // <--- This line is modified
+        return view('dashboard.index', compact('latestSubmission')); 
     }
 
     public function beres()
@@ -292,14 +293,21 @@ class DashboardController extends Controller
     
         return back()->with('status', 'Saglabāts!');
     }
-    public function digmantojums()
+     public function digmantojums()
     {
         $dashboard_title = 'digmantojums';
         $responses = Auth::user()->responses()->with('question.questionnaire')
             ->whereHas('question.questionnaire', fn($q) => $q->where('title', $dashboard_title))
             ->pluck('response_value', 'question_id')
             ->toArray();
-        return view("dashboard.$dashboard_title", compact('responses'));
+
+        // Fetch devices for the authenticated user
+        $devices = Device::where('user_id', Auth::id())
+            ->orderBy('created_at')
+            ->get();
+       
+
+        return view("dashboard.$dashboard_title", compact('responses', 'devices')); 
     }
 
     public function saveDigmantojums(Request $request)
@@ -311,15 +319,13 @@ class DashboardController extends Controller
             'responses.*.response_value' => 'nullable|string',
         ]);
 
-        // Create a questionnaire submission - for tracking if the user has started it
         Submission::firstOrCreate(
             [
                 'user_id'          => Auth::id(),
                 'questionnaire_id' => Questionnaire::where('title', $dashboard_title)->firstOrFail()->id,
             ],
-        );
-    
-        // Create responses
+        )->touch();
+
         foreach ($validatedData['responses'] as $response) {
             Response::updateOrCreate(
                 [
@@ -331,7 +337,8 @@ class DashboardController extends Controller
                 ]
             );
         }
-    
+
         return back()->with('status', 'Saglabāts!');
     }
+
 }
