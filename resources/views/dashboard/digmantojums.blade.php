@@ -178,6 +178,7 @@
                                     <option value="Ierakstīju piekļuves datus Lastpass vai citā rīkā" {{ $device->access_method == 'Ierakstīju piekļuves datus Lastpass vai citā rīkā' ? 'selected' : '' }}>Ierakstīju piekļuves datus Lastpass vai citā rīkā</option>
                                     <option value="Uzrakstīju piekļuves datus uz papīra lapas" {{ $device->access_method == 'Uzrakstīju piekļuves datus uz papīra lapas' ? 'selected' : '' }}>Uzrakstīju piekļuves datus uz papīra lapas</option>
                                     <option value="Neko neizdarīju" {{ $device->access_method == 'Neko neizdarīju' ? 'selected' : '' }}>Neko neizdarīju</option>
+                                    <option value="Cits" {{ $device->access_method == 'Cits' ? 'selected' : '' }}>Cits</option>
                                 </select>
                             </div>
 
@@ -189,6 +190,7 @@
                                     <option value="Pārskatīt tikai konkrētu informāciju (sīkāk komentārā)" {{ $device->action_after_death == 'Pārskatīt tikai konkrētu informāciju (sīkāk komentārā)' ? 'selected' : '' }}>Pārskatīt tikai konkrētu informāciju (sīkāk komentārā)</option>
                                     <option value="Dzēst pēc tam, kad tuvinieki ir saglabājuši informāciju, kas šķiet noderīga" {{ $device->action_after_death == 'Dzēst pēc tam, kad tuvinieki ir saglabājuši informāciju, kas šķiet noderīga' ? 'selected' : '' }}>Dzēst pēc tam, kad tuvinieki ir saglabājuši informāciju, kas šķiet noderīga</option>
                                     <option value="Neko nedarīt" {{ $device->action_after_death == 'Neko nedarīt' ? 'selected' : '' }}>Neko nedarīt</option>
+                                    <option value="Cits" {{ $device->action_after_death == 'Cits' ? 'selected' : '' }}>Cits</option>
                                 </select>
                             </div>
 
@@ -259,6 +261,7 @@
                                 <option value="Ierakstīju piekļuves datus Lastpass vai citā rīkā" {{ old('access_method') == 'Ierakstīju piekļuves datus Lastpass vai citā rīkā' ? 'selected' : '' }}>Ierakstīju piekļuves datus Lastpass vai citā rīkā</option>
                                 <option value="Uzrakstīju piekļuves datus uz papīra lapas" {{ old('access_method') == 'Uzrakstīju piekļuves datus uz papīra lapas' ? 'selected' : '' }}>Uzrakstīju piekļuves datus uz papīra lapas</option>
                                 <option value="Neko neizdarīju" {{ old('access_method') == 'Neko neizdarīju' ? 'selected' : '' }}>Neko neizdarīju</option>
+                                <option value="Cits" {{ old('access_method') == 'Cits' ? 'selected' : '' }}>Cits</option>
                             </select>
                         </div>
 
@@ -270,6 +273,7 @@
                                 <option value="Pārskatīt tikai konkrētu informāciju (sīkāk komentārā)" {{ old('action_after_death') == 'Pārskatīt tikai konkrētu informāciju (sīkāk komentārā)' ? 'selected' : '' }}>Pārskatīt tikai konkrētu informāciju (sīkāk komentārā)</option>
                                 <option value="Dzēst pēc tam, kad tuvinieki ir saglabājuši informāciju, kas šķiet noderīga" {{ old('action_after_death') == 'Dzēst pēc tam, kad tuvinieki ir saglabājuši informāciju, kas šķiet noderīga' ? 'selected' : '' }}>Dzēst pēc tam, kad tuvinieki ir saglabājuši informāciju, kas šķiet noderīga</option>
                                 <option value="Neko nedarīt" {{ old('action_after_death') == 'Neko nedarīt' ? 'selected' : '' }}>Neko nedarīt</option>
+                                <option value="Cits" {{ old('action_after_death') == 'Cits' ? 'selected' : '' }}>Cits</option>
                             </select>
                         </div>
 

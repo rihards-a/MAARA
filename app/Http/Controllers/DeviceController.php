@@ -9,38 +9,6 @@ use App\Models\Device; // Assuming you will create a Device model
 class DeviceController extends Controller
 {
     /**
-     * Display a listing of the user's devices.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\View\View
-     */
-    public function digmantojums(Request $request)
-    {
-        // Fetch devices for the authenticated user
-        $devices = Device::where('user_id', Auth::id())
-            ->orderBy('created_at')
-            ->get();
-
-        // --- Handling for the "Atzīmēt sadaļu kā pabeigtu" checkbox ---
-        // You mentioned 'responses[13][response_value]'. This implies a general
-        // responses table or a specific mechanism to store this status.
-        // Let's assume you have a way to retrieve it.
-        $responses = []; // Initialize an empty array
-        // Example if you store it in a generic 'user_responses' table
-        // $sectionCompletion = UserResponse::where('user_id', Auth::id())
-        //                                  ->where('question_id', 13) // Or a specific identifier for this section
-        //                                  ->first();
-        // if ($sectionCompletion) {
-        //     $responses[13]['response_value'] = $sectionCompletion->response_value;
-        // }
-        // For now, if you don't have this, it will be an empty array,
-        // which the blade view can handle with `isset`.
-        // -----------------------------------------------------------
-
-        return view("dashboard.digmantojums", compact('devices', 'responses'));
-    }
-
-    /**
      * Store a newly created device in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -58,7 +26,7 @@ class DeviceController extends Controller
             'importance' => 'required|string|max:255',
             'access_method' => 'required|string|max:255',
             'action_after_death' => 'required|string|max:255',
-            'comments' => 'nullable|string',
+            'comments' => 'nullable|string|max:10000', // enough for a small essay
         ]);
 
         Device::create([
@@ -92,7 +60,7 @@ class DeviceController extends Controller
             'importance' => 'required|string|max:255',
             'access_method' => 'required|string|max:255',
             'action_after_death' => 'required|string|max:255',
-            'comments' => 'nullable|string',
+            'comments' => 'nullable|string|max:10000', // enough for a small essay
         ]);
 
         $device->update([
