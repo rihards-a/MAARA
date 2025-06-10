@@ -7,12 +7,19 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Questionnaire;
 use App\Models\Submission;
 use App\Models\Response;
+use App\Models\Device; 
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        return view('dashboard.index');
+        // Get the authenticated user's ID
+        $userId = Auth::id(); // <--- These lines are new
+        $latestSubmission = Submission::where('user_id', $userId) // <---
+                                      ->latest('updated_at')      // <---
+                                      ->first();                 // <---
+
+        return view('dashboard.index', compact('latestSubmission')); 
     }
 
     public function beres()
@@ -286,4 +293,52 @@ class DashboardController extends Controller
     
         return back()->with('status', 'Saglabāts!');
     }
+     public function digmantojums()
+    {
+        $dashboard_title = 'digmantojums';
+        $responses = Auth::user()->responses()->with('question.questionnaire')
+            ->whereHas('question.questionnaire', fn($q) => $q->where('title', $dashboard_title))
+            ->pluck('response_value', 'question_id')
+            ->toArray();
+
+        // Fetch devices for the authenticated user
+        $devices = Device::where('user_id', Auth::id())
+            ->orderBy('created_at')
+            ->get();
+       
+
+        return view("dashboard.$dashboard_title", compact('responses', 'devices')); 
+    }
+
+    public function saveDigmantojums(Request $request)
+    {
+        $dashboard_title = 'digmantojums';
+        $validatedData = $request->validate([
+            'responses' => 'required|array',
+            'responses.*.question_id' => 'required|exists:questions,id',
+            'responses.*.response_value' => 'nullable|string',
+        ]);
+
+        Submission::firstOrCreate(
+            [
+                'user_id'          => Auth::id(),
+                'questionnaire_id' => Questionnaire::where('title', $dashboard_title)->firstOrFail()->id,
+            ],
+        )->touch();
+
+        foreach ($validatedData['responses'] as $response) {
+            Response::updateOrCreate(
+                [
+                    'user_id' => Auth::id(),
+                    'question_id' => $response['question_id'],
+                ],
+                [
+                    'response_value' => $response['response_value'] ?? null,
+                ]
+            );
+        }
+
+        return back()->with('status', 'Saglabāts!');
+    }
+
 }

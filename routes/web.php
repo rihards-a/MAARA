@@ -9,7 +9,7 @@ use App\Http\Controllers\SocialiteController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MessageController;
-
+use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\PDFController;
 Route::get('generate-pdf', [PDFController::class, 'generatePDF']);
 
@@ -30,6 +30,7 @@ Route::view('/par-mums', 'about')->name('about');
 Route::view('/privatuma-politika', 'privacy-policy')->name('privacy-policy');
 Route::view('/test', 'test')->name('test'); // test route for testing purposes
 Route::view('/why_register', 'why_register')->name('why_register');
+
 
 Route::group(['prefix'=> 'blogs'], function () {
     Route::get('/', [BlogController::class, 'index'])->name('blog.index');
@@ -81,6 +82,13 @@ Route::group(["prefix" => "dashboard", "middleware" => ["auth"]], function () {
         Route::post('zinas', [MessageController::class, 'store'])->name('dashboard.zinas.store');
         Route::put('zinas/{message}', [MessageController::class, 'update'])->name('dashboard.zinas.update');
         Route::delete('zinas/{message}', [MessageController::class, 'destroy'])->name('dashboard.zinas.destroy');
+        # the digital dashboard devices
+        // ierices for the digital dashboard
+        Route::get('/ierices', [DeviceController::class, 'ierices'])->name('dashboard.ierices');
+        Route::post('/ierices', [DeviceController::class, 'store'])->name('dashboard.ierices.store');
+        Route::put('/ierices/{device}', [DeviceController::class, 'update'])->name('dashboard.ierices.update');
+        Route::delete('/ierices/{device}', [DeviceController::class, 'destroy'])->name('dashboard.ierices.destroy');
+
     });
 });
 
