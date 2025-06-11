@@ -8,6 +8,8 @@ use App\Models\Questionnaire;
 use App\Models\Submission;
 use App\Models\Response;
 use App\Models\Device; 
+use App\Models\Account;
+use App\Models\Platform;
 
 class DashboardController extends Controller
 {
@@ -305,9 +307,17 @@ class DashboardController extends Controller
         $devices = Device::where('user_id', Auth::id())
             ->orderBy('created_at')
             ->get();
+        
+         $accounts = Account::where('user_id', Auth::id())
+            ->orderBy('created_at') 
+            ->get();
+
+         $platforms = Platform::where('user_id', Auth::id())
+            ->orderBy('created_at')
+            ->get(); 
        
 
-        return view("dashboard.$dashboard_title", compact('responses', 'devices')); 
+        return view("dashboard.$dashboard_title", compact('responses', 'devices', 'accounts', 'platforms')); 
     }
 
     public function saveDigmantojums(Request $request)

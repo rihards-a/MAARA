@@ -10,7 +10,10 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\DeviceController;
+use App\Http\Controllers\PlatformController;
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\PDFController;
+
 Route::get('generate-pdf', [PDFController::class, 'generatePDF']);
 
 // test route for testing purposes
@@ -86,6 +89,15 @@ Route::group(["prefix" => "dashboard", "middleware" => ["auth"]], function () {
         Route::post('/ierices', [DeviceController::class, 'store'])->name('dashboard.ierices.store');
         Route::put('/ierices/{device}', [DeviceController::class, 'update'])->name('dashboard.ierices.update');
         Route::delete('/ierices/{device}', [DeviceController::class, 'destroy'])->name('dashboard.ierices.destroy');
+    
+        Route::post('/digmantojums/accounts', [AccountController::class, 'store'])->name('accounts.store');
+        Route::put('/digmantojums/accounts/{account}', [AccountController::class, 'update'])->name('accounts.update');
+        Route::delete('/digmantojums/accounts/{account}', [AccountController::class, 'destroy'])->name('accounts.destroy');
+        # the digital dashboard platforms
+
+        Route::post('/digmantojums/platforms', [PlatformController::class, 'store'])->name('platforms.store');
+        Route::put('/digmantojums/platforms/{platform}', [PlatformController::class, 'update'])->name('platforms.update');
+        Route::delete('/digmantojums/platforms/{platform}', [PlatformController::class, 'destroy'])->name('platforms.destroy');
     });
 });
 
