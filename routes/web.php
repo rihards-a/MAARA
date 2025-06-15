@@ -9,10 +9,12 @@ use App\Http\Controllers\SocialiteController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MessageController;
-use App\Http\Controllers\DeviceController;
-use App\Http\Controllers\PlatformController;
-use App\Http\Controllers\AccountController;
 use App\Http\Controllers\PDFController;
+use App\Http\Controllers\DigitalAssets\{
+    DeviceController,
+    AccountController,
+    PlatformController
+};
 
 Route::get('generate-pdf', [PDFController::class, 'generatePDF']);
 
@@ -74,9 +76,23 @@ Route::group(["prefix" => "dashboard", "middleware" => ["auth"]], function () {
 
         Route::get('testaments', [DashboardController::class, 'testaments'])->name('dashboard.testaments');
         Route::post('testaments', [DashboardController::class, 'saveTestaments'])->name('dashboard.testaments.save');
-
-        Route::get('digmantojums', [DashboardController::class, 'digmantojums'])->name('dashboard.digmantojums');
-        Route::post('digmantojums', [DashboardController::class, 'saveDigmantojums'])->name('dashboard.digmantojums.save');
+        
+        Route::prefix('digmantojums')->group(function () {
+            Route::get('/', [DashboardController::class, 'digmantojums'])->name('dashboard.digmantojums');
+            Route::post('/', [DashboardController::class, 'saveDigmantojums'])->name('dashboard.digmantojums.save');
+            
+            Route::post('ierices', [DeviceController::class, 'store'])->name('dashboard.ierices.store');
+            Route::put('ierices/{device}', [DeviceController::class, 'update'])->name('dashboard.ierices.update');
+            Route::delete('ierices/{device}', [DeviceController::class, 'destroy'])->name('dashboard.ierices.destroy');
+            
+            Route::post('accounts', [AccountController::class, 'store'])->name('dashboard.accounts.store');
+            Route::put('accounts/{account}', [AccountController::class, 'update'])->name('dashboard.accounts.update');
+            Route::delete('accounts/{account}', [AccountController::class, 'destroy'])->name('dashboard.accounts.destroy');
+            
+            Route::post('platforms', [PlatformController::class, 'store'])->name('dashboard.platforms.store');
+            Route::put('platforms/{platform}', [PlatformController::class, 'update'])->name('dashboard.platforms.update');
+            Route::delete('platforms/{platform}', [PlatformController::class, 'destroy'])->name('dashboard.platforms.destroy');
+        });
 
         Route::get('pienakumi', [DashboardController::class, 'pienakumi'])->name('dashboard.pienakumi');
         Route::post('pienakumi', [DashboardController::class, 'savePienakumi'])->name('dashboard.pienakumi.save');
@@ -85,19 +101,6 @@ Route::group(["prefix" => "dashboard", "middleware" => ["auth"]], function () {
         Route::post('zinas', [MessageController::class, 'store'])->name('dashboard.zinas.store');
         Route::put('zinas/{message}', [MessageController::class, 'update'])->name('dashboard.zinas.update');
         Route::delete('zinas/{message}', [MessageController::class, 'destroy'])->name('dashboard.zinas.destroy');
-        
-        Route::post('/ierices', [DeviceController::class, 'store'])->name('dashboard.ierices.store');
-        Route::put('/ierices/{device}', [DeviceController::class, 'update'])->name('dashboard.ierices.update');
-        Route::delete('/ierices/{device}', [DeviceController::class, 'destroy'])->name('dashboard.ierices.destroy');
-    
-        Route::post('/digmantojums/accounts', [AccountController::class, 'store'])->name('accounts.store');
-        Route::put('/digmantojums/accounts/{account}', [AccountController::class, 'update'])->name('accounts.update');
-        Route::delete('/digmantojums/accounts/{account}', [AccountController::class, 'destroy'])->name('accounts.destroy');
-        # the digital dashboard platforms
-
-        Route::post('/digmantojums/platforms', [PlatformController::class, 'store'])->name('platforms.store');
-        Route::put('/digmantojums/platforms/{platform}', [PlatformController::class, 'update'])->name('platforms.update');
-        Route::delete('/digmantojums/platforms/{platform}', [PlatformController::class, 'destroy'])->name('platforms.destroy');
     });
 });
 

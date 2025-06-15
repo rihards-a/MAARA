@@ -1,32 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\DigitalAssets;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Platform; // Make sure you create a Platform model
+use App\Models\Platform;
 
 class PlatformController extends Controller
 {
-    /**
-     * Display a listing of the user's platforms.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\View\View
-     */
-    public function index(Request $request)
-    {
-        // Fetch platforms for the authenticated user
-        $platforms = Platform::where('user_id', Auth::id())
-            ->orderBy('created_at')
-            ->get();
-
-        // This section is preserved as per your original logic
-        $responses = [];
-
-        return view("dashboard.platforms", compact('platforms', 'responses'));
-    }
-
     /**
      * Store a newly created platform in storage.
      *
@@ -45,7 +27,7 @@ class PlatformController extends Controller
             'importance' => 'required|string|max:255',
             'access_method' => 'required|string|max:255',
             'action_after_death' => 'required|string|max:255',
-            'comments' => 'nullable|string',
+            'comments' => 'nullable|string|max:10000',
         ]);
 
         Platform::create([
@@ -79,7 +61,7 @@ class PlatformController extends Controller
             'importance' => 'required|string|max:255',
             'access_method' => 'required|string|max:255',
             'action_after_death' => 'required|string|max:255',
-            'comments' => 'nullable|string',
+            'comments' => 'nullable|string|max:10000',
         ]);
 
         $platform->update([
@@ -90,7 +72,7 @@ class PlatformController extends Controller
             'comments' => $validated['comments'],
         ]);
 
-        return back()->with('status', 'Platforma atjaunināta!');
+        return back()->with('status', 'Platforma atjaunināta!')->withFragment('platforms-section');
     }
 
     /**
@@ -109,6 +91,6 @@ class PlatformController extends Controller
 
         $platform->delete();
 
-        return back()->with('status', 'Platforma dzēsta!');
+        return back()->with('status', 'Platforma dzēsta!')->withFragment('platforms-section');
     }
 }

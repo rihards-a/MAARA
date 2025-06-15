@@ -68,7 +68,7 @@
                 Šajā sadaļā aicinām Tevi censties atcerēties būtiskākos sociālos un saziņas rīkus, ko izmanto ikdienā, aizpildāmajos laukos norādot savas vēlmes un ar tām saistītās darbības. Starp populārākajiem rīkiem šajā sadaļā varētu būt Facebook, Gmail, Outlook, Instagram, Twitter (X), WhatsApp, Telegram, Signal un TikTok.
             </p>
             <div class="mb-4">
-            <h2 class="text-base font-semibold mb-0">Mani konti</h2>
+            <h2 class="text-base font-semibold mb-0" id="accounts-section">Mani konti</h2>
             </div>
 
             @if($accounts->isEmpty())
@@ -81,7 +81,7 @@
                     <div class="mb-0 p-6 bg-white">
                         <h2 class="text-xl font-semibold mt-0 mb-0">Konts {{ $account->name }}</h2>
 
-                        <form action="{{ route('accounts.update', $account->id) }}" method="POST">
+                        <form action="{{ route('dashboard.accounts.update', $account->id) }}" method="POST">
                             @csrf
                             @method('PUT')
 
@@ -153,7 +153,7 @@
                             </div>
                         </form>
 
-                        <form id="delete-account-form-{{ $account->id }}" action="{{ route('accounts.destroy', $account->id) }}" method="POST" class="hidden">
+                        <form id="delete-account-form-{{ $account->id }}" action="{{ route('dashboard.accounts.destroy', $account->id) }}" method="POST" class="hidden">
                             @csrf
                             @method('DELETE')
                         </form>
@@ -165,7 +165,7 @@
             @if($accounts->count() < 20)
                 <div class="mb-8 p-6 bg-white rounded-lg shadow-md">
                     <h2 class="text-xl font-semibold mb-4">Pievienot jaunu kontu</h2>
-                    <form action="{{ route('accounts.store') }}" method="POST">
+                    <form action="{{ route('dashboard.accounts.store') }}" method="POST">
                         @csrf
                         <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
                             <div>
@@ -243,7 +243,7 @@
                 Liela daļa mūsu informācijas glabājas mūsu izmantotajās ierīcēs - bieži vien šīs ierīces satur mūsu tuviniekiem nozīmīgu informāciju, tāpēc ir jāpadomā par to, kā viņi varēs šīm ierīcēm piekļūt pēc mūsu nāves. Šajā sadaļā norādi informāciju par savu datoru, planšeti, telefonu, ārējiem cietajiem diskiem, u.c. Iesakām atsevišķi norādīt komentārā, ja ierīcē glabājas kas īpaši vērtīgs, ko būtu iespējams izmantot tālāk - piemēram, oriģinālmāksla, iesākti projekti vai mūzika.
             </p>
             <div class="mb-4">
-                <h2 class="text-base font-semibold mb-0">Manas ierīces</h2>
+                <h2 class="text-base font-semibold mb-0" id="device-section">Manas ierīces</h2>
             </div>
             @if($devices->isEmpty())
                 <div class="mt-0 bg-gray-50 rounded-lg p-6 text-center text-gray-500">
@@ -419,7 +419,7 @@
             Starp populārākajām platformām varam nosaukt Etsy, AndeleMandele, Shopify, Printful, Onlyfans, eBay, Amazon pārdošana, ss.com, 99designs, Imgur un vēl.<br>
             </p>
             <div class="mb-4">
-            <h2 class="text-base font-semibold mb-0">Manas platformas</h2>
+            <h2 class="text-base font-semibold mb-0" id="platforms-section">Manas platformas</h2>
             </div>
             @if($platforms->isEmpty())
                 <div class="mt-0 bg-gray-50 rounded-lg p-6 text-center text-gray-500">
@@ -431,7 +431,7 @@
                     <div class="mb-0 p-6 bg-white">
                         <h2 class="text-xl font-semibold mt-0 mb-0">Platforma {{ $platform->name }}</h2>
 
-                        <form action="{{ route('platforms.update', $platform->id) }}" method="POST">
+                        <form action="{{ route('dashboard.platforms.update', $platform->id) }}" method="POST">
                             @csrf
                             @method('PUT')
 
@@ -500,7 +500,7 @@
                             </div>
                         </form>
 
-                        <form id="delete-form-{{ $platform->id }}" action="{{ route('platforms.destroy', $platform->id) }}" method="POST" class="hidden">
+                        <form id="delete-form-{{ $platform->id }}" action="{{ route('dashboard.platforms.destroy', $platform->id) }}" method="POST" class="hidden">
                             @csrf
                             @method('DELETE')
                         </form>
@@ -512,7 +512,7 @@
             @if($platforms->count() < 20)
                 <div class="mb-8 p-6 bg-white rounded-lg shadow-md">
                     <h2 class="text-xl font-semibold mb-4">Pievienot jaunu platformu</h2>
-                    <form action="{{ route('platforms.store') }}" method="POST">
+                    <form action="{{ route('dashboard.platforms.store') }}" method="POST">
                         @csrf
                         <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
                             <div>
