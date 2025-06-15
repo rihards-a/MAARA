@@ -11,19 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // Check if the table already exists to avoid errors on re-running migrations
-        if (!Schema::hasTable('diglegacy_subscriptions')) {
-            Schema::create('diglegacy_subscriptions', function (Blueprint $table) {
-                $table->id();
-                $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Links to the 'users' table
-                $table->string('category'); // e.g., 'movies_series', 'music', 'data_storage'
-                $table->string('service_name'); // e.g., 'Netflix', 'Spotify', 'Google One'
-                $table->timestamps();
+        Schema::create('diglegacy_subscriptions', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Links to the 'users' table
+            $table->string('category'); // e.g., 'movies_series', 'music', 'data_storage'
+            $table->string('service_name'); // e.g., 'Netflix', 'Spotify', 'Google One'
+            $table->timestamps();
 
-                // Add a unique constraint to prevent duplicate subscriptions for a user within a category
-                $table->unique(['user_id', 'category', 'service_name'], 'user_category_service_unique');
-            });
-        }
+            // Add a unique constraint to prevent duplicate subscriptions for a user within a category
+            $table->unique(['user_id', 'category', 'service_name'], 'user_category_service_unique');
+        });
     }
 
     /**
