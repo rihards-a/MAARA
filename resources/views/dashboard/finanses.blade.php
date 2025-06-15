@@ -330,18 +330,18 @@
         Fondu pārvaldītāju skaits (0 = Nav fondu)
     </label>
     <select
-        name="responses[106][fonds_count]"
+        name="responses[106][response_value][]"
         id="fonds_count"
         class="block w-full px-3 py-2 text-base text-gray-900 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-lime-500 focus:border-lime-500 sm:text-sm"
     >
         <option value="">Izvēlēties skaitu</option>
         {{-- Blade loop to generate options 0-10 and 10+ --}}
         @for ($i = 0; $i <= 10; $i++)
-            <option value="{{ $i }}" {{ isset($responses[106]['fonds_count']) && $responses[106]['fonds_count'] == $i ? 'selected' : '' }}>
+            <option value="{{ $i }}" {{ isset($responses[106][0]) && $responses[106][0] == $i ? 'selected' : '' }}>
                 {{ $i }}
             </option>
         @endfor
-        <option value="10+" {{ isset($responses[106]['fonds_count']) && $responses[106]['fonds_count'] == '10+' ? 'selected' : '' }}>
+        <option value="10+" {{ isset($responses[106][0]) && $responses[106][0] == '10+' ? 'selected' : '' }}>
                 10+
         </option>
     </select>
@@ -352,9 +352,8 @@
         </label>
 
         @php
-            // Get previously selected values for Question 107 (assuming this is its ID)
-            $selectedBanks = isset($responses[107]['response_value']) && is_array($responses[107]['response_value'])
-                ? $responses[107]['response_value']
+            $selectedBanks = isset($responses[107]) && is_array($responses[107])
+                ? $responses[107]
                 : [];
         @endphp
 
@@ -362,20 +361,20 @@
             <div class="flex items-center">
                 <input type="radio"
                     name="responses[107][response_value][]" {{-- Correct name for Q101 checkboxes --}}
-                    id="finances_crypto_yes" {{-- Unique ID --}}
+                    id="finances_fizisk_yes" {{-- Unique ID --}}
                     value="yes" {{-- Descriptive value --}}
                     class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
                     {{ in_array('yes', $selectedBanks) ? 'checked' : '' }}>
-                <label for="finances_crypto_yes" class="ml-2 text-gray-700">Jā</label>
+                <label for="finances_fizisk_yes" class="ml-2 text-gray-700">Jā</label>
             </div>
             <div class="flex items-center">
                 <input type="radio"
                     name="responses[107][response_value][]" {{-- Correct name for Q101 checkboxes --}}
-                    id="finances_crypto_no" {{-- Unique ID --}}
-                    value="yes" {{-- Descriptive value --}}
+                    id="finances_fizisk_no" {{-- Unique ID --}}
+                    value="no" {{-- Descriptive value --}}
                     class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
                     {{ in_array('no', $selectedBanks) ? 'checked' : '' }}>
-                <label for="finances_crypto_nē" class="ml-2 text-gray-700">Nē</label>
+                <label for="finances_fizisk_no" class="ml-2 text-gray-700">Nē</label>
             </div>
         </div>
     </div>
@@ -388,8 +387,8 @@
 
         @php
             // Get previously selected values for Question 108 (assuming this is its ID)
-            $selectedBanks = isset($responses[108]['response_value']) && is_array($responses[108]['response_value'])
-                ? $responses[108]['response_value']
+            $selectedBanks = isset($responses[108]) && is_array($responses[108])
+                ? $responses[108]
                 : [];
         @endphp
 
@@ -407,14 +406,17 @@
                 <input type="radio"
                     name="responses[108][response_value][]" {{-- Correct name for Q101 checkboxes --}}
                     id="finances_crypto_no" {{-- Unique ID --}}
-                    value="yes" {{-- Descriptive value --}}
+                    value="no" {{-- Descriptive value --}}
                     class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
                     {{ in_array('no', $selectedBanks) ? 'checked' : '' }}>
-                <label for="finances_crypto_nē" class="ml-2 text-gray-700">Nē</label>
+                <label for="finances_crypto_no" class="ml-2 text-gray-700">Nē</label>
             </div>
         </div>
     </div>
 
+    <input type="hidden" name="responses[106][question_id]" value="106">
+    <input type="hidden" name="responses[107][question_id]" value="107">
+    <input type="hidden" name="responses[108][question_id]" value="108">
     {{-- Hidden input for this specific question's ID --}}
     <input type="hidden" name="responses[105][question_id]" value="105">
 </div>
