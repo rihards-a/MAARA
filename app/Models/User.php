@@ -51,11 +51,6 @@ class User extends Authenticatable
         ];
     }
 
-     public function diglegacySubscriptions()
-    {
-        return $this->hasMany(DiglegacySubscription::class);
-    }
-
     public function HasLifetime() : bool 
     {
         return (bool) $this->lifetime_subscription;
@@ -90,4 +85,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Platform::class);
     }
+
+    public function diglegacySubscriptions()
+    {
+        return $this->hasMany(DiglegacySubscription::class);
+    }
+
 }
