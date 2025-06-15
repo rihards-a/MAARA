@@ -1,48 +1,18 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\DigitalAssets;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\DiglegacySubscription; // Import the new model
 
 class SubscriptionsController extends Controller
 {
-    /**
-     * Store or update user subscriptions in the 'diglegacy_subscriptions' table.
-     * This method handles both adding new subscriptions and removing deselected ones.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function index()
-    {
-        $userId = Auth::id(); // Get the currently authenticated user's ID
-
-        // Retrieve existing subscriptions for the current user
-        $userSubscriptions = DiglegacySubscription::where('user_id', $userId)->get();
-
-        // Organize subscriptions into a category-based array for easy consumption by the view
-        $userCurrentSelections = [];
-        foreach ($userSubscriptions as $subscription) {
-            $userCurrentSelections[$subscription->category][] = $subscription->service_name;
-        }
-
-        // Pass the organized data to the view
-        return view('dashboard.abonementi', compact('userCurrentSelections'));
-        // Make sure 'dashboard.abonementi' is the correct path to your blade file.
-    }
-
-    /**
-     * Store or update subscriptions.
-     * (Your existing store method should already be handling this)
-     */
-    
     public function store(Request $request)
     {
         $userId = Auth::id();
 
-        // Validate the incoming request data.
         // We expect 'subscriptions' as an array, with nested arrays for categories.
         $validated = $request->validate([
             'subscriptions' => 'nullable|array', // The main 'subscriptions' array can be empty if nothing is selected
