@@ -12,6 +12,7 @@ use App\Http\Controllers\MessageController;
 use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\PlatformController;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\SubscriptionsController;
 use App\Http\Controllers\PDFController;
 
 Route::get('generate-pdf', [PDFController::class, 'generatePDF']);
@@ -98,6 +99,24 @@ Route::group(["prefix" => "dashboard", "middleware" => ["auth"]], function () {
         Route::post('/digmantojums/platforms', [PlatformController::class, 'store'])->name('platforms.store');
         Route::put('/digmantojums/platforms/{platform}', [PlatformController::class, 'update'])->name('platforms.update');
         Route::delete('/digmantojums/platforms/{platform}', [PlatformController::class, 'destroy'])->name('platforms.destroy');
+
+                Route::get('/abonementi', function () {
+            // Pass the user's subscriptions to the view
+            // Group them by category for easier Alpine.js initialization
+            $userSubscriptionsGrouped = Auth::user()->diglegacySubscriptions->groupBy('category')->map(function($items) {
+                return $items->pluck('service_name')->toArray();
+            })->toArray();
+
+            return view('subscriptions.edit', [
+                'userCurrentSelections' => $userSubscriptionsGrouped
+            ]);
+        })->name('dashboard.abonementi.edit'); // Changed name to reflect dashboard context
+
+        // Route to handle saving subscriptions
+        Route::post('/abonementi', [SubscriptionsController::class, 'store'])->name('dashboard.abonementi.store');
+
+        // Route for deleting an individual subscription (if needed)
+        Route::delete('/abonementi/{diglegacySubscription}', [SubscriptionsController::class, 'destroy'])->name('dashboard.abonementi.destroy');
     });
 });
 

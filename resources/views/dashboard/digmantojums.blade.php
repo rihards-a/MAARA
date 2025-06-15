@@ -337,77 +337,77 @@
             @endif
 
             @if($devices->count() < 20)
-            <div class="mb-8 p-6 bg-white rounded-lg shadow-md">
-                <h2 class="text-xl font-semibold mb-4">Pievienot jaunu ierīci</h2>
-                <form action="{{ route('dashboard.ierices.store') }}" method="POST">
-                    @csrf
-                    <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
-                        <div>
-                            <label for="new-name" class="block text-gray-700 text-sm font-bold mb-2">Ierīce:</label>
-                            <textarea
-                                name="name"
-                                id="new-name"
-                                value="{{ old('name') }}"
-                                placeholder="Ierīce"
-                                class="h-[46px] w-full border border-gray-300 rounded-md shadow-sm focus:border-lime-600 focus:ring-lime-600 text-black-700 text-sm placeholder-gray-400 p-3"
-                                required
-                            >{{ old('name') }}</textarea>
-                        </div>
+                <div class="mb-8 p-6 bg-white rounded-lg shadow-md">
+                    <h2 class="text-xl font-semibold mb-4">Pievienot jaunu ierīci</h2>
+            <form action="{{ route('dashboard.ierices.store') }}" method="POST">
+            @csrf
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+            <div>
+            <label for="new-name" class="block text-gray-700 text-sm font-bold mb-2">Ierīce:</label>
+            <textarea
+            name="name"
+            id="new-name"
+            value="{{ old('name') }}"
+            placeholder="Ierīce"
+            class="h-[46px] w-full border border-gray-300 rounded-md shadow-sm focus:border-lime-600 focus:ring-lime-600 text-black-700 text-sm placeholder-gray-400 p-3"
+            required
+            >{{ old('name') }}</textarea>
+                </div>
 
-                        <div>
-                            <label for="new-importance" class="block text-gray-700 text-sm font-bold mb-2">Ierīces nozīmīgums:</label>
-                            <select name="importance" id="new-importance" class="w-full border border-gray-300 rounded-md shadow-sm focus:border-lime-600 focus:ring-lime-600 text-black-700 text-sm p-3" required>
-                                <option disabled selected value="">Informācijas svarīgums</option>
-                                <option value="Ļoti svarīga" {{ old('importance') == 'Ļoti svarīga' ? 'selected' : '' }}>Ļoti svarīga</option>
-                                <option value="Diezgan svarīga" {{ old('importance') == 'Diezgan svarīga' ? 'selected' : '' }}>Diezgan svarīga</option>
-                                <option value="Mazsvarīga" {{ old('importance') == 'Mazsvarīga' ? 'selected' : '' }}>Mazsvarīga</option>
-                            </select>
-                        </div>
+            <div>
+            <label for="new-importance" class="block text-gray-700 text-sm font-bold mb-2">Ierīces nozīmīgums:</label>
+            <select name="importance" id="new-importance" class="w-full border border-gray-300 rounded-md shadow-sm focus:border-lime-600 focus:ring-lime-600 text-black-700 text-sm p-3" required>
+            <option disabled selected value="">Informācijas svarīgums</option>
+            <option value="Ļoti svarīga" {{ old('importance') == 'Ļoti svarīga' ? 'selected' : '' }}>Ļoti svarīga</option>
+            <option value="Diezgan svarīga" {{ old('importance') == 'Diezgan svarīga' ? 'selected' : '' }}>Diezgan svarīga</option>
+            <option value="Mazsvarīga" {{ old('importance') == 'Mazsvarīga' ? 'selected' : '' }}>Mazsvarīga</option>
+        </select>
+    </div>
 
-                        <div>
-                            <label for="new-access_method" class="block text-gray-700 text-sm font-bold mb-2">Piekļuve ierīcei:</label>
-                            <select name="access_method" id="new-access_method" class="w-full border border-gray-300 rounded-md shadow-sm focus:border-lime-600 focus:ring-lime-600 text-black-700 text-sm p-3" required>
-                                <option disabled selected value="">Kā piekļūt ierīcei?</option>
-                                <option value="Ierīcei nav paroles" {{ old('access_method') == 'Ierīcei nav paroles' ? 'selected' : '' }}>Ierīcei nav paroles</option>
-                                <option value="Ierakstīju piekļuves datus Lastpass vai citā rīkā" {{ old('access_method') == 'Ierakstīju piekļuves datus Lastpass vai citā rīkā' ? 'selected' : '' }}>Ierakstīju piekļuves datus Lastpass vai citā rīkā</option>
-                                <option value="Uzrakstīju piekļuves datus uz papīra lapas" {{ old('access_method') == 'Uzrakstīju piekļuves datus uz papīra lapas' ? 'selected' : '' }}>Uzrakstīju piekļuves datus uz papīra lapas</option>
-                                <option value="Neko neizdarīju" {{ old('access_method') == 'Neko neizdarīju' ? 'selected' : '' }}>Neko neizdarīju</option>
-                                <option value="Cits" {{ old('access_method') == 'Cits' ? 'selected' : '' }}>Cits</option>
-                            </select>
-                        </div>
+    <div>
+    <label for="new-access_method" class="block text-gray-700 text-sm font-bold mb-2">Piekļuve ierīcei:</label>
+    <select name="access_method" id="new-access_method" class="w-full border border-gray-300 rounded-md shadow-sm focus:border-lime-600 focus:ring-lime-600 text-black-700 text-sm p-3" required>
+    <option disabled selected value="">Kā piekļūt ierīcei?</option>
+    <option value="Ierīcei nav paroles" {{ old('access_method') == 'Ierīcei nav paroles' ? 'selected' : '' }}>Ierīcei nav paroles</option>
+    <option value="Ierakstīju piekļuves datus Lastpass vai citā rīkā" {{ old('access_method') == 'Ierakstīju piekļuves datus Lastpass vai citā rīkā' ? 'selected' : '' }}>Ierakstīju piekļuves datus Lastpass vai citā rīkā</option>
+    <option value="Uzrakstīju piekļuves datus uz papīra lapas" {{ old('access_method') == 'Uzrakstīju piekļuves datus uz papīra lapas' ? 'selected' : '' }}>Uzrakstīju piekļuves datus uz papīra lapas</option>
+    <option value="Neko neizdarīju" {{ old('access_method') == 'Neko neizdarīju' ? 'selected' : '' }}>Neko neizdarīju</option>
+    <option value="Cits" {{ old('access_method') == 'Cits' ? 'selected' : '' }}>Cits</option>
+</select>
+                                        </div>
 
-                        <div>
-                            <label for="new-action_after_death" class="block text-gray-700 text-sm font-bold mb-2">Ko darīt ar ierīci?</label>
-                            <select name="action_after_death" id="new-action_after_death" class="w-full border border-gray-300 rounded-md shadow-sm focus:border-lime-600 focus:ring-lime-600 text-black-700 text-sm p-3" required>
-                                <option disabled selected value="">Ko darīt ar ierīci?</option>
-                                <option value="Nekavējoties visu informāciju dzēst" {{ old('action_after_death') == 'Nekavējoties visu informāciju dzēst' ? 'selected' : '' }}>Nekavējoties visu informāciju dzēst</option>
-                                <option value="Pārskatīt tikai konkrētu informāciju (sīkāk komentārā)" {{ old('action_after_death') == 'Pārskatīt tikai konkrētu informāciju (sīkāk komentārā)' ? 'selected' : '' }}>Pārskatīt tikai konkrētu informāciju (sīkāk komentārā)</option>
-                                <option value="Dzēst pēc tam, kad tuvinieki ir saglabājuši informāciju, kas šķiet noderīga" {{ old('action_after_death') == 'Dzēst pēc tam, kad tuvinieki ir saglabājuši informāciju, kas šķiet noderīga' ? 'selected' : '' }}>Dzēst pēc tam, kad tuvinieki ir saglabājuši informāciju, kas šķiet noderīga</option>
-                                <option value="Neko nedarīt" {{ old('action_after_death') == 'Neko nedarīt' ? 'selected' : '' }}>Neko nedarīt</option>
-                                <option value="Cits" {{ old('action_after_death') == 'Cits' ? 'selected' : '' }}>Cits</option>
-                            </select>
-                        </div>
+                                        <div>
+                                            <label for="new-action_after_death" class="block text-gray-700 text-sm font-bold mb-2">Ko darīt ar ierīci?</label>
+                                            <select name="action_after_death" id="new-action_after_death" class="w-full border border-gray-300 rounded-md shadow-sm focus:border-lime-600 focus:ring-lime-600 text-black-700 text-sm p-3" required>
+                                                <option disabled selected value="">Ko darīt ar ierīci?</option>
+                                                <option value="Nekavējoties visu informāciju dzēst" {{ old('action_after_death') == 'Nekavējoties visu informāciju dzēst' ? 'selected' : '' }}>Nekavējoties visu informāciju dzēst</option>
+                                                <option value="Pārskatīt tikai konkrētu informāciju (sīkāk komentārā)" {{ old('action_after_death') == 'Pārskatīt tikai konkrētu informāciju (sīkāk komentārā)' ? 'selected' : '' }}>Pārskatīt tikai konkrētu informāciju (sīkāk komentārā)</option>
+                                                <option value="Dzēst pēc tam, kad tuvinieki ir saglabājuši informāciju, kas šķiet noderīga" {{ old('action_after_death') == 'Dzēst pēc tam, kad tuvinieki ir saglabājuši informāciju, kas šķiet noderīga' ? 'selected' : '' }}>Dzēst pēc tam, kad tuvinieki ir saglabājuši informāciju, kas šķiet noderīga</option>
+                                                <option value="Neko nedarīt" {{ old('action_after_death') == 'Neko nedarīt' ? 'selected' : '' }}>Neko nedarīt</option>
+                                                <option value="Cits" {{ old('action_after_death') == 'Cits' ? 'selected' : '' }}>Cits</option>
+                                            </select>
+                                        </div>
 
-                        <div>
-                            <label for="new-comments" class="block text-gray-700 text-sm font-bold mb-2">Papildus komentārs:</label>
-                            <textarea
-                                name="comments"
-                                id="new-comments"
-                                placeholder="brīvs komentārs"
-                                class="h-[46px] w-full border border-gray-300 rounded-md shadow-sm focus:border-lime-600 focus:ring-lime-600 text-black-700 text-sm placeholder-gray-400 p-3"
-                            >{{ old('comments') }}</textarea>
-                        </div>
-                    </div>
+                                        <div>
+                                            <label for="new-comments" class="block text-gray-700 text-sm font-bold mb-2">Papildus komentārs:</label>
+                                            <textarea
+                                                name="comments"
+                                                id="new-comments"
+                                                placeholder="brīvs komentārs"
+                                                class="h-[46px] w-full border border-gray-300 rounded-md shadow-sm focus:border-lime-600 focus:ring-lime-600 text-black-700 text-sm placeholder-gray-400 p-3"
+                                            >{{ old('comments') }}</textarea>
+                                        </div>
+                                    </div>
 
-                    <div class="flex justify-end mt-6">
-                        <button type="submit" class="bg-moss text-white rounded-md py-2 px-4 text-sm hover:bg-[#76A392]">
-                            Pievienot ierīci
-                        </button>
-                    </div>
-                </form>
-            </div>
-            @endif
-
+                                    <div class="flex justify-end mt-6">
+                                        <button type="submit" class="bg-moss text-white rounded-md py-2 px-4 text-sm hover:bg-[#76A392]">
+                                            Pievienot ierīci
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        @endif
+                </div>
 
 
 
@@ -583,217 +583,163 @@
 
 
     <!-- Abonaments -->
-            <p class="welcome-text text-sm">
-            <h2 class="text-l font-semibold mb-4 text-center" id="digitalas-ierices">Abonementi </h2>
+                    <p class="welcome-text text-sm">
+                <h2 class="text-l font-semibold mb-4 text-center" id="digitalas-ierices">Abonementi </h2>
             </p>
             <p>
-            Katram servisam, kas piedāvā kādu pakalpojumu abonementa formātā, ir sava politika saistībā ar to, kā rīkoties pēc lietotāja nāves. To, protams, iespējams pētīt proaktīvi, tomēr mūsu pieredze liecina, ka svarīgākais ir, ka tuviniekiem ir informācija par Taviem aktīvajiem abonementiem. Pēc cilvēka aiziešanas, bankas parasti dažu dienu laikā deaktivizē Tavas bankas kartes, kas nozīmē, ka ilgi par abonementiem jāmaksā nebūs. Tomēr iespējams, ka Tavi tuvinieki vēlēsies atskatīties uz Tevis veidotajiem Spotify dziesmu sarakstiem.<br>
-            Visbiežāk, rīkiem tuvinieki var piekļūt tad, ja viņiem ir piekļuve Tavam epasta kontam, ar ko esi šos pakalpojumus abonējis (izmantojot paroles atjaunošanas funkciju).<br>
-            <br>
+                Katram servisam, kas piedāvā kādu pakalpojumu abonementa formātā, ir sava politika saistībā ar to, kā rīkoties pēc lietotāja nāves. To, protams, iespējams pētīt proaktīvi, tomēr mūsu pieredze liecina, ka svarīgākais ir, ka tuviniekiem ir informācija par Taviem aktīvajiem abonementiem. Pēc cilvēka aiziešanas, bankas parasti dažu dienu laikā deaktivizē Tavas bankas kartes, kas nozīmē, ka ilgi par abonementiem jāmaksā nebūs. Tomēr iespējams, ka Tavi tuvinieki vēlēsies atskatīties uz Tevis veidotajiem Spotify dziesmu sarakstiem.<br>
+                Visbiežāk, rīkiem tuvinieki var piekļūt tad, ja viņiem ir piekļuve Tavam epasta kontam, ar ko esi šos pakalpojumus abonējis (izmantojot paroles atjaunošanas funkciju).<br>
+                <br>
                 <b>Atzīmē savus abonētos servisus:</b>
             </p>
 
             <br>
-            <div class="grid grid-cols-5 md:grid-cols-5 gap-2 items-stretch  text-sm"> 
-                <div>
-                    <label class="block text-gray-700 text-sm font-semibold mb-2" for="finances_online_tools_question">
-                        Filmas un seriāli 
-                    </label>
 
-                    @php
-                        // Get previously selected values for Question 100
-                        $selectedOnlineFinances = isset($responses[100]) && is_array($responses[100])
-                            ? $responses[100]
-                            : [];
-                    @endphp
-                    <div class="space-y-2">
-                        <div class="flex items-center">
-                            <input type="checkbox"
-                                name="responses[100][response_value][]" {{-- Correct name for Q100 checkboxes --}}
-                                id="finances_online_paypal" {{-- Unique ID --}}
-                                value="paypal" {{-- Descriptive value --}}
-                                class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
-                                {{ in_array('paypal', $selectedOnlineFinances) ? 'checked' : '' }}>
-                            <label for="finances_online_paypal" class="ml-2 text-gray-700">Netflix</label>
+                    <form method="POST" action="{{ route('dashboard.abonementi.store') }}">
+                        @csrf
+
+                        {{-- Session Status and Error Display --}}
+                        <x-status-messages /> {{-- Replaced with a reusable component (details below) --}}
+
+                        <br>
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 items-start text-sm">
+                            @php
+                                $allCategories = [
+                                    'movies_series' => [
+                                        'name' => 'Filmas un seriāli',
+                                        'services' => ['Netflix', 'Go3', 'Disney+', 'Tet TV+', 'Apple TV+'],
+                                    ],
+                                    'music' => [
+                                        'name' => 'Mūzika',
+                                        'services' => ['Spotify', 'Youtube Premium', 'Apple Music', 'SoundCloud',],
+                                    ],
+                                    'data_storage' => [
+                                        'name' => 'Datu uzglabāšana',
+                                        'services' => ['Google One', 'iCloud', 'Dropbox','OneDrive'],
+                                    ],
+                                    'misc' => [
+                                        'name' => 'Produktivitātes un citi rīki',
+                                        'services' => ['Tildes Jumis', 'Canva Pro', 'Adobe', 'Microsoft 365', 'Grammarly'],
+                                    ],
+                                    // Add more categories as needed
+                                ];
+
+                                // Ensure $userCurrentSelections is always defined, even if empty,
+                                // and filter out predefined services from custom ones for Alpine.js
+                                $processedUserSelections = [];
+                                foreach ($allCategories as $categoryKey => $categoryData) {
+                                    $savedServicesForCategory = $userCurrentSelections[$categoryKey] ?? [];
+                                    $customOnly = array_diff($savedServicesForCategory, $categoryData['services']);
+                                    $processedUserSelections[$categoryKey] = array_values($customOnly); // Reindex array
+                                }
+                            @endphp
+
+                            @foreach ($allCategories as $categoryKey => $categoryData)
+                                <div x-data="{
+                                    // Initialize customServices with only the *saved custom* services for this category
+                                    customServices: @json($processedUserSelections[$categoryKey] ?? []),
+                                    newServiceInput: '',
+                                    predefinedServices: {{ Js::from($categoryData['services']) }},
+
+                                    addService() {
+                                        const trimmedInput = this.newServiceInput.trim();
+                                        if (trimmedInput === '') {
+                                            return; // Don't add empty services
+                                        }
+                                        if (this.customServices.includes(trimmedInput) || this.predefinedServices.includes(trimmedInput)) {
+                                            alert('Šis pakalpojums jau ir sarakstā vai ir iepriekš definēts.'); // Latvian message for existing service
+                                            return;
+                                        }
+                                        this.customServices.push(trimmedInput);
+                                        this.newServiceInput = '';
+                                    },
+                                    removeService(serviceToRemove) {
+                                        this.customServices = this.customServices.filter(service => service !== serviceToRemove);
+                                    }
+                                }">
+                                    <label class="block text-gray-700 text-sm font-semibold mb-2">
+                                        {{ $categoryData['name'] }}
+                                    </label>
+
+                                    <div class="space-y-2">
+                                        {{-- Predefined services --}}
+                                        @foreach ($categoryData['services'] as $service)
+                                            <div class="flex items-center">
+                                                <input type="checkbox"
+                                                    name="subscriptions[{{ $categoryKey }}][]"
+                                                    id="{{ $categoryKey }}_{{ Str::slug($service) }}"
+                                                    value="{{ $service }}"
+                                                    class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
+                                                    @checked(in_array($service, $userCurrentSelections[$categoryKey] ?? [])) {{-- THIS IS THE KEY PART --}}
+                                                >
+                                                <label for="{{ $categoryKey }}_{{ Str::slug($service) }}" class="ml-2 text-gray-700">{{ $service }}</label>
+                                            </div>
+                                        @endforeach
+
+                                        {{-- Dynamically added custom services --}}
+                                        <template x-for="(service, index) in customServices" :key="index">
+                                            <div class="flex items-center justify-between">
+                                                <div>
+                                                    <input type="checkbox"
+                                                        :name="`subscriptions[{{ $categoryKey }}][]`"
+                                                        :id="`{{ $categoryKey }}_custom_${index}`"
+                                                        :value="service"
+                                                        class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
+                                                        x-init="$el.checked = true" {{-- Custom services should always be checked when displayed --}}
+                                                    >
+                                                    <label :for="`{{ $categoryKey }}_custom_${index}`" class="ml-2 text-gray-700" x-text="service"></label>
+
+                                                    <button type="button" @click="removeService(service)"
+                                                        class="text-red-500 hover:text-red-700 focus:outline-none ml-2"
+                                                        title="Dzēst šo ierakstu">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </template>
+
+                                        {{-- Input for adding new services --}}
+                                        <div class="flex items-center mt-2">
+                                            <input type="text" x-model="newServiceInput"
+                                                @keyup.enter="addService()"
+                                                placeholder="Pievienot jaunu servisu"
+                                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-sm">
+                                            <button type="button" @click="addService()"
+                                                class="ml-2 bg-lime-600 hover:bg-lime-700 text-white font-bold py-2 px-3 rounded focus:outline-none focus:shadow-outline"
+                                                title="Pievienot servisu">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                         <div>
+                            <br>
+                            <label class="text-gray-700 text-sm font-semibold mb-1" for="not_wanted">
+                                    Komentārs par abonementiem:
+                                </label>
+                                <textarea name="responses[2][response_value]" id="not_wanted" class="w-full border border-gray-300 rounded-md shadow-sm focus:border-lime-600 focus:ring-lime-600 text-black-700 text-sm placeholder-gray-400 p-13" placeholder="Norādi šeit informāciju, ja kādā no abonētajiem rīkiem glabājas kas iespējami noderīgs, un, ja esi kaut kur atsevišķi noglabājis paroles, kas ļauj šiem rīkiem piekļūt">{{ $responses[2] ?? '' }}</textarea>
+                                <input type="hidden" name="responses[2][question_id]" value="2">
                         </div>
 
-                        <div class="flex items-center">
-                            <input type="checkbox"
-                                name="responses[100][response_value][]"
-                                id="finances_online_revolut"
-                                value="revolut"
-                                class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
-                                {{ in_array('revolut', $selectedOnlineFinances) ? 'checked' : '' }}>
-                            <label for="finances_online_revolut" class="ml-2 text-gray-700">Go3</label>
+                        <div class="mt-8 text-center">
+                            <button type="submit" class="bg-lime-600 hover:bg-lime-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                                Saglabāt abonementus
+                            </button>
                         </div>
 
-                        <div class="flex items-center">
-                            <input type="checkbox"
-                                name="responses[100][response_value][]"
-                                id="finances_online_other"
-                                value="other" {{-- 'cits' for 'other' --}}
-                                class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
-                                {{ in_array('other', $selectedOnlineFinances) ? 'checked' : '' }}>
-                            <label for="finances_online_other" class="ml-2 text-gray-700">Disney+</label>
-                        </div>
-
-                        <div class="flex items-center">
-                            <input type="checkbox"
-                                name="responses[100][response_value][]"
-                                id="finances_online_none"
-                                value="none" {{-- 'neglabaju' for 'none' --}}
-                                class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
-                                {{ in_array('none', $selectedOnlineFinances) ? 'checked' : '' }}>
-                            <label for="finances_online_none" class="ml-2 text-gray-700">Tet TV+</label>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <label class="block text-gray-700 text-sm font-semibold mb-2" for="finances_online_tools_question">
-                       Mūzika
-                    </label>
-
-                    @php
-                        // Get previously selected values for Question 100
-                        $selectedOnlineFinances = isset($responses[100]) && is_array($responses[100])
-                            ? $responses[100]
-                            : [];
-                    @endphp
-                    <div class="space-y-2">
-                        <div class="flex items-center">
-                            <input type="checkbox"
-                                name="responses[100][response_value][]" {{-- Correct name for Q100 checkboxes --}}
-                                id="finances_online_paypal" {{-- Unique ID --}}
-                                value="paypal" {{-- Descriptive value --}}
-                                class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
-                                {{ in_array('paypal', $selectedOnlineFinances) ? 'checked' : '' }}>
-                            <label for="finances_online_paypal" class="ml-2 text-gray-700">Spotify</label>
-                        </div>
-
-                        <div class="flex items-center">
-                            <input type="checkbox"
-                                name="responses[100][response_value][]"
-                                id="finances_online_revolut"
-                                value="revolut"
-                                class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
-                                {{ in_array('revolut', $selectedOnlineFinances) ? 'checked' : '' }}>
-                            <label for="finances_online_revolut" class="ml-2 text-gray-700">Youtube Premium</label>
-                        </div>
-
-                        <div class="flex items-center">
-                            <input type="checkbox"
-                                name="responses[100][response_value][]"
-                                id="finances_online_other"
-                                value="other" {{-- 'cits' for 'other' --}}
-                                class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
-                                {{ in_array('other', $selectedOnlineFinances) ? 'checked' : '' }}>
-                            <label for="finances_online_other" class="ml-2 text-gray-700">Apple music</label>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <label class="block text-gray-700 text-sm font-semibold mb-2" for="finances_online_tools_question">
-                       Datu uzglabāšana
-                    </label>
-
-                    @php
-                        // Get previously selected values for Question 100
-                        $selectedOnlineFinances = isset($responses[100]) && is_array($responses[100])
-                            ? $responses[100]
-                            : [];
-                    @endphp
-                    <div class="space-y-2">
-                        <div class="flex items-center">
-                            <input type="checkbox"
-                                name="responses[100][response_value][]" {{-- Correct name for Q100 checkboxes --}}
-                                id="finances_online_paypal" {{-- Unique ID --}}
-                                value="paypal" {{-- Descriptive value --}}
-                                class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
-                                {{ in_array('paypal', $selectedOnlineFinances) ? 'checked' : '' }}>
-                            <label for="finances_online_paypal" class="ml-2 text-gray-700">Google One</label>
-                        </div>
-
-                        <div class="flex items-center">
-                            <input type="checkbox"
-                                name="responses[100][response_value][]"
-                                id="finances_online_revolut"
-                                value="revolut"
-                                class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
-                                {{ in_array('revolut', $selectedOnlineFinances) ? 'checked' : '' }}>
-                            <label for="finances_online_revolut" class="ml-2 text-gray-700">iCloud</label>
-                        </div>
-
-                        <div class="flex items-center">
-                            <input type="checkbox"
-                                name="responses[100][response_value][]"
-                                id="finances_online_other"
-                                value="other" {{-- 'cits' for 'other' --}}
-                                class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
-                                {{ in_array('other', $selectedOnlineFinances) ? 'checked' : '' }}>
-                            <label for="finances_online_other" class="ml-2 text-gray-700">Dropbox</label>
-                        </div>
-                    </div>
-                </div>
+ 
+                    </form>
 
 
-                <div>
-                    <label class="block text-gray-700 text-sm font-semibold mb-2" for="finances_online_tools_question">
-                       Produktivitātes un citi rīki
-                    </label>
 
-                    @php
-                        // Get previously selected values for Question 100
-                        $selectedOnlineFinances = isset($responses[100]) && is_array($responses[100])
-                            ? $responses[100]
-                            : [];
-                    @endphp
-                    <div class="space-y-2">
-                        <div class="flex items-center">
-                            <input type="checkbox"
-                                name="responses[100][response_value][]" {{-- Correct name for Q100 checkboxes --}}
-                                id="finances_online_paypal" {{-- Unique ID --}}
-                                value="paypal" {{-- Descriptive value --}}
-                                class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
-                                {{ in_array('paypal', $selectedOnlineFinances) ? 'checked' : '' }}>
-                            <label for="finances_online_paypal" class="ml-2 text-gray-700">Adobe</label>
-                        </div>
 
-                        <div class="flex items-center">
-                            <input type="checkbox"
-                                name="responses[100][response_value][]"
-                                id="finances_online_revolut"
-                                value="revolut"
-                                class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
-                                {{ in_array('revolut', $selectedOnlineFinances) ? 'checked' : '' }}>
-                            <label for="finances_online_revolut" class="ml-2 text-gray-700">Tildes Jumis</label>
-                        </div>
 
-                        <div class="flex items-center">
-                            <input type="checkbox"
-                                name="responses[100][response_value][]"
-                                id="finances_online_other"
-                                value="other" {{-- 'cits' for 'other' --}}
-                                class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
-                                {{ in_array('other', $selectedOnlineFinances) ? 'checked' : '' }}>
-                            <label for="finances_online_other" class="ml-2 text-gray-700">Canva Pro</label>
-                        </div>
-                    </div>
-                </div>
-                 
-
-                <div>
-                    <label class="text-gray-700 text-sm font-semibold mb-1" for="not_wanted">
-                        Komentārs par abonementiem:
-                    </label>
-                    <textarea name="responses[2][response_value]" id="not_wanted" class="w-full border border-gray-300 rounded-md shadow-sm focus:border-lime-600 focus:ring-lime-600 text-black-700 text-sm placeholder-gray-400 p-13" placeholder="Norādi šeit informāciju, ja kādā no abonētajiem rīkiem glabājas kas iespējami noderīgs, un, ja esi kaut kur atsevišķi noglabājis paroles, kas ļauj šiem rīkiem piekļūt">{{ $responses[2] ?? '' }}</textarea>
-                    <input type="hidden" name="responses[2][question_id]" value="2">
-                </div>
-            </div>
-
-        </div>
-    </div>
 
 
 

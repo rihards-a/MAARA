@@ -220,7 +220,7 @@
 
     <div class="space-y-2">
         <div class="flex items-center">
-            <input type="checkbox"
+            <input type="radio"
                    name="responses[103][response_value][]" {{-- Correct name for Q101 checkboxes --}}
                    id="finances_crypto_yes" {{-- Unique ID --}}
                    value="yes" {{-- Descriptive value --}}
@@ -229,7 +229,7 @@
             <label for="finances_crypto_yes" class="ml-2 text-gray-700">Jā</label>
         </div>
         <div class="flex items-center">
-            <input type="checkbox"
+            <input type="radio"
                    name="responses[103][response_value][]" {{-- Correct name for Q101 checkboxes --}}
                    id="finances_crypto_no" {{-- Unique ID --}}
                    value="no" {{-- Descriptive value --}}
@@ -347,7 +347,7 @@
     </select>
 </div>
  <div class="mb-6"> {{-- Added margin-bottom for separation between questions --}}
-        <label class="block text-gray-700 text-sm font-semibold mb-2" for="finances_banks_question">Add commentMore actions
+        <label class="block text-gray-700 text-sm font-semibold mb-2" for="finances_banks_question">
             Vai Tev pieder kādas  īpaši vērtīgas fiziskas lietas (dārgmetāli, antikvāras preces, kolekcijas, tehnika, u.c.) 
         </label>
 
@@ -360,7 +360,7 @@
 
         <div class="space-y-2">
             <div class="flex items-center">
-                <input type="checkbox"
+                <input type="radio"
                     name="responses[107][response_value][]" {{-- Correct name for Q101 checkboxes --}}
                     id="finances_crypto_yes" {{-- Unique ID --}}
                     value="yes" {{-- Descriptive value --}}
@@ -369,7 +369,7 @@
                 <label for="finances_crypto_yes" class="ml-2 text-gray-700">Jā</label>
             </div>
             <div class="flex items-center">
-                <input type="checkbox"
+                <input type="radio"
                     name="responses[107][response_value][]" {{-- Correct name for Q101 checkboxes --}}
                     id="finances_crypto_no" {{-- Unique ID --}}
                     value="yes" {{-- Descriptive value --}}
@@ -395,7 +395,7 @@
 
         <div class="space-y-2">
             <div class="flex items-center">
-                <input type="checkbox"
+                <input type="radio"
                     name="responses[108][response_value][]" {{-- Correct name for Q101 checkboxes --}}
                     id="finances_crypto_yes" {{-- Unique ID --}}
                     value="yes" {{-- Descriptive value --}}
@@ -404,7 +404,7 @@
                 <label for="finances_crypto_yes" class="ml-2 text-gray-700">Jā</label>
             </div>
             <div class="flex items-center">
-                <input type="checkbox"
+                <input type="radio"
                     name="responses[108][response_value][]" {{-- Correct name for Q101 checkboxes --}}
                     id="finances_crypto_no" {{-- Unique ID --}}
                     value="yes" {{-- Descriptive value --}}
