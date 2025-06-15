@@ -10,6 +10,7 @@ use App\Models\Response;
 use App\Models\Device; 
 use App\Models\Account;
 use App\Models\Platform;
+use App\Models\DiglegacySubscription;
 
 class DashboardController extends Controller
 {
@@ -318,9 +319,14 @@ class DashboardController extends Controller
          $platforms = Platform::where('user_id', Auth::id())
             ->orderBy('created_at')
             ->get(); 
+
+        $subscriptions = DiglegacySubscription::where('user_id', Auth::id())
+        ->get()
+        ->groupBy('category')
+        ->map(fn($items) => $items->pluck('service_name')->toArray());
        
 
-        return view("dashboard.$dashboard_title", compact('responses', 'devices', 'accounts', 'platforms')); 
+        return view("dashboard.$dashboard_title", compact('responses', 'devices', 'accounts', 'platforms', 'subscriptions')); 
     }
 
     public function saveDigmantojums(Request $request)

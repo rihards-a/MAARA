@@ -68,11 +68,7 @@
                 Šajā sadaļā aicinām Tevi censties atcerēties būtiskākos sociālos un saziņas rīkus, ko izmanto ikdienā, aizpildāmajos laukos norādot savas vēlmes un ar tām saistītās darbības. Starp populārākajiem rīkiem šajā sadaļā varētu būt Facebook, Gmail, Outlook, Instagram, Twitter (X), WhatsApp, Telegram, Signal un TikTok.
             </p>
             <div class="mb-4">
-<<<<<<< HEAD
             <h2 class="text-base font-semibold mb-0" id="accounts-section">Mani konti</h2>
-=======
-            <h2 class="text-base font-semibold mb-0">Mani konti</h2>
->>>>>>> dev_branch_2frontend_april
             </div>
 
             @if($accounts->isEmpty())
@@ -85,11 +81,7 @@
                     <div class="mb-0 p-6 bg-white">
                         <h2 class="text-xl font-semibold mt-0 mb-0">Konts {{ $account->name }}</h2>
 
-<<<<<<< HEAD
                         <form action="{{ route('dashboard.accounts.update', $account->id) }}" method="POST">
-=======
-                        <form action="{{ route('accounts.update', $account->id) }}" method="POST">
->>>>>>> dev_branch_2frontend_april
                             @csrf
                             @method('PUT')
 
@@ -161,11 +153,7 @@
                             </div>
                         </form>
 
-<<<<<<< HEAD
                         <form id="delete-account-form-{{ $account->id }}" action="{{ route('dashboard.accounts.destroy', $account->id) }}" method="POST" class="hidden">
-=======
-                        <form id="delete-account-form-{{ $account->id }}" action="{{ route('accounts.destroy', $account->id) }}" method="POST" class="hidden">
->>>>>>> dev_branch_2frontend_april
                             @csrf
                             @method('DELETE')
                         </form>
@@ -177,11 +165,7 @@
             @if($accounts->count() < 20)
                 <div class="mb-8 p-6 bg-white rounded-lg shadow-md">
                     <h2 class="text-xl font-semibold mb-4">Pievienot jaunu kontu</h2>
-<<<<<<< HEAD
                     <form action="{{ route('dashboard.accounts.store') }}" method="POST">
-=======
-                    <form action="{{ route('accounts.store') }}" method="POST">
->>>>>>> dev_branch_2frontend_april
                         @csrf
                         <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
                             <div>
@@ -427,23 +411,15 @@
 
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> dev_branch_2frontend_april
     <!-- platforms -->
             <p class="welcome-text text-sm">
-            <h2 class="text-l font-semibold mb-4 text-center" id="darbs-dokumenti">Darbs un dokumenti</h2>
+            <h2 class="text-l font-semibold mb-4 text-center text-center" id="darbs-dokumenti">Darbs un dokumenti</h2>
             <br>
             Arvien vairāk cilvēku individuāli pelna naudu digitālajā vidē, un Tavu darba platformu piekļuves pazaudēšana var rezultēties pazaudētos vai neapgūtos finanšu līdzekļos. Ja esi šāda tipa darba veicējs, šajā sadaļā norādi būtiskāko informāciju par savām biznesa platformām.<br>
             Starp populārākajām platformām varam nosaukt Etsy, AndeleMandele, Shopify, Printful, Onlyfans, eBay, Amazon pārdošana, ss.com, 99designs, Imgur un vēl.<br>
             </p>
             <div class="mb-4">
-<<<<<<< HEAD
             <h2 class="text-base font-semibold mb-0" id="platforms-section">Manas platformas</h2>
-=======
-            <h2 class="text-base font-semibold mb-0">Manas platformas</h2>
->>>>>>> dev_branch_2frontend_april
             </div>
             @if($platforms->isEmpty())
                 <div class="mt-0 bg-gray-50 rounded-lg p-6 text-center text-gray-500">
@@ -455,11 +431,7 @@
                     <div class="mb-0 p-6 bg-white">
                         <h2 class="text-xl font-semibold mt-0 mb-0">Platforma {{ $platform->name }}</h2>
 
-<<<<<<< HEAD
                         <form action="{{ route('dashboard.platforms.update', $platform->id) }}" method="POST">
-=======
-                        <form action="{{ route('platforms.update', $platform->id) }}" method="POST">
->>>>>>> dev_branch_2frontend_april
                             @csrf
                             @method('PUT')
 
@@ -494,7 +466,6 @@
                                         <option value="Neko neizdarīju" {{ $platform->access_method == 'Neko neizdarīju' ? 'selected' : '' }}>Neko neizdarīju</option>
                                     </select>
                                 </div>
-
                                 <div>
                                     <label for="action_after_death-{{ $platform->id }}" class="block text-gray-700 text-sm font-bold mb-2">Ko darīt ar platformu?</label>
                                     <select name="action_after_death" id="action_after_death-{{ $platform->id }}" class="w-full border border-gray-300 rounded-md shadow-sm focus:border-lime-600 focus:ring-lime-600 text-black-700 text-sm p-3" required>
@@ -528,11 +499,7 @@
                             </div>
                         </form>
 
-<<<<<<< HEAD
                         <form id="delete-form-{{ $platform->id }}" action="{{ route('dashboard.platforms.destroy', $platform->id) }}" method="POST" class="hidden">
-=======
-                        <form id="delete-form-{{ $platform->id }}" action="{{ route('platforms.destroy', $platform->id) }}" method="POST" class="hidden">
->>>>>>> dev_branch_2frontend_april
                             @csrf
                             @method('DELETE')
                         </form>
@@ -544,11 +511,7 @@
             @if($platforms->count() < 20)
                 <div class="mb-8 p-6 bg-white rounded-lg shadow-md">
                     <h2 class="text-xl font-semibold mb-4">Pievienot jaunu platformu</h2>
-<<<<<<< HEAD
                     <form action="{{ route('dashboard.platforms.store') }}" method="POST">
-=======
-                    <form action="{{ route('platforms.store') }}" method="POST">
->>>>>>> dev_branch_2frontend_april
                         @csrf
                         <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
                             <div>
@@ -619,175 +582,118 @@
 
 
     <!-- Abonaments -->
-<<<<<<< HEAD
-            <p class="welcome-text text-sm">
-            <h2 class="text-l font-semibold mb-4 text-center" id="digitalas-ierices">Abonementi </h2>
-            </p>
-            <p>
-            Katram servisam, kas piedāvā kādu pakalpojumu abonementa formātā, ir sava politika saistībā ar to, kā rīkoties pēc lietotāja nāves. To, protams, iespējams pētīt proaktīvi, tomēr mūsu pieredze liecina, ka svarīgākais ir, ka tuviniekiem ir informācija par Taviem aktīvajiem abonementiem. Pēc cilvēka aiziešanas, bankas parasti dažu dienu laikā deaktivizē Tavas bankas kartes, kas nozīmē, ka ilgi par abonementiem jāmaksā nebūs. Tomēr iespējams, ka Tavi tuvinieki vēlēsies atskatīties uz Tevis veidotajiem Spotify dziesmu sarakstiem.<br>
-            Visbiežāk, rīkiem tuvinieki var piekļūt tad, ja viņiem ir piekļuve Tavam epasta kontam, ar ko esi šos pakalpojumus abonējis (izmantojot paroles atjaunošanas funkciju).<br>
-            <br>
-=======
-                    <p class="welcome-text text-sm">
-                <h2 class="text-l font-semibold mb-4 text-center" id="digitalas-ierices">Abonementi </h2>
-            </p>
-            <p>
-                Katram servisam, kas piedāvā kādu pakalpojumu abonementa formātā, ir sava politika saistībā ar to, kā rīkoties pēc lietotāja nāves. To, protams, iespējams pētīt proaktīvi, tomēr mūsu pieredze liecina, ka svarīgākais ir, ka tuviniekiem ir informācija par Taviem aktīvajiem abonementiem. Pēc cilvēka aiziešanas, bankas parasti dažu dienu laikā deaktivizē Tavas bankas kartes, kas nozīmē, ka ilgi par abonementiem jāmaksā nebūs. Tomēr iespējams, ka Tavi tuvinieki vēlēsies atskatīties uz Tevis veidotajiem Spotify dziesmu sarakstiem.<br>
-                Visbiežāk, rīkiem tuvinieki var piekļūt tad, ja viņiem ir piekļuve Tavam epasta kontam, ar ko esi šos pakalpojumus abonējis (izmantojot paroles atjaunošanas funkciju).<br>
-                <br>
->>>>>>> dev_branch_2frontend_april
-                <b>Atzīmē savus abonētos servisus:</b>
-            </p>
+    <p class="welcome-text text-sm">
+    <h2 class="text-l font-semibold mb-4 text-center" id="digitalas-ierices">Abonementi </h2>
+    </p>
+    <p>
+        Katram servisam, kas piedāvā kādu pakalpojumu abonementa formātā, ir sava politika saistībā ar to, kā rīkoties pēc lietotāja nāves. To, protams, iespējams pētīt proaktīvi, tomēr mūsu pieredze liecina, ka svarīgākais ir, ka tuviniekiem ir informācija par Taviem aktīvajiem abonementiem. Pēc cilvēka aiziešanas, bankas parasti dažu dienu laikā deaktivizē Tavas bankas kartes, kas nozīmē, ka ilgi par abonementiem jāmaksā nebūs. Tomēr iespējams, ka Tavi tuvinieki vēlēsies atskatīties uz Tevis veidotajiem Spotify dziesmu sarakstiem.<br>
+        Visbiežāk, rīkiem tuvinieki var piekļūt tad, ja viņiem ir piekļuve Tavam epasta kontam, ar ko esi šos pakalpojumus abonējis (izmantojot paroles atjaunošanas funkciju).<br>
+        <br>
+        <b>Atzīmē savus abonētos servisus:</b>
+    </p>
 
-            <br>
+    <br>
 
-                    <form method="POST" action="{{ route('dashboard.abonementi.store') }}">
-                        @csrf
+    <form method="POST" action="{{ route('dashboard.abonementi.store') }}" x-data="subscriptionForm()">
+        @csrf
 
-                        {{-- Session Status and Error Display --}}
-                        <x-status-messages /> {{-- Replaced with a reusable component (details below) --}}
+        {{-- Session Status and Error Display --}}
+        <x-status-messages /> {{-- Replaced with a reusable component (details below) --}}
 
-                        <br>
-                        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 items-start text-sm">
-                            @php
-                                $allCategories = [
-                                    'movies_series' => [
-                                        'name' => 'Filmas un seriāli',
-                                        'services' => ['Netflix', 'Go3', 'Disney+', 'Tet TV+', 'Apple TV+'],
-                                    ],
-                                    'music' => [
-                                        'name' => 'Mūzika',
-                                        'services' => ['Spotify', 'Youtube Premium', 'Apple Music', 'SoundCloud',],
-                                    ],
-                                    'data_storage' => [
-                                        'name' => 'Datu uzglabāšana',
-                                        'services' => ['Google One', 'iCloud', 'Dropbox','OneDrive'],
-                                    ],
-                                    'misc' => [
-                                        'name' => 'Produktivitātes un citi rīki',
-                                        'services' => ['Tildes Jumis', 'Canva Pro', 'Adobe', 'Microsoft 365', 'Grammarly'],
-                                    ],
-                                    // Add more categories as needed
-                                ];
-
-                                // Ensure $userCurrentSelections is always defined, even if empty,
-                                // and filter out predefined services from custom ones for Alpine.js
-                                $processedUserSelections = [];
-                                foreach ($allCategories as $categoryKey => $categoryData) {
-                                    $savedServicesForCategory = $userCurrentSelections[$categoryKey] ?? [];
-                                    $customOnly = array_diff($savedServicesForCategory, $categoryData['services']);
-                                    $processedUserSelections[$categoryKey] = array_values($customOnly); // Reindex array
-                                }
-                            @endphp
-
-                            @foreach ($allCategories as $categoryKey => $categoryData)
-                                <div x-data="{
-                                    // Initialize customServices with only the *saved custom* services for this category
-                                    customServices: @json($processedUserSelections[$categoryKey] ?? []),
-                                    newServiceInput: '',
-                                    predefinedServices: {{ Js::from($categoryData['services']) }},
-
-                                    addService() {
-                                        const trimmedInput = this.newServiceInput.trim();
-                                        if (trimmedInput === '') {
-                                            return; // Don't add empty services
-                                        }
-                                        if (this.customServices.includes(trimmedInput) || this.predefinedServices.includes(trimmedInput)) {
-                                            alert('Šis pakalpojums jau ir sarakstā vai ir iepriekš definēts.'); // Latvian message for existing service
-                                            return;
-                                        }
-                                        this.customServices.push(trimmedInput);
-                                        this.newServiceInput = '';
-                                    },
-                                    removeService(serviceToRemove) {
-                                        this.customServices = this.customServices.filter(service => service !== serviceToRemove);
-                                    }
-                                }">
-                                    <label class="block text-gray-700 text-sm font-semibold mb-2">
-                                        {{ $categoryData['name'] }}
-                                    </label>
-
-                                    <div class="space-y-2">
-                                        {{-- Predefined services --}}
-                                        @foreach ($categoryData['services'] as $service)
-                                            <div class="flex items-center">
-                                                <input type="checkbox"
-                                                    name="subscriptions[{{ $categoryKey }}][]"
-                                                    id="{{ $categoryKey }}_{{ Str::slug($service) }}"
-                                                    value="{{ $service }}"
-                                                    class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
-                                                    @checked(in_array($service, $userCurrentSelections[$categoryKey] ?? [])) {{-- THIS IS THE KEY PART --}}
-                                                >
-                                                <label for="{{ $categoryKey }}_{{ Str::slug($service) }}" class="ml-2 text-gray-700">{{ $service }}</label>
-                                            </div>
-                                        @endforeach
-
-                                        {{-- Dynamically added custom services --}}
-                                        <template x-for="(service, index) in customServices" :key="index">
-                                            <div class="flex items-center justify-between">
-                                                <div>
-                                                    <input type="checkbox"
-                                                        :name="`subscriptions[{{ $categoryKey }}][]`"
-                                                        :id="`{{ $categoryKey }}_custom_${index}`"
-                                                        :value="service"
-                                                        class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
-                                                        x-init="$el.checked = true" {{-- Custom services should always be checked when displayed --}}
-                                                    >
-                                                    <label :for="`{{ $categoryKey }}_custom_${index}`" class="ml-2 text-gray-700" x-text="service"></label>
-
-                                                    <button type="button" @click="removeService(service)"
-                                                        class="text-red-500 hover:text-red-700 focus:outline-none ml-2"
-                                                        title="Dzēst šo ierakstu">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                                        </svg>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </template>
-
-                                        {{-- Input for adding new services --}}
-                                        <div class="flex items-center mt-2">
-                                            <input type="text" x-model="newServiceInput"
-                                                @keyup.enter="addService()"
-                                                placeholder="Pievienot jaunu servisu"
-                                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-sm">
-                                            <button type="button" @click="addService()"
-                                                class="ml-2 bg-lime-600 hover:bg-lime-700 text-white font-bold py-2 px-3 rounded focus:outline-none focus:shadow-outline"
-                                                title="Pievienot servisu">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                                                </svg>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                         <div>
-                            <br>
-                            <label class="text-gray-700 text-sm font-semibold mb-1" for="not_wanted">
-                                    Komentārs par abonementiem:
+        <br>
+            
+        <!-- Subscription Categories -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            <template x-for="(category, categoryKey) in categories" :key="categoryKey">
+                <div class="border border-gray-200 rounded-lg p-4">
+                    <h3 class="font-semibold text-gray-900 mb-3" x-text="category.name"></h3>
+                    
+                    <!-- Predefined Services -->
+                    <div class="space-y-2 mb-4">
+                        <template x-for="service in category.services" :key="service">
+                            <label class="flex items-center text-sm">
+                                <input 
+                                    type="checkbox" 
+                                    :name="'subscriptions[' + categoryKey + '][]'"
+                                    :value="service"
+                                    x-model="selected[categoryKey]"
+                                    class="rounded border-gray-300 text-lime-600 focus:ring-lime-500 mr-2"
+                                >
+                                <span x-text="service"></span>
+                            </label>
+                        </template>
+                    </div>
+                    
+                    <!-- Custom Services -->
+                    <div class="space-y-2 mb-3">
+                        <template x-for="(service, index) in customServices[categoryKey]" :key="index">
+                            <div class="flex items-center justify-between text-sm">
+                                <label class="flex items-center flex-1">
+                                    <input 
+                                        type="checkbox" 
+                                        :name="'subscriptions[' + categoryKey + '][]'"
+                                        :value="service"
+                                        checked
+                                        class="rounded border-gray-300 text-lime-600 focus:ring-lime-500 mr-2"
+                                    >
+                                    <span x-text="service" class="italic text-gray-700"></span>
                                 </label>
-                                <textarea name="responses[2][response_value]" id="not_wanted" class="w-full border border-gray-300 rounded-md shadow-sm focus:border-lime-600 focus:ring-lime-600 text-black-700 text-sm placeholder-gray-400 p-13" placeholder="Norādi šeit informāciju, ja kādā no abonētajiem rīkiem glabājas kas iespējami noderīgs, un, ja esi kaut kur atsevišķi noglabājis paroles, kas ļauj šiem rīkiem piekļūt">{{ $responses[2] ?? '' }}</textarea>
-                                <input type="hidden" name="responses[2][question_id]" value="2">
-                        </div>
-
-                        <div class="mt-8 text-center">
-                            <button type="submit" class="bg-lime-600 hover:bg-lime-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                                Saglabāt abonementus
-                            </button>
-                        </div>
-
- 
-                    </form>
-
-
-
-
-
-
-
+                                <button 
+                                    type="button" 
+                                    @click="removeCustomService(categoryKey, index)"
+                                    class="text-red-500 hover:text-red-700 ml-2"
+                                >
+                                    ✕
+                                </button>
+                            </div>
+                        </template>
+                    </div>
+                    
+                    <!-- Add Custom Service -->
+                    <div class="flex gap-2">
+                        <input 
+                            type="text" 
+                            x-model="newService[categoryKey]"
+                            @keyup.enter="addCustomService(categoryKey)"
+                            placeholder="Pievienot servisu..."
+                            class="flex-1 text-sm border-gray-300 rounded focus:border-lime-500 focus:ring-lime-500"
+                        >
+                        <button 
+                            type="button" 
+                            @click="addCustomService(categoryKey)"
+                            class="px-3 py-1 bg-lime-600 text-white rounded hover:bg-lime-700 text-sm"
+                        >
+                            +
+                        </button>
+                    </div>
+                </div>
+            </template>
+        </div>
+        
+        <!-- Comments -->
+        <div class="mb-6">
+            <label for="comments" class="block text-sm font-medium text-gray-700 mb-2">
+                Komentārs par abonementiem:
+            </label>
+            <textarea 
+                name="comments" 
+                id="comments" 
+                rows="3"
+                placeholder="Papildu informācija par abonementiem..."
+                class="w-full border-gray-300 rounded focus:border-lime-500 focus:ring-lime-500"
+            ></textarea>
+        </div>
+        
+        <!-- Submit -->
+        <div class="text-center">
+            <button 
+                type="submit" 
+                class="px-6 py-2 bg-lime-600 text-white font-medium rounded hover:bg-lime-700 focus:outline-none focus:ring-2 focus:ring-lime-500 focus:ring-offset-2"
+            >
+                Saglabāt abonementus
+            </button>
+        </div>
+    </form>
 
     <!-- Navigation Buttons -->
         <div class="w-full max-w-screen-lg mx-auto px-4 py-6 flex justify-between items-center">
@@ -818,18 +724,103 @@
                 </a>
             </div>
         </div>
-        <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const checkbox = document.getElementById('section_completed');
-        const hiddenInput = document.getElementById('completion_hidden_input');
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+const checkbox = document.getElementById('section_completed');
+const hiddenInput = document.getElementById('completion_hidden_input');
 
-        checkbox.addEventListener('change', function() {
-            hiddenInput.value = this.checked ? 1 : 0;
-        });
+checkbox.addEventListener('change', function() {
+    hiddenInput.value = this.checked ? 1 : 0;
+});
 
-        // Set initial value based on current state
-        hiddenInput.value = checkbox.checked ? 1 : 0;
-    }); 
-        </script>
+// Set initial value based on current state
+hiddenInput.value = checkbox.checked ? 1 : 0;
+}); 
+
+
+function subscriptionForm() {
+    return {
+        categories: {
+            movies_series: {
+                name: 'Filmas un seriāli',
+                services: ['Netflix', 'Go3', 'Disney+', 'Tet TV+', 'Apple TV+']
+            },
+            music: {
+                name: 'Mūzika', 
+                services: ['Spotify', 'Youtube Premium', 'Apple Music', 'SoundCloud']
+            },
+            data_storage: {
+                name: 'Datu uzglabāšana',
+                services: ['Google One', 'iCloud', 'Dropbox', 'OneDrive']
+            },
+            productivity: {
+                name: 'Produktivitāte',
+                services: ['Tildes Jumis', 'Canva Pro', 'Adobe', 'Microsoft 365', 'Grammarly']
+            }
+        },
+        
+        // Current selections for predefined services
+        selected: {
+            movies_series: [],
+            music: [],
+            data_storage: [],
+            productivity: []
+        },
+        
+        // Custom services added by user
+        customServices: {
+            movies_series: [],
+            music: [],
+            data_storage: [],
+            productivity: []
+        },
+        
+        // Input fields for new services
+        newService: {
+            movies_series: '',
+            music: '',
+            data_storage: '',
+            productivity: ''
+        },
+        
+        addCustomService(categoryKey) {
+            const service = this.newService[categoryKey].trim();
+            if (!service) return;
+            
+            // Check if already exists
+            if (this.categories[categoryKey].services.includes(service) || 
+                this.customServices[categoryKey].includes(service)) {
+                alert('Šis pakalpojums jau eksistē!');
+                return;
+            }
+            
+            this.customServices[categoryKey].push(service);
+            this.newService[categoryKey] = '';
+        },
+        
+        removeCustomService(categoryKey, index) {
+            this.customServices[categoryKey].splice(index, 1);
+        },
+        
+        // Initialize with existing data from Laravel
+        init() {
+            const existingSubscriptions = @json($subscriptions ?? []);
+            
+            // Populate existing selections
+            for (const [categoryKey, services] of Object.entries(existingSubscriptions)) {
+                if (this.categories[categoryKey]) {
+                    // Separate predefined from custom services
+                    const predefinedServices = this.categories[categoryKey].services;
+                    const predefined = services.filter(service => predefinedServices.includes(service));
+                    const custom = services.filter(service => !predefinedServices.includes(service));
+                    
+                    this.selected[categoryKey] = predefined;
+                    this.customServices[categoryKey] = custom;
+                }
+            }
+        }
+    }
+}
+</script>
 </section>
 @endsection
