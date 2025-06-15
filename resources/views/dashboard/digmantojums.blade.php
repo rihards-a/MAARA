@@ -582,7 +582,7 @@
 
 
     <!-- Abonaments -->
-    <p class="welcome-text text-sm">
+    <p class="welcome-text text-sm" id="digital-subscriptions">
     <h2 class="text-l font-semibold mb-4 text-center" id="digitalas-ierices">Abonementi </h2>
     </p>
     <p>
@@ -597,13 +597,12 @@
     <form method="POST" action="{{ route('dashboard.abonementi.store') }}" x-data="subscriptionForm()">
         @csrf
 
-        {{-- Session Status and Error Display --}}
-        <x-status-messages /> {{-- Replaced with a reusable component (details below) --}}
+        <x-status-messages />
 
         <br>
             
         <!-- Subscription Categories -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+        <div class="grid grid-cols-4 gap-6 mb-8">
             <template x-for="(category, categoryKey) in categories" :key="categoryKey">
                 <div class="border border-gray-200 rounded-lg p-4">
                     <h3 class="font-semibold text-gray-900 mb-3" x-text="category.name"></h3>
@@ -650,18 +649,18 @@
                     </div>
                     
                     <!-- Add Custom Service -->
-                    <div class="flex gap-2">
+                    <div class="flex items-center mt-2">
                         <input 
                             type="text" 
                             x-model="newService[categoryKey]"
                             @keyup.enter="addCustomService(categoryKey)"
                             placeholder="Pievienot servisu..."
-                            class="flex-1 text-sm border-gray-300 rounded focus:border-lime-500 focus:ring-lime-500"
+                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-sm"
                         >
                         <button 
                             type="button" 
                             @click="addCustomService(categoryKey)"
-                            class="px-3 py-1 bg-lime-600 text-white rounded hover:bg-lime-700 text-sm"
+                            class="ml-2 bg-lime-600 hover:bg-lime-700 text-white font-bold py-2 px-3 rounded focus:outline-none focus:shadow-outline"
                         >
                             +
                         </button>
