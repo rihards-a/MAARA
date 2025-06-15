@@ -95,7 +95,6 @@ Route::group(["prefix" => "dashboard", "middleware" => ["auth"]], function () {
             Route::delete('platforms/{platform}', [PlatformController::class, 'destroy'])->name('dashboard.platforms.destroy');
 
             Route::post('/abonementi', [SubscriptionsController::class, 'store'])->name('dashboard.abonementi.store');
-            Route::delete('/abonementi/{diglegacySubscription}', [SubscriptionsController::class, 'destroy'])->name('dashboard.abonementi.destroy');
         });
 
         Route::get('pienakumi', [DashboardController::class, 'pienakumi'])->name('dashboard.pienakumi');

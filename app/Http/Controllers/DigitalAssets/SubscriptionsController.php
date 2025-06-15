@@ -63,27 +63,6 @@ class SubscriptionsController extends Controller
             }
         }
 
-        return back()->with('status', 'Abonementi saglabāti!');
-    }
-
-
-    /**
-     * Remove a specific subscription from storage (from diglegacy_subscriptions table).
-     * This might be useful if you have individual delete buttons,
-     * but the 'store' method above already handles deselection from the form.
-     *
-     * @param  \App\Models\DiglegacySubscription  $diglegacySubscription // Type-hint the new model
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function destroy(DiglegacySubscription $diglegacySubscription) // Use the new model name
-    {
-        // Ensure only the owner can delete their subscription
-        if (Auth::id() !== $diglegacySubscription->user_id) {
-            abort(403, 'Unauthorized action.'); // Or return back with an error message
-        }
-
-        $diglegacySubscription->delete();
-
-        return back()->with('status', 'Abonements dzēsts!');
+        return back()->with('status', 'Abonementi saglabāti!')->withFragment('digital-subscriptions');
     }
 }
