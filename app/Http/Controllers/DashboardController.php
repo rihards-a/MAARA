@@ -10,6 +10,7 @@ use App\Models\Response;
 use App\Models\Device; 
 use App\Models\Account;
 use App\Models\Platform;
+use App\Models\DiglegacySubscription;
 
 class DashboardController extends Controller
 {
@@ -87,13 +88,16 @@ class DashboardController extends Controller
         $validatedData = $request->validate([
             'responses' => 'required|array',
             'responses.*.question_id'       => 'required|exists:questions,id',
-            'responses.*.response_value'    => 'nullable|array|max:7', // multichoice question with up to 7 options
-            'responses.100.response_value.*' => 'nullable|string|in:paypal,revolut,other,none', 
-            'responses.101.response_value.*' => 'nullable|string|in:swedbank,seb,luminor,citadele,indexo,otherLV,otherForeign', 
-            'responses.102.response_value.*' => 'nullable|string|in:yes,no,options', 
-            'responses.103.response_value.*' => 'nullable|string|in:yes,no',
-            'responses.104.response_value.*' => 'nullable|string|in:0,1,2,3,4,5,6,7,8,9,10,10+', // array[0] for lv [1] for foreign
-            'responses.105.response_value.*' => 'nullable|string|in:0,1,2,3,4,5,6,7,8,9,10,10+', // array[0] for lv [1] for foreign
+            'responses.*.response_value'    => 'nullable|array|max:7',
+            'responses.100.response_value.*' => 'nullable|string|in:paypal,revolut,other,none',
+            'responses.101.response_value.*' => 'nullable|string|in:swedbank,seb,luminor,citadele,indexo,otherLV,otherForeign',
+            'responses.102.response_value.*' => 'nullable|string|in:yes,no,options',
+            'responses.103.response_value.*' => 'nullable|string|in:true,false,1,0,yes,no',
+            'responses.104.response_value.*' => 'nullable|string|in:0,1,2,3,4,5,6,7,8,9,10,10+',
+            'responses.105.response_value.*' => 'nullable|string|in:0,1,2,3,4,5,6,7,8,9,10,10+',
+            'responses.106.response_value.*' => 'nullable|string|in:0,1,2,3,4,5,6,7,8,9,10,10+',
+            'responses.107.response_value.*' => 'nullable|string|in:true,false,1,0,yes,no',
+            'responses.108.response_value.*' => 'nullable|string|in:true,false,1,0,yes,no',
         ]);
         $dashboard_title = 'finanses';
 
@@ -315,9 +319,14 @@ class DashboardController extends Controller
          $platforms = Platform::where('user_id', Auth::id())
             ->orderBy('created_at')
             ->get(); 
+
+        $subscriptions = DiglegacySubscription::where('user_id', Auth::id())
+        ->get()
+        ->groupBy('category')
+        ->map(fn($items) => $items->pluck('service_name')->toArray());
        
 
-        return view("dashboard.$dashboard_title", compact('responses', 'devices', 'accounts', 'platforms')); 
+        return view("dashboard.$dashboard_title", compact('responses', 'devices', 'accounts', 'platforms', 'subscriptions')); 
     }
 
     public function saveDigmantojums(Request $request)
