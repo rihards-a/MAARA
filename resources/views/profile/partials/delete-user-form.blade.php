@@ -5,7 +5,7 @@
         </h2>
 
         <p class="mt-1 text-sm text-gray-600">
-            {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.') }}
+            {{ __('Pēc jūsu profila dzēšanas tiks neatgriezeniski dzēsti arī visi ar Jums saistīte dati. Ja vēlaties datus saglabāt, tad lūdzu lejupielādējiet tos pirms konta dzēšanas.') }}
         </p>
     </header>
 
@@ -24,16 +24,16 @@
             </h2>
 
             <p class="mt-1 text-sm text-gray-600">
-                {{ __("Are you sure you want to delete your account? If you proceed, we will send a confirmation link to your email. Once you click that link, your account and all associated data will be permanently removed from our system. This action cannot be undone.") }}
+                {{ __("Vai tiešām vēlaties dzēst kontu? Pēc saites nospiešanas jūsu konts un visi ar to saistītie dati tiks neatgriezeniski dzēsti.") }}
             </p>
 
             <div class="mt-6 flex justify-end">
                 <x-secondary-button x-on:click="$dispatch('close')">
-                    {{ __('Cancel') }}
+                    {{ __('Atcelt') }}
                 </x-secondary-button>
 
                 <x-danger-button class="ms-3">
-                    {{ __('Send Deletion Link') }}
+                    {{ __('Nosūtīt konta dzēšanas saiti') }}
                 </x-danger-button>
             </div>
         </form>
@@ -43,7 +43,7 @@
             @method('delete')
 
             <h2 class="text-lg font-medium text-gray-900">
-                {{ __('Are you sure you want to delete your account?') }}
+                {{ __('Vai tiešām vēlaties dzēst kontu?') }}
             </h2>
 
             <p class="mt-1 text-sm text-gray-600">
