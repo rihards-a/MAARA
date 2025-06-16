@@ -114,13 +114,15 @@
             <textarea name="responses[12][response_value]" id="advisors" class="w-full border border-gray-300 rounded-md shadow-sm focus:border-lime-600 focus:ring-lime-600 text-black-700 text-sm placeholder-gray-400 p-4" placeholder="Vai ir kāds tuvinieks(--i), uz kuru izvēlēm un darbībām Tu īpaši paļaujies?">{{ $responses[12] ?? '' }}</textarea>
             <input type="hidden" name="responses[12][question_id]" value="12">
         </div>
-        
-    </form>
+    
+    
         <div class="w-full max-w-screen-lg mx-auto px-4 py-6 flex justify-between items-center">
-            <a href="{{ route('dashboard.pensija') }}"
-            class="text-gray-600 text-sm border border-gray-300 rounded-md px-4 py-2 hover:bg-gray-100">
-                Atpakaļ
-            </a>
+            <div>
+                <a href="{{ route('dashboard.pensija') }}"
+                class="text-gray-600 text-sm border border-gray-300 rounded-md px-4 py-2 hover:bg-gray-100">
+                    Atpakaļ
+                </a>
+            </div>
 
             <div class="flex items-center gap-4">
                 <label class="flex items-center gap-2 text-gray-700 text-sm font-medium cursor-pointer select-none">
@@ -144,6 +146,6 @@
                 </a>
             </div>
         </div>
-
+</form>
 </section>
 @endsection

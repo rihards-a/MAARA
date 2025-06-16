@@ -105,8 +105,8 @@
 
         
             </div>
-        </form>
-                <div class="w-full max-w-screen-lg mx-auto px-4 py-6 flex justify-between items-center">
+        
+            <div class="w-full max-w-screen-lg mx-auto px-4 py-6 flex justify-between items-center">
             <a href="{{ route('dashboard.digmantojums') }}"
             class="text-gray-600 text-sm border border-gray-300 rounded-md px-4 py-2 hover:bg-gray-100">
                 Atpakaļ
@@ -134,5 +134,6 @@
                 </a>
             </div>
         </div>
+      </form>
 </section>
 @endsection

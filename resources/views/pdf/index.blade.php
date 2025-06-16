@@ -13,12 +13,12 @@
         
     {{-- beres --}}
     <x-pdf.page>
-        @include('pdf.components.beres', ['title' => 'beres', 'body' => 'Section text']) 
+        @include('pdf.components.beres', ['responses' => $beres])
     </x-pdf.page>
 
     {{-- finanses --}} {{-- testaments --}}
     <x-pdf.page>
-        @include('pdf.components.finanses', ['title' => 'finanses', 'body' => 'fin text'])
+        @include('pdf.components.finanses', ['responses' => $finanses])
         @include('pdf.components.testaments', [])
     </x-pdf.page>
 

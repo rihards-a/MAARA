@@ -23,12 +23,12 @@
     </style>
 </head>
 <body>
-    @include('pdf.components.header')
+    <!-- @include('pdf.components.header') -->
 
     <div class="content">
         @yield('content')
     </div>
 
-    @include('pdf.components.footer')
+    <!-- @include('pdf.components.footer') -->
 </body>
 </html>
