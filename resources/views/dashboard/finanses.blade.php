@@ -174,7 +174,7 @@
 
     <div class="space-y-2">
         <div class="flex items-center">
-            <input type="checkbox"
+            <input type="radio"
                    name="responses[102][response_value][]" {{-- Correct name for Q101 checkboxes --}}
                    id="finances_stock_yes" {{-- Unique ID --}}
                    value="yes" {{-- Descriptive value --}}
@@ -183,7 +183,7 @@
             <label for="finances_stock_yes" class="ml-2 text-gray-700">Jā</label>
         </div>
         <div class="flex items-center">
-            <input type="checkbox"
+            <input type="radio"
                    name="responses[102][response_value][]" {{-- Correct name for Q101 checkboxes --}}
                    id="finances_stock_no" {{-- Unique ID --}}
                    value="no" {{-- Descriptive value --}}
@@ -192,7 +192,7 @@
             <label for="finances_stock_nē" class="ml-2 text-gray-700">Nē</label>
         </div>
         <div class="flex items-center">
-            <input type="checkbox"
+            <input type="radio"
                    name="responses[102][response_value][]" {{-- Correct name for Q101 checkboxes --}}
                    id="finances_stock_options" {{-- Unique ID --}}
                    value="options" {{-- Descriptive value --}}
