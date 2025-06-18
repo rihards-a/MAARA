@@ -22,11 +22,25 @@ class PDFController extends Controller
             ->with('question.questionnaire')
             ->whereHas('question.questionnaire', fn($q) => 
                 $q->whereIn('title', ['med', 'pensija', 'beres', 'finanses', 'testaments', 'digmantojums', 'pienakumi'])
-                // add status check for questionnaires to check if they're completed
+                // ->where('status', 'completed') add status check for questionnaires to check if they're completed
             )
             ->get()
             ->groupBy('question.questionnaire.title')
-            ->map(fn($responses) => $responses->pluck('response_value', 'question_id')->toArray())
+            ->map(function ($responses, $title) {
+                $data = $responses->mapWithKeys(function ($response) {
+                    $decoded = json_decode($response->response_value, true);
+                    return [$response->question_id => is_array($decoded) ? $decoded : $response->response_value];
+                })->toArray();
+                
+                // modify the responses to suit specific needs, like ensuring proper formatting for the PDF
+                /*
+                if ($title === 'finanses' && isset($data[5])) {
+                    $data[5] = 'Modified Value';
+                }
+                */
+        
+                return $data;
+            })
             ->toArray();
     
         $data = [
