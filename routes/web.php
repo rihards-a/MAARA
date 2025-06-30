@@ -17,7 +17,7 @@ use App\Http\Controllers\DigitalAssets\{
     PlatformController
 };
 
-Route::get('generate-pdf', [PDFController::class, 'generatePDF']);
+Route::get('generate-pdf', [PDFController::class, 'generatePDF'])->middleware(['auth']);
 
 // test route for testing purposes
 //use App\Http\Controllers\QuestionnaireController;
