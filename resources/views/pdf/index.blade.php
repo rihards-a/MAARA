@@ -16,10 +16,14 @@
         @include('pdf.components.beres', ['responses' => $beres])
     </x-pdf.page>
 
-    {{-- finanses --}} {{-- testaments --}}
+    {{-- finanses --}}
     <x-pdf.page>
         @include('pdf.components.finanses', ['responses' => $finanses])
-        @include('pdf.components.testaments', [])
+    </x-pdf.page>
+
+    {{-- testaments --}}
+    <x-pdf.page>
+        @include('pdf.components.testaments', ['responses' => $testaments])
     </x-pdf.page>
 
     {{-- digitalais mantojums --}}
@@ -29,7 +33,7 @@
 
     {{-- dzives pienakumi --}}
     <x-pdf.page>
-        @include('pdf.components.pienakumi', [])
+        @include('pdf.components.pienakumi', ['responses' => $pienakumi])
     </x-pdf.page>
 
     {{-- zinas no manis - katram cilvēkam sava lapa? --}}

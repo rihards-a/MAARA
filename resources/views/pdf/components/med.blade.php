@@ -5,7 +5,7 @@
     @endif
 
     @if(isset($responses[15]))
-    <x-pdf.to-fill-section title="Es esmu eveseliba. lv norādījusi cilvēku, kuru pilnvaroju pieņemt medicīniskus lēmumus par sevi, ja pati to nespēju." height=30 type=p/>
+    <x-pdf.to-fill-section title="Es esmu eveseliba.lv norādījusi cilvēku, kuru pilnvaroju pieņemt medicīniskus lēmumus par sevi, ja pati to nespēju." height=30 type=p/>
     <x-pdf.to-fill-section title="Vadlīnijas, ko lūdzu šim cilvēkam ievērot:" height=180 type=p/>
     @endif
 </div>
