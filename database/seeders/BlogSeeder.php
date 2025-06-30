@@ -68,7 +68,7 @@ class BlogSeeder extends Seeder
             [
                 'name' => 'Sēras un toksiskā pozitivitāte',
                 'slug' => 'toksiska-pozitivitate',
-                'title_card_image_location' => 'images/blogs_6_ToksiskaPozitivitate_article.jpg',
+                'title_card_image_location' => 'images/blogs_6_toksiska_pozitivitate.jpg',
                 'title_card_text' => 'Šis ieraksts palīdz saprast, kā toksiskā pozitivitāte var sāpināt sērojošu cilvēku. Ieklāvām arī padomus par to, kā sniegt saprotošu un līdzjūtīgu atbalstu.',
                 'tags' => ['ko-darit']
             ]
