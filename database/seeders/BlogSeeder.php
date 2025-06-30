@@ -21,7 +21,7 @@ class BlogSeeder extends Seeder
             ['name' => 'Bēres', 'slug' => 'beres'],
             ['name' => 'Kam zvanīt?', 'slug' => 'zvanit'],
             ['name' => 'Kā palīdzēt sev?', 'slug' => 'palidzet-sev'],
-            ['name' => 'Toksiskā pozitivitāte', 'slug' => 'Toksiska-pozitivitate'],
+            ['name' => 'Toksiskā pozitivitāte', 'slug' => 'toksiska-pozitivitate'],
             // ...
         ];
 
@@ -67,9 +67,9 @@ class BlogSeeder extends Seeder
             ],
             [
                 'name' => 'Sēras un toksiskā pozitivitāte',
-                'slug' => 'Toksiska-pozitivitate',
+                'slug' => 'toksiska-pozitivitate',
                 'title_card_image_location' => 'images/blogs_6_ToksiskaPozitivitate_article.jpg',
-                'title_card_text' => 'Šis ieraksts palīdz saprast, kā toksiskā pozitivitāte var sāpināt sērojošu cilvēku. Ieklāvām arī padomus par to, kā sniegt saprotošu un līdzjūtīgu atbalstu.',
+                'title_card_text' => 'Šis ieraksts palīdz saprast, kā toksiskā pozitivitāte var sāpināt sērojošu cilvēku. Ieklāvām arī padomus par to, kā sniegt saprotošu un līdzjūtīgu atbalstu.',
                 'tags' => ['ko-darit']
             ]
         ];
