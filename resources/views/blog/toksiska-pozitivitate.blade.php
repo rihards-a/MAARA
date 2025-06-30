@@ -2,6 +2,10 @@
 
 @section('title', 'Sēras un toksiskā pozitivitāte')
 
+@section('og_title', 'Sēras un toksiskā pozitivitāte')
+@section('og_description', 'Saskaroties ar zaudējumu, ir pilnīgi normāli izjust tādas emocijas kā skumjas, apjukumu, dusmas vai vientulību.')
+@section('og_image', asset('images/FB-blog-6-toksiska-pozitivitate.jpg'))
+
 @section('main_content')
 <section class="welcome-section">
     <h1 class="welcome-title">Sēras un toksiskā pozitivitāte</h1>
@@ -9,7 +13,7 @@
     <div class="welcome-content">
         <div class="welcome-text align-right">
             <p>
-            <img src="{{ asset('images/blogs_6_ToksiskaPozitivitate_article.jpg') }}" alt="Bailes_stadijas_header" style="width: 100%; height: auto; padding: 10px;">
+            <img src="{{ asset('images/blogs_6_toksiska_pozitivitate.jpg') }}" alt="Bailes_stadijas_header" style="width: 100%; height: auto; padding: 10px;">
             </p>
         </div>
     </div>
