@@ -21,6 +21,7 @@ class BlogSeeder extends Seeder
             ['name' => 'Bēres', 'slug' => 'beres'],
             ['name' => 'Kam zvanīt?', 'slug' => 'zvanit'],
             ['name' => 'Kā palīdzēt sev?', 'slug' => 'palidzet-sev'],
+            ['name' => 'Toksiskā pozitivitāte', 'slug' => 'toksiska-pozitivitate'],
             // ...
         ];
 
@@ -62,6 +63,13 @@ class BlogSeeder extends Seeder
                 'slug' => 'ka-palidzet-sev',
                 'title_card_image_location' => 'images/blogs_5_ka_palidzet_sev.jpg',
                 'title_card_text' => 'Piedzīvojot sēras, ir svarīgi neaizmirst par sevi. Šajā ierakstā atradīsi pirmos vienkāršos, bet nozīmīgos soļus rūpēm par sevi.',
+                'tags' => ['ko-darit']
+            ],
+            [
+                'name' => 'Sēras un toksiskā pozitivitāte',
+                'slug' => 'toksiska-pozitivitate',
+                'title_card_image_location' => 'images/blogs_6_toksiska_pozitivitate.jpg',
+                'title_card_text' => 'Šis ieraksts palīdz saprast, kā toksiskā pozitivitāte var sāpināt sērojošu cilvēku. Ieklāvām arī padomus par to, kā sniegt saprotošu un līdzjūtīgu atbalstu.',
                 'tags' => ['ko-darit']
             ]
         ];
