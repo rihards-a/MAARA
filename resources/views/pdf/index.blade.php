@@ -27,8 +27,8 @@
     </x-pdf.page>
 
     {{-- digitalais mantojums --}}
-    <x-pdf.page>
-        @include('pdf.components.digmantojums', ['title' => 'digmantojums', 'body' => ' body text'])
+    <x-pdf.page> 
+        @include('pdf.components.digmantojums', ['accounts' => $accounts, 'platforms' => $platforms])
     </x-pdf.page>
 
     {{-- dzives pienakumi --}}

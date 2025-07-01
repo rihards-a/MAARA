@@ -7,6 +7,8 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Message;
+use App\Models\Platform;
+use App\Models\Account;
 
 class PDFController extends Controller
 {
@@ -17,7 +19,13 @@ class PDFController extends Controller
         [$name, $surname] = explode(' ', $fullName, 2);
         $zinas = Message::where('user_id', Auth::id())
             ->orderBy('created_at')
-            ->get();   
+            ->get();
+        $platforms = Platform::where('user_id', Auth::id())
+            ->orderBy('created_at')
+            ->get();
+        $accounts = Account::where('user_id', Auth::id())
+            ->orderBy('created_at')
+            ->get();
         $questionnaires = $user->responses()
             ->with('question.questionnaire')
             ->whereHas('question.questionnaire', fn($q) => 
@@ -54,6 +62,8 @@ class PDFController extends Controller
             ],
 
             'zinas' => $zinas,
+            'platforms' => $platforms,
+            'accounts' => $accounts,
 
             ...$questionnaires,
         ]; 
