@@ -9,6 +9,8 @@ use App\Models\User;
 use App\Models\Message;
 use App\Models\Platform;
 use App\Models\Account;
+use App\Models\Device;
+use App\Models\DiglegacySubscription;
 
 class PDFController extends Controller
 {
@@ -23,7 +25,13 @@ class PDFController extends Controller
         $platforms = Platform::where('user_id', Auth::id())
             ->orderBy('created_at')
             ->get();
+        $devices = Device::where('user_id', Auth::id())
+            ->orderBy('created_at')
+            ->get();
         $accounts = Account::where('user_id', Auth::id())
+            ->orderBy('created_at')
+            ->get();
+        $diglegacysubscriptions = DiglegacySubscription::where('user_id', Auth::id())
             ->orderBy('created_at')
             ->get();
         $questionnaires = $user->responses()
@@ -64,6 +72,8 @@ class PDFController extends Controller
             'zinas' => $zinas,
             'platforms' => $platforms,
             'accounts' => $accounts,
+            'devices' => $devices,
+            'diglegacysubscriptions' => $diglegacysubscriptions,
 
             ...$questionnaires,
         ]; 

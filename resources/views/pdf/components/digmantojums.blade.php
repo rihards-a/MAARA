@@ -1,9 +1,11 @@
 @php
     $sections = [
-        ['title' => '3. Darbs un dokumenti:', 'items' => $platforms, 'empty' => 'Nav norādītas individuālās digitālās platformas, ko eksportēt.'],
-        ['title' => '4. Citi konti:', 'items' => $accounts, 'empty' => 'Nav norādīti individuālie konti, ko eksportēt.'],
+        ['title' => 'Personīgie konti', 'items' => $accounts, 'empty' => 'Nav norādīti individuālie konti, ko eksportēt.'],
+        ['title' => 'Ierīces', 'items' => $devices, 'empty' => 'Nav norādīti ierīču dati, ko eksportēt.'],
+        ['title' => 'Darbs un dokumenti', 'items' => $platforms, 'empty' => 'Nav norādītas individuālās digitālās platformas, ko eksportēt.'],
+        ['title' => 'Abonementi', 'items' => $diglegacysubscriptions, 'empty' => 'Nav abonementi, ko eksportēt.'],
     ];
-    $headers = ['Nosaukums', 'Svarīgums', 'Piekļuves metode', 'Darbība pēc nāves', 'Papildus komentāri'];
+    $headers = ['Nosaukums', 'Nozīmīgums', 'Piekļuves metode', 'Kā rīkoties', 'Papildus komentārs'];
 @endphp
 
 @foreach ($sections as $section)
@@ -14,7 +16,7 @@
         @else
             <table style="width:100%; border-collapse:collapse; margin-top:15px;">
                 <thead style="background:#f2f2f2;">
-                    <tr>
+                    <tr> 
                         @foreach ($headers as $header)
                             <th style="border:1px solid #ddd; padding:8px; text-align:left;">{{ $header }}</th>
                         @endforeach
