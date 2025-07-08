@@ -38,9 +38,11 @@
 
     {{-- zinas no manis - katram cilvēkam sava lapa? --}}
     @foreach ($zinas as $zina)
-        <x-pdf.page>
-            @include('pdf.components.zina', $zina)
-        </x-pdf.page>
+        @if (!empty($zina->content))
+            <x-pdf.page>
+                @include('pdf.components.zina', $zina)
+            </x-pdf.page>
+        @endif
     @endforeach
 
 @endsection

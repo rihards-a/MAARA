@@ -1,5 +1,8 @@
 <div>
-    <h2>Mans testaments:</h2>
+    <div style="background-color: black; color: white; padding: 10px; margin-bottom: 20px; border-radius: 8px;text-align: center;">
+        <h1 style="margin: 0; font-size: 20px;">Mans testaments:</h1>
+    </div> 
+
     @if(!empty($responses[200]))
         <x-pdf.to-fill-section title="Es esmu izveidojis savu publisko testamentu pie notāra." height=70 type=p/>
     @endif

@@ -1,12 +1,8 @@
 <div class="zina">
-    <h3>Ziņa</h3>
+    <div style="background-color: black; color: white; padding: 10px; margin-bottom: 20px; border-radius: 8px;text-align: center;">
+        <h1 style="margin: 0; font-size: 20px;">Ziņas no manis:</h1>
+    </div>
+     
+    <x-pdf.filled-section :title="$zina->addressee" :response="$zina->content" />
     
-    <p><strong>Datums:</strong> {{ $zina->created_at->format('d.m.Y H:i') }}</p>
-    
-    <p><strong>Adresāts:</strong> {{ $zina->addressee }}</p>
-    
-    <p><strong>Saturs:</strong></p>
-    <p>{!! nl2br(e($zina->content)) !!}</p>
-    
-    <hr>
 </div>

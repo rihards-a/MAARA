@@ -1,5 +1,7 @@
 <div class="section finanses">
-    <h2>Manas finanses un īpašumi:</h2>
+    <div style="background-color: black; color: white; padding: 10px; margin-bottom: 20px; border-radius: 8px;text-align: center;">
+        <h1 style="margin: 0; font-size: 20px;">Manas finanses un īpašumi:</h1>
+    </div>
 
     <h2>Informācija par maniem finanšu rīkiem:</h2>
     @foreach ($responses[100] as $key => $value)

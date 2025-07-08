@@ -3,10 +3,13 @@
         ['title' => 'Personīgie konti', 'items' => $accounts, 'empty' => 'Nav norādīti individuālie konti, ko eksportēt.'],
         ['title' => 'Ierīces', 'items' => $devices, 'empty' => 'Nav norādīti ierīču dati, ko eksportēt.'],
         ['title' => 'Darbs un dokumenti', 'items' => $platforms, 'empty' => 'Nav norādītas individuālās digitālās platformas, ko eksportēt.'],
-        ['title' => 'Abonementi', 'items' => $diglegacysubscriptions, 'empty' => 'Nav abonementi, ko eksportēt.'],
     ];
     $headers = ['Nosaukums', 'Nozīmīgums', 'Piekļuves metode', 'Kā rīkoties', 'Papildus komentārs'];
 @endphp
+
+    <div style="background-color: black; color: white; padding: 10px; margin-bottom: 20px; border-radius: 8px;text-align: center;">
+        <h1 style="margin: 0; font-size: 20px;">Mans digitālais mantojums:</h1>
+    </div> 
 
 @foreach ($sections as $section)
     <div class="section individual-platforms-list">
@@ -37,3 +40,15 @@
         @endif
     </div>
 @endforeach
+
+@if (!$diglegacysubscriptions->isEmpty())
+    <h3 style="margin-top: 20px;">Mani abonētie servisi:</h3>
+    <div class="section individual-platforms-list" style="margin-top: 10px; border: 1px solid #ddd; padding: 10px; background-color: #f9f9f9;">
+        <ul style="list-style-type: none; padding: 0; margin: 0;">
+            @foreach ($diglegacysubscriptions as $index => $subscription)
+                <strong>{{ $subscription->service_name }}</strong> @if (!$loop->last), @endif
+            @endforeach
+        </ul>
+    </div>
+    <x-pdf.to-fill-section title="Komentārs par tiem:" />
+@endif
