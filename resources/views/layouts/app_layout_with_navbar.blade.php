@@ -34,6 +34,10 @@
       </label>
 
       <ul class="navbar-links">
+        @guest
+        @else
+        <li><a href="{{ route('dashboard') }}">Plānošanas rīks</a></li>
+        @endguest
         <li><a href="{{ route('guide.index') }}">Ceļvedis palicējiem</a></li>
         <li><a href="{{ route('blog.index') }}">Blogs</a></li>
         <li><a href="{{ route('about') }}">Par mums</a></li>
@@ -42,7 +46,6 @@
         <li><a href="{{ route('why_register') }}">Reģistrēties</a></li>
         <li><a href="{{ route('login') }}">Pieslēgties</a></li>
         @else
-        <li><a href="{{ route('dashboard') }}">Plānošanas rīks</a></li>
         <li><a href="{{ route('profile.edit') }}">Mans profils</a></li>
         <li>
           <form method="POST" action="{{ route('logout') }}">
