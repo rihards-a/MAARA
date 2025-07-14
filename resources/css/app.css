@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    h2 {
+        /* Apply Tailwind utility classes using @apply */
+        @apply text-2xl font-bold mt-8 mb-4; /* Similar to browser default h2 */
+    }
+
+    /* You can also style other elements here */
+    a {
+        @apply text-blue-600 hover:underline;
+    }
+}

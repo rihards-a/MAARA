@@ -14,9 +14,7 @@ return new class extends Migration
         Schema::create('user_question', function (Blueprint $table) {
             $table->id();
             // Response data:
-            $table->text('response_text')->nullable();
-            $table->string('response_value')->nullable();
-            $table->timestamp('submitted_at')->nullable();
+            $table->text('response_value')->nullable();
             // Relations:
             $table->foreignId('user_id')->constrained();
             $table->foreignId('question_id')->constrained();

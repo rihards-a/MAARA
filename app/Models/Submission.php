@@ -14,9 +14,7 @@ class Submission extends Model
     protected $fillable = [
         'user_id',
         'questionnaire_id',
-        'started_at',
         'completed_at',
-        'status',
     ];
 
     protected $casts = [

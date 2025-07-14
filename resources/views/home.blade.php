@@ -6,7 +6,8 @@
 @section('og_description', 'Pēcdzīves plānošanas rīks MAARA')
 @section('og_image', asset('images/FB-index.jpg/'))
 
-@section('main_content')<section class="welcome-section">
+@section('main_content')
+<section class="welcome-section">
     <p class="welcome-text">
     <h2>Atbildes uz jautājumiem par aiziešanu.</h2><br>
     Mums katram dzīves laikā nākas piedzīvot sēras, taču zaudējuma brīdim nav jābūt apjukuma pilnam.<br>
@@ -122,6 +123,6 @@
       alert('Kļūda nosūtot datus. Lūdzu, mēģiniet vēlreiz.');
     });
 });
-  </script>
+</script>
 
 @endsection

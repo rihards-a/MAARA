@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
             $table->string('text');
-            $table->string('type');
+            $table->enum('type',['textarea', 'boolean', 'multichoice', 'select']);
             $table->foreignId('questionnaire_id')->constrained();
             $table->timestamps();
         });

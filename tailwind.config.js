@@ -14,6 +14,10 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            colors: {
+                moss: '#29443D',
+                maara_red: '#631E38',
+            },
         },
     },
 

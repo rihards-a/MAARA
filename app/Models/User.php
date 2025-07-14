@@ -34,6 +34,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'lifetime_subscription'
     ];
 
     /**
@@ -69,4 +70,25 @@ class User extends Authenticatable
     {
         return $this->hasMany(Response::class);
     }
+
+    public function devices()
+    {
+        return $this->hasMany(Device::class);
+    }
+
+    public function accounts()
+    {
+        return $this->hasMany(Account::class);
+    }
+
+    public function platforms()
+    {
+        return $this->hasMany(Platform::class);
+    }
+
+    public function diglegacySubscriptions()
+    {
+        return $this->hasMany(DiglegacySubscription::class);
+    }
+
 }
