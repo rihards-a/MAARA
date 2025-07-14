@@ -18,14 +18,22 @@
             <label class="block text-gray-700 text-sm font-semibold mb-1" for="important_details">
                 Apraksti sev svarīgākās bēru detaļas*:
             </label>
-            <textarea name="responses[1][response_value]" id="important_details" class="w-full border border-gray-300 rounded-md shadow-sm focus:border-lime-600 focus:ring-lime-600 text-black-700 text-sm placeholder-gray-400 p-4 p-9" placeholder="Vissvarīgāk man ir, lai...">{{ $responses[1] ?? '' }}</textarea>
+            <textarea name="responses[1][response_value]" id="important_details"
+            class="w-full border border-gray-300 rounded-md shadow-sm focus:border-lime-600 focus:ring-lime-600 text-black-700 text-sm placeholder-gray-400 p-4 p-9"
+            placeholder="Vissvarīgāk man ir, lai..." required
+            oninvalid="this.setCustomValidity('Šis lauks ir obligāts.')"
+            oninput="this.setCustomValidity('')">{{ $responses[1] ?? '' }}</textarea>
             <input type="hidden" name="responses[1][question_id]" value="1">
         </div>
         <div>
             <label class="block text-gray-700 text-sm font-semibold mb-1" for="not_wanted">
                 Ko Tu noteikti negribētu savās bērēs?*
             </label>
-            <textarea name="responses[2][response_value]" id="not_wanted" class="w-full border border-gray-300 rounded-md shadow-sm focus:border-lime-600 focus:ring-lime-600 text-black-700 text-sm placeholder-gray-400 p-9" placeholder="Es noteikti negribētu, lai...">{{ $responses[2] ?? '' }}</textarea>
+            <textarea name="responses[2][response_value]" id="not_wanted"
+            class="w-full border border-gray-300 rounded-md shadow-sm focus:border-lime-600 focus:ring-lime-600 text-black-700 text-sm placeholder-gray-400 p-9"
+            placeholder="Es noteikti negribētu, lai..." required
+            oninvalid="this.setCustomValidity('Šis lauks ir obligāts.')"
+            oninput="this.setCustomValidity('')">{{ $responses[2] ?? '' }}</textarea>
             <input type="hidden" name="responses[2][question_id]" value="2">
         </div>
     
