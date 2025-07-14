@@ -5,7 +5,7 @@
         </h2>
 
         <p class="mt-1 text-sm text-gray-600">
-            @if (!Auth::user()->HasGoogleAccount())
+            @if (Auth::user()->HasGoogleAccount())
                 {{ __("Lietotājvārda maiņa.") }}
             @else
                 {{ __("Paroles maiņa.") }}
@@ -27,30 +27,32 @@
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
 
-        @if (!Auth::user()->HasGoogleAccount())
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
-            <x-input-error class="mt-2" :messages="$errors->get('email')" />
+        @if (Auth::user()->HasGoogleAccount())
+            <input type="hidden" name="email" value="{{ $user->email }}">
+        @else
+            <div>
+                <x-input-label for="email" :value="__('Email')" />
+                <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
+                <x-input-error class="mt-2" :messages="$errors->get('email')" />
 
-            @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
-                <div>
-                    <p class="text-sm mt-2 text-gray-800">
-                        {{ __('Jūsu epasta adrese nav apstiprināta.') }}
+                @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
+                    <div>
+                        <p class="text-sm mt-2 text-gray-800">
+                            {{ __('Jūsu epasta adrese nav apstiprināta.') }}
 
-                        <button form="send-verification" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                            {{ __('Atkārtoti nosūtīt apstiprinājuma epastu.') }}
-                        </button>
-                    </p>
-
-                    @if (session('status') === 'verification-link-sent')
-                        <p class="mt-2 font-medium text-sm text-green-600">
-                            {{ __('Jauns apstiprinājuma epasts ir nosūtīts.') }}
+                            <button form="send-verification" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                {{ __('Atkārtoti nosūtīt apstiprinājuma epastu.') }}
+                            </button>
                         </p>
-                    @endif
-                </div>
-            @endif
-        </div>
+
+                        @if (session('status') === 'verification-link-sent')
+                            <p class="mt-2 font-medium text-sm text-green-600">
+                                {{ __('Jauns apstiprinājuma epasts ir nosūtīts.') }}
+                            </p>
+                        @endif
+                    </div>
+                @endif
+            </div>
         @endif
 
         <div class="flex items-center gap-4">
