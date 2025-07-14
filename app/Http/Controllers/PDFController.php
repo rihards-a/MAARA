@@ -18,7 +18,6 @@ class PDFController extends Controller
     {
         $user = Auth::user();
         $fullName = $user->name;
-        [$name, $surname] = explode(' ', $fullName, 2);
         $zinas = Message::where('user_id', Auth::id())
             ->orderBy('created_at')
             ->get();
@@ -63,8 +62,7 @@ class PDFController extends Controller
             'title' => 'Gala Dokuments',
 
             'pamat_info' => [
-                'name' => $name,
-                'surname' => $surname,
+                'name' => $fullName,
                 'date' => now()->format('Y-m-d'),
                 // 'adressees' => $request->input('adressees', 'Nezināms'), #TODO
             ],
