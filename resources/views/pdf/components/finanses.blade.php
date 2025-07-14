@@ -3,14 +3,25 @@
         <h1 style="margin: 0; font-size: 20px;">Manas finanses un īpašumi:</h1>
     </div>
 
-    <h2>Informācija par maniem finanšu rīkiem:</h2>
-    @foreach ($responses[100] as $key => $value)
-        <p><x-pdf.to-fill-section title="Informācija par {{ $value }} kontu" /></p>  
-    @endforeach
+    {{-- check if user has selected none/not having a financial tool --}}
+    @if (isset($responses[100]) && is_array($responses[102]) && !in_array('none', $responses[100]))
+        <h2>Informācija par maniem finanšu rīkiem:</h2>
+        @foreach ($responses[100] as $value)
+            @if ($value === 'other')
+                <p><x-pdf.to-fill-section title="Informācija par ____________ kontu" /></p>  
+            @else
+                <p><x-pdf.to-fill-section title="Informācija par {{ $value }} kontu" /></p>  
+            @endif
+        @endforeach
+    @endif
 
     <h2>Informācija par manām bankām:</h2>
-    @foreach ($responses[101] as $key => $value)
-        <p><x-pdf.to-fill-section title="Informācija par {{ $value }} kontu" /></p>  
+    @foreach ($responses[101] as $value)
+        @if ($value === 'otherLV' || $value === 'otherForeign')
+            <p><x-pdf.to-fill-section title="Informācija par ____________ kontu" /></p>  
+        @else
+            <p><x-pdf.to-fill-section title="Informācija par {{ $value }} kontu" /></p>  
+        @endif
     @endforeach
 
     {{-- Section for Stocks (Question 102) --}}
@@ -27,25 +38,42 @@
 
     {{-- Section for (Question 104) --}}
     @if (isset($responses[104]))
-            @if (isset($responses[104][0]) && ($responses[104][0] !== null && $responses[104][0] != 0))
-                <x-pdf.to-fill-section title="Informācija par manu nekustamo/nekustamajiem īpašumiem Latvijā:" />
+        @if (isset($responses[104][0]) && ($responses[104][0] !== null && $responses[104][0] != 0))
+            @if ($responses[104][0] == 1)
+                <x-pdf.to-fill-section title="Informācija par manu nekustamo īpašumu Latvijā:" />
+            @else
+                <x-pdf.to-fill-section title="Informācija par maniem nekustamajiem īpašumiem Latvijā:" />
             @endif
+        @endif
 
-            @if (isset($responses[104][1]) && ($responses[104][1] !== null && $responses[104][1] != 0))
-                <x-pdf.to-fill-section title="Informācija par manu nekustamo/nekustamajiem īpašumiem ārzemēs:" />
+        @if (isset($responses[104][1]) && ($responses[104][1] !== null && $responses[104][1] != 0))
+            @if ($responses[104][1] == 1)
+                <x-pdf.to-fill-section title="Informācija par manu nekustamo īpašumu ārzemēs:" />
+            @else
+                <x-pdf.to-fill-section title="Informācija par maniem nekustamajiem īpašumiem ārzemēs:" />
             @endif
+        @endif
     @endif
 
     {{-- Section for (Question 105) --}}
-        @if (isset($responses[105]))
-            @if (isset($responses[105][0]) && ($responses[105][0] !== null && $responses[105][0] != 0))
-                <x-pdf.to-fill-section title="Informācija par manu transportlīdzekli/transportlīdzekļiem Latvijā:" />
+    @if (isset($responses[105]))
+        @if (isset($responses[105][0]) && ($responses[105][0] !== null && $responses[105][0] != 0))
+            @if ($responses[105][0] == 1)
+                <x-pdf.to-fill-section title="Informācija par manu transportlīdzekli Latvijā:" />
+            @else
+                <x-pdf.to-fill-section title="Informācija par maniem transportlīdzekļiem Latvijā:" />
             @endif
+        @endif
 
-            @if (isset($responses[105][1]) && ($responses[105][1] !== null && $responses[105][1] != 0))
-                <x-pdf.to-fill-section title="Informācija par manu transportlīdzekli/transportlīdzekļiem ārzemēs:" />
+        @if (isset($responses[105][1]) && ($responses[105][1] !== null && $responses[105][1] != 0))
+            @if ($responses[105][1] == 1)
+                <x-pdf.to-fill-section title="Informācija par manu transportlīdzekli ārzemēs:" />
+            @else
+                <x-pdf.to-fill-section title="Informācija par maniem transportlīdzekļiem ārzemēs:" />
             @endif
+        @endif
     @endif
+    
     {{-- Section for (Question 106) --}}
     @if (!empty(array_filter($responses[106] ?? [])))
         <x-pdf.to-fill-section title="Informācija par maniem līdzekļiem fondos:" />
