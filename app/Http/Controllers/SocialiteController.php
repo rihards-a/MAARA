@@ -21,7 +21,20 @@ class SocialiteController extends Controller
         } catch (\Exception $e) {
             return redirect('/login')->withErrors('Google login failed.');
         }
-    
+
+        $email = $googleUser->getEmail();
+
+        $user = User::where('email', $email)->first();
+
+        if ($user) {
+            Auth::login($user);
+            return redirect()->intended(route('dashboard'));
+        }
+        return redirect()->route('register');
+
+        // registration disabled
+        /*
+        if ($googleUser->getEmail() )
         $user = User::updateOrCreate([
             'email' => $googleUser->getEmail(),
         ], [
@@ -38,5 +51,6 @@ class SocialiteController extends Controller
         Auth::login($user);
     
         return redirect()->intended(route('dashboard'));
+        */
     }
 }
