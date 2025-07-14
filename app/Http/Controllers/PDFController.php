@@ -66,7 +66,7 @@ class PDFController extends Controller
                 'name' => $name,
                 'surname' => $surname,
                 'date' => now()->format('Y-m-d'),
-                'adressees' => $request->input('adressees', 'Nezināms'), #TODO
+                // 'adressees' => $request->input('adressees', 'Nezināms'), #TODO
             ],
 
             'zinas' => $zinas,

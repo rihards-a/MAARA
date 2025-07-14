@@ -5,5 +5,4 @@
     <p>Vārds: {{ $name }}</p>
     <p>Uzvārds: {{ $surname }}</p>
     <p>Eksportēšanas datums: {{ $date }}</p>
-    <p>Adresāti: {{ $adressees }}</p>
 </div>
