@@ -4,7 +4,7 @@
     </div>
 
     {{-- check if user has selected none/not having a financial tool --}}
-    @if (isset($responses[100]) && is_array($responses[102]) && !in_array('none', $responses[100]))
+    @if (isset($responses[100]) && is_array($responses[100]) && !in_array('none', $responses[100]))
         <h2>Informācija par maniem finanšu rīkiem:</h2>
         @foreach ($responses[100] as $value)
             @if ($value === 'other')
