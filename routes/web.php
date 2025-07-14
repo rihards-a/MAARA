@@ -4,20 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\GuideController;
 use App\Http\Controllers\StripeSubscriptionController;
-use App\Http\Controllers\StripeDonationsController;
 use App\Http\Controllers\SocialiteController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\MessageController;
-use App\Http\Controllers\PDFController;
-use App\Http\Controllers\DigitalAssets\{
-    SubscriptionsController,
-    DeviceController,
-    AccountController,
-    PlatformController
-};
-
-Route::get('generate-pdf', [PDFController::class, 'generatePDF'])->middleware(['auth']);
 
 // test route for testing purposes
 //use App\Http\Controllers\QuestionnaireController;
@@ -25,25 +13,30 @@ Route::get('generate-pdf', [PDFController::class, 'generatePDF'])->middleware(['
 //Route::get('questionnaire/{id}', [QuestionnaireController::class, 'show'])->name('questionnaire.show');
 //Route::post('submission', [SubmissionController::class, 'store'])->name('submission.store');
 // end of test routes
-
-require __DIR__.'/auth.php'; # Laravel Breeze authentication routes
+# Stripe donation routes (don't track the user)
+//use App\Http\Controllers\StripeDonationsController;
+//Route::get('donate', [StripeDonationsController::class, 'index'])->name('donate.index');
+//Route::post('donate', [StripeDonationsController::class, 'checkout'])->name('donate.checkout');
 
 use App\Http\Controllers\PrereleaseEmailSubmissionController;
 Route::post('PrereleaseEmail', [PrereleaseEmailSubmissionController::class, 'submission'])->name('prerelease.email');
 
+require __DIR__.'/auth.php'; # Laravel Breeze authentication routes
+require __DIR__.'/dashboard.php'; # Lifetime feature dashboard routes
+
+// static pages
 Route::view('/', 'home')->name('home');
 Route::view('/par-mums', 'about')->name('about');
 Route::view('/privatuma-politika', 'privacy-policy')->name('privacy-policy');
 Route::view('/why_register', 'why_register')->name('why_register');
 
-
+// blog post pages
 Route::group(['prefix'=> 'blogs'], function () {
     Route::get('/', [BlogController::class, 'index'])->name('blog.index');
     Route::get('/{slug}', [BlogController::class, 'show'])->name('blog.show');
 });
 
-# the free guide / checklist / overview 
-# TODO: trasnfer this to the same system the blogs use, since these are just views with title cards
+# the free guide
 Route::group(["prefix"=> "celvedis-palicejiem"], function () {
     Route::get("/", [GuideController::class, 'index'])->name('guide.index');
     Route::get('/pirmie-soli', [GuideController::class,'afterloss'])->name('guide.afterloss');
@@ -53,57 +46,6 @@ Route::group(["prefix"=> "celvedis-palicejiem"], function () {
     Route::get('/bankas-iestades', [GuideController::class,'establishments'])->name('guide.establishments');
     Route::get('/apbedisana-pakalpojumi', [GuideController::class, 'burial'])->name('guide.burial');
     Route::get('/emocionalais-atbalsts', [GuideController::class,'legacy'])->name('guide.legacy');
-    # others...
-});
-
-# the authenticated portion, using "haslifetime" middleware added in app/bootstrap as an alias
-Route::group(["prefix" => "dashboard", "middleware" => ["auth"]], function () {
-    Route::get('', [DashboardController::class, 'index'])->name('dashboard');
-    
-    # only accessible after subscribing
-    Route::middleware("haslifetime")->group(function () {
-        Route::get('med', [DashboardController::class, 'med'])->name('dashboard.med');
-        Route::post('med', [DashboardController::class, 'saveMed'])->name('dashboard.med.save');
-
-        Route::get('pensija', [DashboardController::class, 'pensija'])->name('dashboard.pensija');
-        Route::post('pensija', [DashboardController::class, 'savePensija'])->name('dashboard.pensija.save');
-
-        Route::get('beres', [DashboardController::class, 'beres'])->name('dashboard.beres');
-        Route::post('beres', [DashboardController::class, 'saveBeres'])->name('dashboard.beres.save');
-
-        Route::get('finanses', [DashboardController::class, 'finanses'])->name('dashboard.finanses');
-        Route::post('finanses', [DashboardController::class, 'saveFinanses'])->name('dashboard.finanses.save');
-
-        Route::get('testaments', [DashboardController::class, 'testaments'])->name('dashboard.testaments');
-        Route::post('testaments', [DashboardController::class, 'saveTestaments'])->name('dashboard.testaments.save');
-        
-        Route::prefix('digmantojums')->group(function () {
-            Route::get('/', [DashboardController::class, 'digmantojums'])->name('dashboard.digmantojums');
-            Route::post('/', [DashboardController::class, 'saveDigmantojums'])->name('dashboard.digmantojums.save');
-            
-            Route::post('ierices', [DeviceController::class, 'store'])->name('dashboard.ierices.store');
-            Route::put('ierices/{device}', [DeviceController::class, 'update'])->name('dashboard.ierices.update');
-            Route::delete('ierices/{device}', [DeviceController::class, 'destroy'])->name('dashboard.ierices.destroy');
-            
-            Route::post('accounts', [AccountController::class, 'store'])->name('dashboard.accounts.store');
-            Route::put('accounts/{account}', [AccountController::class, 'update'])->name('dashboard.accounts.update');
-            Route::delete('accounts/{account}', [AccountController::class, 'destroy'])->name('dashboard.accounts.destroy');
-            
-            Route::post('platforms', [PlatformController::class, 'store'])->name('dashboard.platforms.store');
-            Route::put('platforms/{platform}', [PlatformController::class, 'update'])->name('dashboard.platforms.update');
-            Route::delete('platforms/{platform}', [PlatformController::class, 'destroy'])->name('dashboard.platforms.destroy');
-
-            Route::post('/abonementi', [SubscriptionsController::class, 'store'])->name('dashboard.abonementi.store');
-        });
-
-        Route::get('pienakumi', [DashboardController::class, 'pienakumi'])->name('dashboard.pienakumi');
-        Route::post('pienakumi', [DashboardController::class, 'savePienakumi'])->name('dashboard.pienakumi.save');
-
-        Route::get('zinas', [MessageController::class, 'zinas'])->name('dashboard.zinas');
-        Route::post('zinas', [MessageController::class, 'store'])->name('dashboard.zinas.store');
-        Route::put('zinas/{message}', [MessageController::class, 'update'])->name('dashboard.zinas.update');
-        Route::delete('zinas/{message}', [MessageController::class, 'destroy'])->name('dashboard.zinas.destroy');
-    });
 });
 
 # Laravel Breeze starter kit routes - User Profile
@@ -129,16 +71,3 @@ Route::middleware('auth')->group(function () {
 });
 Route::post('/stripe/webhook', [StripeSubscriptionController::class, 'webhook'])->name('stripe.webhook')
 ->withoutMiddleware([\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class]); # disable csrf for this webhook route
-
-# Stripe donation routes (doesn't track user)
-Route::get('donate', [StripeDonationsController::class, 'index'])->name('donate.index');
-Route::post('donate', [StripeDonationsController::class, 'checkout'])->name('donate.checkout');
-
-# Language switcher
-Route::get("lang/{lang}", function($lang){
-    if (in_array($lang, ['en', 'lv'])) {
-        app()->setLocale($lang);
-        session()->put('locale', $lang);
-    }
-    return redirect()->back();
-})->name("lang.switch");
