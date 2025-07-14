@@ -4,45 +4,56 @@
 
 @section('content')
 
-    {{-- Pamatinformācija --}} {{-- med + pensija --}}
     <x-pdf.page>
-        @include('pdf.components.pamat_info', $pamat_info)
-        @include('pdf.components.med', ['responses' => $med])
+        @isset($pamat_info)
+            @include('pdf.components.pamat_info', $pamat_info)
+        @endisset
+    
+        @isset($med)
+            @include('pdf.components.med', ['responses' => $med])
+        @endisset
+
         @include('pdf.components.pensija', [])
     </x-pdf.page>
         
-    {{-- beres --}}
-    <x-pdf.page>
-        @include('pdf.components.beres', ['responses' => $beres])
-    </x-pdf.page>
+    @isset($beres)
+        <x-pdf.page>
+            @include('pdf.components.beres', ['responses' => $beres])
+        </x-pdf.page>
+    @endisset
 
-    {{-- finanses --}}
-    <x-pdf.page>
-        @include('pdf.components.finanses', ['responses' => $finanses])
-    </x-pdf.page>
+    @isset($finanses)
+        <x-pdf.page>
+            @include('pdf.components.finanses', ['responses' => $finanses])
+        </x-pdf.page>
+    @endisset
 
-    {{-- testaments --}}
-    <x-pdf.page>
-        @include('pdf.components.testaments', ['responses' => $testaments])
-    </x-pdf.page>
+    @isset($testaments)
+        <x-pdf.page>
+            @include('pdf.components.testaments', ['responses' => $testaments])
+        </x-pdf.page>
+    @endisset
 
-    {{-- digitalais mantojums --}}
-    <x-pdf.page> 
-        @include('pdf.components.digmantojums', ['accounts' => $accounts, 'platforms' => $platforms])
-    </x-pdf.page>
+    @if ($accounts->isNotEmpty() && $platforms->isNotEmpty())
+        <x-pdf.page> 
+            @include('pdf.components.digmantojums', ['accounts' => $accounts, 'platforms' => $platforms])
+        </x-pdf.page>
+    @endif
 
-    {{-- dzives pienakumi --}}
-    <x-pdf.page>
-        @include('pdf.components.pienakumi', ['responses' => $pienakumi])
-    </x-pdf.page>
+    @isset($pienakumi)
+        <x-pdf.page>
+            @include('pdf.components.pienakumi', ['responses' => $pienakumi])
+        </x-pdf.page>
+    @endisset
 
-    {{-- zinas no manis - katram cilvēkam sava lapa? --}}
-    @foreach ($zinas as $zina)
-        @if (!empty($zina->content))
-            <x-pdf.page>
-                @include('pdf.components.zina', $zina)
-            </x-pdf.page>
-        @endif
-    @endforeach
+    @if (!empty($zinas))
+        @foreach ($zinas as $zina)
+            @if (!empty($zina->content))
+                <x-pdf.page>
+                    @include('pdf.components.zina', $zina)
+                </x-pdf.page>
+            @endif
+        @endforeach
+    @endif
 
 @endsection
