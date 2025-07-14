@@ -63,6 +63,7 @@ Route::get('/auth/google', [SocialiteController::class, 'google_redirect'])->nam
 Route::get('/auth/google/callback', [SocialiteController::class, 'google_callback']);
 
 # Stripe life-time subscription routes
+/*
 Route::middleware('auth')->group(function () {
     Route::get('lifetime', [StripeSubscriptionController::class, 'index'])->name('lifetime.index');
     Route::post('checkout', [StripeSubscriptionController::class, 'lifetime_checkout'])->name('checkout');
@@ -71,3 +72,4 @@ Route::middleware('auth')->group(function () {
 });
 Route::post('/stripe/webhook', [StripeSubscriptionController::class, 'webhook'])->name('stripe.webhook')
 ->withoutMiddleware([\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class]); # disable csrf for this webhook route
+*/
