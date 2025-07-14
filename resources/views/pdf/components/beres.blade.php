@@ -1,5 +1,7 @@
 <div class="section beres">
-    <h2>Apbedīšanas vēlmes:</h2>
+    <div style="background-color: black; color: white; padding: 10px; margin-bottom: 20px; border-radius: 8px;text-align: center;">
+        <h1 style="margin: 0; font-size: 20px;">Apbedīšanas vēlmes:</h1>
+    </div>
     @php
         $sections = [
             'Svarīgākās bēru detaļas' => 1,

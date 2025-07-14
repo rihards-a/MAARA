@@ -695,7 +695,7 @@
     </form>
 
     <!-- Navigation Buttons -->
-        <div class="w-full max-w-screen-lg mx-auto px-4 py-6 flex justify-between items-center">
+            <div class="col-span-full flex justify-between items-center mt-6 w-full">
             <a href="{{ route('dashboard.testaments') }}"
             class="text-gray-600 text-sm border border-gray-300 rounded-md px-4 py-2 hover:bg-gray-100">
                 Atpakaļ

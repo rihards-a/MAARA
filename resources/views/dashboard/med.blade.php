@@ -40,7 +40,7 @@
                 </div>
               <!-- Column 2 -->
               <div class="flex border border-gray-300 p-4 m-2 rounded flex-col h-full">
-                  <div class="font-semibold mb-2">Orgānu ziedošana un ķermeņa izmantošana zinātnes attīstībā</div>
+                  <div class="font-semibold mb-2">Pilnvarojums pieņemt ar ārstniecību saistītus lēmumus Tavā vietā, ja Tu vairs nespēj to izdarīt:</div>
                   <div class="text-xs pt-4"><b>1.</b> Autorizējies portālā <a href="https://eveseliba.gov.lv/login" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">https://eveseliba.gov.lv/login</a> (iespējams pieslēgties ar e-parakstu vai Smart-ID)<br>
                                             <b>2.</b> Dodies uz <a href="https://www.eveseliba.gov.lv/resident#/patient-card/future-mandate" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">https://www.eveseliba.gov.lv/resident#/patient-card/future-mandate</a><br>
                                             <b>3.</b> Informē izvēlēto personu par savām preferencēm (piemēram, pēc cik ilga laika cilvēku atslēgt no dzīvību uzturošām ierīcēm)<br>

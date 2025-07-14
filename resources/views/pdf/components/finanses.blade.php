@@ -1,14 +1,16 @@
 <div class="section finanses">
-    <h2>Manas finanses un īpašumi:</h2>
+    <div style="background-color: black; color: white; padding: 10px; margin-bottom: 20px; border-radius: 8px;text-align: center;">
+        <h1 style="margin: 0; font-size: 20px;">Manas finanses un īpašumi:</h1>
+    </div>
 
-    <h3>Informācija par maniem finanšu rīkiem:</h3>
+    <h2>Informācija par maniem finanšu rīkiem:</h2>
     @foreach ($responses[100] as $key => $value)
-        <p>{{ $value }}</p>
+        <p><x-pdf.to-fill-section title="Informācija par {{ $value }} kontu" /></p>  
     @endforeach
 
-    <h3>Informācija par manām bankām:</h3>
+    <h2>Informācija par manām bankām:</h2>
     @foreach ($responses[101] as $key => $value)
-        <p>{{ $value }}</p>
+        <p><x-pdf.to-fill-section title="Informācija par {{ $value }} kontu" /></p>  
     @endforeach
 
     {{-- Section for Stocks (Question 102) --}}
@@ -22,6 +24,33 @@
     @if (isset($responses[103]) && is_array($responses[103]) && in_array('yes', $responses[103]))
         <x-pdf.to-fill-section title="Informācija par manām kriptovalūtām:" />
     @endif
+
+    {{-- Section for (Question 104) --}}
+    @if (isset($responses[104]))
+            @if (isset($responses[104][0]) && ($responses[104][0] !== null && $responses[104][0] != 0))
+                <x-pdf.to-fill-section title="Informācija par manu nekustamo/nekustamajiem īpašumiem Latvijā:" />
+            @endif
+
+            @if (isset($responses[104][1]) && ($responses[104][1] !== null && $responses[104][1] != 0))
+                <x-pdf.to-fill-section title="Informācija par manu nekustamo/nekustamajiem īpašumiem ārzemēs:" />
+            @endif
+    @endif
+
+    {{-- Section for (Question 105) --}}
+        @if (isset($responses[105]))
+            @if (isset($responses[105][0]) && ($responses[105][0] !== null && $responses[105][0] != 0))
+                <x-pdf.to-fill-section title="Informācija par manu transportlīdzekli/transportlīdzekļiem Latvijā:" />
+            @endif
+
+            @if (isset($responses[105][1]) && ($responses[105][1] !== null && $responses[105][1] != 0))
+                <x-pdf.to-fill-section title="Informācija par manu transportlīdzekli/transportlīdzekļiem ārzemēs:" />
+            @endif
+    @endif
+    {{-- Section for (Question 106) --}}
+    @if (!empty(array_filter($responses[106] ?? [])))
+        <x-pdf.to-fill-section title="Informācija par maniem līdzekļiem fondos:" />
+    @endif
+
     {{-- Section for  (Question 107) --}}
     @if (isset($responses[107]) && is_array($responses[107]) && in_array('yes', $responses[107]))
         <x-pdf.to-fill-section title="Informācija par manām īpaši vērtīgajām fiziskajām lietām:" />

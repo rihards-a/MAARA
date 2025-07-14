@@ -38,45 +38,46 @@
 
           ];
         @endphp
-
-        @foreach($guides as $guide)
-        <div class="bg-white rounded-lg shadow-lg p-6 sm:p-8 flex flex-col items-start overflow-hidden relative min-h-[280px]">
+@foreach($guides as $guide)
+    <div class="bg-white rounded-lg shadow-lg p-6 sm:p-8 flex flex-col items-start overflow-hidden relative min-h-[280px]">
           
-          <div class="absolute -top-16 -left-16 w-36 h-36 bg-[color:var(--primary-color)] rounded-full flex items-center justify-center">
+        <div class="absolute -top-16 -left-16 w-36 h-36 bg-[color:var(--primary-color)] rounded-full flex items-center justify-center">
             <img src="{{ $guide['image'] }}" alt="Icon" class="w-12 h-12 translate-x-6 translate-y-6" />
-          </div>
-
-          <div class="content-area translate-y-4 w-full pt-12 flex flex-col flex-grow"> 
-            <h3 class="text-l font-bold mb-3 leading-tight text-gray-800">
-              {{ $guide['title'] }}
-            </h3>
-            <p class="text-sm text-gray-600 mb-2">
-              {{ $guide['text'] }}
-            </p>
-            
-            <div class="mt-auto w-full px-8 flex justify-center"> 
-              <a href="{{ $guide['route'] }}"
-                class="card-button">
-                Sākt
-              </a>
-            </div>
-          </div>
         </div>
-        @endforeach
+
+        <div class="content-area translate-y-4 w-full pt-12 flex flex-col flex-grow"> 
+            <h3 class="text-l font-bold mb-3 leading-tight text-gray-800">
+                {{ $guide['title'] }}
+            </h3>
+            
+            <div class="mt-auto w-full"> 
+                <p class="text-sm text-gray-600 mb-2">
+                    {{ $guide['text'] }}
+                </p>
+                
+                <div class="w-full px-8 flex justify-center mt-4"> 
+                    <a href="{{ $guide['route'] }}" class="card-button">
+                        Sākt
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+@endforeach
 
 
       </div>
 
         <div class="mt-10 flex justify-center space-x-14">
-            <a href="/generate-pdf" target="_blank" class="card-button px-6 py-3 bg-moss text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition ease-in-out duration-150">
+            <a href="/generate-pdf" target="_blank" class="card-button px-6 py-3 bg-moss text-white rounded-md hover:bg-lime-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition ease-in-out duration-150">
                 Eksportēt kopsavilkumu
             </a>
 
-            <a href="mailto:info@maara.id.lv" class="card-button px-6 py-3 bg-moss text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition ease-in-out duration-150">
+            <a href="mailto:info@maara.id.lv" class="card-button px-6 py-3 bg-moss text-white rounded-md hover:bg-lime-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition ease-in-out duration-150">
                 Atbalsts
             </a>
 
-            <a href="/profile" class="card-button px-6 py-3 bg-moss text-white rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition ease-in-out duration-150">
+            <a href="/profile" class="card-button px-6 py-3 bg-moss text-white rounded-md hover:bg-lime-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition ease-in-out duration-150">
                 Profila iestatījumi
             </a>
         </div>
