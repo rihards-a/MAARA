@@ -69,7 +69,7 @@
       </div>
 
         <div class="mt-10 flex justify-center space-x-14">
-            <a href="/generate-pdf" target="_blank" class="card-button px-6 py-3 bg-moss text-white rounded-md hover:bg-lime-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition ease-in-out duration-150">
+            <a href="{{ route('generate.pdf') }}" target="_blank" class="card-button px-6 py-3 bg-moss text-white rounded-md hover:bg-lime-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition ease-in-out duration-150">
                 Eksportēt kopsavilkumu
             </a>
 
@@ -77,7 +77,7 @@
                 Atbalsts
             </a>
 
-            <a href="/profile" class="card-button px-6 py-3 bg-moss text-white rounded-md hover:bg-lime-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition ease-in-out duration-150">
+            <a href="{{ route('profile.edit') }}" class="card-button px-6 py-3 bg-moss text-white rounded-md hover:bg-lime-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition ease-in-out duration-150">
                 Profila iestatījumi
             </a>
         </div>
