@@ -1,6 +1,7 @@
 
-<x-app-layout>
+@extends('layouts.app_layout_with_navbar')
 
+@section('main_content')
     <div class="py-12 bg-gray-50"> {{-- Using a very light gray background for the overall page content area for softness and contrast --}}
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
             {{-- Display User Information Here --}}
@@ -37,4 +38,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+@endsection {{-- End of the content section --}}
