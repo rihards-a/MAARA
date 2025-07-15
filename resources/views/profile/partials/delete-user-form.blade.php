@@ -57,7 +57,7 @@
                     id="password"
                     name="password"
                     type="password"
-                    class="mt-1 block w-3/4"
+                    class="mt-1 block w-3/4 focus:outline-none focus:ring-lime-500 focus:border-lime-500"
                     placeholder="{{ __('Parole') }}"
                 />
 

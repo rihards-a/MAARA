@@ -23,7 +23,7 @@
 
         <div>
             <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
+            <x-text-input id="name" name="name" type="text" class="mt-1 block w-full focus:outline-none focus:ring-lime-500 focus:border-lime-500" :value="old('name', $user->name)" required autofocus autocomplete="name" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
 
@@ -32,7 +32,7 @@
         @else
             <div>
                 <x-input-label for="email" :value="__('Email')" />
-                <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
+                <x-text-input id="email" name="email" type="email" class="mt-1 block w-full focus:outline-none focus:ring-lime-500 focus:border-lime-500" :value="old('email', $user->email)" required autocomplete="username" />
                 <x-input-error class="mt-2" :messages="$errors->get('email')" />
 
                 @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
@@ -56,7 +56,7 @@
         @endif
 
         <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Saglabāt') }}</x-primary-button>
+            <x-primary-button class="bg-moss hover:bg-lime-600">{{ __('Saglabāt') }}</x-primary-button>
 
             @if (session('status') === 'profile-updated')
                 <p
