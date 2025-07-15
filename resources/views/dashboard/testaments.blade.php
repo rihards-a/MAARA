@@ -84,28 +84,28 @@
                 <br>
                 <div class="flex items-center space-x-2">
                     <input type="checkbox" name="responses[200][response_value]" id="testament_200" value="1"
-                        class="w-6 h-6 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
+                        class="testament-checkbox w-6 h-6 mt-[2px] text-lime-600 focus:ring-lime-600 border-gray-300 rounded mb-2"
                         {{ isset($responses[200]) && $responses[200] ? 'checked' : '' }}>
                     <label for="testament_200">Es esmu izveidojis savu publisko testamentu pie notāra</label>
                     <input type="hidden" name="responses[200][question_id]" value="200">
                 </div>
                 <div class="flex items-center space-x-2">
                     <input type="checkbox" name="responses[201][response_value]" id="testament_201" value="1"
-                        class="w-6 h-6 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
+                        class="testament-checkbox w-6 h-6 mt-[2px] text-lime-600 focus:ring-lime-600 border-gray-300 rounded mb-2"
                         {{ isset($responses[201]) && $responses[201] ? 'checked' : '' }}>
                     <label for="testament_201">Es esmu izveidojis savu privāto testamentu, kas nodots glabāšanā pie notāra</label>
                     <input type="hidden" name="responses[201][question_id]" value="201">
                 </div>
                 <div class="flex items-center space-x-2">
                     <input type="checkbox" name="responses[202][response_value]" id="testament_202" value="1"
-                        class="w-6 h-6 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
+                        class="testament-checkbox w-6 h-6 mt-[2px] text-lime-600 focus:ring-lime-600 border-gray-300 rounded mb-2"
                         {{ isset($responses[202]) && $responses[202] ? 'checked' : '' }}>
                     <label for="testament_202">Es esmu izveidojis savu privāto testamentu, ko esmu noglabājis citur</label>
                     <input type="hidden" name="responses[202][question_id]" value="202">
                 </div>
                 <div class="flex items-center space-x-2">
                     <input type="checkbox" name="responses[203][response_value]" id="testament_203" value="1"
-                        class="w-6 h-6 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
+                        class="testament-checkbox w-6 h-6 mt-[2px] text-lime-600 focus:ring-lime-600 border-gray-300 rounded mb-2"
                         {{ isset($responses[203]) && $responses[203] ? 'checked' : '' }}>
                     <label for="testament_203">Es vēlos, lai mana manta tiek sadalīta civillikumā noteiktajā kārtībā</label>
                     <input type="hidden" name="responses[203][question_id]" value="203">
@@ -121,7 +121,7 @@
             <br>
             <img src="{{ asset('images/testamenta_paraugs.jpg') }}" alt="testamenta_paraugs" class="rounded-lg shadow-md" style="width: 100%; height: auto; padding: 10px;">
             <div class="flex justify-center mt-4">
-                <button type="download" class="bg-moss hover:bg-green-700 text-white font-bold py-3 px-6 rounded-md focus:outline-none focus:shadow-outline mt-4">
+                <button type="download" class="bg-moss hover:bg-lime-600 text-white font-bold py-3 px-6 rounded-md focus:outline-none">
                 <a href="{{ asset('documents/testamenta_paraugs.docx') }}" download="testamenta_paraugs.docx" class="text-white">Lejupielādēt paraugu</a>        
                 </button>
             </div>
@@ -159,5 +159,16 @@
             </a>
         </div>
     </form>
+    <script>
+    document.querySelectorAll('.testament-checkbox').forEach(checkbox => {
+        checkbox.addEventListener('change', function () {
+            if (this.checked) {
+                document.querySelectorAll('.testament-checkbox').forEach(cb => {
+                    if (cb !== this) cb.checked = false;
+                });
+            }
+        });
+    });
+</script>
 </section>
 @endsection

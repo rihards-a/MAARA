@@ -61,8 +61,8 @@
         </div>
 
 
-
-            <h1 class="welcome-title px-8">Sākam darbu!</h1>
+            <br>
+            <h2 class="text-l font-semibold mb-4 text-center">Sākam darbu!</h2>
             <br>
             <h2 class="text-l font-semibold mb-4 text-center" id="digitalas-ierices">Personīgie konti*</h2>
                 Šajā sadaļā aicinām Tevi censties atcerēties būtiskākos sociālos un saziņas rīkus, ko izmanto ikdienā, aizpildāmajos laukos norādot savas vēlmes un ar tām saistītās darbības. Starp populārākajiem rīkiem šajā sadaļā varētu būt Facebook, Gmail, Outlook, Instagram, Twitter (X), WhatsApp, Telegram, Signal un TikTok.
@@ -669,20 +669,6 @@
             </template>
         </div>
         
-        <!-- Comments -->
-        <div class="mb-6">
-            <label for="comments" class="block text-sm font-medium text-gray-700 mb-2">
-                Komentārs par abonementiem:
-            </label>
-            <textarea 
-                name="comments" 
-                id="comments" 
-                rows="3"
-                placeholder="Papildu informācija par abonementiem..."
-                class="w-full border-gray-300 rounded focus:border-lime-500 focus:ring-lime-500"
-            ></textarea>
-        </div>
-        
         <!-- Submit -->
         <div class="text-center">
             <button 
@@ -724,6 +710,7 @@
             </div>
         </div>
 <script>
+    
 document.addEventListener('DOMContentLoaded', function() {
 const checkbox = document.getElementById('section_completed');
 const hiddenInput = document.getElementById('completion_hidden_input');
@@ -736,6 +723,14 @@ checkbox.addEventListener('change', function() {
 hiddenInput.value = checkbox.checked ? 1 : 0;
 }); 
 
+  document.querySelectorAll('select[required],textarea[required]').forEach(function(select) {
+    select.addEventListener('invalid', function() {
+      this.setCustomValidity('Šis lauks ir obligāts.');
+    });
+    select.addEventListener('change', function() {
+      this.setCustomValidity('');
+    });
+  });
 
 function subscriptionForm() {
     return {

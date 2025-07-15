@@ -32,9 +32,8 @@
                     </div>
                     <br>
                 </div>
+                <!-- bottom navigation -->
                 <div class="col-span-full flex justify-between items-center mt-6 w-full">
-
-                    <!-- Left minimal button -->
                             <div class="w-full max-w-screen-lg mx-auto px-4 py-6 flex justify-between items-center">
                                 <a href="{{ route('dashboard.med') }}"
                                 class="text-gray-600 text-sm border border-gray-300 rounded-md px-4 py-2 hover:bg-gray-100">
