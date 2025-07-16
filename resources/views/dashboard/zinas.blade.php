@@ -44,7 +44,7 @@
                         name="addressee"
                         id="addressee-{{ $message->id }}"
                         value="{{ $message->addressee }}"
-                        class="w-full p-3 border border-gray-300 rounded-md text-sm"
+                        class="w-full p-3 border border-gray-300 rounded-md text-sm focus:border-lime-600 focus:ring-lime-600"
                         required
                     />
                 </div>
@@ -54,7 +54,7 @@
                     <textarea
                         name="content"
                         id="content-{{ $message->id }}"
-                        class="w-full h-32 p-3 border border-gray-300 rounded-md text-sm"
+                        class="w-full h-32 p-3 border border-gray-300 rounded-md text-sm focus:border-lime-600 focus:ring-lime-600"
                         required
                     >{{ $message->content }}</textarea>
                 </div>
@@ -80,7 +80,7 @@
     @endif
 
     <!-- New Message Form -->
-    @if($messages->count() < 20)
+    @if($messages->count() <20)
     <div class="mb-8 p-6 bg-white rounded-lg shadow-md">
         <h2 class="text-xl font-semibold mb-4">Pievienot jaunu ziņu</h2>
         <form action="{{ route('dashboard.zinas.store') }}" method="POST">
@@ -147,5 +147,22 @@
                 </a>
             </div>
         </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('input[required], select[required], textarea[required]').forEach(function(element) {
+            element.addEventListener('invalid', function() {
+                this.setCustomValidity('Šis lauks ir obligāts.');
+            });
+            element.addEventListener('change', function() {
+                this.setCustomValidity('');
+            });
+            // Clear custom validity on input for immediate feedback
+            element.addEventListener('input', function() {
+                this.setCustomValidity('');
+            });
+        });
+    });
+</script>
 </section>
 @endsection

@@ -32,13 +32,7 @@
             </label>
         </div>
 
-        <!-- Google Login Button -->
-        <div class="mt-4 flex justify-center">
-            <a href="{{ route('google.redirect') }}" class="flex items-center bg-white border border-gray-300 rounded-lg px-4 py-2 shadow-md hover:bg-gray-100">
-                <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google Logo" class="w-5 h-5 mr-2">
-                <span class="text-gray-600 text-sm">{{ __('Turpināt ar Google') }}</span>
-            </a>
-        </div>
+
 
         <!-- Forgot Password -->
         <div class="flex items-center justify-end mt-4 gap-4">
@@ -53,9 +47,17 @@
                 {{ __('Neesi reģistrējies?') }}
             </a>
 
-            <x-primary-button class="ms-3">
+            <x-primary-button class="ms-3 focus:ring-2 focus:ring-offset-2 focus:ring-lime-500">
                 {{ __('Pierakstīties') }}
             </x-primary-button>
+
+        </div>
+                <!-- Google Login Button -->
+        <div class="mt-4 flex justify-center">
+            <a href="{{ route('google.redirect') }}" class="flex items-center bg-white border border-gray-300 rounded-lg px-4 py-2 shadow-md hover:bg-gray-100">
+                <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google Logo" class="w-5 h-5 mr-2">
+                <span class="text-gray-600 text-sm">{{ __('Turpināt ar Google') }}</span>
+            </a>
         </div>
     </form>
 </x-guest-layout>
