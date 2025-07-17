@@ -602,7 +602,7 @@
         <br>
             
         <!-- Subscription Categories -->
-        <div class="grid grid-cols-4 gap-6 mb-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-8">
             <template x-for="(category, categoryKey) in categories" :key="categoryKey">
                 <div class="border border-gray-200 rounded-lg p-4">
                     <h3 class="font-semibold text-gray-900 mb-3" x-text="category.name"></h3>
@@ -681,7 +681,7 @@
     </form>
 
     <!-- Navigation Buttons -->
-            <div class="col-span-full flex justify-between items-center mt-6 w-full">
+            <div class="w-full max-w-screen-lg mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             <a href="{{ route('dashboard.testaments') }}"
             class="text-gray-600 text-sm border border-gray-300 rounded-md px-4 py-2 hover:bg-gray-100">
                 Atpakaļ
@@ -723,14 +723,14 @@ checkbox.addEventListener('change', function() {
 hiddenInput.value = checkbox.checked ? 1 : 0;
 }); 
 
-  document.querySelectorAll('select[required],textarea[required]').forEach(function(select) {
-    select.addEventListener('invalid', function() {
-      this.setCustomValidity('Šis lauks ir obligāts.');
+    document.querySelectorAll('select[required],textarea[required]').forEach(function(select) {
+        select.addEventListener('invalid', function() {
+        this.setCustomValidity('Šis lauks ir obligāts.');
+        });
+        select.addEventListener('change', function() {
+        this.setCustomValidity('');
+        });
     });
-    select.addEventListener('change', function() {
-      this.setCustomValidity('');
-    });
-  });
 
 function subscriptionForm() {
     return {

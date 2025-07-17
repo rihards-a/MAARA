@@ -61,7 +61,7 @@
                 </div>
                 <!-- bottom navigation -->
                 <div class="col-span-full flex justify-between items-center mt-6 w-full">
-                            <div class="w-full max-w-screen-lg mx-auto px-4 py-6 flex justify-between items-center">
+                            <div class="w-full max-w-screen-lg mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                                 <a href="{{ route('dashboard') }}"
                                 class="text-gray-600 text-sm border border-gray-300 rounded-md px-4 py-2 hover:bg-gray-100">
                                     Uz rīka sākumlapu
