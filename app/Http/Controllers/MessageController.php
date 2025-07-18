@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Message;
+use App\Models\Submission;
+use App\Models\Questionnaire;
 
 class MessageController extends Controller
 {
@@ -14,8 +16,15 @@ class MessageController extends Controller
         $messages = Message::where('user_id', Auth::id())
             ->orderBy('created_at')
             ->get();    
+       
+        $submission = Submission::firstOrCreate(
+            [
+                'user_id'          => Auth::id(),
+                'questionnaire_id' => Questionnaire::where('title', 'zinas')->firstOrFail()->id,
+            ],
+        )->completed_at ? 1 : 0; // Check if the submission is completed
         
-        return view("dashboard.zinas", compact('messages'));
+        return view("dashboard.zinas", compact('messages', 'submission'));
     }
 
     public function store(Request $request) {
@@ -65,5 +74,23 @@ class MessageController extends Controller
         $message->delete();
 
         return back()->with('status', 'Ziņa dzēsta!');
+    }
+    
+    public function save(Request $request)
+    {
+        $validatedData = $request->validate([
+            'submission' => 'nullable|boolean',
+        ]);
+        
+        // Create a questionnaire submission - for tracking if the user has started it
+        $s = Submission::where([
+                'user_id'          => Auth::id(),
+                'questionnaire_id' => Questionnaire::where('title', 'zinas')->firstOrFail()->id,
+        ])->first();
+        $s->touch(); // for updating the timestamp
+        $s->completed_at = !empty($validatedData['submission']) ? now() : null; // mark as completed if submission is true
+        $s->save();
+
+        return back()->with('status', 'Saglabāts!');
     }
 }

@@ -60,5 +60,6 @@ Route::group(["prefix" => "dashboard", "middleware" => ["auth"]], function () {
         Route::post('zinas', [MessageController::class, 'store'])->name('dashboard.zinas.store');
         Route::put('zinas/{message}', [MessageController::class, 'update'])->name('dashboard.zinas.update');
         Route::delete('zinas/{message}', [MessageController::class, 'destroy'])->name('dashboard.zinas.destroy');
+        Route::post('zinas/save', [MessageController::class, 'save'])->name('dashboard.zinas.save');
     });
 });

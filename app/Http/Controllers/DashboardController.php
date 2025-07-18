@@ -21,8 +21,10 @@ class DashboardController extends Controller
         $latestSubmission = Submission::where('user_id', $userId) // <---
                                       ->latest('updated_at')      // <---
                                       ->first();                 // <---
-
-        return view('dashboard.index', compact('latestSubmission')); 
+        $completed_questionnaire_count = Submission::where('user_id', $userId)
+            ->whereNotNull('completed_at')
+            ->count();
+        return view('dashboard.index', compact('latestSubmission','completed_questionnaire_count')); 
     }
 
     public function beres()
@@ -32,7 +34,13 @@ class DashboardController extends Controller
             ->whereHas('question.questionnaire', fn($q) => $q->where('title', $dashboard_title))
             ->pluck('response_value', 'question_id')
             ->toArray();
-        return view("dashboard.$dashboard_title", compact('responses'));
+        $submission = Submission::firstOrCreate(
+            [
+                'user_id'          => Auth::id(),
+                'questionnaire_id' => Questionnaire::where('title', $dashboard_title)->firstOrFail()->id,
+            ],
+        )->completed_at ? 1 : 0; // Check if the submission is completed
+        return view("dashboard.$dashboard_title", compact('responses','submission'));
     }
 
     public function saveBeres(Request $request)
@@ -42,15 +50,17 @@ class DashboardController extends Controller
             'responses' => 'required|array',
             'responses.*.question_id' => 'required|exists:questions,id',
             'responses.*.response_value' => 'nullable|string',
+            'submission' => 'nullable|boolean',
         ]);
-
+        
         // Create a questionnaire submission - for tracking if the user has started it
-        Submission::firstOrCreate(
-            [
+        $s = Submission::where([
                 'user_id'          => Auth::id(),
                 'questionnaire_id' => Questionnaire::where('title', $dashboard_title)->firstOrFail()->id,
-            ],
-        )->touch(); // for updating the timestamp
+        ])->first();
+        $s->touch(); // for updating the timestamp
+        $s->completed_at = !empty($validatedData['submission']) ? now() : null; // mark as completed if submission is true
+        $s->save();
     
         // Create responses
         foreach ($validatedData['responses'] as $response) {
@@ -80,7 +90,13 @@ class DashboardController extends Controller
                 return [$response->question_id => $decoded];
             })
             ->toArray();
-        return view("dashboard.$dashboard_title", compact('responses'));
+        $submission = Submission::firstOrCreate(
+            [
+                'user_id'          => Auth::id(),
+                'questionnaire_id' => Questionnaire::where('title', $dashboard_title)->firstOrFail()->id,
+            ],
+        )->completed_at ? 1 : 0; // Check if the submission is completed
+        return view("dashboard.$dashboard_title", compact('responses','submission'));
     }
 
     public function savefinanses(Request $request)
@@ -98,16 +114,17 @@ class DashboardController extends Controller
             'responses.106.response_value.*' => 'nullable|string|in:0,1,2,3,4,5,6,7,8,9,10,10+',
             'responses.107.response_value.*' => 'nullable|string|in:true,false,1,0,yes,no',
             'responses.108.response_value.*' => 'nullable|string|in:true,false,1,0,yes,no',
+            'submission' => 'nullable|boolean',
         ]);
         $dashboard_title = 'finanses';
 
-        // Create a questionnaire submission - for tracking if the user has started it
-        Submission::firstOrCreate(
-            [
+        $s = Submission::where([
                 'user_id'          => Auth::id(),
                 'questionnaire_id' => Questionnaire::where('title', $dashboard_title)->firstOrFail()->id,
-            ],
-        )->touch(); // for updating the timestamp
+        ])->first();
+        $s->touch(); // for updating the timestamp
+        $s->completed_at = !empty($validatedData['submission']) ? now() : null; // mark as completed if submission is true
+        $s->save();
 
         // Create responses
         foreach ($validatedData['responses'] as $response) {
@@ -135,7 +152,13 @@ class DashboardController extends Controller
                 ->whereHas('question.questionnaire', fn($q) => $q->where('title', $dashboard_title))
                 ->pluck('response_value', 'question_id')
                 ->toArray();
-            return view("dashboard.$dashboard_title", compact('responses'));
+            $submission = Submission::firstOrCreate(
+                [
+                    'user_id'          => Auth::id(),
+                    'questionnaire_id' => Questionnaire::where('title', $dashboard_title)->firstOrFail()->id,
+                ],
+            )->completed_at ? 1 : 0; // Check if the submission is completed
+            return view("dashboard.$dashboard_title", compact('responses','submission'));
         }
     }
 
@@ -146,15 +169,16 @@ class DashboardController extends Controller
             'responses' => 'required|array',
             'responses.*.question_id' => 'required|exists:questions,id',
             'responses.*.response_value' => 'nullable|boolean', // should only be checkable
+            'submission' => 'nullable|boolean',
         ]);
 
-        // Create a questionnaire submission - for tracking if the user has started it
-        Submission::firstOrCreate(
-            [
+        $s = Submission::where([
                 'user_id'          => Auth::id(),
                 'questionnaire_id' => Questionnaire::where('title', $dashboard_title)->firstOrFail()->id,
-            ],
-        )->touch(); // for updating the timestamp
+        ])->first();
+        $s->touch(); // for updating the timestamp
+        $s->completed_at = !empty($validatedData['submission']) ? now() : null; // mark as completed if submission is true
+        $s->save();
     
         // Create responses
         foreach ($validatedData['responses'] as $response) {
@@ -179,26 +203,33 @@ class DashboardController extends Controller
             ->whereHas('question.questionnaire', fn($q) => $q->where('title', $dashboard_title))
             ->pluck('response_value', 'question_id')
             ->toArray();
-        return view("dashboard.$dashboard_title", compact('responses'));
-    }
-
-    public function savePensija(Request $request)
-    {
-        $dashboard_title = 'med';
-        $validatedData = $request->validate([
-            'responses' => 'required|array',
-            'responses.*.question_id' => 'required|exists:questions,id',
-            'responses.*.response_value' => 'nullable|boolean', // should only be checkable
-        ]);
-
-        // Create a questionnaire submission - for tracking if the user has started it
-        Submission::firstOrCreate(
+        $submission = Submission::firstOrCreate(
             [
                 'user_id'          => Auth::id(),
                 'questionnaire_id' => Questionnaire::where('title', $dashboard_title)->firstOrFail()->id,
             ],
-        )->touch(); // for updating the timestamp
-    
+        )->completed_at ? 1 : 0; // Check if the submission is completed
+        return view("dashboard.$dashboard_title", compact('responses','submission'));
+    }
+
+    public function savePensija(Request $request)
+    {
+        $dashboard_title = 'pensija';
+        $validatedData = $request->validate([
+            'responses' => 'required|array',
+            'responses.*.question_id' => 'required|exists:questions,id',
+            'responses.*.response_value' => 'nullable|boolean', // should only be checkable
+            'submission' => 'nullable|boolean',
+        ]);
+
+        $s = Submission::where([
+                'user_id'          => Auth::id(),
+                'questionnaire_id' => Questionnaire::where('title', $dashboard_title)->firstOrFail()->id,
+        ])->first();
+        $s->touch(); // for updating the timestamp
+        $s->completed_at = !empty($validatedData['submission']) ? now() : null; // mark as completed if submission is true
+        $s->save();
+        
         // Create responses
         foreach ($validatedData['responses'] as $response) {
             Response::updateOrCreate(
@@ -222,7 +253,13 @@ class DashboardController extends Controller
             ->whereHas('question.questionnaire', fn($q) => $q->where('title', $dashboard_title))
             ->pluck('response_value', 'question_id')
             ->toArray();
-        return view("dashboard.$dashboard_title", compact('responses'));
+        $submission = Submission::firstOrCreate(
+            [
+                'user_id'          => Auth::id(),
+                'questionnaire_id' => Questionnaire::where('title', $dashboard_title)->firstOrFail()->id,
+            ],
+        )->completed_at ? 1 : 0; // Check if the submission is completed
+        return view("dashboard.$dashboard_title", compact('responses','submission'));
     }
 
     public function savePienakumi(Request $request)
@@ -232,16 +269,17 @@ class DashboardController extends Controller
             'responses' => 'required|array',
             'responses.*.question_id' => 'required|exists:questions,id',
             'responses.*.response_value' => 'nullable|string',
+            'submission' => 'nullable|boolean',
         ]);
 
-        // Create a questionnaire submission - for tracking if the user has started it
-        Submission::firstOrCreate(
-            [
+        $s = Submission::where([
                 'user_id'          => Auth::id(),
                 'questionnaire_id' => Questionnaire::where('title', $dashboard_title)->firstOrFail()->id,
-            ],
-        )->touch(); // for updating the timestamp
-    
+        ])->first();
+        $s->touch(); // for updating the timestamp
+        $s->completed_at = !empty($validatedData['submission']) ? now() : null; // mark as completed if submission is true
+        $s->save();
+        
         // Create responses
         foreach ($validatedData['responses'] as $response) {
             Response::updateOrCreate(
@@ -264,7 +302,13 @@ class DashboardController extends Controller
             ->whereHas('question.questionnaire', fn($q) => $q->where('title', $dashboard_title))
             ->pluck('response_value', 'question_id')
             ->toArray();
-        return view("dashboard.$dashboard_title", compact('responses'));
+        $submission = Submission::firstOrCreate(
+            [
+                'user_id'          => Auth::id(),
+                'questionnaire_id' => Questionnaire::where('title', $dashboard_title)->firstOrFail()->id,
+            ],
+        )->completed_at ? 1 : 0; // Check if the submission is completed
+        return view("dashboard.$dashboard_title", compact('responses','submission'));
     }
 
     public function saveTestaments(Request $request)
@@ -274,15 +318,16 @@ class DashboardController extends Controller
             'responses' => 'required|array',
             'responses.*.question_id' => 'required|exists:questions,id',
             'responses.*.response_value' => 'nullable|boolean',
+            'submission' => 'nullable|boolean',
         ]);
         
-        // Create a questionnaire submission - for tracking if the user has started it
-        Submission::firstOrCreate(
-            [
+        $s = Submission::where([
                 'user_id'          => Auth::id(),
                 'questionnaire_id' => Questionnaire::where('title', $dashboard_title)->firstOrFail()->id,
-            ],
-        )->touch(); // for updating the timestamp
+        ])->first();
+        $s->touch(); // for updating the timestamp
+        $s->completed_at = !empty($validatedData['submission']) ? now() : null; // mark as completed if submission is true
+        $s->save();
     
         // Create responses
         foreach ($validatedData['responses'] as $response) {
@@ -312,50 +357,48 @@ class DashboardController extends Controller
             ->orderBy('created_at')
             ->get();
         
-         $accounts = Account::where('user_id', Auth::id())
-            ->orderBy('created_at') 
-            ->get();
+        $accounts = Account::where('user_id', Auth::id())
+        ->orderBy('created_at') 
+        ->get();
 
-         $platforms = Platform::where('user_id', Auth::id())
-            ->orderBy('created_at')
-            ->get(); 
+        $platforms = Platform::where('user_id', Auth::id())
+        ->orderBy('created_at')
+        ->get(); 
 
         $subscriptions = DiglegacySubscription::where('user_id', Auth::id())
         ->get()
         ->groupBy('category')
         ->map(fn($items) => $items->pluck('service_name')->toArray());
        
+        $submission = Submission::firstOrCreate(
+            [
+                'user_id'          => Auth::id(),
+                'questionnaire_id' => Questionnaire::where('title', $dashboard_title)->firstOrFail()->id,
+            ],
+        )->completed_at ? 1 : 0; // Check if the submission is completed
 
-        return view("dashboard.$dashboard_title", compact('responses', 'devices', 'accounts', 'platforms', 'subscriptions')); 
+        return view("dashboard.$dashboard_title", compact('responses', 'devices', 'accounts', 'platforms', 'subscriptions', 'submission')); 
     }
 
     public function saveDigmantojums(Request $request)
     {
         $dashboard_title = 'digmantojums';
         $validatedData = $request->validate([
+            /* other models are being saved in their own controllers
             'responses' => 'required|array',
             'responses.*.question_id' => 'required|exists:questions,id',
             'responses.*.response_value' => 'nullable|string',
+            */
+            'submission' => 'nullable|boolean',
         ]);
 
-        Submission::firstOrCreate(
-            [
+        $s = Submission::where([
                 'user_id'          => Auth::id(),
                 'questionnaire_id' => Questionnaire::where('title', $dashboard_title)->firstOrFail()->id,
-            ],
-        )->touch();
-
-        foreach ($validatedData['responses'] as $response) {
-            Response::updateOrCreate(
-                [
-                    'user_id' => Auth::id(),
-                    'question_id' => $response['question_id'],
-                ],
-                [
-                    'response_value' => $response['response_value'] ?? null,
-                ]
-            );
-        }
+        ])->first();
+        $s->touch(); // for updating the timestamp
+        $s->completed_at = !empty($validatedData['submission']) ? now() : null; // mark as completed if submission is true
+        $s->save();
 
         return back()->with('status', 'Saglabāts!');
     }

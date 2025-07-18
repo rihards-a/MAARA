@@ -15,7 +15,7 @@
           2. Saglabā savas vēlmes<br>
           3. Ērti eksportē savu norāžu kopsavilkumu drošai uzglabāšanai.<br>
           <br>
-          <b>Plānošanas statuss:</b> aizpildītas 0/8 sadaļām <br>                           <b>Pēdējo reizi izmaiņas veiktas:</b>
+          <b>Plānošanas statuss:</b> aizpildītas {{$completed_questionnaire_count}}/8 sadaļām <br>                           <b>Pēdējo reizi izmaiņas veiktas:</b>
   @if($latestSubmission && $latestSubmission->updated_at)
     {{ \Carbon\Carbon::parse($latestSubmission->updated_at)->diffForHumans() }}
   @else

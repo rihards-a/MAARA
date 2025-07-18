@@ -119,10 +119,10 @@
                                       <label class="flex items-center gap-2 text-gray-700 text-sm font-medium cursor-pointer select-none">
                                           <input type="checkbox"
                                               id="section_completed"
-                                              name="responses[13][response_value]"
+                                              name="submission"
                                               value="1"
                                               class="form-checkbox h-5 w-5 text-lime-600 rounded focus:ring-lime-500"
-                                              {{ (isset($responses[13]['response_value']) && $responses[13]['response_value'] == 1) ? 'checked' : '' }}>
+                                                      {{ (isset($submission) && $submission === 1) ? 'checked' : '' }}>
                                           Atzīmēt sadaļu kā pabeigtu
                                       </label>
 
