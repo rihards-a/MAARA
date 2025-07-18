@@ -34,11 +34,13 @@
         </x-pdf.page>
     @endisset
 
-    @if ($accounts->isNotEmpty() && $platforms->isNotEmpty())
-        <x-pdf.page> 
-            @include('pdf.components.digmantojums', ['accounts' => $accounts, 'platforms' => $platforms])
-        </x-pdf.page>
-    @endif
+    @isset($digmantojums)
+        @if ($accounts->isNotEmpty() && $platforms->isNotEmpty())
+            <x-pdf.page> 
+                @include('pdf.components.digmantojums', ['accounts' => $accounts, 'platforms' => $platforms])
+            </x-pdf.page>
+        @endif
+    @endisset
 
     @isset($pienakumi)
         <x-pdf.page>
@@ -46,14 +48,16 @@
         </x-pdf.page>
     @endisset
 
-    @if (!empty($zinas))
-        @foreach ($zinas as $zina)
-            @if (!empty($zina->content))
-                <x-pdf.page>
-                    @include('pdf.components.zina', $zina)
-                </x-pdf.page>
-            @endif
-        @endforeach
-    @endif
+    @isset($zinas)
+        @if (!empty($messages))
+            @foreach ($messages as $zina)
+                @if (!empty($zina->content))
+                    <x-pdf.page>
+                        @include('pdf.components.zina', $zina)
+                    </x-pdf.page>
+                @endif
+            @endforeach
+        @endif
+    @endisset
 
 @endsection
