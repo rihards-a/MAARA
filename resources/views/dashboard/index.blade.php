@@ -27,14 +27,14 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4 items-stretch">
         @php
           $guides = [
-            ['title' => 'Medicīniskās izvēles un pilnvaras', 'text' => 'Paredzamais aizpildes laiks: 10 minūtes', 'route' => route('dashboard.med'), 'image' => '/images/a1.svg'],
-            ['title' => 'Pensijas mantošana', 'text' => 'Paredzamais aizpildes laiks: 5 minūtes', 'route' => route('dashboard.pensija'), 'image' => '/images/a2.svg'],
-            ['title' => 'Apbedīšanas izvēles', 'text' => 'Paredzamais aizpildes laiks: 60 minūtes', 'route' => route('dashboard.beres'), 'image' => '/images/a3.svg'],
-            ['title' => 'Finanšu pārvaldība', 'text' => 'Paredzamais aizpildes laiks: 30 minūtes', 'route' => route('dashboard.finanses'), 'image' => '/images/a4.svg'],
-            ['title' => 'Testamenta sagatavošana', 'text' => 'Paredzamais aizpildes laiks: 60 minūtes', 'route' => route('dashboard.testaments'), 'image' => '/images/a5.svg'],
-            ['title' => 'Digitālais mantojums', 'text' => 'Paredzamais aizpildes laiks: 120 minūtes', 'route' => route('dashboard.digmantojums'), 'image' => '/images/a6.svg'],
-            ['title' => 'Dzīves pienākumu pārņemšana', 'text' => 'Paredzamais aizpildes laiks: 60 minūtes', 'route' => route('dashboard.pienakumi'), 'image' => '/images/a7.svg'],
-            ['title' => 'Ziņas palicējiem', 'text' => 'Paredzamais aizpildes laiks: 60 minūtes', 'route' => route('dashboard.zinas'), 'image' => '/images/a8.svg'],
+            ['type' => 'med', 'title' => 'Medicīniskās izvēles un pilnvaras', 'text' => 'Paredzamais aizpildes laiks: 10 minūtes', 'route' => route('dashboard.med'), 'image' => '/images/a1.svg'],
+            ['type' => 'pensija', 'title' => 'Pensijas mantošana', 'text' => 'Paredzamais aizpildes laiks: 5 minūtes', 'route' => route('dashboard.pensija'), 'image' => '/images/a2.svg'],
+            ['type' => 'beres', 'title' => 'Apbedīšanas izvēles', 'text' => 'Paredzamais aizpildes laiks: 60 minūtes', 'route' => route('dashboard.beres'), 'image' => '/images/a3.svg'],
+            ['type' => 'finanses', 'title' => 'Finanšu pārvaldība', 'text' => 'Paredzamais aizpildes laiks: 30 minūtes', 'route' => route('dashboard.finanses'), 'image' => '/images/a4.svg'],
+            ['type' => 'testaments', 'title' => 'Testamenta sagatavošana', 'text' => 'Paredzamais aizpildes laiks: 60 minūtes', 'route' => route('dashboard.testaments'), 'image' => '/images/a5.svg'],
+            ['type' => 'digmantojums', 'title' => 'Digitālais mantojums', 'text' => 'Paredzamais aizpildes laiks: 120 minūtes', 'route' => route('dashboard.digmantojums'), 'image' => '/images/a6.svg'],
+            ['type' => 'pienakumi', 'title' => 'Dzīves pienākumu pārņemšana', 'text' => 'Paredzamais aizpildes laiks: 60 minūtes', 'route' => route('dashboard.pienakumi'), 'image' => '/images/a7.svg'],
+            ['type' => 'zinas', 'title' => 'Ziņas palicējiem', 'text' => 'Paredzamais aizpildes laiks: 60 minūtes', 'route' => route('dashboard.zinas'), 'image' => '/images/a8.svg'],
 
           ];
         @endphp
@@ -57,7 +57,7 @@
                 
                 <div class="w-full px-8 flex justify-center mt-4"> 
                     <a href="{{ $guide['route'] }}" class="card-button">
-                        Sākt
+                        {{$questionnaire_progress[$guide['type']]}}
                     </a>
                 </div>
             </div>

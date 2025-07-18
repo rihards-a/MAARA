@@ -24,7 +24,20 @@ class DashboardController extends Controller
         $completed_questionnaire_count = Submission::where('user_id', $userId)
             ->whereNotNull('completed_at')
             ->count();
-        return view('dashboard.index', compact('latestSubmission','completed_questionnaire_count')); 
+        // sakt, turpinat, labot
+        $questionnaire_progress = []; 
+        foreach (Questionnaire::all() as $questionnaire) {
+            $submission = Submission::where('user_id', $userId)
+                ->where('questionnaire_id', $questionnaire->id)
+                ->first();
+            if ($submission) {
+                $submission->updated_at ? $questionnaire_progress[$questionnaire->title] = 'Turpināt' : null;
+                $submission->completed_at ? $questionnaire_progress[$questionnaire->title] = 'Labot' : null;
+            } else {
+                $questionnaire_progress[$questionnaire->title] = 'Sākt';
+            }
+        }
+        return view('dashboard.index', compact('latestSubmission','completed_questionnaire_count', 'questionnaire_progress')); 
     }
 
     public function beres()
