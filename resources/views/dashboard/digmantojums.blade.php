@@ -62,10 +62,10 @@
 
 
             <br>
-            <h2 class="text-l font-semibold mb-4 text-center">Sākam darbu!</h2>
-            <br>
-            <h2 class="text-l font-semibold mb-4 text-center" id="digitalas-ierices">Personīgie konti*</h2>
-                Šajā sadaļā aicinām Tevi censties atcerēties būtiskākos sociālos un saziņas rīkus, ko izmanto ikdienā, aizpildāmajos laukos norādot savas vēlmes un ar tām saistītās darbības. Starp populārākajiem rīkiem šajā sadaļā varētu būt Facebook, Gmail, Outlook, Instagram, Twitter (X), WhatsApp, Telegram, Signal un TikTok.
+            <h2 class="bg-moss text-white w-full text-l font-semibold mb-4 text-center">Sākam darbu!</h2>
+            <h2 class="text-l font-semibold mb-4 text-center" id="digitalas-ierices">Personīgie konti</h2>
+                Lai atzīmētu Digitālā mantojuma sadaļu kā pabeigtu, Tev ir jānorāda informācija par vismaz vienu personīgo kontu (piemēram, Tavu galveno e-pastu).<br>
+                Papildus, šajā sadaļā aicinām Tevi censties atcerēties būtiskākos sociālos un saziņas rīkus, ko izmanto ikdienā, aizpildāmajos laukos norādot savas vēlmes un ar tām saistītās darbības. Starp populārākajiem rīkiem šajā sadaļā varētu būt Facebook, Gmail, Outlook, Instagram, Twitter (X), WhatsApp, Telegram, Signal un TikTok.
             </p>
             <div class="mb-4">
             <h2 class="text-base font-semibold mb-0" id="accounts-section">Mani konti</h2>
@@ -680,7 +680,7 @@
         </div>
     </form>
 
-    <!-- Navigation Buttons -->
+    <!-- bottom navigaiton -->
             <div class="w-full max-w-screen-lg mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             <a href="{{ route('dashboard.testaments') }}"
             class="text-gray-600 text-sm border border-gray-300 rounded-md px-4 py-2 hover:bg-gray-100">

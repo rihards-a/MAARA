@@ -7,15 +7,15 @@
 <div class="guide-background">
     <section class="welcome-section-guide">
       <section section class="welcome-section">
-        <h1 class="welcome-title">Prieks Tevi redzēt Maara, {{ Auth::user()->name }}</h1>
+        <h1 class="welcome-title">Prieks Tevi redzēt {{ Auth::user()->name }}</h1>
         <p>
-        Tu esi labā vietā, lai sāktu plānot. Lūdzu iepazīsties ar tematiskajām sadaļām un izvēlies ar ko sākt!<br>
+        Tu esi īstajā vietā, lai sāktu apzināti plānot savas izvēles.<br>
           <br>
-          1.Veic plānošanas darbu <br>
-          2.Saglabā savas vēlmes<br>
-          3.Ērti eksportē savas gribas kopsavilkumu drošai uzglabāšanai<br>
+          1. Veic plānošanas darbu <br>
+          2. Saglabā savas vēlmes<br>
+          3. Ērti eksportē savu norāžu kopsavilkumu drošai uzglabāšanai.<br>
           <br>
-          Plānošanas statuss: aizpildītas 0/8 sadaļām <br>                           Pēdējo reizi izmaiņas veiktas:
+          <b>Plānošanas statuss:</b> aizpildītas 0/8 sadaļām <br>                           <b>Pēdējo reizi izmaiņas veiktas:</b>
   @if($latestSubmission && $latestSubmission->updated_at)
     {{ \Carbon\Carbon::parse($latestSubmission->updated_at)->diffForHumans() }}
   @else
@@ -27,14 +27,14 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4 items-stretch">
         @php
           $guides = [
-            ['title' => 'Medicīniskās izvēles un pilnvaras', 'text' => 'Paredzamais sakārtošanas ilgums: 10 minūtes', 'route' => route('dashboard.med'), 'image' => '/images/a1.svg'],
-            ['title' => 'Pensijas mantošana', 'text' => 'Paredzamais sakārtošanas ilgums: 5 minūtes', 'route' => route('dashboard.pensija'), 'image' => '/images/a2.svg'],
-            ['title' => 'Apbedīšanas izvēles', 'text' => 'Paredzamais sakārtošanas ilgums: 60 minūtes', 'route' => route('dashboard.beres'), 'image' => '/images/a3.svg'],
-            ['title' => 'Finanšu pārvaldība', 'text' => 'Paredzamais sakārtošanas ilgums: 30 minūtes', 'route' => route('dashboard.finanses'), 'image' => '/images/a4.svg'],
-            ['title' => 'Testamenta sagatavošana', 'text' => 'Paredzamais sakārtošanas ilgums: 60 minūtes', 'route' => route('dashboard.testaments'), 'image' => '/images/a5.svg'],
-            ['title' => 'Digitālais mantojums', 'text' => 'Paredzamais sakārtošanas ilgums: 120 minūtes', 'route' => route('dashboard.digmantojums'), 'image' => '/images/a6.svg'],
-            ['title' => 'Dzīves pienākumu pārņemšana', 'text' => 'Paredzamais sakārtošanas ilgums: 30 minūtes', 'route' => route('dashboard.pienakumi'), 'image' => '/images/a7.svg'],
-            ['title' => 'Ziņas palicējiem', 'text' => 'Paredzamais sakārtošanas ilgums: 30 minūtes', 'route' => route('dashboard.zinas'), 'image' => '/images/a8.svg'],
+            ['title' => 'Medicīniskās izvēles un pilnvaras', 'text' => 'Paredzamais aizpildes laiks: 10 minūtes', 'route' => route('dashboard.med'), 'image' => '/images/a1.svg'],
+            ['title' => 'Pensijas mantošana', 'text' => 'Paredzamais aizpildes laiks: 5 minūtes', 'route' => route('dashboard.pensija'), 'image' => '/images/a2.svg'],
+            ['title' => 'Apbedīšanas izvēles', 'text' => 'Paredzamais aizpildes laiks: 60 minūtes', 'route' => route('dashboard.beres'), 'image' => '/images/a3.svg'],
+            ['title' => 'Finanšu pārvaldība', 'text' => 'Paredzamais aizpildes laiks: 30 minūtes', 'route' => route('dashboard.finanses'), 'image' => '/images/a4.svg'],
+            ['title' => 'Testamenta sagatavošana', 'text' => 'Paredzamais aizpildes laiks: 60 minūtes', 'route' => route('dashboard.testaments'), 'image' => '/images/a5.svg'],
+            ['title' => 'Digitālais mantojums', 'text' => 'Paredzamais aizpildes laiks: 120 minūtes', 'route' => route('dashboard.digmantojums'), 'image' => '/images/a6.svg'],
+            ['title' => 'Dzīves pienākumu pārņemšana', 'text' => 'Paredzamais aizpildes laiks: 60 minūtes', 'route' => route('dashboard.pienakumi'), 'image' => '/images/a7.svg'],
+            ['title' => 'Ziņas palicējiem', 'text' => 'Paredzamais aizpildes laiks: 60 minūtes', 'route' => route('dashboard.zinas'), 'image' => '/images/a8.svg'],
 
           ];
         @endphp
@@ -74,7 +74,7 @@
             </a>
 
             <a href="mailto:info@maara.id.lv" class="text-sm card-button px-6 py-3 bg-moss text-white rounded-md hover:bg-lime-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition ease-in-out duration-150">
-                Atbalsts
+                Tehniskais atbalsts
             </a>
 
             <a href="{{ route('profile.edit') }}" class="text-sm card-button px-6 py-3 bg-moss text-white rounded-md hover:bg-lime-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition ease-in-out duration-150">

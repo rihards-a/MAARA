@@ -9,7 +9,7 @@
     <h1 class="welcome-title px-8">Aizpildiet sev svarīgos laukus</h1>
     <p class="welcome-text text-sm p-8">
     Bēru organizēšana mēdz kļūt par galveno praktisko diskusiju objektu palicēju starpā. Pētījumi rāda, ka pat visaptuvenākās norādes no aizgājēja ļauj tuviniekiem justies labāk par šī atvadīšanās rituāla norisi (protams, kamēr vien šīs vēlmes ir īstenojamas, ņemot vērā materiālās un praktiskās iespējas).
-    Šajā sadaļā īpaši iesakām aizpildīt divus ''atvērtos'' laukus - par lietām, kas Tev ir īpaši svarīgas (gan no vēlamās, gan nevēlamās puses). Papildus, esam pievienojuši iespēju norādīt arī sīkākas detaļas, ja esi gatavs par tām šobrīd aizdomāties. Arī vēlme neatvadīties bēru ceremonijas formātā ir saprotama personīgā izvēle, ko vari šeit aprakstīt.
+    Lai atzīmētu šo sadaļu kā pabeigtu, nepieciešams aizpildīt vismaz divus laukus - par lietām, kas Tev ir īpaši svarīgas un to, ko Tu nevēlētos savās bērēs. Papildus, esam pievienojuši iespēju norādīt arī sīkākas detaļas, ja esi gatavs par tām šobrīd aizdomāties. Arī vēlme neatvadīties bēru ceremonijas formātā ir saprotama personīgā izvēle, ko vari šeit aprakstīt.
     <br>
     </p>
     <form action="{{ route('dashboard.beres.save') }}" method="POST" class="bg-white p-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

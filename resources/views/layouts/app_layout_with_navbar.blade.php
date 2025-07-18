@@ -36,9 +36,9 @@
       <ul class="navbar-links">
         @guest
         @else
-        <li><a href="{{ route('dashboard') }}">Plānošanas rīks</a></li>
+        <li><a href="{{ route('dashboard') }}">Plānošana</a></li>
         @endguest
-        <li><a href="{{ route('guide.index') }}">Ceļvedis palicējiem</a></li>
+        <li><a href="{{ route('guide.index') }}">Palicējiem</a></li>
         <li><a href="{{ route('blog.index') }}">Blogs</a></li>
         <li><a href="{{ route('about') }}">Par mums</a></li>
         @guest
