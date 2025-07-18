@@ -16,6 +16,8 @@ class QuestionnaireAndQuestionSeeder extends Seeder
             PensijaSeeder::class,
             PienakumiSeeder::class,
             TestamentsSeeder::class,
+            DigmantojumsSeeder::class,
+            ZinasSeeder::class,
         ]);
     }
 }
