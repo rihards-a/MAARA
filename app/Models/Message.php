@@ -12,6 +12,11 @@ class Message extends Model
         'content',
     ];
     
+    
+    protected $casts = [
+        'content' => 'encrypted',
+    ];
+    
     public function user()
     {
         return $this->belongsTo(User::class);

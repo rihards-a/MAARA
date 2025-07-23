@@ -18,6 +18,10 @@ class Device extends Model
         'comments',
     ];
 
+    protected $casts = [
+        'comments' => 'encrypted',
+    ];
+    
     public function user()
     {
         return $this->belongsTo(User::class);

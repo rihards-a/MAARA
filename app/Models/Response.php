@@ -19,6 +19,7 @@ class Response extends Model
 
     protected $casts = [
         'submitted_at' => 'datetime',
+        'response_value' => 'encrypted',
     ];
 
     public function user()
