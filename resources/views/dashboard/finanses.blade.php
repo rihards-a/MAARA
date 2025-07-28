@@ -57,16 +57,6 @@
                    {{ in_array('other', $selectedOnlineFinances) ? 'checked' : '' }}>
             <label for="finances_online_other" class="ml-2 text-gray-700">Cits</label>
         </div>
-
-        <div class="flex items-center">
-            <input type="checkbox"
-                   name="responses[100][response_value][]"
-                   id="finances_online_none"
-                   value="none" {{-- 'neglabaju' for 'none' --}}
-                   class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
-                   {{ in_array('none', $selectedOnlineFinances) ? 'checked' : '' }}>
-            <label for="finances_online_none" class="ml-2 text-gray-700">Neglabāju</label>
-        </div>
     </div>
 
     {{-- Hidden input for this specific question's ID --}}

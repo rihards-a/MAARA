@@ -1,5 +1,11 @@
+<style>
+    .pdf-page:not(:last-child) {
+        page-break-after: always;
+    }
+</style>
+
 @if (trim($slot))
-    <div style="page-break-after: always;">
+    <div class="pdf-page">
         {{ $slot }}
     </div>
 @endif

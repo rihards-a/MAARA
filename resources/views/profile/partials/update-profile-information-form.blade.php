@@ -22,7 +22,7 @@
         @method('patch')
 
         <div>
-            <x-input-label for="name" :value="__('Name')" />
+            <x-input-label for="name" :value="__('Lietotājvārds')" />
             <x-text-input id="name" name="name" type="text" class="mt-1 block w-full focus:outline-none focus:ring-lime-500 focus:border-lime-500" :value="old('name', $user->name)" required autofocus autocomplete="name" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
@@ -31,7 +31,7 @@
             <input type="hidden" name="email" value="{{ $user->email }}">
         @else
             <div>
-                <x-input-label for="email" :value="__('Email')" />
+                <x-input-label for="email" :value="__('E-pasts')" />
                 <x-text-input id="email" name="email" type="email" class="mt-1 block w-full focus:outline-none focus:ring-lime-500 focus:border-lime-500" :value="old('email', $user->email)" required autocomplete="username" />
                 <x-input-error class="mt-2" :messages="$errors->get('email')" />
 

@@ -19,7 +19,7 @@
             @if($latestSubmission && $latestSubmission->updated_at)
               {{ \Carbon\Carbon::parse($latestSubmission->updated_at)->diffForHumans() }}
             @else
-              Nav vēl veiktas izmaiņas.
+              Izmaiņas vēl nav veiktas.
             @endif<br>
               <div class="w-full flex justify-end">
                 <a href="{{ route('generate.pdf') }}" target="_blank" class="block w-full md:w-1/5 text-sm card-button px-6 py-3 bg-moss text-white rounded-md hover:bg-lime-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition ease-in-out duration-150 text-center whitespace-normal">
