@@ -6,9 +6,8 @@
 
 @include('components.mini-tab-navbar')
 <section class="welcome-section">
-    <br>
-    <h1 class="welcome-title px-8">Kādēļ veidot testamentu?</h1>
-    <p class="welcome-text text-sm p-8">
+    <h1 class="welcome-title px-6">Kādēļ veidot testamentu?</h1>
+    <p class="welcome-text text-sm p-6">
     Tas ir veids kā vari izmantot savu rīcībspēju jau pēc aiziešanas: testaments ir tuvākā lieta garantijai, ka Tev piederošais pēc aiziešanas tiks sadalīts pēc Tavām vēlmēm, ja vien nevēlies, lai Tava manta tiktu sadalīta pēc likuma (to likumā noteiktās proporcijās iegūst likumiskie mantinieki – laulātais un bērni, vecāki, īstie brāļi un māsas vai noteiktā secībā tālāki radinieki). Ja vēlies mantu dalīt citādās proporcijās, novēlēt draugam vai labdarības organizācijai, testaments ir nepieciešams.<br>
     <br>
     <br>Sakām ''tuvākā lieta garantijai'', jo likumā ir paredzēti neatstumjamie mantinieki - laulātais un bērni, bet, ja nav bērnu, tad laulātais un vecāki. <b>Vai ir vērts sastādīt testamentu, ja tuvinieki, kuriem neesi paredzējis neko atstāt, pēc likuma var pieprasīt savu neatņemamo daļu?</b> Noteikti, jo neatņemamā daļa ir tikai puse no tā, ko mantinieks saņemtu, ja testaments nebūtu izveidots vispār. Piemēram, ja Tev ir draudzene un dēls kā vienīgais neatraidāmais mantinieks, un Tu visu mantu vēlies atstāt draudzenei, bet dēls nolemj pieprasīt savu neatņemamo daļu, tad gan dēlam, gan draudzenei piešķirami 50% no Tavas mantas. Pretējā gadījumā 100% no Tavas mantas mantotu dēls.<br>

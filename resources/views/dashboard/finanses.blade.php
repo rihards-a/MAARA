@@ -6,9 +6,8 @@
 
 @include('components.mini-tab-navbar')
 <section class="welcome-section">
-    <br>
-    <h1 class="welcome-title px-8">Aizpildiet sev svarīgos laukus</h1>
-    <p class="welcome-text text-sm p-8">
+    <h1 class="welcome-title px-6">Aizpildiet sev svarīgos laukus</h1>
+    <p class="welcome-text text-sm p-6">
     Aizpildi šo sadaļu, lai ērti uzskaitītu finanšu instrumentus, par kuriem Taviem tuviniekiem būtu jāzina. Balstoties uz Tavām atbildēm, Tavā plānošanas dokumenta lejuplādējamā PDF failā tiks izveidoti lauki, ko, ja vēlēsies, aizpildīsi pats ārpus mūsu sistēmas (drošības apsvērumu dēļ). Esi apdomīgs ar informācijas norādīšanu un uzglabāšanu: galvenokārt šī sadaļa paredzēta tam, lai Tavi tuvinieki būtu informēti par Tev piederošajiem resursiem, kurus notārs mantas apzināšanas procesā var arī neatrast (un tādējādi tie netiktu nodoti tuviniekiem)<br>
     <br>
     Par to, kā Taviem tuviniekiem pēcāk piekļūt finansēm un mantām, ko nepārvaldīs notārs Latvijā, vairāk uzzini nākamajā sadaļā (''Mantojuma sagatavošana'').
