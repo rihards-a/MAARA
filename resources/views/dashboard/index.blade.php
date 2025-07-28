@@ -94,10 +94,12 @@
                 Profila iestatījumi
             </a>
 
-              <!--  need to somehow delete everything associated with the user here -->
-            <a href="mailto:info@maara.id.lv" class="text-sm card-button px-6 py-3 bg-moss text-white rounded-md hover:bg-lime-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition ease-in-out duration-150">
-                Dzēst manas atbildes
-            </a>
+            <form method="POST" action="{{ route('dashboard.responses.delete.all') }}" class="inline" onsubmit="return confirm('Vai tiešām vēlaties dzēst visas atbildes? Šo darbību nevar atsaukt.');">
+              @csrf
+              <button type="submit" class="text-sm card-button px-6 py-3 bg-moss text-white rounded-md hover:bg-lime-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                  Dzēst manas atbildes
+              </button>
+            </form>
         </div>
 
     </section>

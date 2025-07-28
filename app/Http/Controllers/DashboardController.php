@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Models\Questionnaire;
 use App\Models\Submission;
 use App\Models\Response;
@@ -416,4 +417,15 @@ class DashboardController extends Controller
         return back()->with('status', 'Saglabāts!');
     }
 
+    public function deleteAllResponses(Request $request)
+    {
+        $user = Auth::user();
+
+        DB::transaction(function () use ($user) {
+            Response::where('user_id', $user->id)->delete();
+            Submission::where('user_id', $user->id)->delete();
+        });
+
+        return back()->with('status', 'Visas atbildes ir dzēstas!');
+    } # future note: update every single controller method to use transactions and be efficient avoiding n+1 queries
 }
