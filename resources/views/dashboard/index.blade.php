@@ -7,7 +7,7 @@
 <div class="guide-background">
     <section class="welcome-section-guide">
       <section section class="welcome-section">
-        <h1 class="welcome-title">Prieks Tevi redzēt {{ Auth::user()->name }}</h1>
+        <h1 class="welcome-title">Prieks Tevi redzēt, {{ Auth::user()->name }}</h1>
         <p>
         Tu esi īstajā vietā, lai sāktu apzināti plānot savas izvēles.<br>
           <br>
@@ -15,12 +15,17 @@
           2. Saglabā savas vēlmes<br>
           3. Ērti eksportē savu norāžu kopsavilkumu drošai uzglabāšanai.<br>
           <br>
-          <b>Plānošanas statuss:</b> aizpildītas {{$completed_questionnaire_count}}/8 sadaļām <br>                           <b>Pēdējo reizi izmaiņas veiktas:</b>
-  @if($latestSubmission && $latestSubmission->updated_at)
-    {{ \Carbon\Carbon::parse($latestSubmission->updated_at)->diffForHumans() }}
-  @else
-    Nav vēl veiktas izmaiņas.
-  @endif<br>
+          <b>Plānošanas statuss:</b> aizpildītas {{$completed_questionnaire_count}} no 8 sadaļām <br>                           <b>Pēdējo reizi izmaiņas veiktas:</b>
+            @if($latestSubmission && $latestSubmission->updated_at)
+              {{ \Carbon\Carbon::parse($latestSubmission->updated_at)->diffForHumans() }}
+            @else
+              Izmaiņas vēl nav veiktas.
+            @endif<br>
+              <div class="w-full flex justify-end">
+                <a href="{{ route('generate.pdf') }}" target="_blank" class="block w-full md:w-1/5 text-sm card-button px-6 py-3 bg-moss text-white rounded-md hover:bg-lime-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition ease-in-out duration-150 text-center whitespace-normal">
+                    Eksportēt kopsavilkumu
+                </a>
+              </div>
         </p>
       </section>
 
@@ -39,6 +44,17 @@
           ];
         @endphp
 @foreach($guides as $guide)
+    @php
+        $buttonText = $questionnaire_progress[$guide['type']] ?? 'Sākt';
+        if ($buttonText === 'Turpināt') {
+            $btnClass = 'bg-moss';
+        } elseif ($buttonText === 'Labot') {
+            $btnClass = 'bg-gray-400 hover:bg-gray-300';
+        } else {
+            $btnClass = '';
+        }
+    @endphp
+
     <div class="bg-white rounded-lg shadow-lg p-6 sm:p-8 flex flex-col items-start overflow-hidden relative min-h-[280px]">
           
         <div class="absolute -top-16 -left-16 w-36 h-36 bg-[color:var(--primary-color)] rounded-full flex items-center justify-center">
@@ -56,8 +72,9 @@
                 </p>
                 
                 <div class="w-full px-8 flex justify-center mt-4"> 
-                    <a href="{{ $guide['route'] }}" class="card-button">
-                        {{$questionnaire_progress[$guide['type']]}}
+                    <a href="{{ $guide['route'] }}" 
+                       class="card-button text-white px-4 py-2 rounded transition-colors duration-200 {{ $btnClass }}">
+                        {{ $buttonText }}
                     </a>
                 </div>
             </div>
@@ -68,11 +85,7 @@
 
       </div>
 
-        <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4 items-stretch">
-            <a href="{{ route('generate.pdf') }}" target="_blank" class="text-sm card-button px-6 py-3 bg-moss text-white rounded-md hover:bg-lime-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition ease-in-out duration-150">
-                Eksportēt kopsavilkumu
-            </a>
-
+        <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-4 items-stretch">
             <a href="mailto:info@maara.id.lv" class="text-sm card-button px-6 py-3 bg-moss text-white rounded-md hover:bg-lime-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition ease-in-out duration-150">
                 Tehniskais atbalsts
             </a>

@@ -1,6 +1,6 @@
 @if(isset($responses[13]) || isset($responses[14]) || isset($responses[15]))
 <div>
-    <div style="background-color: black; color: white; padding: 10px; margin-bottom: 20px; border-radius: 8px;text-align: center;">
+    <div style="color: black; padding: 10px; margin-bottom: 20px; border-radius: 8px;text-align: center;">
         <h1 style="margin: 0; font-size: 20px;">Medicīniskās preferences un pilnvaras:</h1>
     </div>    
     @if(isset($responses[13]) || isset($responses[14]))

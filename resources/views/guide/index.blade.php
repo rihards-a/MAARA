@@ -31,7 +31,7 @@
             <div class="card-content-guide">
               <div class="card-top">
                 <p class="guide-numbers">{{ $guide['number'] }}</p>
-                <h2 class="card-title-guide">{{ $guide['title'] }}</h2>
+                <h3 class="card-title-guide">{{ $guide['title'] }}</h3>
               </div>
               <div class="card-bottom">
                 <p class="card-text-guide">{{ $guide['text'] }}</p>

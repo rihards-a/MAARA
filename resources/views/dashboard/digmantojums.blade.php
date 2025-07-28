@@ -6,9 +6,8 @@
 
 @include('components.mini-tab-navbar')
 <section class="welcome-section">
-    <br>
-    <h1 class="welcome-title px-8">Digitālais mantojums</h1>
-    <p class="welcome-text text-sm p-8">
+    <h1 class="welcome-title px-6">Digitālais mantojums</h1>
+    <p class="welcome-text text-sm p-6">
     Mūsdienās cilvēks aiz sevis atstāj ne tikai taustāmas lietas, bet arī jūkli ar informāciju digitālajā vidē. Nereti šī informācija iekļauj kaut ko, kas ir finansiāli vai sentimentāli vērtīgs. Tāpat, ir ļoti svarīgi, lai Tavs privātums tiktu cienīts arī pēc nāves, tāpēc aicinām atstāt instrukcijas arī par to, kuriem tuviniekiem uztici veikt darbības ar saviem sociālo mediju vai saziņas rīku kontiem. Aizgājušu cilvēku konti var tik izmantoti arī ļaunprātīgām darbībām - tie var tikt uzlauzti un izmantoti informācijas izplatīšanai, tāpēc ir ļoti svarīgi tos vienkārši ''nepamest''.<br>
     <br>
     Tā kā esi reģistrējies mūsu platformā, mēs zinām, ka Tev noteikti ir epasts - informācijas aizpildīšana par e-pastu ir minimums, kas nepieciešams, lai šo sadaļu atzīmētu kā pabeigtu. Lietas, kuras šķiet sarežģītas vai nesaprotamas, var droši izlaist vai uzdot jautājumus mūsu e-pastā: info@maara.id.lv - labprāt sīkāk konsultēsim par šiem risinājumiem.<br>
@@ -60,8 +59,6 @@
             </div>
         </div>
 
-
-            <br>
             <h2 class="bg-moss text-white w-full text-l font-semibold mb-4 text-center">Sākam darbu!</h2>
             <h2 class="text-l font-semibold mb-4 text-center" id="digitalas-ierices">Personīgie konti</h2>
                 Lai atzīmētu Digitālā mantojuma sadaļu kā pabeigtu, Tev ir jānorāda informācija par vismaz vienu personīgo kontu (piemēram, Tavu galveno e-pastu).<br>
@@ -597,10 +594,6 @@
     <form method="POST" action="{{ route('dashboard.abonementi.store') }}" x-data="subscriptionForm()">
         @csrf
 
-        <x-status-messages />
-
-        <br>
-            
         <!-- Subscription Categories -->
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-8">
             <template x-for="(category, categoryKey) in categories" :key="categoryKey">
@@ -682,7 +675,8 @@
 
     <form action="{{ route('dashboard.digmantojums.save') }}" method="POST">
         @csrf
-    <!-- bottom navigaiton -->
+    <!-- bottom navigation -->
+
             <div class="w-full max-w-screen-lg mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             <a href="{{ route('dashboard.testaments') }}"
             class="text-gray-600 text-sm border border-gray-300 rounded-md px-4 py-2 hover:bg-gray-100">

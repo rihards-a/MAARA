@@ -6,9 +6,8 @@
 
 @include('components.mini-tab-navbar')
 <section class="welcome-section">
-    <br>
-    <h1 class="welcome-title px-8">Aizpildiet sev svarīgos laukus</h1>
-    <p class="welcome-text text-sm p-8">
+    <h1 class="welcome-title px-6">Aizpildiet sev svarīgos laukus</h1>
+    <p class="welcome-text text-sm p-6">
     Aizpildi šo sadaļu, lai ērti uzskaitītu finanšu instrumentus, par kuriem Taviem tuviniekiem būtu jāzina. Balstoties uz Tavām atbildēm, Tavā plānošanas dokumenta lejuplādējamā PDF failā tiks izveidoti lauki, ko, ja vēlēsies, aizpildīsi pats ārpus mūsu sistēmas (drošības apsvērumu dēļ). Esi apdomīgs ar informācijas norādīšanu un uzglabāšanu: galvenokārt šī sadaļa paredzēta tam, lai Tavi tuvinieki būtu informēti par Tev piederošajiem resursiem, kurus notārs mantas apzināšanas procesā var arī neatrast (un tādējādi tie netiktu nodoti tuviniekiem)<br>
     <br>
     Par to, kā Taviem tuviniekiem pēcāk piekļūt finansēm un mantām, ko nepārvaldīs notārs Latvijā, vairāk uzzini nākamajā sadaļā (''Mantojuma sagatavošana'').
@@ -57,16 +56,6 @@
                    class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
                    {{ in_array('other', $selectedOnlineFinances) ? 'checked' : '' }}>
             <label for="finances_online_other" class="ml-2 text-gray-700">Cits</label>
-        </div>
-
-        <div class="flex items-center">
-            <input type="checkbox"
-                   name="responses[100][response_value][]"
-                   id="finances_online_none"
-                   value="none" {{-- 'neglabaju' for 'none' --}}
-                   class="w-4 h-4 text-lime-600 focus:ring-lime-600 border-gray-300 rounded"
-                   {{ in_array('none', $selectedOnlineFinances) ? 'checked' : '' }}>
-            <label for="finances_online_none" class="ml-2 text-gray-700">Neglabāju</label>
         </div>
     </div>
 

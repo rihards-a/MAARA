@@ -57,4 +57,9 @@
         Ziņas palicējiem
       </a>
     </div>
+
+    <div class="pt-2">
+      <x-status-messages />
+    </div>
+
   </nav>

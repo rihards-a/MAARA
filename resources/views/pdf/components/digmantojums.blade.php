@@ -7,7 +7,7 @@
     $headers = ['Nosaukums', 'Nozīmīgums', 'Piekļuves metode', 'Kā rīkoties', 'Papildus komentārs'];
 @endphp
 
-    <div style="background-color: black; color: white; padding: 10px; margin-bottom: 20px; border-radius: 8px;text-align: center;">
+    <div style="color: black; padding: 10px; margin-bottom: 20px; border-radius: 8px;text-align: center;">
         <h1 style="margin: 0; font-size: 20px;">Mans digitālais mantojums:</h1>
     </div> 
 

@@ -64,10 +64,10 @@ class PDFController extends Controller
             ->toArray();
         // Separately check for digmantojums and zinas questionnaire completions
         $zinasID = Questionnaire::where('title', 'zinas')->first()->id;
-        Submission::where('user_id', Auth::id())->where('questionnaire_id', $zinasID)->first()->completed_at
+        Submission::where('user_id', Auth::id())->where('questionnaire_id', $zinasID)->first()?->completed_at
             ? $questionnaires['zinas'] = 1 : null;
         $digmantojumsID = Questionnaire::where('title', 'digmantojums')->first()->id;
-        Submission::where('user_id', Auth::id())->where('questionnaire_id', $digmantojumsID)->first()->completed_at
+        Submission::where('user_id', Auth::id())->where('questionnaire_id', $digmantojumsID)->first()?->completed_at
             ? $questionnaires['digmantojums'] = 1 : null;
     
         $data = [

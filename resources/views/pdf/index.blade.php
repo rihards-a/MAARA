@@ -13,7 +13,9 @@
             @include('pdf.components.med', ['responses' => $med])
         @endisset
 
-        @include('pdf.components.pensija', [])
+        @isset($pensija)
+            @include('pdf.components.pensija', [])
+        @endisset
     </x-pdf.page>
         
     @isset($beres)

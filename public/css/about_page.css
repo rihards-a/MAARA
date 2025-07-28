@@ -233,13 +233,12 @@ padding-bottom: 3rem;
       }
 
       .guide-navigation .nav-title {
-        display: block; /* Ensure title takes its own line if needed */
+        display: block; 
         font-weight: 500;
       }
 
-      /* Optional: Hide label on very small screens if needed */
+
       @media (max-width: 480px) {
-        /* .guide-navigation .nav-title { display: none; } */
         .guide-navigation a { padding: 0.5rem; }
       }
 
