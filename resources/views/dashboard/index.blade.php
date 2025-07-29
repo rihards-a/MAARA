@@ -17,7 +17,7 @@
           <br>
           <b>Plānošanas statuss:</b> aizpildītas {{$completed_questionnaire_count}} no 8 sadaļām <br>                           <b>Pēdējo reizi izmaiņas veiktas:</b>
             @if($latestSubmission && $latestSubmission->updated_at)
-              {{ \Carbon\Carbon::parse($latestSubmission->updated_at)->diffForHumans() }}
+              {{ \Carbon\Carbon::parse($latestSubmission->updated_at)->locale('lv')->diffForHumans() }}
             @else
               Izmaiņas vēl nav veiktas.
             @endif<br>
@@ -94,16 +94,38 @@
                 Profila iestatījumi
             </a>
 
-            <form method="POST" action="{{ route('dashboard.responses.delete.all') }}" class="inline" onsubmit="return confirm('Vai tiešām vēlaties dzēst visas atbildes? Šo darbību nevar atsaukt.');">
-              @csrf
-              <button type="submit" class="text-sm card-button px-6 py-3 bg-moss text-white rounded-md hover:bg-lime-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition ease-in-out duration-150">
-                  Dzēst manas atbildes
-              </button>
-            </form>
+            <a>
+              <!-- Trigger -->
+              <button onclick="showDeletePopup()" class="text-sm card-button px-6 py-3 bg-moss text-white rounded-md hover:bg-lime-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition ease-in-out duration-150">Dzēst manas atbildes</button>
+
+              <!-- Popup -->
+              <div id="delete-popup" class="fixed inset-0 bg-black/50 flex items-center justify-center hidden z-50">
+                <div class="text-black bg-white p-6 rounded-md shadow-md text-center max-w-xs">
+                  <p>Vai tiešām vēlaties dzēst visas atbildes?</p>
+                  <form method="POST" action="{{ route('dashboard.responses.delete.all') }}">
+                    @csrf
+                    <div class="mt-10 grid grid-cols-2 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4 items-stretch">
+                      <button type="submit" class="card-button">Dzēst</button>
+                      <button type="button" onclick="hideDeletePopup()" class="card-button">Atcelt</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </a>
         </div>
 
     </section>
   </div>
+
+  <script>
+  function showDeletePopup() {
+    document.getElementById('delete-popup').classList.remove('hidden');
+  }
+
+  function hideDeletePopup() {
+    document.getElementById('delete-popup').classList.add('hidden');
+  }
+</script>
 @else
 <a href={{route('lifetime.index')}}> {{ __("Consider buying lifetime!") }} </a>
 @endif
