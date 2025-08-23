@@ -7,12 +7,6 @@ use App\Http\Controllers\StripeSubscriptionController;
 use App\Http\Controllers\SocialiteController;
 use App\Http\Controllers\ProfileController;
 
-// test route for testing purposes
-//use App\Http\Controllers\QuestionnaireController;
-//use App\Http\Controllers\SubmissionController;
-//Route::get('questionnaire/{id}', [QuestionnaireController::class, 'show'])->name('questionnaire.show');
-//Route::post('submission', [SubmissionController::class, 'store'])->name('submission.store');
-// end of test routes
 # Stripe donation routes (don't track the user)
 //use App\Http\Controllers\StripeDonationsController;
 //Route::get('donate', [StripeDonationsController::class, 'index'])->name('donate.index');
@@ -63,7 +57,6 @@ Route::get('/auth/google', [SocialiteController::class, 'google_redirect'])->nam
 Route::get('/auth/google/callback', [SocialiteController::class, 'google_callback']);
 
 # Stripe life-time subscription routes
-/*
 Route::middleware('auth')->group(function () {
     Route::get('lifetime', [StripeSubscriptionController::class, 'index'])->name('lifetime.index');
     Route::post('checkout', [StripeSubscriptionController::class, 'lifetime_checkout'])->name('checkout');
@@ -72,4 +65,3 @@ Route::middleware('auth')->group(function () {
 });
 Route::post('/stripe/webhook', [StripeSubscriptionController::class, 'webhook'])->name('stripe.webhook')
 ->withoutMiddleware([\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class]); # disable csrf for this webhook route
-*/
