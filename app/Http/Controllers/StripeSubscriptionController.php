@@ -54,15 +54,15 @@ class StripeSubscriptionController extends Controller
         if ($event->type === 'checkout.session.completed') {
             $sessionId = $event->data->object->id;
             Stripe::setApiKey(config('services.stripe.secret')); // Ensure the API key is set
-            /*
+            
             try {
                 $session = Session::retrieve($sessionId);
             } catch (\Exception $e) {
                 Log::error("Failed to retrieve session $sessionId: ".$e->getMessage());
                 return response()->noContent(500);
             }
-            */
-            $session = $event->data->object; // Use the object directly from the event - testing
+            
+            # $session = $event->data->object; // Use the object directly from the event - testing
 
             $metadata = $session->metadata; 
             $user = User::find($metadata->user_id);
