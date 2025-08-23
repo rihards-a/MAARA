@@ -30,7 +30,6 @@ class SocialiteController extends Controller
             Auth::login($user);
             return redirect()->intended(route('dashboard'));
         }
-        return redirect()->route('register');
 
         if ($googleUser->getEmail() )
         $user = User::updateOrCreate([
