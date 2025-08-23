@@ -51,7 +51,7 @@ return [
             'secret' => env('STRIPE_WEBHOOK_SECRET'),
             'tolerance' => env('STRIPE_WEBHOOK_TOLERANCE', 300),
         ],
-        'lifetime_price_id' => env('STRIPE_LIFETIME_PRICE_ID', 'price_1Qwr2MP3Jpvf2dux5YrFn62O'),
+        'lifetime_price_id' => env('STRIPE_LIFETIME_PRICE_ID'),
     ],
     
 ];
