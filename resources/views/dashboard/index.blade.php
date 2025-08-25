@@ -127,7 +127,41 @@
   }
 </script>
 @else
-<a href={{route('lifetime.index')}}> {{ __("Consider buying lifetime!") }} </a>
+<section class="welcome-section px-6 py-6">
+  <h1 class="welcome-title text-2xl font-bold mb-4">
+    Jauna lietotāja reģistrācija: piekļuve MAARA sistēmai
+  </h1>
+
+  <p class="welcome-text text-sm mb-6">
+    Lai izmantotu MAARA plānošanas funkcionalitāti, <b>iegādājies bezlimita piekļuvi</b> MAARA pēcdzīves plānošanas rīkam par tikai EUR 14,99.
+  </p>
+
+  <div class="mb-6">
+    <img src="{{ asset('images/samplepageb.png') }}" 
+         alt="samplepageb" 
+         class="w-full h-auto p-2">
+  </div>
+
+  <div class="flex justify-center my-6">
+    <button class="card-button-green max-w-sm" data-url="{{ route('lifetime.index') }}">Sākt plānot</button>
+  </div>
+
+  <p class="text-lg mb-4">
+    <b>Pēc šī vienreizējā maksājuma veikšanas, Tu iegūsi:</b>
+  </p>
+
+  <ul class="list-disc list-inside text-sm ml-4 mt-2 space-y-1">
+    <ul class="list-none space-y-2">
+      <li class="flex items-start"><span class="text-green-500 mr-2">✔</span> Beztermiņa piekļuvi plānošanas rīkam</li>
+      <li class="flex items-start"><span class="text-green-500 mr-2">✔</span> Ātru un ērtu eksporta funkcionalitāti</li>
+      <li class="flex items-start"><span class="text-green-500 mr-2">✔</span> Plānošanas padomus, kas seko līdzi izmaiņām likumos</li>
+      <li class="flex items-start"><span class="text-green-500 mr-2">✔</span> Pieeju tehniskajam un informatīvajam lietotāju atbalstam</li>
+      <li class="flex items-start"><span class="text-green-500 mr-2">✔</span> Nosūtīsim Tev ikgadēju atgādinājumu pārskatīt savas atbildes</li>
+  </ul>
+
+</section>
+
+
 @endif
 @endsection
 

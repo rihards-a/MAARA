@@ -34,95 +34,24 @@
         <div class="card-content">
               <div>
                 <h2 class="card-title">Pēcdzīves plānošanas rīks</h2>
-                <p class="card-text">Šovasar lietotāju rokās nodosim Latvijā pirmo ''pēcdzīves'' plānošanas rīku. Tā mērķis būs atvieglot darbu ikvienam, kurš vēlas nodrošināt, ka aiziešanas vai rīcībnespējas gadījumā, aiz sevis tiek atstāta skaidrība un sirdsmiers.<br>
+                <p class="card-text">Esam izveidojuši Latvijā pirmo ''pēcdzīves'' plānošanas rīku. Tā mērķis ir atvieglot darbu ikvienam, kurš vēlās nodrošināt, ka aiziešanas vai rīcībnespējas gadījumā, aiz sevis tiek atstāta skaidrība un sirdsmiers.<br>
                 <br>
                 MAARA sistēma Tevi ērti un droši izvedīs caur virkni jautājumu, sniegs noderīgu informāciju un ļaus saglabāt un apkopot savas izvēles: sākot ar medicīniskiem lēmumiem un pilnvarām, informāciju par Taviem īpašumiem digitālajā vidē, un beidzot ar bēru preferencēm un mājdzīvnieka kopšanas norādījumiem.<br>
-                <br>
-                <b>Mēs Tev paziņosim, kad plānošanas rīks būs gatavs!</b>
                 </p>
               </div>
               
               <div>
-                  <div class="card-email">
-                    <input type="email" id="email-input" placeholder="Ievadi savu epastu">
-                    <button class="card-button-green" id="email-button">Pieteikties</button>
-                  </div>
+                    <button class="card-button-green" data-url="{{ route('why_register') }}">Sākt plānot</button>
               </div>
         </div>
       </div>
     </div>
 
-    <div id="custom-alert" class="custom-alert">
-      <div class="alert-content">
-        <span class="close-button" onclick="hideCustomAlert()">&times;</span>
-        <p id="alert-message">Paldies, Jūs esat pierakstījies jaunumu saņemšanai.</p>
-        <button class="ok-button" onclick="hideCustomAlert()">Labi</button>
-      </div>
-    </div>
-    
-  <script>
-
-    // Email subscription alert popup
-    function showCustomAlert(message) {
-      document.getElementById('alert-message').textContent = message;
-      document.getElementById('custom-alert').style.display = 'flex';  // Change to flex
-    }
-
-    function hideCustomAlert() {
-      document.getElementById('custom-alert').style.display = 'none';
-    }
-
-    document.querySelectorAll(".card-button").forEach(button => {
-      button.addEventListener("click", function() {
-        window.location.href = this.getAttribute("data-url");
+    <script>
+      document.querySelectorAll(".card-button, .card-button-green").forEach(button => {
+        button.addEventListener("click", function() {
+          window.location.href = this.getAttribute("data-url");
+        });
       });
-    });
-
-    document.getElementById("email-button").addEventListener("click", function() {
-    const email = document.getElementById("email-input").value;
-
-    // Email validation function
-    function isValidEmail(email) {
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return emailPattern.test(email);
-    }
-    if (!isValidEmail(email)) {
-      alert("Lūdzu, ievadiet derīgu e-pasta adresi");
-      return;
-    }
-    
-    const formData = new FormData();
-    formData.append('email', email);
-   
-    // Get CSRF token if you're using Laravel (remove if not needed)
-    const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
-    
-    // Make the POST request
-    fetch('{{route("prerelease.email")}}', {
-      method: 'POST',
-      headers: {
-        'X-CSRF-TOKEN': csrfToken, // Include for Laravel CSRF protection
-        'Accept': 'application/json'
-      },
-      body: formData
-    })
-    .then(response => {
-      if (response.ok) {
-        return response.json();
-      }
-      throw new Error('Network response was not ok');
-    })
-    .then(data => {
-      // Handle successful response
-      console.log('Success:', data);
-      // Optional: redirect after successful submission
-      showCustomAlert(data.message)    
-    })
-    .catch(error => {
-      console.error('Error:', error);
-      alert('Kļūda nosūtot datus. Lūdzu, mēģiniet vēlreiz.');
-    });
-});
-</script>
-
+    </script>
 @endsection
