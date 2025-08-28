@@ -19,7 +19,7 @@ class StripeSubscriptionController extends Controller
         $price_id = config('services.stripe.lifetime_price_id');
         return $request->user()->checkout([$price_id => 1], [
             'success_url' => route('subscription.lifetime.success')."?session_id={CHECKOUT_SESSION_ID}",
-            'cancel_url' => route('subscription.lifetime.cancel'),
+            'cancel_url' => route('dashboard'),
             'metadata' => [
                 'user_id' => $request->user()->id,
                 'is_lifetime' => true, 
