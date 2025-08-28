@@ -146,13 +146,14 @@
           class="w-full h-auto p-2">
     </div>
 
-<!-- this needs to link to Stripe not lifetime.index. lifetime.index is not needed at all -->
   <div class="text-center mb-8">
-  <button class="bg-gradient-to-r from-moss to-emerald-800 hover:from-emerald-800 hover:to-moss text-white font-bold py-4 px-8 rounded-3xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200 text-lg" onclick="window.location.href = '{{ route('lifetime.index') }}'">
-      Sākt plānot
-  </button>
-    </div>
-
+    <form action="{{route('checkout')}}" method="POST">
+      @csrf
+      <button class="bg-gradient-to-r from-moss to-emerald-800 hover:from-emerald-800 hover:to-moss text-white font-bold py-4 px-8 rounded-3xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200 text-lg" onclick="window.location.href = '{{ route('lifetime.index') }}'">
+        Sākt plānot
+      </button>
+    </form>
+  </div>
 
       <div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
           <h2 class="text-2xl font-semibold text-center text-gray-800 mb-6">Pēc šī vienreizējā maksājuma veikšanas, Tu iegūsi:</h2>
