@@ -146,6 +146,7 @@
           class="w-full h-auto p-2">
     </div>
 
+<!-- this needs to link to Stripe not lifetime.index. lifetime.index is not needed at all -->
   <div class="text-center mb-8">
   <button class="bg-gradient-to-r from-moss to-emerald-800 hover:from-emerald-800 hover:to-moss text-white font-bold py-4 px-8 rounded-3xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200 text-lg" onclick="window.location.href = '{{ route('lifetime.index') }}'">
       Sākt plānot
