@@ -38,13 +38,19 @@
 
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
-<div class="flex items-center">
-<input id="terms-checkbox" type="checkbox" class="h-4 w-4 text-moss border-gray-300 rounded focus:ring-lime-500" required>
-  <label for="terms-checkbox" class="ml-2 block text-sm text-gray-900">
-    Esmu iepazinies un piekrītu MAARA
-    <a href="/privatuma-politika" class="font-medium text-lime-600 hover:text-lime-500">lietošanas noteikumiem</a>
-  </label>
-</div>   
+        <!-- Terms and Conditions Checkbox -->
+        <div class="flex items-center mt-4">
+        <input id="terms-checkbox" 
+            type="checkbox" 
+            class="h-4 w-4 text-moss border-gray-300 rounded focus:ring-lime-500" 
+            required
+            oninvalid="this.setCustomValidity('Lūdzu, atzīmējiet, ka esat iepazinies ar lietošanas noteikumiem.')" 
+            oninput="this.setCustomValidity('')">
+                <label for="terms-checkbox" class="ml-2 block text-sm text-gray-900">
+                    Esmu iepazinies un piekrītu MAARA
+                    <a href="/privatuma-politika" class="font-medium text-lime-600 hover:text-lime-500">lietošanas noteikumiem</a>
+                </label>
+        </div>   
         <!-- Register Button -->
         <div class="mt-6 flex justify-center">
             <x-primary-button class="ms-4 bg-moss">

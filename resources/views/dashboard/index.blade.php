@@ -127,71 +127,75 @@
   }
 </script>
 @else
-<section class="welcome-section px-6 py-6">
-  <h1 class="welcome-title text-2xl font-bold mb-4">
-    Jauna lietotāja reģistrācija: piekļuve MAARA sistēmai
-  </h1>
+<!-- View for unpaid users -->
+<div class="guide-background">
+  <section class="welcome-section px-6 py-6">
+    <h1 class="welcome-title text-2xl font-bold mb-4">
+      Jauna lietotāja reģistrācija: piekļuve MAARA sistēmai
+    </h1>
+            <hr class="h-px my-8 border-0 dark:bg-gray-100">
 
-  <p class="welcome-text text-sm mb-6">
-    Lai izmantotu MAARA plānošanas funkcionalitāti, <b>iegādājies bezlimita piekļuvi</b> MAARA pēcdzīves plānošanas rīkam par tikai EUR 14,99.
-  </p>
+    <p class="welcome-text text-sm mb-6 text-center">
+    Lai izmantotu MAARA plānošanas funkcionalitāti, <b>iegādājies bezlimita piekļuvi</b> MAARA pēcdzīves plānošanas rīkam par tikai <span class="bg-moss text-white px-2 py-1 rounded font-bold text-lg">€ 14,99</span>
+    <br>
+    </p>
 
-  <div class="mb-6">
-    <img src="{{ asset('images/samplepageb.png') }}" 
-         alt="samplepageb" 
-         class="w-full h-auto p-2">
-  </div>
-
- <div class="text-center mb-8">
-<button class="bg-gradient-to-r from-moss to-emerald-800 hover:from-emerald-800 hover:to-moss text-white font-bold py-4 px-8 rounded-3xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200 text-lg" onclick="window.location.href = '{{ route('lifetime.index') }}'">
-    Sākt plānot
-</button>
-  </div>
-
-
-    <div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
-        <h2 class="text-2xl font-semibold text-center text-gray-800 mb-6">Pēc šī vienreizējā maksājuma veikšanas, Tu iegūsi:</h2>
-            <ul class="list-none space-y-3">
-              <li class="flex items-start">
-                <span class="text-green-500 mr-2 text-xl">✔</span>
-                <div>
-                  <h3 class="font-bold">Mūža piekļuvi</h3>
-                  <p class="text-sm">Visām plānošanas rīka sadaļām.</p>
-                </div>
-              </li>
-              <li class="flex items-start">
-                <span class="text-green-500 mr-2 text-xl">✔</span>
-                <div>
-                  <h3 class="font-bold">Eksportēšanas funkciju</h3>
-                  <p class="text-sm">Ātri un ērti eksportē savu plānu, lai to izdrukātu vai saglabātu digitāli.</p>
-                </div>
-              </li>
-              <li class="flex items-start">
-                <span class="text-green-500 mr-2 text-xl">✔</span>
-                <div>
-                  <h3 class="font-bold">Noderīgus padomus</h3>
-                  <p class="text-sm">Saņem aktuālus plānošanas padomus, kas tiek atjaunoti atbilsoši izmaiņām likumdošanā.</p>
-                </div>
-              </li>
-              <li class="flex items-start">
-                <span class="text-green-500 mr-2 text-xl">✔</span>
-                <div>
-                  <h3 class="font-bold">Lietotāju atbalstu</h3>
-                  <p class="text-sm">Pieeju tehniskajam un informatīvajam atbalstam.</p>
-                </div>
-              </li>
-              <li class="flex items-start">
-                <span class="text-green-500 mr-2 text-xl">✔</span>
-                <div>
-                  <h3 class="font-bold">Ikgadējus atgādinājumus</h3>
-                  <p class="text-sm">Mēs atgādināsim Tev katru gadu pārskatīt un atjaunināt savu plānu.</p>
-                </div>
-              </li>
-            </ul>
+    <div class="mb-6">
+      <img src="{{ asset('images/samplepageb.png') }}" 
+          alt="samplepageb" 
+          class="w-full h-auto p-2">
     </div>
 
-</section>
+  <div class="text-center mb-8">
+  <button class="bg-gradient-to-r from-moss to-emerald-800 hover:from-emerald-800 hover:to-moss text-white font-bold py-4 px-8 rounded-3xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200 text-lg" onclick="window.location.href = '{{ route('lifetime.index') }}'">
+      Sākt plānot
+  </button>
+    </div>
 
+
+      <div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+          <h2 class="text-2xl font-semibold text-center text-gray-800 mb-6">Pēc šī vienreizējā maksājuma veikšanas, Tu iegūsi:</h2>
+              <ul class="list-none space-y-3">
+                <li class="flex items-start">
+                  <span class="text-green-500 mr-2 text-xl">✔</span>
+                  <div>
+                    <h3 class="font-bold">Mūža piekļuvi</h3>
+                    <p class="text-sm">Visām plānošanas rīka sadaļām.</p>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-green-500 mr-2 text-xl">✔</span>
+                  <div>
+                    <h3 class="font-bold">Eksportēšanas funkciju</h3>
+                    <p class="text-sm">Ātri un ērti eksportē savu plānu, lai to izdrukātu vai saglabātu digitāli.</p>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-green-500 mr-2 text-xl">✔</span>
+                  <div>
+                    <h3 class="font-bold">Noderīgus padomus</h3>
+                    <p class="text-sm">Saņem aktuālus plānošanas padomus, kas tiek atjaunoti atbilsoši izmaiņām likumdošanā.</p>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-green-500 mr-2 text-xl">✔</span>
+                  <div>
+                    <h3 class="font-bold">Lietotāju atbalstu</h3>
+                    <p class="text-sm">Pieeju tehniskajam un informatīvajam atbalstam.</p>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-green-500 mr-2 text-xl">✔</span>
+                  <div>
+                    <h3 class="font-bold">Ikgadējus atgādinājumus</h3>
+                    <p class="text-sm">Mēs atgādināsim Tev katru gadu pārskatīt un atjaunināt savu plānu.</p>
+                  </div>
+                </li>
+              </ul>
+      </div>
+
+  </section>
+</div>
 
 @endif
 @endsection

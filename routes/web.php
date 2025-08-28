@@ -23,6 +23,7 @@ Route::view('/', 'home')->name('home');
 Route::view('/par-mums', 'about')->name('about');
 Route::view('/privatuma-politika', 'privacy-policy')->name('privacy-policy');
 Route::view('/why_register', 'why_register')->name('why_register');
+Route::view('/paymentsuccess', 'paymentsuccess')->name('paymentsuccess');
 
 // blog post pages
 Route::group(['prefix'=> 'blogs'], function () {
