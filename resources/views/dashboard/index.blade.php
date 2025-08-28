@@ -142,22 +142,53 @@
          class="w-full h-auto p-2">
   </div>
 
-  <div class="flex justify-center my-6">
-    <button class="card-button-green max-w-sm" data-url="{{ route('lifetime.index') }}">Sākt plānot</button>
+ <div class="text-center mb-8">
+<button class="bg-gradient-to-r from-moss to-emerald-800 hover:from-emerald-800 hover:to-moss text-white font-bold py-4 px-8 rounded-3xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200 text-lg" onclick="window.location.href = '{{ route('lifetime.index') }}'">
+    Sākt plānot
+</button>
   </div>
 
-  <p class="text-lg mb-4">
-    <b>Pēc šī vienreizējā maksājuma veikšanas, Tu iegūsi:</b>
-  </p>
 
-  <ul class="list-disc list-inside text-sm ml-4 mt-2 space-y-1">
-    <ul class="list-none space-y-2">
-      <li class="flex items-start"><span class="text-green-500 mr-2">✔</span> Beztermiņa piekļuvi plānošanas rīkam</li>
-      <li class="flex items-start"><span class="text-green-500 mr-2">✔</span> Ātru un ērtu eksporta funkcionalitāti</li>
-      <li class="flex items-start"><span class="text-green-500 mr-2">✔</span> Plānošanas padomus, kas seko līdzi izmaiņām likumos</li>
-      <li class="flex items-start"><span class="text-green-500 mr-2">✔</span> Pieeju tehniskajam un informatīvajam lietotāju atbalstam</li>
-      <li class="flex items-start"><span class="text-green-500 mr-2">✔</span> Nosūtīsim Tev ikgadēju atgādinājumu pārskatīt savas atbildes</li>
-  </ul>
+    <div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+        <h2 class="text-2xl font-semibold text-center text-gray-800 mb-6">Pēc šī vienreizējā maksājuma veikšanas, Tu iegūsi:</h2>
+            <ul class="list-none space-y-3">
+              <li class="flex items-start">
+                <span class="text-green-500 mr-2 text-xl">✔</span>
+                <div>
+                  <h3 class="font-bold">Mūža piekļuvi</h3>
+                  <p class="text-sm">Visām plānošanas rīka sadaļām.</p>
+                </div>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-500 mr-2 text-xl">✔</span>
+                <div>
+                  <h3 class="font-bold">Eksportēšanas funkciju</h3>
+                  <p class="text-sm">Ātri un ērti eksportē savu plānu, lai to izdrukātu vai saglabātu digitāli.</p>
+                </div>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-500 mr-2 text-xl">✔</span>
+                <div>
+                  <h3 class="font-bold">Noderīgus padomus</h3>
+                  <p class="text-sm">Saņem aktuālus plānošanas padomus, kas tiek atjaunoti atbilsoši izmaiņām likumdošanā.</p>
+                </div>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-500 mr-2 text-xl">✔</span>
+                <div>
+                  <h3 class="font-bold">Lietotāju atbalstu</h3>
+                  <p class="text-sm">Pieeju tehniskajam un informatīvajam atbalstam.</p>
+                </div>
+              </li>
+              <li class="flex items-start">
+                <span class="text-green-500 mr-2 text-xl">✔</span>
+                <div>
+                  <h3 class="font-bold">Ikgadējus atgādinājumus</h3>
+                  <p class="text-sm">Mēs atgādināsim Tev katru gadu pārskatīt un atjaunināt savu plānu.</p>
+                </div>
+              </li>
+            </ul>
+    </div>
 
 </section>
 
