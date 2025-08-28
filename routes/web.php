@@ -12,8 +12,9 @@ use App\Http\Controllers\ProfileController;
 //Route::get('donate', [StripeDonationsController::class, 'index'])->name('donate.index');
 //Route::post('donate', [StripeDonationsController::class, 'checkout'])->name('donate.checkout');
 
-use App\Http\Controllers\PrereleaseEmailSubmissionController;
-Route::post('PrereleaseEmail', [PrereleaseEmailSubmissionController::class, 'submission'])->name('prerelease.email');
+# Email submission closed
+//use App\Http\Controllers\PrereleaseEmailSubmissionController;
+//Route::post('PrereleaseEmail', [PrereleaseEmailSubmissionController::class, 'submission'])->name('prerelease.email');
 
 require __DIR__.'/auth.php'; # Laravel Breeze authentication routes
 require __DIR__.'/dashboard.php'; # Lifetime feature dashboard routes
@@ -23,7 +24,6 @@ Route::view('/', 'home')->name('home');
 Route::view('/par-mums', 'about')->name('about');
 Route::view('/privatuma-politika', 'privacy-policy')->name('privacy-policy');
 Route::view('/why_register', 'why_register')->name('why_register');
-Route::view('/paymentsuccess', 'paymentsuccess')->name('paymentsuccess');
 
 // blog post pages
 Route::group(['prefix'=> 'blogs'], function () {
@@ -62,7 +62,6 @@ Route::middleware('auth')->group(function () {
     Route::get('lifetime', [StripeSubscriptionController::class, 'index'])->name('lifetime.index');
     Route::post('checkout', [StripeSubscriptionController::class, 'lifetime_checkout'])->name('checkout');
     Route::get('/checkout/success', [StripeSubscriptionController::class, 'success'])->name('subscription.lifetime.success');
-    Route::view('/checkout/cancel', 'checkout.cancel')->name('subscription.lifetime.cancel');
 });
 Route::post('/stripe/webhook', [StripeSubscriptionController::class, 'webhook'])->name('stripe.webhook')
 ->withoutMiddleware([\Illuminate\Foundation\Http\Middleware\VerifyCsrfToken::class]); # disable csrf for this webhook route
