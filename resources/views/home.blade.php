@@ -41,7 +41,11 @@
               </div>
               
               <div>
-                    <button class="card-button-green" data-url="{{ route('why_register') }}">Sākt plānot</button>
+                @if (auth()->user())
+                  <button class="card-button-green" data-url="{{ route('dashboard') }}">Sākt plānot</button>
+                @else
+                  <button class="card-button-green" data-url="{{ route('why_register') }}">Sākt plānot</button>
+                @endif
               </div>
         </div>
       </div>
