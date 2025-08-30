@@ -14,8 +14,8 @@
                   <div class="font-semibold mb-2">Pensijas 2. līmeņa uzkrājuma mantošana</div>
                   <div class="text-xs pt-4"><b>1.</b>Lai pieprasītu pakalpojumu, jāaizpilda noteiktas formas iesniegums, kas adresēts VSAA. <br> 
                                         <b>2.</b>Visērtāk iesniegumu iesniegt izmantojot elektronisko pakalpojumu Pensiju 2. līmeņa dalībnieka izvēles par uzkrātā kapitāla mantošanu reģistrēšana valsts pārvaldes pakalpojumu portālā Latvija.gov.lv.<br> 
-                                        <b>3.</b>Autorizējies portālā <a href="https://latvija.gov.lv/" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">https://latvija.gov.lv/</a> (iespējams pieslēgties ar e-parakstu vai Smart-ID)<br> 
-                                        <b>4.</b>Meklētājā raksti "Pensiju 2. līmeņa dalībnieka izvēles par uzkrātā kapitāla mantošanu reģistrēšana" vai dodies uz <a href="https://latvija.gov.lv/Services/10920" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">https://latvija.gov.lv/Services/10920</a><br> 
+                                        <b>3.</b>Autorizējies portālā <a href="https://latvija.gov.lv/" class="font-medium text-blue-600 dark:text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">https://latvija.gov.lv/</a> (iespējams pieslēgties ar e-parakstu vai Smart-ID)<br> 
+                                        <b>4.</b>Meklētājā raksti "Pensiju 2. līmeņa dalībnieka izvēles par uzkrātā kapitāla mantošanu reģistrēšana" vai dodies uz <a href="https://latvija.gov.lv/Services/10920" class="font-medium text-blue-600 dark:text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">https://latvija.gov.lv/Services/10920</a><br> 
                                         <b>5.</b>Izsaki savu gribu par to, kas notiks ar Tavu pensijas 2. līmeņa uzkrājumu<br> 
                                         <br>
                                         <div class="green-links">

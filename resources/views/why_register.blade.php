@@ -28,7 +28,7 @@
 
             <div>
                 <p>
-                <img src="{{ asset('images/samplepage.png') }}" alt="samplepage" class="rounded-lg shadow-md" style="width: 100%; height: auto; padding: 10px;">
+                <img src="{{ asset('images/samplepage.png') }}" alt="samplepage" style="width: 100%; height: auto; padding: 10px;">
                 </p>
             </div>
         </div>
@@ -48,7 +48,7 @@
         </p>
         <p class="flex items-center space-x-3 mb-4">
             <span class="guide-numbers bg-moss text-white w-8 h-8 flex items-center justify-center !rounded-full bg-moss text-white leading-none shrink-0">2.</span>
-            <span>Piekļūsti skaidrai un saprotamai sistēmai, kas ļauj Tev droši, ērti un ātri dokumentēt savas preferences un citu infor`māciju, kas var būt noderīga Taviem tuviniekiem.</span>
+            <span>Piekļūsti skaidrai un saprotamai sistēmai, kas ļauj Tev droši, ērti un ātri dokumentēt savas preferences un citu informāciju, kas var būt noderīga Taviem tuviniekiem.</span>
         </p>
         <p class="flex items-center space-x-3 mb-4">
             <span class="guide-numbers bg-moss text-white w-8 h-8 flex items-center justify-center !rounded-full bg-moss text-white leading-none shrink-0">3.</span>

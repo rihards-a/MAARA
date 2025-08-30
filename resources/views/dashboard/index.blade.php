@@ -135,8 +135,8 @@
     </h1>
             <hr class="h-px my-8 border-0 dark:bg-gray-100">
 
-    <p class="welcome-text text-sm mb-6 text-center">
-    Lai izmantotu MAARA plānošanas funkcionalitāti, <b>iegādājies bezlimita piekļuvi</b> MAARA pēcdzīves plānošanas rīkam par tikai <span class="bg-moss text-white px-2 py-1 rounded font-bold text-lg">€ 14,99</span>
+    <p class="welcome-text text-lg text-white mb-6 text-center bg-moss">
+    <b>Lai izmantotu MAARA plānošanas funkcionalitāti, iegādājies bezlimita piekļuvi <br> MAARA pēcdzīves plānošanas rīkam tikai par <span class="text-xl">€ 14,99</span></b>
     <br>
     </p>
 
@@ -191,6 +191,13 @@
                   <div>
                     <h3 class="font-bold">Ikgadējus atgādinājumus</h3>
                     <p class="text-sm">Mēs atgādināsim Tev katru gadu pārskatīt un atjaunināt savu plānu.</p>
+                  </div>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-green-500 mr-2 text-xl">✔</span>
+                  <div>
+                    <h3 class="font-bold">Lietotāja garantija</h3>
+                    <p class="text-sm">Ja saproti, ka rīka funkcionalitāte neatbilst Tavām vajadzībām, saņem savu naudu atpakaļ.</p>
                   </div>
                 </li>
               </ul>

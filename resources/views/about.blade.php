@@ -40,7 +40,7 @@
             <h1>Kontakti:</h1><br>
             <b>E-pasts:</b> info@maara.id.lv<br>
             <b>Whatsapp:</b> +371 29293576<br>
-            <b>Facebook: </b><a href="https://www.facebook.com/maaraplano">Maara</a><br>
+            <b>Facebook: </b><a href="https://www.facebook.com/maaraplano" target="_blank" rel="noopener noreferrer">Maara</a><br>
             <b>Adrese:</b> Startup House Riga, Lastādijas iela 12-k-3, Latgales priekšpilsēta, Rīga, LV-1050<br>
         </p>
     </div>

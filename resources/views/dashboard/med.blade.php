@@ -14,8 +14,8 @@
                   <div class="font-semibold mb-2">Orgānu ziedošana un ķermeņa izmantošana zinātnes attīstībā</div>
                   <div class="text-xs pt-4"><b>1.</b> Izlemiet, vai vēlaties ziedot orgānus kā donors vai atdot ķermeni zinātnei – ja to neizdarīsim vēl dzīviem esot, nepieciešamība gadījumā jautājums par orgānu ziedošanu tiks uzdots radiniekiem, kas var radīt ne tikai nepieciešamību veikt sarežģītu izvēli, bet pat novest pie domstarpībām.<br>
                                         <b>2.</b> Reģistrējiet savu izvēli:<br>
-                                       <p style="text-indent: 2em;">a. Autorizējies portālā <a href="https://eveseliba.gov.lv/login" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">https://eveseliba.gov.lv/login</a>(iespējams pieslēgties ar e-parakstu vai Smart-ID)</p>
-                                       <p style="text-indent: 2em;">b. Dodies uz <a href="https://www.eveseliba.gov.lv/resident#/patient-card/organs-and-body-usage-permits/organs-usage-for-transplantation" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">https://www.eveseliba.gov.lv/resident#/patient-card/organs-and-body-usage-permits/organs-usage-for-transplantation</a></p> <br>
+                                       <p style="text-indent: 2em;">a. Autorizējies portālā <a href="https://eveseliba.gov.lv/login" class="font-medium text-blue-600 dark:text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">https://eveseliba.gov.lv/login</a>(iespējams pieslēgties ar e-parakstu vai Smart-ID)</p>
+                                       <p style="text-indent: 2em;">b. Dodies uz <a href="https://www.eveseliba.gov.lv/resident#/patient-card/organs-and-body-usage-permits/organs-usage-for-transplantation" class="font-medium text-blue-600 dark:text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">https://www.eveseliba.gov.lv/resident#/patient-card/organs-and-body-usage-permits/organs-usage-for-transplantation</a></p> <br>
                                        <b>3.</b> Izsaki savu gribu par orgānu ziedošanu, ķermeņa izmantošanu zinātnes attīstībā un pataloganatomiskajiem izmeklējumiem<br>
                                        <br> 
                                             <div class="green-links">
@@ -41,8 +41,8 @@
               <!-- Column 2 -->
               <div class="flex border border-gray-300 p-4 m-2 rounded flex-col h-full">
                   <div class="font-semibold mb-2">Pilnvarojums pieņemt ar ārstniecību saistītus lēmumus Tavā vietā, ja Tu vairs nespēj to izdarīt:</div>
-                  <div class="text-xs pt-4"><b>1.</b> Autorizējies portālā <a href="https://eveseliba.gov.lv/login" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">https://eveseliba.gov.lv/login</a> (iespējams pieslēgties ar e-parakstu vai Smart-ID)<br>
-                                            <b>2.</b> Dodies uz <a href="https://www.eveseliba.gov.lv/resident#/patient-card/future-mandate" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">https://www.eveseliba.gov.lv/resident#/patient-card/future-mandate</a><br>
+                  <div class="text-xs pt-4"><b>1.</b> Autorizējies portālā <a href="https://eveseliba.gov.lv/login" class="font-medium text-blue-600 dark:text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">https://eveseliba.gov.lv/login</a> (iespējams pieslēgties ar e-parakstu vai Smart-ID)<br>
+                                            <b>2.</b> Dodies uz <a href="https://www.eveseliba.gov.lv/resident#/patient-card/future-mandate" class="font-medium text-blue-600 dark:text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">https://www.eveseliba.gov.lv/resident#/patient-card/future-mandate</a><br>
                                             <b>3.</b> Informē izvēlēto personu par savām preferencēm (piemēram, pēc cik ilga laika cilvēku atslēgt no dzīvību uzturošām ierīcēm)<br>
                                         <br>
                                         <div class="green-links">
