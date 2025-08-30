@@ -19,7 +19,7 @@
                     <a href="{{ route('register') }}" class="card-button-green">
                         Reģistrēties ar e-pastu
                     </a>
-                    <a href="{{ route('register') }}" class="card-button-green flex items-center justify-center">
+                    <a href="{{ route('google.redirect') }}" class="card-button-green flex items-center justify-center">
                         <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google Logo" class="w-5 h-5 mr-2">
                         Reģistrēties ar Gmail
                     </a>
