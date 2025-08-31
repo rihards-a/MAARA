@@ -9,7 +9,7 @@
     <div class="welcome-content">
         <div class="welcome-text">
             <p>
-                MAARA komanda darbu uzsāka 2025. gada janvāra sākumā, vienojoties ap misiju atvieglot cilvēkiem vienu no nozīmīgākajiem dzīves aspektiem: aiziešanu no šīs pasaules. Tāpat kā piedzimšanu, arī aiziešanu pavada ne tikai spēcīgas emocijas, bet arī daudz unikālu un sarežģītu pārmaiņu, kuru vadībai nepieciešama gan pieejama informācija, gan sagatavošanās. Patlaban ir uzsākts darbs pie pirmās pēcdzīves plānošanas rīka versijas, kuru lietotāju rokās vēlamies nodot 2025. gada maija beigās.
+                MAARA komanda darbu uzsāka 2025. gada janvāra sākumā, vienojoties ap misiju atvieglot cilvēkiem vienu no nozīmīgākajiem dzīves aspektiem: aiziešanu no šīs pasaules. Tāpat kā piedzimšanu, arī aiziešanu pavada ne tikai spēcīgas emocijas, bet arī daudz unikālu un sarežģītu pārmaiņu, kuru vadībai nepieciešama gan pieejama informācija, gan sagatavošanās. Lai sniegtu informatīvu atbalstu un mudinātu cilvēkus par šiem jautājumiem domāt laicīgi, 2025. augustā MAARA lietotāju rokās ir nodevusi Latvijā pirmo pēcdzīves plānošanas rīku.
             </p>
         </div>
     </div>
