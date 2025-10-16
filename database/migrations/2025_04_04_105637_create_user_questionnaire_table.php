@@ -16,7 +16,7 @@ return new class extends Migration
             // Submission data:
             $table->timestamp('completed_at')->nullable();
             // Relations:
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('questionnaire_id')->constrained();
             $table->unique(['user_id', 'questionnaire_id']);
             $table->timestamps();
