@@ -71,6 +71,20 @@ class BlogSeeder extends Seeder
                 'title_card_image_location' => 'images/blogs_6_toksiska_pozitivitate.jpg',
                 'title_card_text' => 'Šis ieraksts palīdz saprast, kā toksiskā pozitivitāte var sāpināt sērojošu cilvēku. Ieklāvām arī padomus par to, kā sniegt saprotošu un līdzjūtīgu atbalstu.',
                 'tags' => ['ko-darit']
+            ],
+            [
+                'name' => 'Nozīmes meklēšana pēc tuva cilvēka aiziešanas',
+                'slug' => 'nozimes-meklesana',
+                'title_card_image_location' => 'images/blogs_8_nozimes-meklesana-article view.jpg',
+                'title_card_text' => 'Sestā sēru stadija - nozīmes meklēšana. Nevis pārlēkt sāpēm, bet saglabāt mīlestību un pilnvērtīgi dzīvot pēc tuvinieka nāves.',
+                'tags' => ['ko-darit']
+            ],
+            [
+                'name' => 'Sērojoša cilvēka sešas vajadzības',
+                'slug' => 'sesas-vajadzibas',
+                'title_card_image_location' => 'images/blogs_7_6-vajadzibas-article-view.jpg',
+                'title_card_text' => 'Kādas ir sešas sērojošo vajadzības? Iepazīsties ar to, kas var palīdzēt saprast sevi un būt blakus citiem sēru laikā.',
+                'tags' => ['ko-darit']
             ]
         ];
 
