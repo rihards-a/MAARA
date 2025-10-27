@@ -2,6 +2,10 @@
 
 @section('title', 'Nozīmes meklēšana pēc tuva cilvēka aiziešanas')
 
+@section('og_title', 'Nozīmes meklēšana pēc tuva cilvēka aiziešanas')
+@section('og_description', 'Sestā sēru stadija - nozīmes meklēšana. Nevis pārlēkt sāpēm, bet saglabāt mīlestību un pilnvērtīgi dzīvot pēc tuvinieka nāves.')
+@section('og_image', asset('images/FB-blog-8-nozimes-meklesana.jpg'))
+
 @section('main_content')
 <section class="welcome-section">
     <h1 class="welcome-title">Nozīmes meklēšana pēc tuva cilvēka aiziešanas</h1>
@@ -9,7 +13,7 @@
     <div class="welcome-content">
         <div class="welcome-text align-right">
             <p>
-            <img src="{{ asset('images/blogs_8_nozimes-meklesana-article view.jpg') }}" alt="nozimes_meklesana_header" style="width: 100%; height: auto; padding: 10px;">
+            <img src="{{ asset('images/blogs_8_nozimes_meklesana.jpg') }}" alt="nozimes_meklesana_header" style="width: 100%; height: auto; padding: 10px;">
             </p>
         </div>
     </div>

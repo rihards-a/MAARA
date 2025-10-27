@@ -2,6 +2,10 @@
 
 @section('title', 'Sērojoša cilvēka sešas vajadzības')
 
+@section('og_title', 'Sērojoša cilvēka sešas vajadzības')
+@section('og_description', 'Kādas ir sešas sērojošo vajadzības? Iepazīsties ar to, kas var palīdzēt saprast sevi un būt blakus citiem sēru laikā.')
+@section('og_image', asset('images/FB-blog-7-vajadzibas.jpg'))
+
 @section('main_content')
 <section class="welcome-section">
     <h1 class="welcome-title">Sērojoša cilvēka sešas vajadzības</h1>
@@ -9,7 +13,7 @@
     <div class="welcome-content">
         <div class="welcome-text align-right">
             <p>
-            <img src="{{ asset('images/blogs_7_6-vajadzibas-article-view.jpg') }}" alt="sesas_vajadzibas_header" style="width: 100%; height: auto; padding: 10px;">
+            <img src="{{ asset('images/blogs_7_6_vajadzibas.jpg') }}" alt="sesas_vajadzibas_header" style="width: 100%; height: auto; padding: 10px;">
             </p>
         </div>
     </div>
