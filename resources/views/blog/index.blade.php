@@ -14,9 +14,9 @@
 
   <div class="cards-container">
   @foreach($posts as $post)
-    <div class="card">
+    <div class="card flex flex-col">
       <img src="{{ asset($post->title_card_image_location) }}" alt="{{ $post->name }}">
-      <div class="card-content">
+      <div class="card-content flex flex-col flex-grow">
         <h2 class="card-title">{{ $post->name }}</h2>
         <p class="card-text">{{ $post->title_card_text }}</p>
         
@@ -25,7 +25,7 @@
             @endforeach
         </div> -->
         
-        <a href={{ route('blog.show', ['slug' => $post->slug]) }} class="card-button">Lasīt</a>
+        <a href={{ route('blog.show', ['slug' => $post->slug]) }} class="card-button mt-auto">Lasīt</a>
       </div>
     </div>
   @endforeach

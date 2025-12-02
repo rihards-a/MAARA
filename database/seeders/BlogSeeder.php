@@ -80,6 +80,13 @@ class BlogSeeder extends Seeder
                 'tags' => ['ko-darit']
             ],
             [
+                'name' => 'Negaidītās emocijas sērojot',
+                'slug' => 'negaiditas-emocijas',
+                'title_card_image_location' => 'images/blogs_9_negaiditas_emocijas.png',
+                'title_card_text' => 'Lasi par mazāk gaidītajām emocijām sēru laikā, kuras bieži paliek nepieminētas, bet tas nenozīmē, ka tās ir “nepareizas”.',
+                'tags' => ['ko-darit']
+            ],
+            [
                 'name' => 'Sērojoša cilvēka sešas vajadzības',
                 'slug' => 'sesas-vajadzibas',
                 'title_card_image_location' => 'images/blogs_7_6_vajadzibas.jpg',
